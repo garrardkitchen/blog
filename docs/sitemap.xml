@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/</loc>
+    <lastmod>2020-03-30T19:57:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/</loc>
+    <lastmod>2020-03-30T19:57:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/my-first-post/</loc>
+    <lastmod>2020-03-30T19:57:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/</loc>
+  </url>
+  
+</urlset>

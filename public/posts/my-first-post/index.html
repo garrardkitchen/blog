@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<title>Testing Post | Blog Site</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.68.3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://blog.garrardkitchen.com/css/index.css">
+<link rel="stylesheet" href="http://blog.garrardkitchen.com/css/classes.css">
+<link rel="canonical" href="http://blog.garrardkitchen.com/posts/my-first-post/">
+<link rel="alternate" type="application/rss+xml" href="" title="Blog Site">
+
+<body>
+
+<header class="icons">
+  
+    <a href="http://blog.garrardkitchen.com/">Blog Site</a>
+  
+  
+  
+</header>
+
+<article>
+  <header>
+    <h1>Testing Post</h1>
+    <time datetime="2020-03-30T19:57:28&#43;01:00">March 30, 2020</time>
+  </header>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> Moq;
+<span style="color:#66d9ef">using</span> Xunit;
+
+<span style="color:#66d9ef">namespace</span> BasicAAATestExample
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IUser
+    {
+        <span style="color:#66d9ef">string</span> GetFullname();
+        <span style="color:#66d9ef">string</span> Firstname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+        <span style="color:#66d9ef">string</span> Lastname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> : IUser
+    {
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Firstname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Lastname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetFullname()
+        {
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">$&#34;{Firstname} {Lastname}&#34;</span>;
+        }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Notify</span>
+    {
+        <span style="color:#66d9ef">private</span> IUser _user;
+
+        <span style="color:#66d9ef">public</span> Notify(IUser user) =&gt; _user = user;
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetMessage() =&gt; <span style="color:#e6db74">$&#34;{_user.GetFullname()} has been notified&#34;</span>;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotifyTests</span>
+    {
+<span style="color:#a6e22e">        [Theory]</span>
+<span style="color:#a6e22e">        [InlineData(&#34;Garrard&#34;, &#34;Kitchen&#34;, &#34;Garrard Kitchen has been notified&#34;)]</span>
+<span style="color:#a6e22e">        [InlineData(&#34;Charles&#34;, &#34;Kitchen&#34;, &#34;Charles Kitchen has been notified&#34;)]</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> GivenGetMessageIsCalled_WhenFirstAndLastNameExist_ThenReturnsANotificationMessage(<span style="color:#66d9ef">string</span> firstname,
+            <span style="color:#66d9ef">string</span> lastname, <span style="color:#66d9ef">string</span> expected)
+        {
+            <span style="color:#75715e">// arrange
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">var</span> mockUser = <span style="color:#66d9ef">new</span> Mock&lt;IUser&gt;();
+            mockUser.Setup(x =&gt; x.GetFullname()).Returns(<span style="color:#e6db74">$&#34;{firstname} {lastname}&#34;</span>);
+            <span style="color:#66d9ef">var</span> sut = <span style="color:#66d9ef">new</span> Notify(mockUser.Object);
+
+            <span style="color:#75715e">// act
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">string</span> message = sut.GetMessage();
+
+            <span style="color:#75715e">// assert
+</span><span style="color:#75715e"></span>            Assert.Equal(expected, message);
+            mockUser.Verify(x =&gt; x.GetFullname(), Times.Once);
+        }
+    }
+}
+</code></pre></div>
+</article>
+
+
+
+</body>
+
+</html>

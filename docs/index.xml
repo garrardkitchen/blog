@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog Site</title>
+    <link>http://blog.garrardkitchen.com/</link>
+    <description>Recent content on Blog Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 30 Mar 2020 19:57:28 +0100</lastBuildDate>
+    
+	<atom:link href="http://blog.garrardkitchen.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testing Post</title>
+      <link>http://blog.garrardkitchen.com/posts/my-first-post/</link>
+      <pubDate>Mon, 30 Mar 2020 19:57:28 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/my-first-post/</guid>
+      <description>using Moq; using Xunit; namespace BasicAAATestExample { public interface IUser { string GetFullname(); string Firstname { get; set; } string Lastname { get; set; } } public class User : IUser { public string Firstname { get; set; } public string Lastname { get; set; } public string GetFullname() { return $&amp;#34;{Firstname} {Lastname}&amp;#34;; } } public class Notify { private IUser _user; public Notify(IUser user) =&amp;gt; _user = user; public string GetMessage() =&amp;gt; $&amp;#34;{_user.</description>
+    </item>
+    
+  </channel>
+</rss>

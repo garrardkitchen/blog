@@ -1,0 +1,5 @@
+baseURL = "http://blog.garrardkitchen.com/"
+languageCode = "en-gb"
+title = "Blog Site"
+theme = "contrast"
+publishDir = "docs"
