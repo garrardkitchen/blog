@@ -1,5 +1,33 @@
 baseURL = "http://blog.garrardkitchen.com/"
 languageCode = "en-gb"
-title = "Blog Site"
+title = "Blog"
 theme = "contrast"
 publishDir = "docs"
+
+[params]
+sidebar = true
+show_excerpts = true
+description = 'Made by <a href="http://www.garrardkitchen.com">Garrard Kitchen</a>'
+
+
+
+[[menu.main]]
+name = "Home"
+url = "/"
+identifier = "home"
+weight = 1
+
+[[menu.about]]
+name = "About"
+url = "http://www.garrardkitchen.com"
+identifier = "address-card"
+weight = 2
+
+[[menu.github]]
+name = "Github"
+url = "https://github.com/garrardkitchen"
+identifier = "github"
+weight = 3
+
+
+  
