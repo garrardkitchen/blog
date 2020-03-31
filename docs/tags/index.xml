@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 01 Mar 2020 20:09:14 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2020 06:09:14 +0100</lastBuildDate>
     
 	<atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,45 @@
     <item>
       <title>blogging</title>
       <link>http://blog.garrardkitchen.com/tags/blogging/</link>
-      <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
+      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heisenberg Effect</title>
+      <link>http://blog.garrardkitchen.com/tags/heisenberg-effect/</link>
+      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/heisenberg-effect/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://blog.garrardkitchen.com/tags/hugo/</link>
+      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mentoring</title>
+      <link>http://blog.garrardkitchen.com/tags/mentoring/</link>
+      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/mentoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Manager&#39;s Path</title>
+      <link>http://blog.garrardkitchen.com/tags/the-managers-path/</link>
+      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/the-managers-path/</guid>
       <description></description>
     </item>
     
@@ -26,15 +62,6 @@
       <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/good-engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>http://blog.garrardkitchen.com/tags/hugo/</link>
-      <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/hugo/</guid>
       <description></description>
     </item>
     
