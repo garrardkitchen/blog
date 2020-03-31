@@ -1,66 +1,11 @@
 ---
-title: "Testing Post"
-date: 2020-03-30T19:57:28+01:00
+title: "My First Post - New blogging, projects and skills site"
+date: 2019-04-26T11:49:14+01:00
 draft: true
+featured: false
+tags: [Hugo, blogging, day 1, Hello this is me!, blog]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+For the last 10+ years I've been a CTO for an exciting start-up. Recently that came to an abrupt and sad end. I will blog about the days and the efforts involved to keep the company afloat in the comming months and only when rawness of this fades.  Great team, great vision, great imagination.
 
-
-```csharp
-using Moq;
-using Xunit;
-
-namespace BasicAAATestExample
-{
-    public interface IUser
-    {
-        string GetFullname();
-        string Firstname { get; set; }
-        string Lastname { get; set; }
-    }
-
-    public class User : IUser
-    {
-        public string Firstname { get; set; }
-
-        public string Lastname { get; set; }
-
-        public string GetFullname()
-        {
-            return $"{Firstname} {Lastname}";
-        }
-    }
-
-    public class Notify
-    {
-        private IUser _user;
-
-        public Notify(IUser user) => _user = user;
-
-        public string GetMessage() => $"{_user.GetFullname()} has been notified";
-    }
-
-    public class NotifyTests
-    {
-        [Theory]
-        [InlineData("Garrard", "Kitchen", "Garrard Kitchen has been notified")]
-        [InlineData("Charles", "Kitchen", "Charles Kitchen has been notified")]
-        public void GivenGetMessageIsCalled_WhenFirstAndLastNameExist_ThenReturnsANotificationMessage(string firstname,
-            string lastname, string expected)
-        {
-            // arrange
-            var mockUser = new Mock<IUser>();
-            mockUser.Setup(x => x.GetFullname()).Returns($"{firstname} {lastname}");
-            var sut = new Notify(mockUser.Object);
-
-            // act
-            string message = sut.GetMessage();
-
-            // assert
-            Assert.Equal(expected, message);
-            mockUser.Verify(x => x.GetFullname(), Times.Once);
-        }
-    }
-}
-```
+Today is a new start for me, day 1 if you will.  With very little notice I have compiled this site to present the best side of me in order to become employed again.  I do have a strategy and oddly excited by this forced challenge.  I do not know what is around the corner for me.  Thankfully, I have a lot to offer.  I was exposed to everything a company has to do so this self-believe is not arrogance.  Only time will tell whether or not what I believe is a marketable set of skills.  If you have had the opportunity to working for a start-up then you will know the vast experience and contribution you give across the entire business.  I do hope my futures includes the challenge and excitment that this presents.  

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>metrics on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/metrics/</link>
+    <description>Recent content in metrics on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 02 Jan 2020 12:49:14 +0100</lastBuildDate>
+    
+	<atom:link href="http://blog.garrardkitchen.com/tags/metrics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Observability</title>
+      <link>http://blog.garrardkitchen.com/posts/observability/</link>
+      <pubDate>Thu, 02 Jan 2020 12:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/observability/</guid>
+      <description>TBC
+Observability &amp;hellip; life is good is the systems [applications &amp;amp; infrastructure] you support are reporting information to a central repository that gives you a 360 update to date view. Life is not so sweet if you&amp;rsquo;re missing any of the 3 [logging, metrics &amp;amp; tracing] pillars of observability.
+I can think of 2 system configurations where these pillars had been different to add; docker &amp;amp; serverless. Luckily, with the sidecar pattern for containers and closer integrations with Serverless services, make this less of on issue.</description>
+    </item>
+    
+  </channel>
+</rss>

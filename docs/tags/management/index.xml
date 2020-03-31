@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>management on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/management/</link>
+    <description>Recent content in management on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 04 Mar 2020 11:49:14 +0100</lastBuildDate>
+    
+	<atom:link href="http://blog.garrardkitchen.com/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Good Engineering - Leadership</title>
+      <link>http://blog.garrardkitchen.com/posts/leadership/</link>
+      <pubDate>Wed, 04 Mar 2020 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/leadership/</guid>
+      <description>In summary, good engineering practices look like this:
+This list is not exhaustive, here are a few things I have included:
+  communication Share Technical road maps, progress &amp;amp; changes
+  management Documented Roles &amp;amp; Responsibilities of all team members
+  communication Share documentation that includes - business domain, systems and their decomposition (think microservices), repositories and dependency, documentation failures, Runbooks (what to do if a scenario presents itself)</description>
+    </item>
+    
+  </channel>
+</rss>

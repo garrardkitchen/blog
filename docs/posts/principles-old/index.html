@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Good Engineering - Principles - Blog</title>
+  <meta name="description" content="Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that this baseline is (1) understood and (2) adhered to by all engineers.
+Here&rsquo;s a list of concepts that for me, make up good engineering principles:
+ DRY (don&rsquo;t repeat yourself), YAGNI (you ain&rsquo;t going to need it), KISS (keep it simple, silly) SOLID principles (SRP, OCP, etc&hellip;) Refactor (refactor refactor), as you go and not only done as the last task Composition over inheritance (avoid class tree exploitation!"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Blog",
+    
+    "url": "http:\/\/blog.garrardkitchen.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/blog.garrardkitchen.com\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/blog.garrardkitchen.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/blog.garrardkitchen.com\/posts\/principles-old\/",
+          "name": "Good engineering principles"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Good Engineering - Principles",
+  "description" : "Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that this baseline is (1) understood and (2) adhered to by all engineers.\nHere\x26rsquo;s a list of concepts that for me, make up good engineering principles:\n DRY (don\x26rsquo;t repeat yourself), YAGNI (you ain\x26rsquo;t going to need it), KISS (keep it simple, silly) SOLID principles (SRP, OCP, etc\x26hellip;) Refactor (refactor refactor), as you go and not only done as the last task Composition over inheritance (avoid class tree exploitation!",
+  "inLanguage" : "en",
+  "wordCount":  1007 ,
+  "datePublished" : "2020-01-27T11:49:14",
+  "dateModified" : "2020-01-27T11:49:14",
+  "image" : "http:\/\/blog.garrardkitchen.com\/",
+  "keywords" : [ "Hugo, blogging, good engineering, principles" ],
+  "mainEntityOfPage" : "http:\/\/blog.garrardkitchen.com\/posts\/principles-old\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/blog.garrardkitchen.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/blog.garrardkitchen.com\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Good Engineering - Principles" />
+<meta property="og:description" content="Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that this baseline is (1) understood and (2) adhered to by all engineers.
+Here&rsquo;s a list of concepts that for me, make up good engineering principles:
+ DRY (don&rsquo;t repeat yourself), YAGNI (you ain&rsquo;t going to need it), KISS (keep it simple, silly) SOLID principles (SRP, OCP, etc&hellip;) Refactor (refactor refactor), as you go and not only done as the last task Composition over inheritance (avoid class tree exploitation!">
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/principles-old/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Blog" />
+
+  <meta name="twitter:title" content="Good Engineering - Principles" />
+  <meta name="twitter:description" content="Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that this baseline is (1) …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.68.3" />
+  <link rel="alternate" href="http://blog.garrardkitchen.com/index.xml" type="application/rss+xml" title="Blog"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/syntax.css" /><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://blog.garrardkitchen.com/">Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Home" href="/">Home</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Good Engineering - Principles</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code.  As a Principal Engineer, one of my responsibilities is to ensure that this baseline is (1) understood and (2) adhered to by all engineers.</p>
+<p>Here&rsquo;s a list of concepts that for me, make up good engineering principles:</p>
+<ul>
+<li>DRY (don&rsquo;t repeat yourself), YAGNI (you ain&rsquo;t going to need it), KISS (keep it simple, silly)</li>
+<li>SOLID principles (SRP, OCP, etc&hellip;)</li>
+<li>Refactor (refactor refactor), as you go and not only done as the last task</li>
+<li>Composition over inheritance (avoid class tree exploitation! - think Strategy pattern - GoF)</li>
+<li>Separation of Concerns (think MVC, CQRS, bounded context, etc&hellip;)</li>
+<li>Avoid premature optimisation (futile task until you&rsquo;ve metrics to better inform you)</li>
+<li>Clean and readable code is always better than clever code (ask any engineer who has to extend or maintain a <em>clever</em> piece of code!)</li>
+<li>Defensive coding (guard against invalid class method parameters and accidental null assignment to class properties instead of an equality condition!)</li>
+<li>Do no more, do no less (thank you XP!)</li>
+<li>Coding standards (provide a template of core standards then stand back and let the team thrash out the rest - wear protection!)</li>
+<li>Code reviews - Should only contain helpful and constructive comments and / or implementation questions. Not there to caress egos (that&rsquo;s for your mother to do!!)</li>
+<li>Testing (unit/functional, and proficient with concepts like TDD &amp; BDD)</li>
+</ul>
+<p>As a Principal Engineer, I consider the above as the foundation to writing quality code.  The objective of this list, in conjunction with the message I propagate via this list, during discussions, evidence from my own work and by leading from the front  within my role, is one of reminder to me and my colleagues of best practice and commitment to quality and good practice. As with all foundations, it forms the base from which more advanced concepts or approaches can be learned.  An important part of this practice is heuristic - enabling a person to discover or learn something by themselves.  So, how do I go about dong this?</p>
+<p>These are some of the activities I execute to embed good engineering principles:</p>
+<ul>
+<li>1-2-1</li>
+<li>Group conversations</li>
+<li>Advocate online learning platforms such as Pluralsight or Udemy.  For the more keen Engineer, I also recommend certification. YouTube is another favourite of mine. With YouTube, you are able to tag recordings, therefore building up a catalogue of materials that you can make public</li>
+<li>Workshops</li>
+<li>Brown bags</li>
+<li>Capture <em>How To Do&rsquo;s</em> in wikis or similar</li>
+<li>Coding advice/tips (e.g. when to use Task instead of an Async method)</li>
+<li>Take the time to explain questions about implementation reasons in DVCS Pull Requests</li>
+<li>Share blog posts &amp; other materials across multiple channels</li>
+<li>Compile a learning profile for an individual</li>
+</ul>
+<p>The coding advice/tips above are interesting ones. As professionals we always want to improve our ability to code etc and in doing so we want our colleagues to benefit from our knowledge too.  I recently became reacquainted with coding katas.  As a black belt in Ju-Jitsu I am well versed in what a kata is.  Katas can also be used to remind, stretch and improve our core coding capability.  The last time I used a kata in programming was 10+ years ago. This was when I was first introduced to TDD.  A favourite development book of mine is <strong>&lsquo;The Art of Unit Testing&rsquo;</strong> by Roy Osherove. It was the first edition.  For many years I had it as a click thru purchase option on a previous site of mine. I&rsquo;ve not really participated in many kata&rsquo;s since.  I have written a few though and now having been reintroduced to them and their potential, as a Principal Engineer I can see it as an invaluable tool for both providing the framework to assess an Engineer&rsquo;s current capability and as an aid to building an Engineer&rsquo;s skills when used with <strong>pair programming</strong>.</p>
+<p><strong>Pair programming</strong> is a wonderful technique for propagating skills.  Quite often, I find I only participate in pair programming in one of two use cases.  (1) if the subject I&rsquo;m investigating is new (important to have shared knowledge) and (2) when I&rsquo;m helping an Engineer to overcome a esoteric issue.  You know what they say? &hellip;a problem shared is a problem halved!  However, now, I&rsquo;ll be including <strong>Pair Programming</strong> as part of my techniques to stretch the Engineer&rsquo;s muscle memory (including mine!).</p>
+<p><em>Discussion point &hellip;</em></p>
+<p>I&rsquo;m sure I&rsquo;m not alone here when I say, having the time available for 2 Engineers to code together for skills transfer etc is a challenging one.  An agile sprint doesn&rsquo;t really facilitate this.  This is something that I often refer to as having the &lsquo;space to learn&rsquo;.  The pressures of a sprint often, sadly, works against this.  This is doubly as difficult, if your sprint is made up of technical debt, BAU, Ad hoc etc&hellip;  Time boxing &lsquo;effort&rsquo; into percentages doesn&rsquo;t always present an obvious education path for your Engineers either.  Having a day (developer day or similar) dedicated to learning also never  really quite works out the way it&rsquo;s meant too, plus, &lsquo;a day&rsquo;?!  In my experience this, and trying to cram <em>genius</em> into a time box also never quite works either.  After all, you can&rsquo;t schedule <em>genius</em>, in the same way you can&rsquo;t guarantee that the best Engineers are in your locality, or that the best time for Engineers to work is between 9-5.</p>
+<p><em>What is the answer? A mixture of all the above, at hock and as scheduled times, to ensure quality and advancement of skills.</em></p>
+<p>When I do speak out regarding the above, I inevitably also lead this conversation into Engineering not having the kit [hardware &amp; software] they need.  Engineers require the software and hardware they deem as necessary to be effective in their role.  I once gave an analogy of, not giving Engineers the right kit is like giving a roller brush and a Pogo stick to Michelangelo to paint the Sistine Chapel ceiling.  He&rsquo;ll manage it &hellip; eventually, but the attention to detail and accuracy will be woefully inadequate.</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="http://blog.garrardkitchen.com//tags/hugo/">Hugo</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/blogging/">blogging</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/good-engineering/">good engineering</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/principles/">principles</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://blog.garrardkitchen.com/posts/what-is-good-engineering/" data-toggle="tooltip" data-placement="top" title="What is good Engineering?">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://blog.garrardkitchen.com/posts/practices/" data-toggle="tooltip" data-placement="top" title="Good Engineering - Practices">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://blog.garrardkitchen.com/">Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="http://blog.garrardkitchen.com/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://blog.garrardkitchen.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

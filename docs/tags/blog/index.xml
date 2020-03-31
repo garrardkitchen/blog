@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/blog/</link>
+    <description>Recent content in blog on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 26 Mar 2020 06:09:14 +0100</lastBuildDate>
+    
+	<atom:link href="http://blog.garrardkitchen.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Observability</title>
+      <link>http://blog.garrardkitchen.com/posts/observability/</link>
+      <pubDate>Thu, 02 Jan 2020 12:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/observability/</guid>
+      <description>TBC
+Observability &amp;hellip; life is good is the systems [applications &amp;amp; infrastructure] you support are reporting information to a central repository that gives you a 360 update to date view. Life is not so sweet if you&amp;rsquo;re missing any of the 3 [logging, metrics &amp;amp; tracing] pillars of observability.
+I can think of 2 system configurations where these pillars had been different to add; docker &amp;amp; serverless. Luckily, with the sidecar pattern for containers and closer integrations with Serverless services, make this less of on issue.</description>
+    </item>
+    
+    <item>
+      <title>Tech Debt</title>
+      <link>http://blog.garrardkitchen.com/posts/tech-debt/</link>
+      <pubDate>Thu, 02 Jan 2020 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/tech-debt/</guid>
+      <description>Up until a few years ago, my understanding of tech debt was code that was no longer fit for purpose and needed some TLC, rewriting, replacing or removing.</description>
+    </item>
+    
+    <item>
+      <title>My First Post - New blogging, projects and skills site</title>
+      <link>http://blog.garrardkitchen.com/posts/my-first-post/</link>
+      <pubDate>Fri, 26 Apr 2019 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/my-first-post/</guid>
+      <description>For the last 10+ years I&amp;rsquo;ve been a CTO for an exciting start-up. Recently that came to an abrupt and sad end. I will blog about the days and the efforts involved to keep the company afloat in the comming months and only when rawness of this fades. Great team, great vision, great imagination.
+Today is a new start for me, day 1 if you will. With very little notice I have compiled this site to present the best side of me in order to become employed again.</description>
+    </item>
+    
+  </channel>
+</rss>

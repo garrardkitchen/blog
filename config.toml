@@ -1,14 +1,19 @@
 baseURL = "http://blog.garrardkitchen.com/"
 languageCode = "en-gb"
 title = "Blog"
-theme = "contrast"
+#theme = "contrast"
+theme = "beautifulhugo"
 publishDir = "docs"
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+#googleAnalytics = "G-RR74GZPMK5"
+googleAnalytics = "UA-162297404-1"
 
 [params]
 sidebar = true
 show_excerpts = true
 description = 'Made by <a href="http://www.garrardkitchen.com">Garrard Kitchen</a>'
-
+#useHLJS = true
 
 
 [[menu.main]]

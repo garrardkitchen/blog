@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tech-debt on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/tech-debt/</link>
+    <description>Recent content in tech-debt on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 02 Jan 2020 11:49:14 +0100</lastBuildDate>
+    
+	<atom:link href="http://blog.garrardkitchen.com/tags/tech-debt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tech Debt</title>
+      <link>http://blog.garrardkitchen.com/posts/tech-debt/</link>
+      <pubDate>Thu, 02 Jan 2020 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/tech-debt/</guid>
+      <description>Up until a few years ago, my understanding of tech debt was code that was no longer fit for purpose and needed some TLC, rewriting, replacing or removing.</description>
+    </item>
+    
+  </channel>
+</rss>

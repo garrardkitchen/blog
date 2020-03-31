@@ -4,25 +4,167 @@
   
   <url>
     <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2020-03-30T19:57:28+01:00</lastmod>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/posts/</loc>
-    <lastmod>2020-03-30T19:57:28+01:00</lastmod>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+    <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/posts/my-first-post/</loc>
-    <lastmod>2020-03-30T19:57:28+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/blog/</loc>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/categories/</loc>
+    <loc>http://blog.garrardkitchen.com/tags/blogging/</loc>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/heisenberg-effect/</loc>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/hugo/</loc>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/mentoring/</loc>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/mentoring/</loc>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/</loc>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/the-managers-path/</loc>
+    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/good-engineering/</loc>
+    <lastmod>2020-03-04T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/leadership/</loc>
+    <lastmod>2020-03-04T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/leadership/</loc>
+    <lastmod>2020-03-04T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/management/</loc>
+    <lastmod>2020-03-04T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/practices/</loc>
+    <lastmod>2020-03-04T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/principles/</loc>
+    <lastmod>2020-03-01T20:09:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/principles/</loc>
+    <lastmod>2020-03-01T20:09:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/practices/</loc>
+    <lastmod>2020-01-27T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/principles-old/</loc>
+    <lastmod>2020-01-27T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/what-is-good-engineering/</loc>
+    <lastmod>2020-01-27T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/3-pillars-of-observabiity/</loc>
+    <lastmod>2020-01-02T12:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/error-management/</loc>
+    <lastmod>2020-01-02T12:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/logging/</loc>
+    <lastmod>2020-01-02T12:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/metrics/</loc>
+    <lastmod>2020-01-02T12:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/observability/</loc>
+    <lastmod>2020-01-02T12:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/tracing/</loc>
+    <lastmod>2020-01-02T12:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/setting-up-for-failure/</loc>
+    <lastmod>2020-01-02T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/tech-debt/</loc>
+    <lastmod>2020-01-02T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/tech-debt/</loc>
+    <lastmod>2020-01-02T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/day-1/</loc>
+    <lastmod>2019-04-26T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/hello-this-is-me/</loc>
+    <lastmod>2019-04-26T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/my-first-post/</loc>
+    <lastmod>2019-04-26T11:49:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/categories/</loc>
   </url>
   
 </urlset>

@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Blog</title>
+    <title>Blog</title>
     <link>http://blog.garrardkitchen.com/posts/</link>
-    <description>Recent content in Posts on Blog</description>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 30 Mar 2020 19:57:28 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2020 06:09:14 +0100</lastBuildDate>
     
 	<atom:link href="http://blog.garrardkitchen.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Testing Post</title>
+      <title>Mentoring</title>
+      <link>http://blog.garrardkitchen.com/posts/mentoring/</link>
+      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/mentoring/</guid>
+      <description>What is mentoring?
+I have written this post to document my experiences of mentoring. I have mentored front-end, back-end engineers and UX designers. I have had the pleasure of helping others as well as learning one of two things about myself along this journey. If ever you get the opportunity to be a mentor, I recommend you jump at the opportunity. It is a rewards experience.
+So, what is mentoring?&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Good Engineering - Leadership</title>
+      <link>http://blog.garrardkitchen.com/posts/leadership/</link>
+      <pubDate>Wed, 04 Mar 2020 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/leadership/</guid>
+      <description>In summary, good engineering practices look like this:
+This list is not exhaustive, here are a few things I have included:
+  communication Share Technical road maps, progress &amp;amp; changes
+  management Documented Roles &amp;amp; Responsibilities of all team members
+  communication Share documentation that includes - business domain, systems and their decomposition (think microservices), repositories and dependency, documentation failures, Runbooks (what to do if a scenario presents itself)</description>
+    </item>
+    
+    <item>
+      <title>Good Engineering - Principles</title>
+      <link>http://blog.garrardkitchen.com/posts/principles/</link>
+      <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/principles/</guid>
+      <description>I have written this post as a method document what I see as the basics, foundations if you will, for good engineering. Undouteditly, if you are a seasoned engineer, you will recognised all of these principles, less so, if you&amp;rsquo;re just starting out.
+Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers.</description>
+    </item>
+    
+    <item>
+      <title>Good Engineering - Practices</title>
+      <link>http://blog.garrardkitchen.com/posts/practices/</link>
+      <pubDate>Mon, 27 Jan 2020 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/practices/</guid>
+      <description>Good practices covers a miriad of challenges and possibilities. To infuse practices, it requires dedication, persistence, patience, exceptional planning, leadership and belief in you and your team&amp;rsquo;s abilities. Some of which I see as virtues. This is not a one person journey.
+In summary, good engineering practices look like this:
+This list is not exhaustive, here are a few things I have included:
+ devops All application and infrastructure as code capturing in a DVCS (eg git) observability Capture metrics that provide realtime statistics on both application and infrastructure performance (latency, errors, service saturation, etc&amp;hellip;) &amp;amp; alerting (slack, sms, email).</description>
+    </item>
+    
+    <item>
+      <title>Good Engineering - Principles</title>
+      <link>http://blog.garrardkitchen.com/posts/principles-old/</link>
+      <pubDate>Mon, 27 Jan 2020 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/principles-old/</guid>
+      <description>Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that this baseline is (1) understood and (2) adhered to by all engineers.
+Here&amp;rsquo;s a list of concepts that for me, make up good engineering principles:
+ DRY (don&amp;rsquo;t repeat yourself), YAGNI (you ain&amp;rsquo;t going to need it), KISS (keep it simple, silly) SOLID principles (SRP, OCP, etc&amp;hellip;) Refactor (refactor refactor), as you go and not only done as the last task Composition over inheritance (avoid class tree exploitation!</description>
+    </item>
+    
+    <item>
+      <title>What is good Engineering?</title>
+      <link>http://blog.garrardkitchen.com/posts/what-is-good-engineering/</link>
+      <pubDate>Mon, 27 Jan 2020 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/what-is-good-engineering/</guid>
+      <description>I was asked recently, &amp;ldquo;What is good Engineering?&amp;rdquo; It&amp;rsquo;s a great question. One that instantly conjures up a plethora of visuals and emotions as, after all, your answer has to come from your experience, which by definition, will be subjective.
+I&amp;rsquo;d like to share with you how I see &amp;lsquo;good engineering&amp;rsquo;. I am currently employed as a Principal Engineer. I will use this perspective to help frame most of my answers.</description>
+    </item>
+    
+    <item>
+      <title>Observability</title>
+      <link>http://blog.garrardkitchen.com/posts/observability/</link>
+      <pubDate>Thu, 02 Jan 2020 12:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/observability/</guid>
+      <description>TBC
+Observability &amp;hellip; life is good is the systems [applications &amp;amp; infrastructure] you support are reporting information to a central repository that gives you a 360 update to date view. Life is not so sweet if you&amp;rsquo;re missing any of the 3 [logging, metrics &amp;amp; tracing] pillars of observability.
+I can think of 2 system configurations where these pillars had been different to add; docker &amp;amp; serverless. Luckily, with the sidecar pattern for containers and closer integrations with Serverless services, make this less of on issue.</description>
+    </item>
+    
+    <item>
+      <title>Tech Debt</title>
+      <link>http://blog.garrardkitchen.com/posts/tech-debt/</link>
+      <pubDate>Thu, 02 Jan 2020 11:49:14 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/tech-debt/</guid>
+      <description>Up until a few years ago, my understanding of tech debt was code that was no longer fit for purpose and needed some TLC, rewriting, replacing or removing.</description>
+    </item>
+    
+    <item>
+      <title>My First Post - New blogging, projects and skills site</title>
       <link>http://blog.garrardkitchen.com/posts/my-first-post/</link>
-      <pubDate>Mon, 30 Mar 2020 19:57:28 +0100</pubDate>
+      <pubDate>Fri, 26 Apr 2019 11:49:14 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/posts/my-first-post/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-using Moq; using Xunit; namespace BasicAAATestExample { public interface IUser { string GetFullname(); string Firstname { get; set; } string Lastname { get; set; } } public class User : IUser { public string Firstname { get; set; } public string Lastname { get; set; } public string GetFullname() { return $&amp;#34;{Firstname} {Lastname}&amp;#34;; } } public class Notify { private IUser _user; public Notify(IUser user) =&amp;gt; _user = user; public string GetMessage() =&amp;gt; $&amp;#34;{_user.</description>
+      <description>For the last 10+ years I&amp;rsquo;ve been a CTO for an exciting start-up. Recently that came to an abrupt and sad end. I will blog about the days and the efforts involved to keep the company afloat in the comming months and only when rawness of this fades. Great team, great vision, great imagination.
+Today is a new start for me, day 1 if you will. With very little notice I have compiled this site to present the best side of me in order to become employed again.</description>
     </item>
     
   </channel>
