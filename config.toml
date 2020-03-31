@@ -9,12 +9,23 @@ pygmentsCodeFencesGuessSyntax = true
 #googleAnalytics = "G-RR74GZPMK5"
 googleAnalytics = "UA-162297404-1"
 
+[author]
+name = "garrardkitchen"
+homepage = "http://www.garrardkitchen.com"
+
 [params]
 sidebar = true
 show_excerpts = true
 description = 'Made by <a href="http://www.garrardkitchen.com">Garrard Kitchen</a>'
 #useHLJS = true
-
+subtitle = "Garrard Kitchen"
+rss = true
+comments = true
+readingTime = true
+wordCount = true
+socialShare = true
+delayDisqus = true
+showRelatedPosts = true
 
 [[menu.main]]
 name = "Home"
