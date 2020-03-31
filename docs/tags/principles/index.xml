@@ -21,26 +21,5 @@
 Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers.</description>
     </item>
     
-    <item>
-      <title>Good Engineering - Principles</title>
-      <link>http://blog.garrardkitchen.com/posts/principles-old/</link>
-      <pubDate>Mon, 27 Jan 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/posts/principles-old/</guid>
-      <description>Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that this baseline is (1) understood and (2) adhered to by all engineers.
-Here&amp;rsquo;s a list of concepts that for me, make up good engineering principles:
- DRY (don&amp;rsquo;t repeat yourself), YAGNI (you ain&amp;rsquo;t going to need it), KISS (keep it simple, silly) SOLID principles (SRP, OCP, etc&amp;hellip;) Refactor (refactor refactor), as you go and not only done as the last task Composition over inheritance (avoid class tree exploitation!</description>
-    </item>
-    
-    <item>
-      <title>What is good Engineering?</title>
-      <link>http://blog.garrardkitchen.com/posts/what-is-good-engineering/</link>
-      <pubDate>Mon, 27 Jan 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/posts/what-is-good-engineering/</guid>
-      <description>I was asked recently, &amp;ldquo;What is good Engineering?&amp;rdquo; It&amp;rsquo;s a great question. One that instantly conjures up a plethora of visuals and emotions as, after all, your answer has to come from your experience, which by definition, will be subjective.
-I&amp;rsquo;d like to share with you how I see &amp;lsquo;good engineering&amp;rsquo;. I am currently employed as a Principal Engineer. I will use this perspective to help frame most of my answers.</description>
-    </item>
-    
   </channel>
 </rss>

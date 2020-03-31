@@ -6,98 +6,35 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 26 Mar 2020 06:09:14 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 20:09:14 +0100</lastBuildDate>
     
 	<atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>blog</title>
-      <link>http://blog.garrardkitchen.com/tags/blog/</link>
-      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>blogging</title>
       <link>http://blog.garrardkitchen.com/tags/blogging/</link>
-      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
+      <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/blogging/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Heisenberg Effect</title>
-      <link>http://blog.garrardkitchen.com/tags/heisenberg-effect/</link>
-      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/heisenberg-effect/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>http://blog.garrardkitchen.com/tags/hugo/</link>
-      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mentoring</title>
-      <link>http://blog.garrardkitchen.com/tags/mentoring/</link>
-      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/mentoring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The Manager&#39;s Path</title>
-      <link>http://blog.garrardkitchen.com/tags/the-managers-path/</link>
-      <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/the-managers-path/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>good engineering</title>
       <link>http://blog.garrardkitchen.com/tags/good-engineering/</link>
-      <pubDate>Wed, 04 Mar 2020 11:49:14 +0100</pubDate>
+      <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/good-engineering/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>leadership</title>
-      <link>http://blog.garrardkitchen.com/tags/leadership/</link>
-      <pubDate>Wed, 04 Mar 2020 11:49:14 +0100</pubDate>
+      <title>Hugo</title>
+      <link>http://blog.garrardkitchen.com/tags/hugo/</link>
+      <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/leadership/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>management</title>
-      <link>http://blog.garrardkitchen.com/tags/management/</link>
-      <pubDate>Wed, 04 Mar 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/management/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>practices</title>
-      <link>http://blog.garrardkitchen.com/tags/practices/</link>
-      <pubDate>Wed, 04 Mar 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/practices/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/hugo/</guid>
       <description></description>
     </item>
     
@@ -107,87 +44,6 @@
       <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/principles/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>3 pillars of observabiity</title>
-      <link>http://blog.garrardkitchen.com/tags/3-pillars-of-observabiity/</link>
-      <pubDate>Thu, 02 Jan 2020 12:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/3-pillars-of-observabiity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>error management</title>
-      <link>http://blog.garrardkitchen.com/tags/error-management/</link>
-      <pubDate>Thu, 02 Jan 2020 12:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/error-management/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>logging</title>
-      <link>http://blog.garrardkitchen.com/tags/logging/</link>
-      <pubDate>Thu, 02 Jan 2020 12:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/logging/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>metrics</title>
-      <link>http://blog.garrardkitchen.com/tags/metrics/</link>
-      <pubDate>Thu, 02 Jan 2020 12:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/metrics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tracing</title>
-      <link>http://blog.garrardkitchen.com/tags/tracing/</link>
-      <pubDate>Thu, 02 Jan 2020 12:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/tracing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>setting up for failure</title>
-      <link>http://blog.garrardkitchen.com/tags/setting-up-for-failure/</link>
-      <pubDate>Thu, 02 Jan 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/setting-up-for-failure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech-debt</title>
-      <link>http://blog.garrardkitchen.com/tags/tech-debt/</link>
-      <pubDate>Thu, 02 Jan 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/tech-debt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>day 1</title>
-      <link>http://blog.garrardkitchen.com/tags/day-1/</link>
-      <pubDate>Fri, 26 Apr 2019 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/day-1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hello this is me!</title>
-      <link>http://blog.garrardkitchen.com/tags/hello-this-is-me/</link>
-      <pubDate>Fri, 26 Apr 2019 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/hello-this-is-me/</guid>
       <description></description>
     </item>
     

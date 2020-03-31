@@ -6,23 +6,10 @@
     <description>Recent content in good engineering on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 04 Mar 2020 11:49:14 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 20:09:14 +0100</lastBuildDate>
     
 	<atom:link href="http://blog.garrardkitchen.com/tags/good-engineering/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Good Engineering - Leadership</title>
-      <link>http://blog.garrardkitchen.com/posts/leadership/</link>
-      <pubDate>Wed, 04 Mar 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/posts/leadership/</guid>
-      <description>In summary, good engineering practices look like this:
-This list is not exhaustive, here are a few things I have included:
-  communication Share Technical road maps, progress &amp;amp; changes
-  management Documented Roles &amp;amp; Responsibilities of all team members
-  communication Share documentation that includes - business domain, systems and their decomposition (think microservices), repositories and dependency, documentation failures, Runbooks (what to do if a scenario presents itself)</description>
-    </item>
     
     <item>
       <title>Good Engineering - Principles</title>
@@ -32,39 +19,6 @@ This list is not exhaustive, here are a few things I have included:
       <guid>http://blog.garrardkitchen.com/posts/principles/</guid>
       <description>I have written this post as a method document what I see as the basics, foundations if you will, for good engineering. Undouteditly, if you are a seasoned engineer, you will recognised all of these principles, less so, if you&amp;rsquo;re just starting out.
 Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers.</description>
-    </item>
-    
-    <item>
-      <title>Good Engineering - Practices</title>
-      <link>http://blog.garrardkitchen.com/posts/practices/</link>
-      <pubDate>Mon, 27 Jan 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/posts/practices/</guid>
-      <description>Good practices covers a miriad of challenges and possibilities. To infuse practices, it requires dedication, persistence, patience, exceptional planning, leadership and belief in you and your team&amp;rsquo;s abilities. Some of which I see as virtues. This is not a one person journey.
-In summary, good engineering practices look like this:
-This list is not exhaustive, here are a few things I have included:
- devops All application and infrastructure as code capturing in a DVCS (eg git) observability Capture metrics that provide realtime statistics on both application and infrastructure performance (latency, errors, service saturation, etc&amp;hellip;) &amp;amp; alerting (slack, sms, email).</description>
-    </item>
-    
-    <item>
-      <title>Good Engineering - Principles</title>
-      <link>http://blog.garrardkitchen.com/posts/principles-old/</link>
-      <pubDate>Mon, 27 Jan 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/posts/principles-old/</guid>
-      <description>Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that this baseline is (1) understood and (2) adhered to by all engineers.
-Here&amp;rsquo;s a list of concepts that for me, make up good engineering principles:
- DRY (don&amp;rsquo;t repeat yourself), YAGNI (you ain&amp;rsquo;t going to need it), KISS (keep it simple, silly) SOLID principles (SRP, OCP, etc&amp;hellip;) Refactor (refactor refactor), as you go and not only done as the last task Composition over inheritance (avoid class tree exploitation!</description>
-    </item>
-    
-    <item>
-      <title>What is good Engineering?</title>
-      <link>http://blog.garrardkitchen.com/posts/what-is-good-engineering/</link>
-      <pubDate>Mon, 27 Jan 2020 11:49:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/posts/what-is-good-engineering/</guid>
-      <description>I was asked recently, &amp;ldquo;What is good Engineering?&amp;rdquo; It&amp;rsquo;s a great question. One that instantly conjures up a plethora of visuals and emotions as, after all, your answer has to come from your experience, which by definition, will be subjective.
-I&amp;rsquo;d like to share with you how I see &amp;lsquo;good engineering&amp;rsquo;. I am currently employed as a Principal Engineer. I will use this perspective to help frame most of my answers.</description>
     </item>
     
   </channel>
