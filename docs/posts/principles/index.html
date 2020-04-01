@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Good Engineering - Principles - Blog</title>
-  <meta name="description" content="I have written this post as a method document what I see as the basics, foundations if you will, for good engineering. Undouteditly, if you are a seasoned engineer, you will recognised all of these principles, less so, if you&rsquo;re just starting out.
+  <meta name="description" content="I have written this post as a method to document what I see as the basics, foundations if you will, for good engineering. Undoubtedly if you are a seasoned engineer, you will recognised all of these principles, less so, if you&rsquo;re just starting out.
 Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers.">
   <meta name="author" content="garrardkitchen"/><script type="application/ld+json">
 {
@@ -58,9 +58,9 @@ Most Engineers are fully versed in the foundations of writing quality, efficient
     "name" : "garrardkitchen"
   },
   "headline": "Good Engineering - Principles",
-  "description" : "I have written this post as a method document what I see as the basics, foundations if you will, for good engineering. Undouteditly, if you are a seasoned engineer, you will recognised all of these principles, less so, if you\x26rsquo;re just starting out.\nMost Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers.",
+  "description" : "I have written this post as a method to document what I see as the basics, foundations if you will, for good engineering. Undoubtedly if you are a seasoned engineer, you will recognised all of these principles, less so, if you\x26rsquo;re just starting out.\nMost Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers.",
   "inLanguage" : "en",
-  "wordCount":  4943 ,
+  "wordCount":  4944 ,
   "datePublished" : "2020-03-01T20:09:14",
   "dateModified" : "2020-03-01T20:09:14",
   "image" : "http:\/\/blog.garrardkitchen.com\/",
@@ -80,14 +80,14 @@ Most Engineers are fully versed in the foundations of writing quality, efficient
 </script>
 
 <meta property="og:title" content="Good Engineering - Principles" />
-<meta property="og:description" content="I have written this post as a method document what I see as the basics, foundations if you will, for good engineering. Undouteditly, if you are a seasoned engineer, you will recognised all of these principles, less so, if you&rsquo;re just starting out.
+<meta property="og:description" content="I have written this post as a method to document what I see as the basics, foundations if you will, for good engineering. Undoubtedly if you are a seasoned engineer, you will recognised all of these principles, less so, if you&rsquo;re just starting out.
 Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers.">
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/principles/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Blog" />
 
   <meta name="twitter:title" content="Good Engineering - Principles" />
-  <meta name="twitter:description" content="I have written this post as a method document what I see as the basics, foundations if you will, for good engineering. Undouteditly, if you are a seasoned engineer, you will recognised all of these …">
+  <meta name="twitter:description" content="I have written this post as a method to document what I see as the basics, foundations if you will, for good engineering. Undoubtedly if you are a seasoned engineer, you will recognised all of these …">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.68.3" />
   <link rel="alternate" href="http://blog.garrardkitchen.com/index.xml" type="application/rss+xml" title="Blog"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -234,7 +234,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>I have written this post as a method document what I see as the basics, foundations if you will, for good engineering.  Undouteditly, if you are a seasoned engineer, you will recognised all of these principles, less so, if you&rsquo;re just starting out.</p>
+        <p>I have written this post as a method to document what I see as the basics, foundations if you will, for good engineering.  Undoubtedly if you are a seasoned engineer, you will recognised all of these principles, less so, if you&rsquo;re just starting out.</p>
 <p>Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code.  As a Principal Engineer, one of my responsibilities is to ensure that these (1)  foundations are recognised by the engineers and (2) are adhered to by all engineers.</p>
 <p>Here&rsquo;s a list of concepts that for me, constitute good engineering principles:</p>
 <p><em>These are in alphabetical order and not in order of importance</em></p>
@@ -286,7 +286,7 @@ if (!doNotTrack) {
     }
 ...
 </code></pre></div><p>The above demonstrates an example of defensive coding.  The first is that we need to test for valid constructor parameter values when instantiating a class.</p>
-<p>The second, if to avoid mistakes that might not be picked up by your compiler.  For instance, a common mistake doing this:</p>
+<p>The second, is to avoid mistakes that might not be picked up by your compiler.  For instance, a common mistake doing this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">if</span> (firstname = <span style="color:#66d9ef">null</span>)
 </code></pre></div><p>A .NET Compiler is more than happy allowing this above syntax, as, after all, it&rsquo;s an <strong>assignment operator</strong> and not a <strong>equality operator</strong> as in above in the <strong>class constructor</strong>.  By switching these around, you&rsquo;re making a positive pattern changing and <em>should</em> avoid making this silly mistake again.</p>
 <h3 id="do-no-more"><a href="">Do no more</a></h3>

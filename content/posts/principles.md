@@ -6,7 +6,7 @@ featured: true
 tags: [Hugo, blogging, good engineering, principles]
 ---
 
-I have written this post as a method document what I see as the basics, foundations if you will, for good engineering.  Undouteditly, if you are a seasoned engineer, you will recognised all of these principles, less so, if you're just starting out.
+I have written this post as a method to document what I see as the basics, foundations if you will, for good engineering.  Undoubtedly if you are a seasoned engineer, you will recognised all of these principles, less so, if you're just starting out.
 
 Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code.  As a Principal Engineer, one of my responsibilities is to ensure that these (1)  foundations are recognised by the engineers and (2) are adhered to by all engineers. 
 
@@ -81,7 +81,7 @@ class User(string firstnaame, string lastname, int age)
 
 The above demonstrates an example of defensive coding.  The first is that we need to test for valid constructor parameter values when instantiating a class.
 
-The second, if to avoid mistakes that might not be picked up by your compiler.  For instance, a common mistake doing this:
+The second, is to avoid mistakes that might not be picked up by your compiler.  For instance, a common mistake doing this:
 
 ```csharp
 if (firstname = null)
