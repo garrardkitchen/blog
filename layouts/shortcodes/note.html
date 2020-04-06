@@ -1,0 +1,37 @@
+<div style="padding:2px;">
+    <div
+        style="background-color:#eeeeee; border-left: 3px solid
+         {{ if .Get "error" | eq "true"}} red; {{ else }} 
+            {{ if .Get "warning" | eq "true"}} orange; 
+            {{ else }} #336699;
+            {{ end }} 
+        {{ end }} padding:10px; {{ if .Get "italic" | eq "true"}} font-style: italic; {{ end }}; border-bottom-right-radius:5px; border-top-right-radius:5px;">
+
+        {{ if .Get "title"}}
+        <p style="font-weight: bold; font-family: 'Open Sans'; ">
+            {{ if .Get "error" | eq "true" }}
+
+            <i style="color: red" class="fa fa-ban"></i>
+
+            {{ else }}
+
+            {{ if .Get "warning" | eq "true" }}
+
+            <i style="color: orange" class="fa fa-exclamation-circle"></i>
+
+            {{ else }}
+
+            <i style="color: #336699;" class="fa fa-info-circle"></i>
+
+            {{ end }}
+
+            {{ end }}
+
+            {{ .Get "title"}}
+        </p>
+        {{ end }}
+
+        {{ .Inner }}
+
+    </div>
+</div>
