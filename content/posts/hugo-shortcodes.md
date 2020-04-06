@@ -1,36 +1,16 @@
 ---
 title: "Hugo Shortcodes"
-date: 2020-04-05T17:31:12+01:00
+date: 2020-04-06T15:31:12+01:00
 draft: true
+tags: [hugo, shortcodes, example]
 ---
-
-## Adding images to blog
-
-For adding images to my blog through VSCode, I use an extension called Paste Image.  [Click here](https://github.com/mushanshitiancai/vscode-paste-image) for it's GitHub repos.
-
-It comes with many configuration settings.  I've used 2 so far.  These settings enable me to (1) place the resulting image into the correct folder location and (2) to prepend the markdown link syntax so it points correctly to the image's location in my folder structure.
-
-VSCode `settings.json`:
-
-```json
-"pasteImage.prefix": "../",
-"pasteImage.path": "${currentFileDir}/img/",
-```
-
-When I press `ctrl+Alt+v` this would be injected into my markdown:
-
-```
-![](../img/2020-04-06-09-56-57.png)
-```
-
-And the .png file will appear in my folder structure in the correct location:
-
-![](../img/2020-04-06-09-56-57.png)
-
 
 ## An example Shortcode
 
 The theme I'm using doesn't offer out of the box anything to highlight important information.  This is the perfect use case for creating my first shortcode.
+
+This shortcode is available [here](https://github.com/garrardkitchen/blog/blob/master/layouts/shortcodes/note.html)
+
 
 ### Information
 
@@ -42,7 +22,7 @@ Sample text
 
 #### With italics
 
-{{< note italic="true">}}
+{{< note italic="true" >}}
 Sample text
 {{< /note>}}
 
@@ -63,7 +43,7 @@ Sample text
 
 #### With italic
 
-{{< note warning="true" italic="true">}}
+{{< note warning="true" italic="true" >}}
 Sample text
 {{< /note>}}
 
@@ -93,4 +73,4 @@ Sample text
 Sample text
 {{< /note>}}
 
-
+## How to create a shortcode

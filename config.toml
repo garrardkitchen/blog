@@ -9,6 +9,9 @@ pygmentsCodeFencesGuessSyntax = true
 #googleAnalytics = "G-RR74GZPMK5"
 googleAnalytics = "UA-162297404-1"
 
+#pygmentsUseClasses = true
+#pygmentsStyle = "trac"
+
 [author]
 name = "garrardkitchen"
 homepage = "http://www.garrardkitchen.com"

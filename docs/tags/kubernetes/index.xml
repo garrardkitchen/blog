@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 05 Apr 2020 17:31:26 +0100</lastBuildDate>
+    
+	<atom:link href="http://blog.garrardkitchen.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kubernetes on Windows</title>
+      <link>http://blog.garrardkitchen.com/posts/kubernetes-on-windows/</link>
+      <pubDate>Sun, 05 Apr 2020 17:31:26 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/kubernetes-on-windows/</guid>
+      <description>This post is a reminder of what needs to be installed in order for a pod created from a local image that is to be served up via kubernetes cluster, all from your local development environment.
+What is Kubernetes and why is it so important? &amp;ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.</description>
+    </item>
+    
+  </channel>
+</rss>

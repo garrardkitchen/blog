@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Kubernetes on Windows - Blog</title>
+  <meta name="description" content="This post is a reminder of what needs to be installed in order for a pod created from a local image that is to be served up via kubernetes cluster, all from your local development environment.
+What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.">
+  <meta name="author" content="garrardkitchen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Blog",
+    
+    "url": "http:\/\/blog.garrardkitchen.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/blog.garrardkitchen.com\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/blog.garrardkitchen.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/blog.garrardkitchen.com\/posts\/kubernetes-on-windows\/",
+          "name": "Kubernetes on windows"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "garrardkitchen"
+  },
+  "headline": "Kubernetes on Windows",
+  "description" : "This post is a reminder of what needs to be installed in order for a pod created from a local image that is to be served up via kubernetes cluster, all from your local development environment.\nWhat is Kubernetes and why is it so important? \x26ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.",
+  "inLanguage" : "en",
+  "wordCount":  1382 ,
+  "datePublished" : "2020-04-05T17:31:26",
+  "dateModified" : "2020-04-05T17:31:26",
+  "image" : "http:\/\/blog.garrardkitchen.com\/",
+  "keywords" : [ "blogging, kubernetes, setup, windows, containers, pods, services, azure, aws, gcp" ],
+  "mainEntityOfPage" : "http:\/\/blog.garrardkitchen.com\/posts\/kubernetes-on-windows\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/blog.garrardkitchen.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/blog.garrardkitchen.com\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Kubernetes on Windows" />
+<meta property="og:description" content="This post is a reminder of what needs to be installed in order for a pod created from a local image that is to be served up via kubernetes cluster, all from your local development environment.
+What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.">
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/kubernetes-on-windows/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Blog" />
+
+  <meta name="twitter:title" content="Kubernetes on Windows" />
+  <meta name="twitter:description" content="This post is a reminder of what needs to be installed in order for a pod created from a local image that is to be served up via kubernetes cluster, all from your local development environment.
+What is …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.68.3" />
+  <link rel="alternate" href="http://blog.garrardkitchen.com/index.xml" type="application/rss+xml" title="Blog"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/syntax.css" /><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://blog.garrardkitchen.com/">Blog</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Home" href="/">Home</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Kubernetes on Windows</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>This post is a reminder of what needs to be installed in order for a <code>pod</code> created from a local image that is to be served up via <code>kubernetes cluster</code>, all from your local development environment.</p>
+<h3 id="what-is-kubernetes-and-why-is-it-so-important">What is Kubernetes and why is it so important?</h3>
+<p>&ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.&rdquo;</p>
+<h3 id="so-why-is-kubernetes-important">So why is Kubernetes important?</h3>
+<p>&ldquo;<code>Containers</code> are a good way to bundle and run your applications. In a production environment, you need to manage the containers that run the applications and ensure that there is no downtime. For example, if a container goes down, another container needs to start. Wouldn’t it be easier if this behavior was handled by a system?</p>
+<p>That’s how <code>Kubernetes</code> comes to the rescue! Kubernetes provides you with a framework to run distributed systems resiliently. It takes care of scaling and failover for your application, provides deployment patterns, and more. For example, Kubernetes can easily manage a canary deployment for your system.&rdquo;</p>
+<p><code>Kubernetes</code> is the community&rsquo;s (has a much larger community than that of <code>Swarm's</code> community) choice of <code>container</code> <code>orchestrators</code>.</p>
+<h3 id="some-important-notices">Some important notices</h3>
+
+<div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
+
+    <style>
+        .header {
+            color: white;
+            font-weight: bold;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            font-size: smaller;
+        }
+
+        .info {
+            background-color: #336699;
+        }
+
+        .warning {
+            background-color: orange;
+        }
+
+        .error {
+            background-color: red;
+        }
+
+        .note-panel {
+            background-color: #c2f5f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .panel-info {
+            border: 1px solid #336699;
+            background-color: rgba(51, 102, 153, 0.2);
+        }
+
+        .panel-warning {
+            border: 1px solid orange;
+            background-color: rgba(255, 166, 0, 0.2);
+        }
+
+        .panel-error {
+            border: 1px solid red;
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        .panel-header {
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+        }
+    </style>
+
+
+    
+    <div>
+        <div style=" font-family: 'Open Sans'; "
+            class="header   info   ">
+            
+
+            
+
+            <i class="fa fa-question-circle"></i>
+
+            
+
+            
+
+            Permissions
+        </div>
+    </div>
+    
+
+    <div class="note-panel 
+          
+             panel-info
+             
+         
+         panel-header ">
+
+        <div style="; ">
+            
+To install <b>kubectl</b> and <b>minikube</b> you must start Powershell with Administrator permissions
+
+        </div>
+    </div>
+</div>
+
+
+<div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
+
+    <style>
+        .header {
+            color: white;
+            font-weight: bold;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            font-size: smaller;
+        }
+
+        .info {
+            background-color: #336699;
+        }
+
+        .warning {
+            background-color: orange;
+        }
+
+        .error {
+            background-color: red;
+        }
+
+        .note-panel {
+            background-color: #c2f5f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .panel-info {
+            border: 1px solid #336699;
+            background-color: rgba(51, 102, 153, 0.2);
+        }
+
+        .panel-warning {
+            border: 1px solid orange;
+            background-color: rgba(255, 166, 0, 0.2);
+        }
+
+        .panel-error {
+            border: 1px solid red;
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        .panel-header {
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+        }
+    </style>
+
+
+    
+    <div>
+        <div style=" font-family: 'Open Sans'; "
+            class="header   warning   ">
+            
+
+            
+
+            <i class="fa fa-exclamation-circle"></i>
+
+            
+
+            
+
+            Shell
+        </div>
+    </div>
+    
+
+    <div class="note-panel 
+          
+             panel-warning warning
+             
+         
+         panel-header ">
+
+        <div style="; ">
+            
+These settings will only viable for the current shell, if you need to run another shell, ensure the <b>minikube docker-env</b> commands in the <b>Steps to take to configure your environment</b> are also executed in the new shell
+
+        </div>
+    </div>
+</div>
+
+<h3 id="how-do-i-install-kubectl-and-what-the-heck-is-it">How do I install <code>kubectl</code> (and what the heck is it)?</h3>
+<p><a href="https://github.com/kubernetes/kubectl"><strong>kubectl</strong></a> is a CLI (command line interface) tool for controlling Kubernetes clusters.  You can use this tool to deploy applications, inspect and manage cluster resources and view logs.</p>
+<p>To ease the installation process, use <a href="https://chocolatey.org/packages">chocolatey</a> to install <a href="https://github.com/kubernetes/kubectl">kubernetes-cli</a>, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">choco</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">kubernetes-cli</span>
+</code></pre></div><h3 id="how-do-i-install-minikube-and-what-the-heck-is-it">How do I install minikube (and what the heck is it)?</h3>
+<p><code>Minikube</code> implements a local Kubernetes cluster and is deemed the best tool for local Kubernetes application development.</p>
+<p>To ease the installation process, use <a href="https://chocolatey.org/packages">chocolatey</a> to install <a href="https://github.com/kubernetes/minikube"><strong>minikube</strong></a>, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">choco</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">minikube</span>
+</code></pre></div><p>Before you start, you must ensure that you have a virtualisation platform available.  Windows 10 comes with a virtualisation feature called <code>hyper-v</code>. You need to ensure it is running first.  To do this, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">Enable-WindowsOptionalFeature</span> <span style="color:#a6e22e">-Online</span> <span style="color:#a6e22e">-FeatureName</span> <span style="color:#a6e22e">Microsoft-Hyper-V</span> <span style="color:#a6e22e">-All</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">start</span> <span style="color:#a6e22e">--driver</span> <span style="color:#a6e22e">hyperv</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">v1.9.1</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Microsoft</span> <span style="color:#a6e22e">Windows</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">Enterprise</span> <span style="color:#a6e22e">10.0.18363</span> <span style="color:#a6e22e">Build</span> <span style="color:#ae81ff">18363</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Using</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">hyperv</span> <span style="color:#a6e22e">driver</span> <span style="color:#a6e22e">based</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">user</span> <span style="color:#a6e22e">configuration</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Downloading</span> <span style="color:#a6e22e">VM</span> <span style="color:#a6e22e">boot</span> <span style="color:#a6e22e">image</span> <span style="color:#a6e22e">...</span>
+    &gt; <span style="color:#a6e22e">minikube-v1.9.0.iso.sha256:</span> <span style="color:#ae81ff">65</span> <span style="color:#a6e22e">B</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#ae81ff">65</span> <span style="color:#a6e22e">B</span> [<span style="color:#a6e22e">--------------</span>] <span style="color:#ae81ff">100.00</span><span style="color:#75715e">% ? p/s 0s
+</span><span style="color:#75715e"></span>    &gt; <span style="color:#a6e22e">minikube-v1.9.0.iso:</span> <span style="color:#ae81ff">174.93</span> <span style="color:#a6e22e">MiB</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#ae81ff">174.93</span> <span style="color:#a6e22e">MiB</span> [ <span style="color:#ae81ff">100.00</span><span style="color:#75715e">% 1.03 MiB p/s 2m51s
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Starting</span> <span style="color:#a6e22e">control</span> <span style="color:#a6e22e">plane</span> <span style="color:#a6e22e">node</span> <span style="color:#a6e22e">m01</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">cluster</span> <span style="color:#a6e22e">minikube</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Creating</span> <span style="color:#a6e22e">hyperv</span> <span style="color:#a6e22e">VM</span> <span style="color:#e6db74">(CPUs=2, Memory=6000MB, Disk=20000MB)</span> <span style="color:#a6e22e">...</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Preparing</span> <span style="color:#a6e22e">Kubernetes</span> <span style="color:#a6e22e">v1.18.0</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Docker</span> <span style="color:#a6e22e">19.03.8</span> <span style="color:#a6e22e">...</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Enabling</span> <span style="color:#a6e22e">addons:</span> <span style="color:#a6e22e">default-storageclass,</span> <span style="color:#a6e22e">storage-provisioner</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Done!</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">now</span> <span style="color:#a6e22e">configured</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">&#34;minikube&#34;</span>
+</code></pre></div><h3 id="steps-to-take-to-configure-your-environment">Steps to take to configure your environment</h3>
+<p>To set up your minikube environment, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span>
+<span style="color:#a6e22e">$Env:DOCKER_TLS_VERIFY</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;1&#34;</span>
+<span style="color:#a6e22e">$Env:DOCKER_HOST</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;tcp:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:2376&#34;
+<span style="color:#a6e22e">$Env:DOCKER_CERT_PATH</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;C:\Users\garrard.kitchen\.minikube\certs&#34;</span>
+<span style="color:#a6e22e">$Env:MINIKUBE_ACTIVE_DOCKERD</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;minikube&#34;</span>
+<span style="color:#a6e22e">#</span> <span style="color:#a6e22e">To</span> <span style="color:#a6e22e">point</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">shell</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">minikube&#39;s</span> <span style="color:#a6e22e">docker-daemon,</span> <span style="color:#a6e22e">run:</span>
+<span style="color:#a6e22e">#</span> <span style="color:#a6e22e">&amp;</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">-p</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">Invoke-Expression</span>
+</code></pre></div><p>To point your shell to minikube&rsquo;s docker-daemon, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">Invoke-Expression</span>
+</code></pre></div><p>To get access to minikube&rsquo;s dashboard, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube.exe</span> <span style="color:#a6e22e">dashboard</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Verifying</span> <span style="color:#a6e22e">dashboard</span> <span style="color:#a6e22e">health</span> <span style="color:#a6e22e">...</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Launching</span> <span style="color:#a6e22e">proxy</span> <span style="color:#a6e22e">...</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Verifying</span> <span style="color:#a6e22e">proxy</span> <span style="color:#a6e22e">health</span> <span style="color:#a6e22e">...</span>
+<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Opening</span> <span style="color:#a6e22e">http:</span><span style="color:#960050;background-color:#1e0010">/</span>/127.0.0.1:54553/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy<span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">browser...</span>
+</code></pre></div><p>Here&rsquo;s some sample node.js code. It starts a server on port 8080:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">handleRequest</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Received request for URL: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">url</span>);
+    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>);
+    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;Hello World!&#39;</span>);
+};
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;started&#34;</span>)
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">www</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#a6e22e">handleRequest</span>);
+<span style="color:#a6e22e">www</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">8080</span>);
+</code></pre></div><p>Here&rsquo;s a <code>Dockerfile</code> for the above <code>nodejs</code> server. Please observe that it exposes port 8080. This ensures that network TCP traffic can be received by the container via port 8080.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:6.14.2</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> server.js .<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [ <span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;server.js&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>To build a image of the above <code>Dockerfile</code>, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">-t</span> <span style="color:#a6e22e">hello-world:1</span> <span style="color:#a6e22e">.</span>
+</code></pre></div><p>To run this image as a pod, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--image=hello-world:1</span> <span style="color:#a6e22e">--port=8080</span> <span style="color:#a6e22e">--image-pull-policy=never</span>
+<span style="color:#a6e22e">pod</span>/hello-world <span style="color:#a6e22e">created</span>
+</code></pre></div><p>The <code>--image-pull-policy=never</code> is telling Kubectl to use the local image and not one from a container registry (<a href="https://hub.docker.com/">Docker</a>, <a href="https://azure.microsoft.com/en-us/services/container-registry/">ACR</a>, <a href="https://aws.amazon.com/ecr/">ECR</a>, <a href="https://cloud.google.com/container-registry">GCP</a>)</p>
+<p>To expose this port for external access (from browser) from outside of the cluster, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">expose</span> <span style="color:#a6e22e">pod</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--type=LoadBalancer</span>
+<span style="color:#a6e22e">service</span> <span style="color:#a6e22e">&#34;hello-world&#34;</span> <span style="color:#a6e22e">exposed</span>
+</code></pre></div><p>To confirm your <code>service</code> is running and to get the <code>port number</code> of this <code>exposed service</code>, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">services</span>
+<span style="color:#a6e22e">NAME</span>          <span style="color:#a6e22e">TYPE</span>           <span style="color:#a6e22e">CLUSTER-IP</span>      <span style="color:#a6e22e">EXTERNAL-IP</span>   <span style="color:#a6e22e">PORT</span><span style="color:#e6db74">(S)</span>          <span style="color:#a6e22e">AGE</span>
+<span style="color:#a6e22e">hello-world</span>   <span style="color:#a6e22e">LoadBalancer</span>   <span style="color:#a6e22e">10.111.126.10</span>   &lt;<span style="color:#a6e22e">pending</span>&gt;     <span style="color:#a6e22e">8080:31589</span>/TCP   <span style="color:#a6e22e">45h</span>
+<span style="color:#a6e22e">kubernetes</span>    <span style="color:#a6e22e">ClusterIP</span>      <span style="color:#a6e22e">10.96.0.1</span>       &lt;<span style="color:#a6e22e">none</span>&gt;        <span style="color:#ae81ff">443</span>/TCP          <span style="color:#a6e22e">2d16h</span>
+</code></pre></div>
+<div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
+
+    <style>
+        .header {
+            color: white;
+            font-weight: bold;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            font-size: smaller;
+        }
+
+        .info {
+            background-color: #336699;
+        }
+
+        .warning {
+            background-color: orange;
+        }
+
+        .error {
+            background-color: red;
+        }
+
+        .note-panel {
+            background-color: #c2f5f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .panel-info {
+            border: 1px solid #336699;
+            background-color: rgba(51, 102, 153, 0.2);
+        }
+
+        .panel-warning {
+            border: 1px solid orange;
+            background-color: rgba(255, 166, 0, 0.2);
+        }
+
+        .panel-error {
+            border: 1px solid red;
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        .panel-header {
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+        }
+    </style>
+
+
+    
+
+    <div class="note-panel 
+          
+             panel-info
+             
+         
+        ">
+
+        <div style="; ">
+            
+You will see the <b>&ltpending&gt</b> state of your LoadBalancer if you do not have not a Load Balancer integrated with your cluster.  For your local development environment, it is nothing to worry about. 
+
+        </div>
+    </div>
+</div>
+
+<p>You will see that the <strong>hello-world</strong> service is accessible via port <strong>8080</strong>. However, we still don&rsquo;t know behind what IPv4 address, this services is available.  To get the IPv4 address of your cluster, you type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">ip</span>
+<span style="color:#a6e22e">192.168.75.126</span>
+</code></pre></div><p>Finally, to access your service, run the cURL command, using the <code>minikube ip</code> address and the TCP port as listed in the <code>kubectl get services</code> output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">curl</span> <span style="color:#a6e22e">&#34;http:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:31589&#34; <span style="color:#a6e22e">-UseBasicParsing</span>
+<span style="color:#a6e22e">StatusCode</span>        <span style="color:#a6e22e">:</span> <span style="color:#ae81ff">200</span>
+<span style="color:#a6e22e">StatusDescription</span> <span style="color:#a6e22e">:</span> <span style="color:#a6e22e">OK</span>
+<span style="color:#a6e22e">Content</span>           <span style="color:#a6e22e">:</span> {<span style="color:#a6e22e">72,</span> <span style="color:#a6e22e">101,</span> <span style="color:#a6e22e">108,</span> <span style="color:#a6e22e">108...</span>}
+<span style="color:#a6e22e">RawContent</span>        <span style="color:#a6e22e">:</span> <span style="color:#a6e22e">HTTP</span>/1.1 <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
+                    <span style="color:#a6e22e">Connection:</span> <span style="color:#a6e22e">keep-alive</span>
+                    <span style="color:#a6e22e">Transfer-Encoding:</span> <span style="color:#a6e22e">chunked</span>
+                    <span style="color:#a6e22e">Date:</span> <span style="color:#a6e22e">Mon,</span> <span style="color:#ae81ff">06</span> <span style="color:#a6e22e">Apr</span> <span style="color:#ae81ff">2020</span> <span style="color:#a6e22e">13:05:42</span> <span style="color:#a6e22e">GMT</span>
+
+                    <span style="color:#a6e22e">Hello</span> <span style="color:#a6e22e">World!</span>
+<span style="color:#a6e22e">Headers</span>           <span style="color:#a6e22e">:</span> {[<span style="color:#a6e22e">Connection,</span> <span style="color:#a6e22e">keep-alive</span>]<span style="color:#a6e22e">,</span> [<span style="color:#a6e22e">Transfer-Encoding,</span> <span style="color:#a6e22e">chunked</span>]<span style="color:#a6e22e">,</span> [<span style="color:#a6e22e">Date,</span> <span style="color:#a6e22e">Mon,</span> <span style="color:#ae81ff">06</span> <span style="color:#a6e22e">Apr</span> <span style="color:#ae81ff">2020</span> <span style="color:#a6e22e">13:05:42</span> <span style="color:#a6e22e">GMT</span>]}
+<span style="color:#a6e22e">RawContentLength</span>  <span style="color:#a6e22e">:</span> <span style="color:#ae81ff">12</span>
+</code></pre></div><h3 id="useful-kubectl-commands">Useful <code>kubectl</code> commands</h3>
+<p>This first command is important. Some background first&hellip;a <code>context</code> is a group of access parameters. Each <code>context</code> contains a <code>Kubernetes cluster</code>, a <code>user</code>, and a <code>namespace</code>.  When you are working with multiple contexts off of your development machine, you may run into compatibility issues due to your client version not being compatible with the server API version. All <code>kubectl</code> commands will run against the <code>current context</code>. To check your client version, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">version</span> <span style="color:#a6e22e">--client</span>
+<span style="color:#a6e22e">Client</span> <span style="color:#a6e22e">Version:</span> <span style="color:#a6e22e">version.Info</span>{<span style="color:#a6e22e">Major:&#34;1&#34;,</span> <span style="color:#a6e22e">Minor:&#34;18&#34;,</span> <span style="color:#a6e22e">GitVersion:&#34;v1.18.0&#34;,</span> <span style="color:#a6e22e">GitCommit:&#34;9e991415386e4cf155a24b1da15becaa390438d8&#34;,</span> <span style="color:#a6e22e">GitTreeState:&#34;clean&#34;,</span> <span style="color:#a6e22e">BuildDate:&#34;2020-03-25T14:58:59Z&#34;,</span> <span style="color:#a6e22e">GoVersion:&#34;go1.13.8&#34;,</span> <span style="color:#a6e22e">Compiler:&#34;gc&#34;,</span> <span style="color:#a6e22e">Platform:&#34;windows</span>/amd64&#34;}
+</code></pre></div><p>To ascertain your current context, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">current-context</span>
+<span style="color:#a6e22e">minikube</span>
+</code></pre></div><p>To list all of your configured contexts, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">get-contexts</span>
+<span style="color:#a6e22e">CURRENT</span>   <span style="color:#a6e22e">NAME</span>                 <span style="color:#a6e22e">CLUSTER</span>          <span style="color:#a6e22e">AUTHINFO</span>         <span style="color:#a6e22e">NAMESPACE</span>
+          <span style="color:#a6e22e">docker-desktop</span>       <span style="color:#a6e22e">docker-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>
+          <span style="color:#a6e22e">docker-for-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>
+<span style="color:#a6e22e">*</span>         <span style="color:#a6e22e">minikube</span>             <span style="color:#a6e22e">minikube</span>         <span style="color:#a6e22e">minikube</span>
+</code></pre></div><p>The * next to <strong>minikube</strong> indicates that <strong>minikube</strong> is your current context.</p>
+<p>If you are configured to access cluster(s) hosted by a cloud provider such as <code>Azure</code>, then this context will also be listed here.</p>
+<p>To use a specific context, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">use-context</span> <span style="color:#a6e22e">docker-for-desktop</span>
+</code></pre></div><h2 id="references">References</h2>
+<ul>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Install Kubernetes</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">Install Minikube</a></li>
+<li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Kubectl Cheatsheet</a></li>
+</ul>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="http://blog.garrardkitchen.com//tags/blogging/">blogging</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/kubernetes/">kubernetes</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/setup/">setup</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/windows/">windows</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/containers/">containers</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/pods/">pods</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/services/">services</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/azure/">azure</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/aws/">aws</a>&nbsp;
+            
+              <a href="http://blog.garrardkitchen.com//tags/gcp/">gcp</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;text=Kubernetes%20on%20Windows&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;title=Kubernetes%20on%20Windows" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;title=Kubernetes%20on%20Windows" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;title=Kubernetes%20on%20Windows" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;description=Kubernetes%20on%20Windows" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/posts/mentoring/">How do I mentor?</a></li>
+                
+                    <li><a href="/posts/principles/">Good Engineering - Principles</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://blog.garrardkitchen.com/posts/mentoring/" data-toggle="tooltip" data-placement="top" title="How do I mentor?">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              garrardkitchen
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://blog.garrardkitchen.com/">Blog</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="http://blog.garrardkitchen.com/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://blog.garrardkitchen.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
