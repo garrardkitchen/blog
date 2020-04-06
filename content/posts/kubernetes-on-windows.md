@@ -1,12 +1,12 @@
 ---
 title: "Kubernetes on Windows"
-date: 2020-04-05T17:31:26+01:00
+date: 2020-04-06T10:20:26+01:00
 draft: false
 featured: true
 tags: [blogging, kubernetes, setup, windows, containers, pods, services, azure, aws, gcp]
 ---
 
-This post is a reminder of what needs to be installed in order for a `pod` created from a local image that is to be served up via `kubernetes cluster`, all from your local development environment.
+This post is a reminder to me of what needs to be installed in order for a `pod`, created from a local image, that is to be served up via `kubernetes cluster`, all from your local development environment.
 
 ### What is Kubernetes and why is it so important?
 
