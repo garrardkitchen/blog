@@ -6,7 +6,7 @@ featured: true
 tags: [blogging, kubernetes, setup, windows, containers, pods, services, azure, aws, gcp]
 ---
 
-This post is a reminder to me of what needs to be installed in order for a `pod`, created from a local image, that is to be served up via `kubernetes cluster`, all from your local development environment.
+This post is a reminder to me of what needs to be installed in order for a `pod`, created from a local image, that is to be served up via a `kubernetes cluster`, all from your local development environment.
 
 ### What is Kubernetes and why is it so important?
 
@@ -27,7 +27,7 @@ To install <b>kubectl</b> and <b>minikube</b> you must start Powershell with Adm
 {{</ note >}}
 
 {{< note title="Shell" warning="true">}}
-These settings will only viable for the current shell, if you need to run another shell, ensure the <b>minikube docker-env</b> commands in the <b>Steps to take to configure your environment</b> are also executed in the new shell
+These settings will only viable for the current shell, if you need to run another shell, ensure the <b>minikube docker-env</b> commands in the <b>Steps to take to configure your environment</b> section are also executed in the new shell. As minikube is the tool that runs a local cluster in your development environment, we need to tell it to use it's built-in docker daemon and have images pulled from there, and not from a container registry.
 {{</ note >}}
 
 ### How do I install `kubectl` (and what the heck is it)?
@@ -50,7 +50,7 @@ To ease the installation process, use [chocolatey](https://chocolatey.org/packag
 PS C:\> choco install minikube
 ```
 
-Before you start, you must ensure that you have a virtualisation platform available.  Windows 10 comes with a virtualisation feature called `hyper-v`. You need to ensure it is running first.  To do this, run:
+Before you start, you must ensure that you have a platform virtualisation system available. Platform virtualisation software provides the mechanism to run virtual machines and containers in isolation and exposes them to one or more networks.  It is within a virtual machine that your Kubernetes cluster will run.  Windows 10 comes with a virtualisation hypervisor feature called `hyper-v`. You need to ensure it is running first.  To do this, run:
 
 ```ps
 PS C:\> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -127,6 +127,10 @@ To build a image of the above `Dockerfile`, run:
 PS C:\> docker build -t hello-world:1 .
 ```
 
+{{< note warning="true" title="Include a build tag">}}
+You must specify a version tag and it has to be something other than <b>latest</b>. Here, I have used <b>1</b>.  If you don't follow these instructions, minikube will attempt to pull the image from a docker registry (normally DockerHub).
+{{</ note>}}
+
 To run this image as a pod, run:
 ```ps
 PS C:\> kubectl run hello-world --image=hello-world:1 --port=8080 --image-pull-policy=never
@@ -176,6 +180,13 @@ Headers           : {[Connection, keep-alive], [Transfer-Encoding, chunked], [Da
 RawContentLength  : 12
 ```
 
+You can also use minikube to obtain your service's url. To do this, run:
+
+```ps
+PS C:\> minikube service hello-world --url
+http://192.168.75.126:31589
+```
+
 ### Useful `kubectl` commands
 
 This first command is important. Some background first...a `context` is a group of access parameters. Each `context` contains a `Kubernetes cluster`, a `user`, and a `namespace`.  When you are working with multiple contexts off of your development machine, you may run into compatibility issues due to your client version not being compatible with the server API version. All `kubectl` commands will run against the `current context`. To check your client version, run:
@@ -201,9 +212,7 @@ CURRENT   NAME                 CLUSTER          AUTHINFO         NAMESPACE
 ```
 The * next to **minikube** indicates that **minikube** is your current context.
 
-If you are configured to access cluster(s) hosted by a cloud provider such as `Azure`, then this context will also be listed here.
-
-
+If you are configured to access a cluster hosted from a cloud provider such as `Azure`, then this context will also be listed.
 
 To use a specific context, run:
 

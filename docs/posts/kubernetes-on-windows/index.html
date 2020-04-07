@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Kubernetes on Windows - Blog</title>
-  <meta name="description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via kubernetes cluster, all from your local development environment.
+  <meta name="description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development environment.
 What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.">
   <meta name="author" content="garrardkitchen"/><script type="application/ld+json">
 {
@@ -58,9 +58,9 @@ What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, 
     "name" : "garrardkitchen"
   },
   "headline": "Kubernetes on Windows",
-  "description" : "This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via kubernetes cluster, all from your local development environment.\nWhat is Kubernetes and why is it so important? \x26ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.",
+  "description" : "This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development environment.\nWhat is Kubernetes and why is it so important? \x26ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.",
   "inLanguage" : "en",
-  "wordCount":  1384 ,
+  "wordCount":  1611 ,
   "datePublished" : "2020-04-06T10:20:26",
   "dateModified" : "2020-04-06T10:20:26",
   "image" : "http:\/\/blog.garrardkitchen.com\/",
@@ -80,14 +80,14 @@ What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, 
 </script>
 
 <meta property="og:title" content="Kubernetes on Windows" />
-<meta property="og:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via kubernetes cluster, all from your local development environment.
+<meta property="og:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development environment.
 What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.">
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/kubernetes-on-windows/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Blog" />
 
   <meta name="twitter:title" content="Kubernetes on Windows" />
-  <meta name="twitter:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via kubernetes cluster, all from your local development environment. …">
+  <meta name="twitter:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development …">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.68.3" />
   <link rel="alternate" href="http://blog.garrardkitchen.com/index.xml" type="application/rss+xml" title="Blog"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -234,7 +234,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>This post is a reminder to me of what needs to be installed in order for a <code>pod</code>, created from a local image, that is to be served up via <code>kubernetes cluster</code>, all from your local development environment.</p>
+        <p>This post is a reminder to me of what needs to be installed in order for a <code>pod</code>, created from a local image, that is to be served up via a <code>kubernetes cluster</code>, all from your local development environment.</p>
 <h3 id="what-is-kubernetes-and-why-is-it-so-important">What is Kubernetes and why is it so important?</h3>
 <p>&ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.&rdquo;</p>
 <h3 id="so-why-is-kubernetes-important">So why is Kubernetes important?</h3>
@@ -414,7 +414,7 @@ To install <b>kubectl</b> and <b>minikube</b> you must start Powershell with Adm
 
         <div style="; ">
             
-These settings will only viable for the current shell, if you need to run another shell, ensure the <b>minikube docker-env</b> commands in the <b>Steps to take to configure your environment</b> are also executed in the new shell
+These settings will only viable for the current shell, if you need to run another shell, ensure the <b>minikube docker-env</b> commands in the <b>Steps to take to configure your environment</b> section are also executed in the new shell. As minikube is the tool that runs a local cluster in your development environment, we need to tell it to use it's built-in docker daemon and have images pulled from there, and not from a container registry.
 
         </div>
     </div>
@@ -428,7 +428,7 @@ These settings will only viable for the current shell, if you need to run anothe
 <p><code>Minikube</code> implements a local Kubernetes cluster and is deemed the best tool for local Kubernetes application development.</p>
 <p>To ease the installation process, use <a href="https://chocolatey.org/packages">chocolatey</a> to install <a href="https://github.com/kubernetes/minikube"><strong>minikube</strong></a>, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">choco</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">minikube</span>
-</code></pre></div><p>Before you start, you must ensure that you have a virtualisation platform available.  Windows 10 comes with a virtualisation feature called <code>hyper-v</code>. You need to ensure it is running first.  To do this, run:</p>
+</code></pre></div><p>Before you start, you must ensure that you have a platform virtualisation system available. Platform virtualisation software provides the mechanism to run virtual machines and containers in isolation and exposes them to one or more networks.  It is within a virtual machine that your Kubernetes cluster will run.  Windows 10 comes with a virtualisation hypervisor feature called <code>hyper-v</code>. You need to ensure it is running first.  To do this, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">Enable-WindowsOptionalFeature</span> <span style="color:#a6e22e">-Online</span> <span style="color:#a6e22e">-FeatureName</span> <span style="color:#a6e22e">Microsoft-Hyper-V</span> <span style="color:#a6e22e">-All</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">start</span> <span style="color:#a6e22e">--driver</span> <span style="color:#a6e22e">hyperv</span>
 <span style="color:#a6e22e">*</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">v1.9.1</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Microsoft</span> <span style="color:#a6e22e">Windows</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">Enterprise</span> <span style="color:#a6e22e">10.0.18363</span> <span style="color:#a6e22e">Build</span> <span style="color:#ae81ff">18363</span>
@@ -476,7 +476,96 @@ These settings will only viable for the current shell, if you need to run anothe
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [ <span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;server.js&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>To build a image of the above <code>Dockerfile</code>, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">-t</span> <span style="color:#a6e22e">hello-world:1</span> <span style="color:#a6e22e">.</span>
-</code></pre></div><p>To run this image as a pod, run:</p>
+</code></pre></div>
+<div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
+
+    <style>
+        .header {
+            color: white;
+            font-weight: bold;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            font-size: smaller;
+        }
+
+        .info {
+            background-color: #336699;
+        }
+
+        .warning {
+            background-color: orange;
+        }
+
+        .error {
+            background-color: red;
+        }
+
+        .note-panel {
+            background-color: #c2f5f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .panel-info {
+            border: 1px solid #336699;
+            background-color: rgba(51, 102, 153, 0.2);
+        }
+
+        .panel-warning {
+            border: 1px solid orange;
+            background-color: rgba(255, 166, 0, 0.2);
+        }
+
+        .panel-error {
+            border: 1px solid red;
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        .panel-header {
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0px !important;
+        }
+    </style>
+
+
+    
+    <div>
+        <div style=" font-family: 'Open Sans'; "
+            class="header   warning   ">
+            
+
+            
+
+            <i class="fa fa-exclamation-circle"></i>
+
+            
+
+            
+
+            Include a build tag
+        </div>
+    </div>
+    
+
+    <div class="note-panel 
+          
+             panel-warning warning
+             
+         
+         panel-header ">
+
+        <div style="; ">
+            
+You must specify a version tag and it has to be something other than <b>latest</b>. Here, I have used <b>1</b>.  If you don't follow these instructions, minikube will attempt to pull the image from a docker registry (normally DockerHub).
+
+        </div>
+    </div>
+</div>
+
+<p>To run this image as a pod, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--image=hello-world:1</span> <span style="color:#a6e22e">--port=8080</span> <span style="color:#a6e22e">--image-pull-policy=never</span>
 <span style="color:#a6e22e">pod</span>/hello-world <span style="color:#a6e22e">created</span>
 </code></pre></div><p>The <code>--image-pull-policy=never</code> is telling Kubectl to use the local image and not one from a container registry (<a href="https://hub.docker.com/">Docker</a>, <a href="https://azure.microsoft.com/en-us/services/container-registry/">ACR</a>, <a href="https://aws.amazon.com/ecr/">ECR</a>, <a href="https://cloud.google.com/container-registry">GCP</a>)</p>
@@ -576,6 +665,9 @@ You will see the <b>&ltpending&gt</b> state of your LoadBalancer if you do not h
                     <span style="color:#a6e22e">Hello</span> <span style="color:#a6e22e">World!</span>
 <span style="color:#a6e22e">Headers</span>           <span style="color:#a6e22e">:</span> {[<span style="color:#a6e22e">Connection,</span> <span style="color:#a6e22e">keep-alive</span>]<span style="color:#a6e22e">,</span> [<span style="color:#a6e22e">Transfer-Encoding,</span> <span style="color:#a6e22e">chunked</span>]<span style="color:#a6e22e">,</span> [<span style="color:#a6e22e">Date,</span> <span style="color:#a6e22e">Mon,</span> <span style="color:#ae81ff">06</span> <span style="color:#a6e22e">Apr</span> <span style="color:#ae81ff">2020</span> <span style="color:#a6e22e">13:05:42</span> <span style="color:#a6e22e">GMT</span>]}
 <span style="color:#a6e22e">RawContentLength</span>  <span style="color:#a6e22e">:</span> <span style="color:#ae81ff">12</span>
+</code></pre></div><p>You can also use minikube to obtain your service&rsquo;s url. To do this, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">service</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--url</span>
+<span style="color:#a6e22e">http:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:31589
 </code></pre></div><h3 id="useful-kubectl-commands">Useful <code>kubectl</code> commands</h3>
 <p>This first command is important. Some background first&hellip;a <code>context</code> is a group of access parameters. Each <code>context</code> contains a <code>Kubernetes cluster</code>, a <code>user</code>, and a <code>namespace</code>.  When you are working with multiple contexts off of your development machine, you may run into compatibility issues due to your client version not being compatible with the server API version. All <code>kubectl</code> commands will run against the <code>current context</code>. To check your client version, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">version</span> <span style="color:#a6e22e">--client</span>
@@ -590,7 +682,7 @@ You will see the <b>&ltpending&gt</b> state of your LoadBalancer if you do not h
           <span style="color:#a6e22e">docker-for-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>
 <span style="color:#a6e22e">*</span>         <span style="color:#a6e22e">minikube</span>             <span style="color:#a6e22e">minikube</span>         <span style="color:#a6e22e">minikube</span>
 </code></pre></div><p>The * next to <strong>minikube</strong> indicates that <strong>minikube</strong> is your current context.</p>
-<p>If you are configured to access cluster(s) hosted by a cloud provider such as <code>Azure</code>, then this context will also be listed here.</p>
+<p>If you are configured to access a cluster hosted from a cloud provider such as <code>Azure</code>, then this context will also be listed.</p>
 <p>To use a specific context, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">use-context</span> <span style="color:#a6e22e">docker-for-desktop</span>
 </code></pre></div><h2 id="references">References</h2>
