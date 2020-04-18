@@ -17,7 +17,7 @@
       <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/posts/kubernetes-on-windows/</guid>
-      <description>This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development environment.
+      <description>This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
 What is Kubernetes and why is it so important? &amp;ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.</description>
     </item>
     

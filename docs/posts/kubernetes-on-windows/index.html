@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Kubernetes on Windows - Blog</title>
-  <meta name="description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development environment.
+  <meta name="description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
 What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.">
   <meta name="author" content="garrardkitchen"/><script type="application/ld+json">
 {
@@ -58,9 +58,9 @@ What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, 
     "name" : "garrardkitchen"
   },
   "headline": "Kubernetes on Windows",
-  "description" : "This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development environment.\nWhat is Kubernetes and why is it so important? \x26ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.",
+  "description" : "This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.\nWhat is Kubernetes and why is it so important? \x26ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.",
   "inLanguage" : "en",
-  "wordCount":  1611 ,
+  "wordCount":  1813 ,
   "datePublished" : "2020-04-06T10:20:26",
   "dateModified" : "2020-04-06T10:20:26",
   "image" : "http:\/\/blog.garrardkitchen.com\/",
@@ -80,14 +80,14 @@ What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, 
 </script>
 
 <meta property="og:title" content="Kubernetes on Windows" />
-<meta property="og:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development environment.
+<meta property="og:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
 What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.">
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/kubernetes-on-windows/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Blog" />
 
   <meta name="twitter:title" content="Kubernetes on Windows" />
-  <meta name="twitter:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, all from your local development …">
+  <meta name="twitter:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development …">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.68.3" />
   <link rel="alternate" href="http://blog.garrardkitchen.com/index.xml" type="application/rss+xml" title="Blog"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -234,7 +234,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>This post is a reminder to me of what needs to be installed in order for a <code>pod</code>, created from a local image, that is to be served up via a <code>kubernetes cluster</code>, all from your local development environment.</p>
+        <p>This post is a reminder to me of what needs to be installed in order for a <code>pod</code>, created from a local image, that is to be served up via a <code>kubernetes cluster</code>, to be run from your local development environment.</p>
 <h3 id="what-is-kubernetes-and-why-is-it-so-important">What is Kubernetes and why is it so important?</h3>
 <p>&ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.&rdquo;</p>
 <h3 id="so-why-is-kubernetes-important">So why is Kubernetes important?</h3>
@@ -458,7 +458,7 @@ These settings will only viable for the current shell, if you need to run anothe
 <span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Launching</span> <span style="color:#a6e22e">proxy</span> <span style="color:#a6e22e">...</span>
 <span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Verifying</span> <span style="color:#a6e22e">proxy</span> <span style="color:#a6e22e">health</span> <span style="color:#a6e22e">...</span>
 <span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Opening</span> <span style="color:#a6e22e">http:</span><span style="color:#960050;background-color:#1e0010">/</span>/127.0.0.1:54553/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy<span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">browser...</span>
-</code></pre></div><p>Here&rsquo;s some sample node.js code. It starts a server on port 8080:</p>
+</code></pre></div><p>Here&rsquo;s some sample nodejs (<code>server.js</code>) code. It starts a server on port 8080:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>);
 
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">handleRequest</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) {
@@ -470,7 +470,7 @@ These settings will only viable for the current shell, if you need to run anothe
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">www</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#a6e22e">handleRequest</span>);
 <span style="color:#a6e22e">www</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">8080</span>);
 </code></pre></div><p>Here&rsquo;s a <code>Dockerfile</code> for the above <code>nodejs</code> server. Please observe that it exposes port 8080. This ensures that network TCP traffic can be received by the container via port 8080.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:6.14.2</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:13.5.0</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> server.js .<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [ <span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;server.js&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
@@ -565,7 +565,35 @@ You must specify a version tag and it has to be something other than <b>latest</
     </div>
 </div>
 
-<p>To run this image as a pod, run:</p>
+<p>To check that the image exists in Minikube&rsquo;s built-in Docker daemon, run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">ssh</span>
+<span style="color:#a6e22e">$</span> <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">images</span>
+</code></pre></div><p>You should see something similar to this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ minikube ssh
+                         _             _
+            _         _ ( )           ( )
+  ___ ___  (_)  ___  (_)| |/&#39;)  _   _ | |_      __
+/&#39; _ ` _ `\| |/&#39; _ `\| || , &lt;  ( ) ( )| &#39;_`\  /&#39;__`\
+| ( ) ( ) || || ( ) || || |\`\ | (_) || |_) )(  ___/
+(_) (_) (_)(_)(_) (_)(_)(_) (_)`\___/&#39;(_,__/&#39;`\____)
+
+$ docker images
+REPOSITORY                                TAG                 IMAGE ID            CREATED             SIZE
+hello-world                               1                   55f40b7f5c32        13 days ago         660MB
+hello-world                               latest              50c4285f25a5        13 days ago         660MB
+nginx                                     latest              ed21b7a8aee9        2 weeks ago         127MB
+k8s.gcr.io/kube-proxy                     v1.18.0             43940c34f24f        3 weeks ago         117MB
+k8s.gcr.io/kube-scheduler                 v1.18.0             a31f78c7c8ce        3 weeks ago         95.3MB
+k8s.gcr.io/kube-apiserver                 v1.18.0             74060cea7f70        3 weeks ago         173MB
+k8s.gcr.io/kube-controller-manager        v1.18.0             d3e55153f52f        3 weeks ago         162MB
+kubernetesui/dashboard                    v2.0.0-rc6          cdc71b5a8a0e        5 weeks ago         221MB
+k8s.gcr.io/pause                          3.2                 80d28bedfe5d        2 months ago        683kB
+k8s.gcr.io/coredns                        1.6.7               67da37a9a360        2 months ago        43.8MB
+kindest/kindnetd                          0.5.3               aa67fec7d7ef        5 months ago        78.5MB
+k8s.gcr.io/etcd                           3.4.3-0             303ce5db0e90        5 months ago        288MB
+kubernetesui/metrics-scraper              v1.0.2              3b08661dc379        5 months ago        40.1MB
+gcr.io/k8s-minikube/storage-provisioner   v1.8.1              4689081edb10        2 years ago         80.8MB
+</code></pre></div><p>To run this image as a pod, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--image=hello-world:1</span> <span style="color:#a6e22e">--port=8080</span> <span style="color:#a6e22e">--image-pull-policy=never</span>
 <span style="color:#a6e22e">pod</span>/hello-world <span style="color:#a6e22e">created</span>
 </code></pre></div><p>The <code>--image-pull-policy=never</code> is telling Kubectl to use the local image and not one from a container registry (<a href="https://hub.docker.com/">Docker</a>, <a href="https://azure.microsoft.com/en-us/services/container-registry/">ACR</a>, <a href="https://aws.amazon.com/ecr/">ECR</a>, <a href="https://cloud.google.com/container-registry">GCP</a>)</p>
@@ -690,6 +718,7 @@ You will see the <b>&ltpending&gt</b> state of your LoadBalancer if you do not h
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Install Kubernetes</a></li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">Install Minikube</a></li>
 <li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Kubectl Cheatsheet</a></li>
+<li><a href="https://kubernetes.io/docs/setup/learning-environment/minikube/#use-local-images-by-re-using-the-docker-daemon">Minikube&rsquo;s built-in Docker daemon</a></li>
 </ul>
 
 

@@ -6,7 +6,7 @@ featured: true
 tags: [blogging, kubernetes, setup, windows, containers, pods, services, azure, aws, gcp]
 ---
 
-This post is a reminder to me of what needs to be installed in order for a `pod`, created from a local image, that is to be served up via a `kubernetes cluster`, all from your local development environment.
+This post is a reminder to me of what needs to be installed in order for a `pod`, created from a local image, that is to be served up via a `kubernetes cluster`, to be run from your local development environment.
 
 ### What is Kubernetes and why is it so important?
 
@@ -98,7 +98,7 @@ PS C:\> minikube.exe dashboard
 * Opening http://127.0.0.1:54553/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
 ```
 
-Here's some sample node.js code. It starts a server on port 8080:
+Here's some sample nodejs (`server.js`) code. It starts a server on port 8080:
 
 ```js
 var http = require('http');
@@ -116,7 +116,7 @@ www.listen(8080);
 Here's a `Dockerfile` for the above `nodejs` server. Please observe that it exposes port 8080. This ensures that network TCP traffic can be received by the container via port 8080.
 
 ```Dockerfile
-FROM node:6.14.2
+FROM node:13.5.0
 EXPOSE 8080
 COPY server.js .
 CMD [ "node", "server.js" ]
@@ -130,6 +130,42 @@ PS C:\> docker build -t hello-world:1 .
 {{< note warning="true" title="Include a build tag">}}
 You must specify a version tag and it has to be something other than <b>latest</b>. Here, I have used <b>1</b>.  If you don't follow these instructions, minikube will attempt to pull the image from a docker registry (normally DockerHub).
 {{</ note>}}
+
+To check that the image exists in Minikube's built-in Docker daemon, run:
+
+```ps
+PS C:\> minikube ssh
+$ docker images
+```
+
+
+You should see something similar to this:
+```
+$ minikube ssh
+                         _             _
+            _         _ ( )           ( )
+  ___ ___  (_)  ___  (_)| |/')  _   _ | |_      __
+/' _ ` _ `\| |/' _ `\| || , <  ( ) ( )| '_`\  /'__`\
+| ( ) ( ) || || ( ) || || |\`\ | (_) || |_) )(  ___/
+(_) (_) (_)(_)(_) (_)(_)(_) (_)`\___/'(_,__/'`\____)
+
+$ docker images
+REPOSITORY                                TAG                 IMAGE ID            CREATED             SIZE
+hello-world                               1                   55f40b7f5c32        13 days ago         660MB
+hello-world                               latest              50c4285f25a5        13 days ago         660MB
+nginx                                     latest              ed21b7a8aee9        2 weeks ago         127MB
+k8s.gcr.io/kube-proxy                     v1.18.0             43940c34f24f        3 weeks ago         117MB
+k8s.gcr.io/kube-scheduler                 v1.18.0             a31f78c7c8ce        3 weeks ago         95.3MB
+k8s.gcr.io/kube-apiserver                 v1.18.0             74060cea7f70        3 weeks ago         173MB
+k8s.gcr.io/kube-controller-manager        v1.18.0             d3e55153f52f        3 weeks ago         162MB
+kubernetesui/dashboard                    v2.0.0-rc6          cdc71b5a8a0e        5 weeks ago         221MB
+k8s.gcr.io/pause                          3.2                 80d28bedfe5d        2 months ago        683kB
+k8s.gcr.io/coredns                        1.6.7               67da37a9a360        2 months ago        43.8MB
+kindest/kindnetd                          0.5.3               aa67fec7d7ef        5 months ago        78.5MB
+k8s.gcr.io/etcd                           3.4.3-0             303ce5db0e90        5 months ago        288MB
+kubernetesui/metrics-scraper              v1.0.2              3b08661dc379        5 months ago        40.1MB
+gcr.io/k8s-minikube/storage-provisioner   v1.8.1              4689081edb10        2 years ago         80.8MB
+```
 
 To run this image as a pod, run:
 ```ps
@@ -227,3 +263,4 @@ PS C:\> kubectl config use-context docker-for-desktop
 - [Install Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 - [Kubectl Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [Minikube's built-in Docker daemon](https://kubernetes.io/docs/setup/learning-environment/minikube/#use-local-images-by-re-using-the-docker-daemon)

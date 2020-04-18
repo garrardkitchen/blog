@@ -16,7 +16,7 @@ In her book **The Manager's Path**, Camille Fournier talks about Mentoring. She 
 
     "The first act of people management for many engineers is often unofficial."
 
-This has always been the case for me too.  I am currently employed as a Principal Engineer, before this, A CTO.  In this time, I have neither organised nor carried out an official [backed by a recognised authority] mentoring scheme.  It's just been something that I do, without fuss but with purpose and pride.  
+This has always been the case for me too.  I am currently employed as a Principal Engineer, before this, a CTO.  In this time, I have neither organised nor carried out an official [backed by a recognised authority] mentoring scheme.  It's just been something that I do, without fuss but with purpose and pride.  
 
 Oddly, I have never been a mentee. If I had then there is a possibility that this in itself may have defined or partially influenced mentoring for me.
 

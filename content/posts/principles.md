@@ -22,7 +22,7 @@ _These are in alphabetical order and not in order of importance_
 - [Do no more](#do-no-more)
 - [DRY](#dry)
 - [KISS](#kiss)
-- [Occam's razor](#occam's-razor)
+- [Occam's razor](#occams-razor)
 - [Premature optimization](#premature-optimization)
 - [Refactor](#refactor)
 - [Separation of Concerns](#separation-of-concerns)
