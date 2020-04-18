@@ -4,9 +4,17 @@ date: 2020-04-17T09:13:19+01:00
 draft: true
 ---
 
-## Requirements
+# Why this blog?
 
+I recently started on a project to replace our current Twilio telephony implementation with Twilio Flex.  Flex is written with React.  It also comes with a set of core UI React components.  It doesn't yet support React Hooks but this is on the horizon!  I have used React a few times over the last 5ish years.  I had researched it and introduced it as a core UI front-end stack technology in a previous employment.  
+
+Reusable UI components is a very powerful productivity enabler when done correctly.  Hooks, a new feature introduced with React 16.8, has consolidated my approach when building a React app. To capture new learnings, I have decided to create a blog post to share these and also to remind myself, possibly at a later date on how to do something.  It would not be the first time that I have searched for how to do something, to find the solution in an old blog post of mine!
+
+## React Requirements
+
+- npm
 - nodejs
+- react (create-react-app)
 
 To create your first react app, run:
 
@@ -83,12 +91,24 @@ const [item, setItems] = useState([])
 const [current, setCurrent] = useState(0)
 ```
 
+
+## To render JSON object
+
+There is a 3rd parameter that you can set when using the [`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) method.  This is the number of spaces to use for indentation.  For this to render correctly though, you need to wrap it in `<pre>` element as illustrated here:
+
+```html
+<pre>
+{JSON.stringify(prop.rebuildList[0], null, 2)}
+</pre>
+```
+
 ## References
 
 - [create-a-new-react-app](https://reactjs.org/docs/create-a-new-react-app.html)
 - [npx](https://www.npmjs.com/package/npx)
 - [create-react-app](https://www.npmjs.com/package/create-react-app)
 - [hooks](https://reactjs.org/docs/hooks-overview.html)
+- [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
 
 
