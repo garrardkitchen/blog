@@ -8,7 +8,7 @@ draft: true
 
 I recently started on a project to replace our current Twilio telephony implementation with Twilio Flex.  Flex is written with React.  It also comes with a set of core UI React components.  It doesn't yet support React Hooks but this is on the horizon!  I have used React a few times over the last 5ish years.  I had researched it and introduced it as a core UI front-end stack technology in a previous employment.  
 
-Reusable UI components is a very powerful productivity enabler when done correctly.  Hooks, a new feature introduced with React 16.8, has consolidated my approach when building a React app. To capture new learnings, I have decided to create a blog post to share these and also to remind myself, possibly at a later date on how to do something.  It would not be the first time that I have searched for how to do something, to find the solution in an old blog post of mine!
+Reusable UI components is a very powerful productivity enabler when done correctly.  Hooks, a new feature introduced with **React 16.8**, has consolidated my approach when building a React app. To capture new learnings, I have decided to create a blog post to share these and also to remind myself, possibly at a later date on how to do something.  It would not be the first time that I have searched for how to do something, to find the solution in an old blog post of mine!
 
 ## React Requirements
 
@@ -44,6 +44,8 @@ Added this to before the </head> element:
 Let's say we have a parent (App) and 2 child functon components:
 
 ```js
+import React, {useState} from "react"
+
 export default function App(prop) {
     const [items, setItems] = useState(prop.rebuildList)
     const onClick = () => {
@@ -87,6 +89,8 @@ Is this odd behaviour?  Good question.  I believe that as we're only passing an 
 Hooks is a new way of hooking into React functionality without having to write a class.  Hooks were introduced in React 16.8.  These Hooks can only be used from React Functions.  There's a new function called `useState`.  You use javascript destructuring to make available a new state variable and a `setter`. You can use the State Hook multiple times in a React Function For example:
 
 ```js
+import React, {useRef, useState} from "react"
+...
 const [item, setItems] = useState([])
 const [current, setCurrent] = useState(0)
 ```
@@ -102,6 +106,55 @@ There is a 3rd parameter that you can set when using the [`JSON.stringify`](http
 </pre>
 ```
 
+## How to access input field value with a Hook
+
+Prior to Function Components you would use react.createRef() to establish a reference to a html element and Function Component code.  With React Hooks you can use this short hand:
+
+```js
+let myInput = useRef()
+```
+
+Full example:
+```js
+import React, {useRef} from "react";
+
+const Input = (props) => {
+
+    const myInput = useRef()    
+
+    const onClick = () => {
+        props.onSave(myInput.current.value)
+    }
+
+    return (
+        <div>
+            <input type="text" ref={myInput} />
+            <button onClick={onClick}>Save</button>
+        </div>
+    )
+}
+
+export default Input
+```
+
+## What is a custom Hook?
+
+convention includes prefixing function name with `use`.  For example, `use`Whatever
+
+
+## What are the Rules of Hooks
+
+2 Rules:
+
+- Must be at top level of Function, ergo, no int any nested arrow function.
+- Must not be called from within loops, conditions or nested functions.
+
+## What is `Dispatch`?
+
+`Dispatch` relates for `Redux`.  Although, often used together, `Redux` is not part of `React`.
+
+
+
 ## References
 
 - [create-a-new-react-app](https://reactjs.org/docs/create-a-new-react-app.html)
@@ -109,6 +162,8 @@ There is a 3rd parameter that you can set when using the [`JSON.stringify`](http
 - [create-react-app](https://www.npmjs.com/package/create-react-app)
 - [hooks](https://reactjs.org/docs/hooks-overview.html)
 - [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+- [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html)
+- [Kata](https://github.com/garrardkitchen/katas/blob/master/react-function-components.md)
 
 
 
