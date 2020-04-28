@@ -22,13 +22,25 @@ That’s how `Kubernetes` comes to the rescue! Kubernetes provides you with a fr
 
 ### Some important notices  
 
-{{< note title="Permissions">}}
-To install <b>kubectl</b> and <b>minikube</b> you must start Powershell with Administrator permissions
-{{</ note >}}
+<!-- {{< note title="Permissions">}} -->
+<!-- {{</ note>}} -->
 
-{{< note title="Shell" warning="true">}}
+{{< hint info >}}
+**Permissions** 
+
+To install <b>kubectl</b> and <b>minikube</b> you must start Powershell with Administrator permissions
+{{< /hint >}}
+
+
+<!-- {{< note title="Shell" warning="true">}}
+{{</ note >}} -->
+
+{{< hint warning >}}
+
+**Shell**
+
 These settings will only viable for the current shell, if you need to run another shell, ensure the <b>minikube docker-env</b> commands in the <b>Steps to take to configure your environment</b> section are also executed in the new shell. As minikube is the tool that runs a local cluster in your development environment, we need to tell it to use it's built-in docker daemon and have images pulled from there, and not from a container registry.
-{{</ note >}}
+{{< /hint>}}
 
 ### How do I install `kubectl` (and what the heck is it)?
 
@@ -127,9 +139,15 @@ To build a image of the above `Dockerfile`, run:
 PS C:\> docker build -t hello-world:1 .
 ```
 
-{{< note warning="true" title="Include a build tag">}}
-You must specify a version tag and it has to be something other than <b>latest</b>. Here, I have used <b>1</b>.  If you don't follow these instructions, minikube will attempt to pull the image from a docker registry (normally DockerHub).
-{{</ note>}}
+<!-- {{< note warning="true" title="Include a build tag">}}
+{{</ note>}} -->
+
+{{< hint warning >}}
+**Include a build tag**
+
+You must specify a version tag and it has to be something other than **latest**. Here, I have used **1**.  If you don't follow these instructions, minikube will attempt to pull the image from a docker registry (normally DockerHub).
+{{< /hint >}}
+
 
 To check that the image exists in Minikube's built-in Docker daemon, run:
 
@@ -189,9 +207,11 @@ hello-world   LoadBalancer   10.111.126.10   <pending>     8080:31589/TCP   45h
 kubernetes    ClusterIP      10.96.0.1       <none>        443/TCP          2d16h
 ```
 
-{{< note >}}
-You will see the <b>&ltpending&gt</b> state of your LoadBalancer if you do not have not a Load Balancer integrated with your cluster.  For your local development environment, it is nothing to worry about. 
-{{</ note >}}
+
+{{< hint info>}}
+
+You will see the **\<pending>** state of your LoadBalancer if you do not have not a Load Balancer integrated with your cluster.  For your local development environment, it is nothing to worry about. 
+{{</ hint >}}
 
 You will see that the **hello-world** service is accessible via port **8080**. However, we still don't know behind what IPv4 address, this services is available.  To get the IPv4 address of your cluster, you type:
 

@@ -1,101 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-  <head>
-    
+<html lang="en">
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-  <title>Kubernetes on Windows - Blog</title>
-  <meta name="description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
-What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.">
-  <meta name="author" content="garrardkitchen"/><script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "name": "Blog",
-    
-    "url": "http:\/\/blog.garrardkitchen.com\/"
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": "",
-  "url": "http:\/\/blog.garrardkitchen.com\/"
-  
-  
-  
-  
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "http:\/\/blog.garrardkitchen.com\/",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "http:\/\/blog.garrardkitchen.com\/posts\/kubernetes-on-windows\/",
-          "name": "Kubernetes on windows"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : "garrardkitchen"
-  },
-  "headline": "Kubernetes on Windows",
-  "description" : "This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.\nWhat is Kubernetes and why is it so important? \x26ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.",
-  "inLanguage" : "en",
-  "wordCount":  1813 ,
-  "datePublished" : "2020-04-06T10:20:26",
-  "dateModified" : "2020-04-06T10:20:26",
-  "image" : "http:\/\/blog.garrardkitchen.com\/",
-  "keywords" : [ "blogging, kubernetes, setup, windows, containers, pods, services, azure, aws, gcp" ],
-  "mainEntityOfPage" : "http:\/\/blog.garrardkitchen.com\/posts\/kubernetes-on-windows\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "http:\/\/blog.garrardkitchen.com\/",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "http:\/\/blog.garrardkitchen.com\/",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
-
-<meta property="og:title" content="Kubernetes on Windows" />
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
+What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem."><meta property="og:title" content="Kubernetes on Windows" />
 <meta property="og:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
-What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.">
+What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem." />
+<meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/kubernetes-on-windows/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Blog" />
-
-  <meta name="twitter:title" content="Kubernetes on Windows" />
-  <meta name="twitter:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development …">
-  <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.68.3" />
-  <link rel="alternate" href="http://blog.garrardkitchen.com/index.xml" type="application/rss+xml" title="Blog"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/syntax.css" /><link rel="stylesheet" href="http://blog.garrardkitchen.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
-
+<meta property="article:published_time" content="2020-04-06T10:20:26+01:00" />
+<meta property="article:modified_time" content="2020-04-18T10:10:29+01:00" />
+<title>Kubernetes on Windows | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<script defer src="/en.search.min.a66087870aaa50d1bbff830b0965d3986a39d6370662d2d09b12ce3ba27c3957.js" integrity="sha256-pmCHhwqqUNG7/4MLCWXTmGo51jcGYtLQmxLOO6J8OVc="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -107,134 +27,243 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
 
 
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="http://blog.garrardkitchen.com/">Blog</a>
-    </div>
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
 
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-        
-          
-            <li>
-              <a title="Home" href="/">Home</a>
-            </li>
-          
-        
 
-        
 
-        
-      </ul>
-    </div>
 
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
     
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
 
-  </div>
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="active">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
 </nav>
 
 
 
 
-    
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
 
 
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+ 
+    </aside>
 
-<div class="pswp__bg"></div>
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
 
-<div class="pswp__scroll-wrap">
-    
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    
-    <div class="pswp__ui pswp__ui--hidden">
-    <div class="pswp__top-bar">
-      
-      <div class="pswp__counter"></div>
-      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-      <button class="pswp__button pswp__button--share" title="Share"></button>
-      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-      
-      
-      <div class="pswp__preloader">
-        <div class="pswp__preloader__icn">
-          <div class="pswp__preloader__cut">
-            <div class="pswp__preloader__donut"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-      <div class="pswp__share-tooltip"></div>
-    </div>
-    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-    </button>
-    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-    </button>
-    <div class="pswp__caption">
-      <div class="pswp__caption__center"></div>
-    </div>
-    </div>
-    </div>
+  <strong>Kubernetes on Windows</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
 </div>
 
 
   
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#what-is-kubernetes-and-why-is-it-so-important">What is Kubernetes and why is it so important?</a></li>
+            <li><a href="#so-why-is-kubernetes-important">So why is Kubernetes important?</a></li>
+            <li><a href="#some-important-notices">Some important notices</a></li>
+            <li><a href="#how-do-i-install-kubectl-and-what-the-heck-is-it">How do I install <code>kubectl</code> (and what the heck is it)?</a></li>
+            <li><a href="#how-do-i-install-minikube-and-what-the-heck-is-it">How do I install minikube (and what the heck is it)?</a></li>
+            <li><a href="#steps-to-take-to-configure-your-environment">Steps to take to configure your environment</a></li>
+            <li><a href="#useful-kubectl-commands">Useful <code>kubectl</code> commands</a></li>
+          </ul>
+        </li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
   
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/kubernetes-on-windows/">Kubernetes on Windows</a>
+  </h1>
+  
+  <h5>April 6, 2020</h5>
+
+
+
   
 
-
-
-
-
-
   
-
-  <header class="header-section ">
+  <div>
     
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="posts-heading">
-              
-                <h1>Kubernetes on Windows</h1>
-              
-              
-                <hr class="small">
-              
-              
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+      <a href="/tags/aws/">aws</a>, 
+      <a href="/tags/azure/">azure</a>, 
+      <a href="/tags/blogging/">blogging</a>, 
+      <a href="/tags/containers/">containers</a>, 
+      <a href="/tags/gcp/">gcp</a>, 
+      <a href="/tags/kubernetes/">kubernetes</a>, 
+      <a href="/tags/pods/">pods</a>, 
+      <a href="/tags/services/">services</a>, 
+      <a href="/tags/setup/">setup</a>, 
+      <a href="/tags/windows/">windows</a>
+  </div>
+  
 
 
-    
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <p>This post is a reminder to me of what needs to be installed in order for a <code>pod</code>, created from a local image, that is to be served up via a <code>kubernetes cluster</code>, to be run from your local development environment.</p>
+  <p><p>This post is a reminder to me of what needs to be installed in order for a <code>pod</code>, created from a local image, that is to be served up via a <code>kubernetes cluster</code>, to be run from your local development environment.</p>
 <h3 id="what-is-kubernetes-and-why-is-it-so-important">What is Kubernetes and why is it so important?</h3>
 <p>&ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.&rdquo;</p>
 <h3 id="so-why-is-kubernetes-important">So why is Kubernetes important?</h3>
@@ -242,7 +271,7 @@ if (!doNotTrack) {
 <p>That’s how <code>Kubernetes</code> comes to the rescue! Kubernetes provides you with a framework to run distributed systems resiliently. It takes care of scaling and failover for your application, provides deployment patterns, and more. For example, Kubernetes can easily manage a canary deployment for your system.&rdquo;</p>
 <p><code>Kubernetes</code> is the community&rsquo;s (has a much larger community than that of <code>Swarm's</code> community) choice of <code>container</code> <code>orchestrators</code>.</p>
 <h3 id="some-important-notices">Some important notices</h3>
-
+<!-- 
 <div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
 
     <style>
@@ -324,14 +353,19 @@ if (!doNotTrack) {
          panel-header ">
 
         <div style="; ">
-            
-To install <b>kubectl</b> and <b>minikube</b> you must start Powershell with Administrator permissions
-
+             -->
+<!-- 
         </div>
     </div>
 </div>
+ -->
+<blockquote class="book-hint info">
+  <p><strong>Permissions</strong></p>
+<p>To install <b>kubectl</b> and <b>minikube</b> you must start Powershell with Administrator permissions</p>
 
+</blockquote>
 
+<!-- 
 <div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
 
     <style>
@@ -414,11 +448,16 @@ To install <b>kubectl</b> and <b>minikube</b> you must start Powershell with Adm
 
         <div style="; ">
             
-These settings will only viable for the current shell, if you need to run another shell, ensure the <b>minikube docker-env</b> commands in the <b>Steps to take to configure your environment</b> section are also executed in the new shell. As minikube is the tool that runs a local cluster in your development environment, we need to tell it to use it's built-in docker daemon and have images pulled from there, and not from a container registry.
 
         </div>
     </div>
 </div>
+ -->
+<blockquote class="book-hint warning">
+  <p><strong>Shell</strong></p>
+<p>These settings will only viable for the current shell, if you need to run another shell, ensure the <b>minikube docker-env</b> commands in the <b>Steps to take to configure your environment</b> section are also executed in the new shell. As minikube is the tool that runs a local cluster in your development environment, we need to tell it to use it&rsquo;s built-in docker daemon and have images pulled from there, and not from a container registry.</p>
+
+</blockquote>
 
 <h3 id="how-do-i-install-kubectl-and-what-the-heck-is-it">How do I install <code>kubectl</code> (and what the heck is it)?</h3>
 <p><a href="https://github.com/kubernetes/kubectl"><strong>kubectl</strong></a> is a CLI (command line interface) tool for controlling Kubernetes clusters.  You can use this tool to deploy applications, inspect and manage cluster resources and view logs.</p>
@@ -476,7 +515,7 @@ These settings will only viable for the current shell, if you need to run anothe
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [ <span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;server.js&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><p>To build a image of the above <code>Dockerfile</code>, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">-t</span> <span style="color:#a6e22e">hello-world:1</span> <span style="color:#a6e22e">.</span>
-</code></pre></div>
+</code></pre></div><!-- 
 <div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
 
     <style>
@@ -559,11 +598,16 @@ These settings will only viable for the current shell, if you need to run anothe
 
         <div style="; ">
             
-You must specify a version tag and it has to be something other than <b>latest</b>. Here, I have used <b>1</b>.  If you don't follow these instructions, minikube will attempt to pull the image from a docker registry (normally DockerHub).
 
         </div>
     </div>
 </div>
+ -->
+<blockquote class="book-hint warning">
+  <p><strong>Include a build tag</strong></p>
+<p>You must specify a version tag and it has to be something other than <strong>latest</strong>. Here, I have used <strong>1</strong>.  If you don&rsquo;t follow these instructions, minikube will attempt to pull the image from a docker registry (normally DockerHub).</p>
+
+</blockquote>
 
 <p>To check that the image exists in Minikube&rsquo;s built-in Docker daemon, run:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">ssh</span>
@@ -605,77 +649,9 @@ gcr.io/k8s-minikube/storage-provisioner   v1.8.1              4689081edb10      
 <span style="color:#a6e22e">NAME</span>          <span style="color:#a6e22e">TYPE</span>           <span style="color:#a6e22e">CLUSTER-IP</span>      <span style="color:#a6e22e">EXTERNAL-IP</span>   <span style="color:#a6e22e">PORT</span><span style="color:#e6db74">(S)</span>          <span style="color:#a6e22e">AGE</span>
 <span style="color:#a6e22e">hello-world</span>   <span style="color:#a6e22e">LoadBalancer</span>   <span style="color:#a6e22e">10.111.126.10</span>   &lt;<span style="color:#a6e22e">pending</span>&gt;     <span style="color:#a6e22e">8080:31589</span>/TCP   <span style="color:#a6e22e">45h</span>
 <span style="color:#a6e22e">kubernetes</span>    <span style="color:#a6e22e">ClusterIP</span>      <span style="color:#a6e22e">10.96.0.1</span>       &lt;<span style="color:#a6e22e">none</span>&gt;        <span style="color:#ae81ff">443</span>/TCP          <span style="color:#a6e22e">2d16h</span>
-</code></pre></div>
-<div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
-
-    <style>
-        .header {
-            color: white;
-            font-weight: bold;
-            padding-left: 10px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            border-top-right-radius: 5px;
-            border-top-left-radius: 5px;
-            font-size: smaller;
-        }
-
-        .info {
-            background-color: #336699;
-        }
-
-        .warning {
-            background-color: orange;
-        }
-
-        .error {
-            background-color: red;
-        }
-
-        .note-panel {
-            background-color: #c2f5f5;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .panel-info {
-            border: 1px solid #336699;
-            background-color: rgba(51, 102, 153, 0.2);
-        }
-
-        .panel-warning {
-            border: 1px solid orange;
-            background-color: rgba(255, 166, 0, 0.2);
-        }
-
-        .panel-error {
-            border: 1px solid red;
-            background-color: rgba(255, 0, 0, 0.2);
-        }
-
-        .panel-header {
-            border-top-left-radius: 0px !important;
-            border-top-right-radius: 0px !important;
-        }
-    </style>
-
-
-    
-
-    <div class="note-panel 
-          
-             panel-info
-             
-         
-        ">
-
-        <div style="; ">
-            
-You will see the <b>&ltpending&gt</b> state of your LoadBalancer if you do not have not a Load Balancer integrated with your cluster.  For your local development environment, it is nothing to worry about. 
-
-        </div>
-    </div>
-</div>
+</code></pre></div><blockquote class="book-hint info">
+  You will see the <strong>&lt;pending&gt;</strong> state of your LoadBalancer if you do not have not a Load Balancer integrated with your cluster.  For your local development environment, it is nothing to worry about.
+</blockquote>
 
 <p>You will see that the <strong>hello-world</strong> service is accessible via port <strong>8080</strong>. However, we still don&rsquo;t know behind what IPv4 address, this services is available.  To get the IPv4 address of your cluster, you type:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">ip</span>
@@ -720,192 +696,78 @@ You will see the <b>&ltpending&gt</b> state of your LoadBalancer if you do not h
 <li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Kubectl Cheatsheet</a></li>
 <li><a href="https://kubernetes.io/docs/setup/learning-environment/minikube/#use-local-images-by-re-using-the-docker-daemon">Minikube&rsquo;s built-in Docker daemon</a></li>
 </ul>
+</p>
+</article>
+ 
+      
 
-
+      <footer class="book-footer">
         
-          <div class="blog-tags">
-            
-              <a href="http://blog.garrardkitchen.com//tags/blogging/">blogging</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/kubernetes/">kubernetes</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/setup/">setup</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/windows/">windows</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/containers/">containers</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/pods/">pods</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/services/">services</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/azure/">azure</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/aws/">aws</a>&nbsp;
-            
-              <a href="http://blog.garrardkitchen.com//tags/gcp/">gcp</a>&nbsp;
-            
-          </div>
-        
-
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;text=Kubernetes%20on%20Windows&amp;via=" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//reddit.com/submit?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;title=Kubernetes%20on%20Windows" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;title=Kubernetes%20on%20Windows" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;title=Kubernetes%20on%20Windows" target="_blank" title="Share on StumbleUpon">
-          <i class="fab fa-stumbleupon"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2fblog.garrardkitchen.com%2fposts%2fkubernetes-on-windows%2f&amp;description=Kubernetes%20on%20Windows" target="_blank" title="Share on Pinterest">
-          <i class="fab fa-pinterest"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
-        
-
-        
-          
-            
-          
-
-          
-                  <h4 class="see-also">See also</h4>
-                  <ul>
-                
-                
-                    <li><a href="/posts/mentoring/">How do I mentor?</a></li>
-                
-                    <li><a href="/posts/principles/">Good Engineering - Principles</a></li>
-                
-              </ul>
-
-          
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="http://blog.garrardkitchen.com/posts/mentoring/" data-toggle="tooltip" data-placement="top" title="How do I mentor?">&larr; Previous Post</a>
-            </li>
-          
-          
-        </ul>
-      
+  <div class="flex justify-between">
 
 
-      
-        
-        
-      
 
-    </div>
-  </div>
+
+
 </div>
 
-      
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center footer-links">
-          
-          
-          <li>
-            <a href="" title="RSS">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-        <p class="credits copyright text-muted">
-          
-            
-              garrardkitchen
-            
-          
-
-          &nbsp;&bull;&nbsp;&copy;
-          
-            2020
-          
-
-          
-            &nbsp;&bull;&nbsp;
-            <a href="http://blog.garrardkitchen.com/">Blog</a>
-          
-        </p>
+ 
         
-        <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.68.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
-          
-        </p>
-      </div>
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
-  </div>
-</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<script src="http://blog.garrardkitchen.com/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://blog.garrardkitchen.com/js/load-photoswipe.js"></script>
-
-
-
-
-
-
-
-
 
     
-  </body>
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#what-is-kubernetes-and-why-is-it-so-important">What is Kubernetes and why is it so important?</a></li>
+            <li><a href="#so-why-is-kubernetes-important">So why is Kubernetes important?</a></li>
+            <li><a href="#some-important-notices">Some important notices</a></li>
+            <li><a href="#how-do-i-install-kubectl-and-what-the-heck-is-it">How do I install <code>kubectl</code> (and what the heck is it)?</a></li>
+            <li><a href="#how-do-i-install-minikube-and-what-the-heck-is-it">How do I install minikube (and what the heck is it)?</a></li>
+            <li><a href="#steps-to-take-to-configure-your-environment">Steps to take to configure your environment</a></li>
+            <li><a href="#useful-kubectl-commands">Useful <code>kubectl</code> commands</a></li>
+          </ul>
+        </li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
 

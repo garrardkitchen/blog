@@ -4,113 +4,114 @@
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/aws/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/azure/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/blogging/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/containers/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/gcp/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/kubernetes/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/posts/kubernetes-on-windows/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/pods/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/services/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/setup/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/windows/</loc>
-    <lastmod>2020-04-06T10:20:26+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/heisenberg-effect/</loc>
-    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/Heisenberg-Effect/</loc>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/posts/mentoring/</loc>
-    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/hugo/</loc>
-    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/Hugo/</loc>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/mentoring/</loc>
-    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/the-managers-path/</loc>
-    <lastmod>2020-03-26T06:09:14+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/The-Managers-Path/</loc>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/good-engineering/</loc>
-    <lastmod>2020-03-01T20:09:14+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/posts/principles/</loc>
-    <lastmod>2020-03-01T20:09:14+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/principles/</loc>
-    <lastmod>2020-03-01T20:09:14+01:00</lastmod>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/</loc>
+    <lastmod>2020-03-31T07:51:38+01:00</lastmod>
+    <priority>0.9</priority>
   </url>
   
   <url>
