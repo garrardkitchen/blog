@@ -20,6 +20,7 @@ homepage = "http://www.garrardkitchen.com"
 [params]
 BookToC = true
 BookSection = '*'
+BookDateFormat = 'January 2, 2006'
 sidebar = true
 show_excerpts = true
 description = 'Made by <a href="http://www.garrardkitchen.com">Garrard Kitchen</a>'
