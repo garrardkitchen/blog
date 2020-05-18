@@ -157,11 +157,38 @@ Antoher advocated UX principle is to storie all form values in the browser's loc
 
 ## Open Source - the not so "promised land"
 
-`Message driven development` - 12 factors. Limit where you include as you may have to replace or refactor out
+This deserves its own blog post.  For bravity, I'll summary the main points.  I apologise in advance if I leave out any specifics.
+
+I good portion of my development has been cloud based.  It's where I feel the most relaxed and confident.  It's also the source of my enjoyment.  It often makes light of any nightmarish architectural constraints that are brough about by on-premise solutions.
+
+Several years ago the [Teactive Manifesto](https://www.reactivemanifesto.org/) came about.  A bunch of us subscribed to thing philosphy.  I think [12 Factor app](https://12factor.net/) popped up around the same time.  I could be wrong though.  Anyways, not important.  One of the tenets of the Reactive Manifesto was message driven.  Hugely relavant for cloud based development.  It's like the 101 of Cloud development; decoupling dependencies.  
+
+At this time, we had developed a HA solution.  The problem with it though, was it wasn't scalable.  Services, HTTP APIs and the web application itself would also be used in a active/active or active/passive configuration.  We had high hopes for our solution.  I was tasked to create a scalable solution, one that could take full advantage of cloud infrastrutre.  It eventually could, but the journey to get there was a bit of a rought one to say the least.
+
+As intimated at the beginning of this section, I'm not going to be to forthcoming with the details.  This is definitely something for a fuller post.
+
+Our installation procedure was all Powershell driven.  We hadn't entertained including other products to support our product.  We just didn't have the experience, the budget or confidence of doing this.  After all, there were just 3 of us.  So, I set about investigating a way to effectively create our own software cluster capability that could scale.  This includes the automatic registering services that would come online to manage load. A well known Scala clsutering tech had been converted in part to .NET Framework.  This seemed ideal.  It was open source and lots positive references started to surface.  One of the benefits was location tranparency.  the problem with it was that the clustering aspect of it took some considerable time to be ironed out.  It also didn't play nice with IIS.  There was also limited online documentation around the topic of clustering through this open source.  The author had a living to make and so all training was chargeable.  We didn't have  budget.  Myself and my lead developer worked through the available online free training.  This was extensive but it did take you down a path that would later prove difficult to back out of.  In short, you change your development paradigm to making everything everything message driven, even to the point of how your classes called each other.  This was my 2nd mistake.  The 1st mistake was to use something that wasn't mature but more importantly, not fit for purpose for our requirements.
+
+We changed a lot of code on the promise that clustering will just work.  It didn't and it wasn't until later that we discovered it really didn't like IIS but I told that it wasn't it's fault, more of the fault of IIS.  My 3rd mistake was believing that by myself I could get it to work properly.  I couldn't and sadly this took a long time to realise.  
+
+During this time, I reimagined our CI/CD pipeline and started using Octopus to package up deployments.  This made it extremely easy to deploy other products that compliment your own, especially from a technical perspective.  This presented the opportunity of using NATS as a replacement to our internal cluster OSS dependency.  I had used NATS in several time before so felt comfortable and confident with it. NATS is awesome.  It was a good day when I eventually refactored out this troublesome dependency.
+
+Eventually, our CI/CD pipeline would be used to explain our processes to potential partners and customers, to give them peace of mind, knowing how to develop, test and deploy out solution. We also advocated them having mulitple environments their side, to push a best practice agenda and their QA programmes can be played out in full to give them ultimate confidence in rolling out updates, automatically from our central deployment suite.
+
+
+
 
 ## Splitting data out across microservice
 
-What is meant to be kept together, should be kept together
+"What is meant to be kept together, should be kept together"
+
+I've had countless discussions with team members over the years on what a service (mainly SOA and Microservices) should include.  More often than not, the outcome of these discussions havs been, "let's wait and see what the metrics tell us, then decide". One of the principles of good engineering is not to pre-optimise.  This is especially poignant if you're developing a new service and yet know if something will grow or be surplus to requirements.  So why waste your time or effort?
+
+The more challenging conversation come about when services start to mature and you've a services that has a dependency on another.  This is commonly referred to as a Join.  There are several patterns you can adopt, and each have their place.  If data that is required rarely changes, then simply embed this into the requesting service.  Life normally isn't this simple and other solutions required shared caching or common sense will prevail and keep that data together by merging the data schema.  However, one of the benefits of EDA, is that you can have a local copy of this dependency data.
+
+## Client side validation should never substitude server side validation
+
+An oldie but goldie.  I don't think I need to add more here do I?
 
 ## References
 
