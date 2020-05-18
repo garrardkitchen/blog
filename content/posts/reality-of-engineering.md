@@ -10,28 +10,28 @@ I gave myself some downtime this weekend.  The weather was rubbish so unfortunat
 
 ## No code is perfect
 
-Put the keyboard down, and walk away....but only after you;ve finished writing the unit tests yes.  Code and requirements change frequently.  So, don't over think your code.  Just make sure you adhere to good engineering principles and it does exactly what it is required to do, no more.  Please don't add stuff that just isn't need as this will become somebody elses nighmare to support, refactor later!
+Put the keyboard down, and walk away....but only after you've finished writing the unit tests, yes.  Code and requirements change frequently.  So, don't over think your code.  Just make sure you adhere to good engineering principles and that your code does exactly what it is required to do, no more.  Please don't add code that isn't needed.  This will become somebody elses nighmare to support and to refactor later!
 
 Now, write tests and move on...after capturing tech debt of course!
 
 ## Tech debt
 
-It happens all the time.  It's a just what happens when you develop. It shouldn't been seen as a bad thing, providing it is managed correctly and openly.  And that's one of the important things; to capture it.  So, what do you need to capture? Well, this is will give you a good start:
+Technical Debt is created all of the time.  It is what happens when you develop. It shouldn't been seen as a bad thing, providing it is managed correctly and as well as openly.  This is a key point, it must be captured.  So, what do you need to capture? Well, this is will give you a good start:
 - what needs to be done to deal with it (e.g. re-platform to the cloud)
-- why a decision has been taken to leave it as tech debt (e.g. temp solution to keep up momentum)
-- what benefit it will give the organisation when dealt with (e.g. better resilience and `C`ustere`X`perience).
+- why the decision was made to leave it as tech debt (e.g. temp solution to keep up momentum)
+- what benefit it will give the organisation when dealt with (e.g. better resilience and CX - `C`uster e`X`perience).
 
 Simples.
 
 ## No man is an island
 
-Keeping on the theme of Tech Debt; things like this need to be discussed openly.  More to the point, the inclusion of tech debt needs to be agreed AND it has to be captured.  This should be driven by good engineering leadership.
+Keeping on the theme of Tech Debt; things like this need to be discussed openly.  More to the point, the inclusion of tech debt needs to be agreed AND it has to be captured.  This approach should be driven by good engineering leadership.
 
 ## Ideas; thick and fast
 
-To work rapidly towards a solution, ideas need to be thick and fast.  These will be dismissed but well help shape the eventual solution.  This goes for both architecture and code solutionizing.  The quicker the ideas are out there, the quicker they can be discussed.  With these ideas being shared, the discussion n that will enevitably ensue will always bring the team members together.  `Collaboration` is your friend. The serendipity of this action will give more team members shared knowledge of this `problem domain` and will in part help in their development and education.
+To work rapidly towards a solution, ideas need to be thick and fast.  These will be dismissed and will help shape the eventual solution.  This goes for both architecture and code solutionizing.  The quicker the ideas are out there, the quicker these ideas can be critiqued.  With these ideas being shared, the discussion that will enevitably ensue will always bring the team members together.  `Collaboration` is your friend. The serendipity of this action will give more team members shared knowledge of this `problem domain` and will, in part, help in their personal development and education.
 
-## Don't be precious of codebases
+## Don't be precious about your codebases
 
 This time next month, 6 months, a year, 2 years, etc.. it won't look the same and most probably will not exists.
 
@@ -43,24 +43,21 @@ This approach is always spoken of, especially in interviews or technical tests, 
 
 ## Kick towards the end goal
 
-Quick releases will measure your success rate and offer the greatest amount of flexibility to react and adapt.  So what do I mean to react and adopt.  If you're developing a new feature.  You never, NEVER release a the all-encompassing, panacea.  You devise a MVP (minimum viable product, or feature), to purely test your original hypothesis.  This way, if no one needs it OR can't use it, you can rapidly either (a) chalk it up to experience and move on OR (b) improve the `Us`ere`X`perience.  Ah yes, slow development and big bangs don't help.  Whether it's a rewrite or a new feature, you won't know whether you're on the right track until it's out there and, here's the biggy, and being measured!  Yeah, I went there!  I mean, how else are you going to know whether your feature is working or being used right?  This includes re-engineering technical problems too.
+Quick releases will measure your success rate and offer the greatest amount of flexibility to react and adapt.  So what do I mean to "react and adapt".  When you are developing a new features, you never, EVER release the all-encompassing, panacea.  You devise a MVP (minimum viable product, or feature), to purely test your original hypothesis.  This way, if no one needs it OR can't use it, you can rapidly either (a) chalk it up to experience and move on OR (b) improve the `Us`ere`X`perience.  Ah yes, slow development and big bangs don't help.  Whether it's a rewrite or a new feature, you won't know whether you're on the right track until it's out there and, here's the biggy, and being measured!  Yeah, I went there!  I mean, how else are you going to know whether your feature is working or being used right?  This includes re-engineering technical problems too.
 
-## If developing features, have POs provide test-cases
+## If developing features, have the PO provide test-cases
 
-There's 2 types of development work.  These are (a) Technical improves which address engineering improvements and (b) Features.  As engineers we'll know how to test our sh*t, but not necessarily how best to test a new feature.  this required excellent product domain knowledge  So, an important part of the effort is to have your POs (`P`roduct`O`wners) provide the test-cases.  This needs to be part of the Sprint.
+There's 2 types of development work.  These are (a) Technical work which address engineering improvements and (b) Features.  As engineers, we know how to test our sh*t, but not necessarily how best to test a new feature.  This requires excellent product domain knowledge.  So, an important part of the effort is to have your PO (`P`roduct `O`wner) provide the test-cases.  This needs to be part of the Sprint.
 
 ## Let your architecture deal with resilience
 
 A definition of Resilience:
 
-    Resilience is the ability for your _solution) to continue to operate without issue, when faced with a transient failure.
+    Resilience is the ability for your solution to continue to operate without issue, when faced with a transient failure.
 
-Don't code for resilience on serverside,  let architecture deal with it - EDA - show fav pattern here
-Client validation as well as server-side validation.
+You'll think you're doing a good job by including a resilience framework to `exponentially backoff` or `circuit break` failed downstream dependencies.  Unless this is done properly and is known by all dependents, you've creating a huge problem for others!  This is one of the reasons I hate HTTP chaining.  You are inadvertantly creating something that may cause DDoSing of your own infrastructure...even with a jitter!  There are better approaches to mitigate this - EDA.
 
-You'll think you're doing a good job by including a resilience framework to `exponentially backoff` or `circuit break` downstream dependencies.  Unless this is done properly and is known by all dependents, you've creating a huge problem for others!  This is one of the reasons I hate HTTP chaining.  You are inadvertantly create something that may cause of DDoS on your own infrastructure...event with a jitter!
-
-**TODO: More content required**
+More on this later.
 
 ## Offload cross-cutting concerns 
 
@@ -75,9 +72,11 @@ This is in keeping with the DRY principle.  Heres a list of typical cross-cuttin
 - Headers, query strings, and claim transformation
 - IP whitelisting
 
-What this gives you is a smaller attack surface areas as well as `facade`-esque capability to re-utilisize your services.  I am not saying that this, or aggregation, are the best solutions, more that they are just solutions that may work for your particular problem domain.  This by itself is NOT the entire solution but will help your architecture a better your solution.
+What this gives you is a smaller attack surface areas as well as `facade`-esque capability to re-utilisize your services.  I am not saying that this, or aggregation, are the best solutions, more that they are just solutions that may work for your particular problem domain.  This by itself is NOT the entire solution but will help your architecture a better solution.
 
-Take authorization for instance.  Implementing this repeatedly across all your services is simply a waste of time and effort.  The best place to target this, is at the API Gateway.  Done once, which means less code, less maintenance, one place to have your X.509 certificate.  imagine what I pain it will be having to redeploy a new X.509 certificate?!  Mind you, not so much of a pain if you have your CI/CD pipelines configured!
+More recently, a large number of the above cross-cutting concerns can be accomplished using technologies like `service meshes` (e.g. istio).  I digress ...
+
+Take authorization for instance.  Implementing this repeatedly across all your services is simply a waste of time and effort.  The best place to target this, is at the API Gateway.  Done once, which means less code, less maintenance and one place to have your X.509 certificate.  Imagine what a pain it will be having to redeploy a new X.509 certificate?!  Mind you, not so much of a pain if you have your CI/CD pipelines configured!
 
 ## EDA between domains
 
@@ -167,24 +166,46 @@ At this time, we had developed a HA solution.  The problem with it though, was i
 
 As intimated at the beginning of this section, I'm not going to be to forthcoming with the details.  This is definitely something for a fuller post.
 
-Our installation procedure was all Powershell driven.  We hadn't entertained including other products to support our product.  We just didn't have the experience, the budget or confidence of doing this.  After all, there were just 3 of us.  So, I set about investigating a way to effectively create our own software cluster capability that could scale.  This includes the automatic registering services that would come online to manage load. A well known Scala clsutering tech had been converted in part to .NET Framework.  This seemed ideal.  It was open source and lots positive references started to surface.  One of the benefits was location tranparency.  the problem with it was that the clustering aspect of it took some considerable time to be ironed out.  It also didn't play nice with IIS.  There was also limited online documentation around the topic of clustering through this open source.  The author had a living to make and so all training was chargeable.  We didn't have  budget.  Myself and my lead developer worked through the available online free training.  This was extensive but it did take you down a path that would later prove difficult to back out of.  In short, you change your development paradigm to making everything everything message driven, even to the point of how your classes called each other.  This was my 2nd mistake.  The 1st mistake was to use something that wasn't mature but more importantly, not fit for purpose for our requirements.
+Our installation procedure was all Powershell driven.  We hadn't entertained including other products to support our product.  We just didn't have the experience, the budget or confidence of doing this.  After all, there were just 3 of us.  So, I set about investigating a way to effectively create our own software cluster capability that could scale.  This includes the automatic registering services that would come online to manage load. A well known Scala clsutering tech had been converted in part to .NET Framework.  This seemed ideal.  It was open source and lots positive references started to surface.  One of the benefits was `location tranparency`.  `Location transparency` is a term that used to identify network resoures by name and not by their actual location.  So, from a coding perspective, you can reference something from configuration, that could be running on another server, remote from where the _client_ is interfacing with it. I think this is cool.
 
-We changed a lot of code on the promise that clustering will just work.  It didn't and it wasn't until later that we discovered it really didn't like IIS but I told that it wasn't it's fault, more of the fault of IIS.  My 3rd mistake was believing that by myself I could get it to work properly.  I couldn't and sadly this took a long time to realise.  
+The problem with it was that the clustering aspect of it took some considerable time to be ironed out.  It also didn't play nicely with IIS.  There was also limited online documentation around the topic of clustering through this OSS.  The author had a living to make and so all training was chargeable.  We didn't have a budget.  Myself and my lead developer worked through the available free online training.  This was extensive but it did take you down a path that would later prove difficult to back out of.  In short, you change your development paradigm to making everything message driven, even to the point of how your classes methods interacted with one other.  This was my 2nd mistake.  The 1st mistake was to use something that wasn't mature but more importantly, not fit for purpose for our requirements.
 
-During this time, I reimagined our CI/CD pipeline and started using Octopus to package up deployments.  This made it extremely easy to deploy other products that compliment your own, especially from a technical perspective.  This presented the opportunity of using NATS as a replacement to our internal cluster OSS dependency.  I had used NATS in several time before so felt comfortable and confident with it. NATS is awesome.  It was a good day when I eventually refactored out this troublesome dependency.
+As a consequence, we changed a large portion of our codebases on the promise that clustering will just work.  It didn't and it wasn't until later that we discovered it really didn't like IIS. I was told that it wasn't its fault, more of the fault of IIS.  My 3rd mistake was believing that by myself I could get it to work properly.  I couldn't and sadly this took a long time to realize.  This is one of those rare occasions when bloody-mindedness worked against me!  
 
-Eventually, our CI/CD pipeline would be used to explain our processes to potential partners and customers, to give them peace of mind, knowing how to develop, test and deploy out solution. We also advocated them having mulitple environments their side, to push a best practice agenda and their QA programmes can be played out in full to give them ultimate confidence in rolling out updates, automatically from our central deployment suite.
+During this time, I reimagined our CI/CD pipeline and started using Octopus Deploy to package up and deploy our HA Web product.  This made it extremely easy to include and deploy supporting solutions that complimented our own.  This presented us with the opportunity of using a replacement to this clustering library.  This was NATS. I had used NATS several time before and felt comfortable and confident with it. NATS is awesome.  The elation of finally moving away from this horror was indescribable.
 
+Eventually, our CI/CD pipeline would be used to explain our processes to potential partners and those customers we supported directly.  This gave them peace of mind, knowing how to develop our software, test it and deploy it. We also advocated the benefits of having multiple environments. There was not one partner/customer who did not take heed of this advice and extended their own established QA programme to include our product too.
 
+So, key take aways here are:
+- do not use OSS in the way that it dependency is critical to any of your components / systems
+- only use OSS that is mature, do not entertain versions ~1.0!
+- if you do not get rapid success through PoC, be unequivocal in your move to a different solution
+- do not go all in on something new, introduce it slowly, with limited exposure and measure it's performance (latency and error rates)
 
 
 ## Splitting data out across microservice
 
 "What is meant to be kept together, should be kept together"
 
-I've had countless discussions with team members over the years on what a service (mainly SOA and Microservices) should include.  More often than not, the outcome of these discussions havs been, "let's wait and see what the metrics tell us, then decide". One of the principles of good engineering is not to pre-optimise.  This is especially poignant if you're developing a new service and yet know if something will grow or be surplus to requirements.  So why waste your time or effort?
+I've had countless discussions with team members over the years on what a service (mainly SOA and Microservices) should include.  More often than not, the outcome of these discussions have been, "let's wait and see what the metrics tell us, then decide". One of the principles of good engineering is not to prematurally optimise.  This is especially poignant if you're developing a new service and yet know if something will grow or be surplus to requirement.  So why waste both your time or effort on effectively trying to answer a question that cannot be answered?
 
-The more challenging conversation come about when services start to mature and you've a services that has a dependency on another.  This is commonly referred to as a Join.  There are several patterns you can adopt, and each have their place.  If data that is required rarely changes, then simply embed this into the requesting service.  Life normally isn't this simple and other solutions required shared caching or common sense will prevail and keep that data together by merging the data schema.  However, one of the benefits of EDA, is that you can have a local copy of this dependency data.
+The more challenging conversation come about when services start to mature and you've a service that has a dependency on another.  This is commonly referred to as a "decomposing the database".  There are several patterns you can adopt, and each have their place.  If data that is required rarely changes, then simply derive the class from the data and embed this into the requesting service as a type collection (e.g. `IEnumerable<{type}>`).  Life normally isn't this simple and other solutions might include shared database or common sense will prevail and keep that data together in the same database.  However, one of the benefits of EDA (`E`vent `D`rive `D`evelopment), is that you can have a local copy of this dependency data.
+
+Obviously, this is a HUGE topic and I've massively stepped over the common courtesy line by writing the above throw away comments.  But, to justify my rush through this section, I would say, do what's right based on your collected metrics.  There are plenty of patterns you can follow, here's a few:
+
+- The shared Database
+- Database view
+- Database Wrapping Services
+- Database as a Service Interface
+- Transferring Owership
+- Data Synchronisation
+- Synchronisation Data in Application
+- Tracer Write
+- Splitting Apart the Database
+- Split Table
+- Transactions
+- Sagas
+- Event Driven Development
 
 ## Client side validation should never substitude server side validation
 
@@ -194,3 +215,4 @@ An oldie but goldie.  I don't think I need to add more here do I?
 
 - [direct client to microservices Vs API Gateway pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern)
 - [gateway offloading](https://docs.microsoft.com/en-gb/azure/architecture/patterns/gateway-offloading)
+- [Monolith to Microservices](https://learning.oreilly.com/library/view/monolith-to-microservices)
