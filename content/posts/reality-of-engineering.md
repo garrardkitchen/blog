@@ -207,6 +207,22 @@ Obviously, this is a HUGE topic and I've massively stepped over the common court
 - Sagas
 - Event Driven Development
 
+I am of the opinion that not every bit of data has tpo be stored in a database.  These next 2 example will give exampled of how I've employed this approach and why.
+
+### Multi-tenant User hierarchy
+
+In my previous employment, we had a HA web application that had a Db resource intensive use-case. This use-case would run everytime a user was updated. The update might involve them moving to a place in a hierarchy, sometimes you would be in multiple places at one (this was completely fine).  We called this the user hierarchy and this was all managed within the database (originally MSSQL).  We had an HTTP API that people used to sync their product hierarchy with ours.  This too triggered this resource intensive use-case.  We had replaced this operation with ADO.NET to reduce this operations latency but this, if you had mulit tenants sync'ing or making modifications to users or the hierarchy, then things could get a little tense from a performance perspective.
+
+It was the regeneration of the hierarchy that was the cultpret here.  It would rengerate the user position using Left and Right boundaries, to position a user's position wihtin a Team.  They could also hold multiple roles, like Manager of a specific type of hierarchical node (e.g. department manager, team manager).  Another dimension to the complexity was our scheduling feature.  This would scheduled jobs to pull data from a call recorder's database (or API).  This would use our internal user IDs etc for mappings to their internal User IDs.  You know the kind of thing.  So, the schuduler would have to be updted too, otherwise hierarchical groupings wouldn't line up either (our Recorder queries had the capabiity to pull back a sample of recordings per hierarchical gorupongs based on node types (teams, departments, etc...)).  It was sophicated as well as being a great feature.
+
+However, the hierarchy was the constraint.  It was your prime example of technical debt.
+
+So, we explored ways to remove the hierarchy from the database.  What we did was to move the resting place of it to disk, and when ever it was required (thing UI or the scheduler), we'd lazy load it into cache from disk.  We eventually improved on the soution with using gRPC and protobuf to reduce the execution to ~1sec.  We also used both Azure Blog Storage and AWS S3 Buckets.
+
+### Aggregation reporting
+
+ETL
+
 ## Client side validation should never substitude server side validation
 
 An oldie but goldie.  I don't think I need to add more here do I?
