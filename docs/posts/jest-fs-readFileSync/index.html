@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="I&rsquo;d just ran npm run test in a newly created package I&rsquo;d added to a monorepo (lerna) I&rsquo;d created for a project I was working on that integrates with Twilio Sync, RabbitMQ, Twilio TaskRouter and MSSQL, and I go this:
+*******************************consumers\packages\eda [CRMBROK-233 &#43;0 ~2 -0 !]&gt; npm run test &gt; @cf247/eda@1.0.2 test *******************************consumers\packages\eda &gt; jest FAIL __tests__/eda.test.js ● Test suite failed to run ENOENT: no such file or directory, open &#39;."><meta property="og:title" content="Unit testing and mocking fs.ReadFileSync" />
+<meta property="og:description" content="I&rsquo;d just ran npm run test in a newly created package I&rsquo;d added to a monorepo (lerna) I&rsquo;d created for a project I was working on that integrates with Twilio Sync, RabbitMQ, Twilio TaskRouter and MSSQL, and I go this:
+*******************************consumers\packages\eda [CRMBROK-233 &#43;0 ~2 -0 !]&gt; npm run test &gt; @cf247/eda@1.0.2 test *******************************consumers\packages\eda &gt; jest FAIL __tests__/eda.test.js ● Test suite failed to run ENOENT: no such file or directory, open &#39;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/jest-fs-readFileSync/" />
+<meta property="article:published_time" content="2020-05-28T07:32:45+00:00" />
+<meta property="article:modified_time" content="2020-05-28T07:32:45+00:00" />
+<title>Unit testing and mocking fs.ReadFileSync | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.e9c18f834f7d028fa651f7d34183c1ba5228a15c4c7f9042b3581f0c399f3e51.js" integrity="sha256-6cGPg099Ao&#43;mUffTQYPBulIooVxMf5BCs1gfDDmfPlE="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="active">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/reality-of-engineering/" class="">Reality of Engineering</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Unit testing and mocking fs.ReadFileSync</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents"></nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/jest-fs-readFileSync/">Unit testing and mocking fs.ReadFileSync</a>
+  </h1>
+  <p>
+  
+  <i>May 28, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;502&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/jest/">jest</a>, 
+  <a href="/tags/mssql/">mssql</a>, 
+  <a href="/tags/rabbitmq/">rabbitmq</a>, 
+  <a href="/tags/sync/">sync</a>, 
+  <a href="/tags/taskrouter/">taskrouter</a>, 
+  <a href="/tags/twilio/">twilio</a>, 
+  <a href="/tags/twilio-sync/">twilio sync</a>, 
+  <a href="/tags/twilio-taskrouter/">twilio taskrouter</a>, 
+  <a href="/tags/unit-testing/">unit testing</a>
+</div>
+
+
+  <p><p>I&rsquo;d just ran <code>npm run test</code> in a newly created package I&rsquo;d added to a monorepo (<a href="https://lerna.js.org/">lerna</a>) I&rsquo;d created for a project I was working on that integrates with Twilio Sync, RabbitMQ, Twilio TaskRouter and MSSQL, and I go this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">*******************************consumers\packages\eda</span> [<span style="color:#a6e22e">CRMBROK-233</span> <span style="color:#ae81ff">+0</span> <span style="color:#a6e22e">~2</span> <span style="color:#ae81ff">-0</span> <span style="color:#a6e22e">!</span>]&gt; <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">test</span>
+
+&gt; <span style="color:#a6e22e">@cf247</span>/eda@1.0.2 <span style="color:#a6e22e">test</span> <span style="color:#a6e22e">*******************************consumers\packages\eda</span>
+&gt; <span style="color:#a6e22e">jest</span>
+
+ <span style="color:#a6e22e">FAIL</span>  <span style="color:#a6e22e">__tests__</span>/eda.test.js
+  <span style="color:#a6e22e">●</span> <span style="color:#a6e22e">Test</span> <span style="color:#a6e22e">suite</span> <span style="color:#a6e22e">failed</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">run</span>
+
+    <span style="color:#a6e22e">ENOENT:</span> <span style="color:#a6e22e">no</span> <span style="color:#a6e22e">such</span> <span style="color:#a6e22e">file</span> <span style="color:#a6e22e">or</span> <span style="color:#a6e22e">directory,</span> <span style="color:#a6e22e">open</span> <span style="color:#a6e22e">&#39;.env&#39;</span>
+
+      <span style="color:#ae81ff">2</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">require</span><span style="color:#e6db74">(&#39;fs&#39;)</span>
+      <span style="color:#ae81ff">3</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">const</span> <span style="color:#a6e22e">dotenv</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">require</span><span style="color:#e6db74">(&#39;dotenv&#39;)</span>
+    &gt; <span style="color:#ae81ff">4</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">const</span> <span style="color:#a6e22e">envConfig</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">dotenv.parse</span><span style="color:#e6db74">(fs.readFileSync(`.env`))</span>
+        <span style="color:#a6e22e">|</span>                                   <span style="color:#a6e22e">^</span>
+      <span style="color:#ae81ff">5</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">for</span> <span style="color:#e6db74">(const k in envConfig)</span> {
+      <span style="color:#ae81ff">6</span> <span style="color:#a6e22e">|</span>     <span style="color:#a6e22e">process.env</span>[<span style="color:#a6e22e">k</span>] <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">envConfig</span>[<span style="color:#a6e22e">k</span>]
+      <span style="color:#ae81ff">7</span> <span style="color:#a6e22e">|</span> }
+
+      <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">Object.</span>&lt;<span style="color:#a6e22e">anonymous</span>&gt; <span style="color:#e6db74">(lib/setenv.js:4:35)</span>
+      <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">Object.</span>&lt;<span style="color:#a6e22e">anonymous</span>&gt; <span style="color:#e6db74">(lib/eda.js:1:1)</span>
+
+<span style="color:#a6e22e">Test</span> <span style="color:#a6e22e">Suites:</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">failed,</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">total</span>
+<span style="color:#a6e22e">Tests:</span>       <span style="color:#ae81ff">0</span> <span style="color:#a6e22e">total</span>
+<span style="color:#a6e22e">Snapshots:</span>   <span style="color:#ae81ff">0</span> <span style="color:#a6e22e">total</span>
+<span style="color:#a6e22e">Time:</span>        <span style="color:#ae81ff">1.772</span> <span style="color:#a6e22e">s</span>
+<span style="color:#a6e22e">Ran</span> <span style="color:#a6e22e">all</span> <span style="color:#a6e22e">test</span> <span style="color:#a6e22e">suites.</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span> <span style="color:#a6e22e">code</span> <span style="color:#a6e22e">ELIFECYCLE</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span> <span style="color:#a6e22e">errno</span> <span style="color:#ae81ff">1</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span> <span style="color:#a6e22e">@cf247</span>/eda@1.0.2 <span style="color:#a6e22e">test:</span> <span style="color:#a6e22e">`jest`</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span> <span style="color:#a6e22e">Exit</span> <span style="color:#a6e22e">status</span> <span style="color:#ae81ff">1</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span> <span style="color:#a6e22e">Failed</span> <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">@cf247</span>/eda@1.0.2 <span style="color:#a6e22e">test</span> <span style="color:#a6e22e">script.</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">probably</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">problem</span> <span style="color:#a6e22e">with</span> <span style="color:#a6e22e">npm.</span> <span style="color:#a6e22e">There</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">likely</span> <span style="color:#a6e22e">additional</span> <span style="color:#a6e22e">logging</span> <span style="color:#a6e22e">output</span> <span style="color:#a6e22e">above.</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">WARN</span> <span style="color:#a6e22e">Local</span> <span style="color:#a6e22e">package.json</span> <span style="color:#a6e22e">exists,</span> <span style="color:#a6e22e">but</span> <span style="color:#a6e22e">node_modules</span> <span style="color:#a6e22e">missing,</span> <span style="color:#a6e22e">did</span> <span style="color:#a6e22e">you</span> <span style="color:#a6e22e">mean</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">install?</span>
+
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span> <span style="color:#a6e22e">A</span> <span style="color:#a6e22e">complete</span> <span style="color:#a6e22e">log</span> <span style="color:#a6e22e">of</span> <span style="color:#a6e22e">this</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">can</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">found</span> <span style="color:#a6e22e">in:</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">ERR!</span>     <span style="color:#a6e22e">*******************************\npm-cache\_logs\2020-05-28T08_04_32_271Z-debug.log</span>
+<span style="color:#a6e22e">*******************************consumers\packages\eda</span> [<span style="color:#a6e22e">CRMBROK-233</span> <span style="color:#ae81ff">+0</span> <span style="color:#a6e22e">~3</span> <span style="color:#ae81ff">-0</span> <span style="color:#a6e22e">!</span>]&gt;
+</code></pre></div><p>Not great but hey, first run and all!</p>
+<p>The error message tells me everything I need to know:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">ENOENT:</span> <span style="color:#a6e22e">no</span> <span style="color:#a6e22e">such</span> <span style="color:#a6e22e">file</span> <span style="color:#a6e22e">or</span> <span style="color:#a6e22e">directory,</span> <span style="color:#a6e22e">open</span> <span style="color:#a6e22e">&#39;.env&#39;</span>
+
+      <span style="color:#ae81ff">2</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">require</span><span style="color:#e6db74">(&#39;fs&#39;)</span>
+      <span style="color:#ae81ff">3</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">const</span> <span style="color:#a6e22e">dotenv</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">require</span><span style="color:#e6db74">(&#39;dotenv&#39;)</span>
+    &gt; <span style="color:#ae81ff">4</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">const</span> <span style="color:#a6e22e">envConfig</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">dotenv.parse</span><span style="color:#e6db74">(fs.readFileSync(`.env`))</span>
+</code></pre></div><p>Which is that it can&rsquo;t find an <code>.env</code> file. And it wouldn&rsquo;t. Later refactoring would remove this file dependency but for now, all I want to do is to get my test working.</p>
+<p>This <em>was</em> the unit test code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#39;use strict&#39;</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eda</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;..&#39;</span>)
+
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;@cf247/eda&#39;</span>, () =&gt; {
+    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;no tests&#39;</span>, () =&gt; {
+    })
+})
+</code></pre></div><p>This is the code from the module it was <em>importing</em> via the <code>require('..')</code> statement:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./setenv&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">amqp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;amqplib/callback_api&#39;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">io</span>, <span style="color:#a6e22e">emitter</span>) =&gt; {
+    ...
+</code></pre></div><p>The top line is importing code from this file:</p>
+<p><em>I&rsquo;ve highlighted the problematic line of code</em></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dotenv</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;dotenv&#39;</span>)
+<span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">envConfig</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dotenv</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFileSync</span>(<span style="color:#e6db74">`.env`</span>))
+</span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">envConfig</span>) {
+    <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>[<span style="color:#a6e22e">k</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">envConfig</span>[<span style="color:#a6e22e">k</span>]
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>The quickest (IMO) way to deal with this and move forward is to Mock the <code>fs</code> class.  I did this by included a jest module mock into my unit test file:</p>
+<p><em>I&rsquo;ve highlighted the mock related code</em></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#39;use strict&#39;</span>
+<span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>)
+</span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eda</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;..&#39;</span>)
+<span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#a6e22e">jest</span>.<span style="color:#a6e22e">mock</span>(<span style="color:#e6db74">&#39;fs&#39;</span>, () =&gt; ({
+</span><span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#a6e22e">readFileSync</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">jest</span>.<span style="color:#a6e22e">fn</span>((<span style="color:#a6e22e">file_name</span>) =&gt; {
+</span><span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#66d9ef">return</span> []
+</span><span style="display:block;width:100%;background-color:#3c3d38">    })
+</span><span style="display:block;width:100%;background-color:#3c3d38">}))
+</span>
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;@cf247/eda&#39;</span>, () =&gt; {
+    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;no tests&#39;</span>, () =&gt; {
+    })
+});
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>What this does is, when the <code>readFileSync</code> class function is called, it always returns an empty array <code>[]</code>.  As the unit code does not have a dependency on environment variables, this mocked response will work fine.</p>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

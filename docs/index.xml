@@ -6,10 +6,29 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 06 Apr 2020 10:20:26 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 07:32:45 +0000</lastBuildDate>
     
 	<atom:link href="http://blog.garrardkitchen.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Unit testing and mocking fs.ReadFileSync</title>
+      <link>http://blog.garrardkitchen.com/posts/jest-fs-readFileSync/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/jest-fs-readFileSync/</guid>
+      <description>I&amp;rsquo;d just ran npm run test in a newly created package I&amp;rsquo;d added to a monorepo (lerna) I&amp;rsquo;d created for a project I was working on that integrates with Twilio Sync, RabbitMQ, Twilio TaskRouter and MSSQL, and I go this:
+*******************************consumers\packages\eda [CRMBROK-233 +0 ~2 -0 !]&amp;gt; npm run test &amp;gt; @cf247/eda@1.0.2 test *******************************consumers\packages\eda &amp;gt; jest FAIL __tests__/eda.test.js ● Test suite failed to run ENOENT: no such file or directory, open &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>Reality of Engineering</title>
+      <link>http://blog.garrardkitchen.com/posts/reality-of-engineering/</link>
+      <pubDate>Mon, 18 May 2020 11:48:48 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/reality-of-engineering/</guid>
+      <description>I gave myself some downtime this weekend. The weather was rubbish so unfortunately I couldn&amp;rsquo;t execute some &amp;ldquo;list&amp;rdquo; tasks. Instead, I watched some movies, helped my boys find stuff, build and generally make a mess - ah, the good stuff yeah?! This gave me the necessary space to think about some of the areas of engineering that would have benefited me from knowing &amp;ldquo;at the time&amp;rdquo;. Below is a list of guiding principles, advice and general experience in engineering resulting from this &amp;ldquo;moment of clarify&amp;rdquo;.</description>
+    </item>
     
     <item>
       <title>Kubernetes on Windows</title>

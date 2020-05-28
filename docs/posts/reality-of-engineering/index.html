@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="I gave myself some downtime this weekend. The weather was rubbish so unfortunately I couldn&rsquo;t execute some &ldquo;list&rdquo; tasks. Instead, I watched some movies, helped my boys find stuff, build and generally make a mess - ah, the good stuff yeah?! This gave me the necessary space to think about some of the areas of engineering that would have benefited me from knowing &ldquo;at the time&rdquo;. Below is a list of guiding principles, advice and general experience in engineering resulting from this &ldquo;moment of clarify&rdquo;."><meta property="og:title" content="Reality of Engineering" />
+<meta property="og:description" content="I gave myself some downtime this weekend. The weather was rubbish so unfortunately I couldn&rsquo;t execute some &ldquo;list&rdquo; tasks. Instead, I watched some movies, helped my boys find stuff, build and generally make a mess - ah, the good stuff yeah?! This gave me the necessary space to think about some of the areas of engineering that would have benefited me from knowing &ldquo;at the time&rdquo;. Below is a list of guiding principles, advice and general experience in engineering resulting from this &ldquo;moment of clarify&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/reality-of-engineering/" />
+<meta property="article:published_time" content="2020-05-18T11:48:48+01:00" />
+<meta property="article:modified_time" content="2020-05-19T09:27:15+01:00" />
+<title>Reality of Engineering | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.e9c18f834f7d028fa651f7d34183c1ba5228a15c4c7f9042b3581f0c399f3e51.js" integrity="sha256-6cGPg099Ao&#43;mUffTQYPBulIooVxMf5BCs1gfDDmfPlE="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/reality-of-engineering/" class="active">Reality of Engineering</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Reality of Engineering</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#no-code-is-perfect">No code is perfect</a></li>
+        <li><a href="#tech-debt">Tech debt</a></li>
+        <li><a href="#no-man-is-an-island">No man is an island</a></li>
+        <li><a href="#ideas-thick-and-fast">Ideas; thick and fast</a></li>
+        <li><a href="#dont-be-precious-about-your-codebases">Don&rsquo;t be precious about your codebases</a></li>
+        <li><a href="#tdd">TDD</a></li>
+        <li><a href="#kick-towards-the-end-goal">Kick towards the end goal</a></li>
+        <li><a href="#if-developing-features-have-the-po-provide-test-cases">If developing features, have the PO provide test-cases</a></li>
+        <li><a href="#let-your-architecture-deal-with-resilience">Let your architecture deal with resilience</a></li>
+        <li><a href="#offload-cross-cutting-concerns">Offload cross-cutting concerns</a></li>
+        <li><a href="#eda-between-domains">EDA between domains</a></li>
+        <li><a href="#only-take-the-microservices-route-if-this-addresses-the-issue">Only take the microservices route if this addresses the issue</a></li>
+        <li><a href="#cross-boundary-requests-metrics">Cross-boundary requests metrics</a></li>
+        <li><a href="#document-as-you-go-must-not-be-an-afterthought">Document as you go, must not be an afterthought</a></li>
+        <li><a href="#no-initial-design-will-ever-play-out">No initial design will ever play out</a></li>
+        <li><a href="#its-100-ok-to-change-your-mind">It&rsquo;s 100% ok to change your mind</a></li>
+        <li><a href="#monorepos-for-shared-code---can-still-scale-by-deploying-to-separate-docker-containers">Monorepos for shared code - can still scale by deploying to separate docker containers</a></li>
+        <li><a href="#code-to-interfaces-for-http-api-calls">Code to interfaces for HTTP API calls</a></li>
+        <li><a href="#keep-code-simple-doesnt-need-to-be-clever">Keep code simple, doesn&rsquo;t need to be clever.</a></li>
+        <li><a href="#controllers-thin-mvc-should-be-thinlight---biz-logic-in-models">Controllers (thin MVC) should be thin/light - biz logic in models</a></li>
+        <li><a href="#open-source---the-not-so-promised-land">Open Source - the not so &ldquo;promised land&rdquo;</a></li>
+        <li><a href="#splitting-data-out-across-microservice">Splitting data out across microservice</a>
+          <ul>
+            <li><a href="#multi-tenant-user-hierarchy">Multi-tenant User hierarchy</a></li>
+            <li><a href="#aggregation-reporting">Aggregation reporting</a></li>
+          </ul>
+        </li>
+        <li><a href="#client-side-validation-should-never-substitude-server-side-validation">Client side validation should never substitude server side validation</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/reality-of-engineering/">Reality of Engineering</a>
+  </h1>
+  <p>
+  
+  <i>May 18, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;22&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;4591&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/architecture/">architecture</a>, 
+  <a href="/tags/good-engineering/">good engineering</a>, 
+  <a href="/tags/good-practices/">good practices</a>, 
+  <a href="/tags/guiding-principles/">guiding principles</a>, 
+  <a href="/tags/patterns/">patterns</a>
+</div>
+
+
+  <p><p>I gave myself some downtime this weekend.  The weather was rubbish so unfortunately I couldn&rsquo;t execute some &ldquo;list&rdquo; tasks.  Instead, I watched some movies, helped my boys find stuff, build and generally make a mess - ah, the good stuff yeah?!  This gave me the necessary space to think about some of the areas of engineering that would have benefited me from knowing &ldquo;at the time&rdquo;.  Below is a list of guiding principles, advice and general experience in engineering resulting from this &ldquo;moment of clarify&rdquo;.  I never know whether to call it engineering or development. Apologies if I switch between the two terms in this post.  I essentially mean the same thing.  One thing to note, it&rsquo;s a list with some content.  It not exhaustive and they are <em>just</em> my opinions. As always, this is a reminder to myself but hoping this will help others too!</p>
+<hr>
+<h2 id="no-code-is-perfect">No code is perfect</h2>
+<p>Put the keyboard down, and walk away&hellip;.but only after you&rsquo;ve finished writing the unit tests, yes.  Code and requirements change frequently.  So, don&rsquo;t over think your code.  Just make sure you adhere to good engineering principles and that your code does exactly what it is required to do, no more.  Please don&rsquo;t add code that isn&rsquo;t needed.  This will become somebody elses nighmare to support and to refactor later!</p>
+<p>Now, write tests and move on&hellip;after capturing tech debt of course!</p>
+<h2 id="tech-debt">Tech debt</h2>
+<p>Technical Debt is created all of the time.  It is what happens when you develop. It shouldn&rsquo;t been seen as a bad thing, providing it is managed correctly and as well as openly.  This is a key point, it must be captured.  So, what do you need to capture? Well, this is will give you a good start:</p>
+<ul>
+<li>what needs to be done to deal with it (e.g. re-platform to the cloud)</li>
+<li>why the decision was made to leave it as tech debt (e.g. temp solution to keep up momentum)</li>
+<li>what benefit it will give the organisation when dealt with (e.g. better resilience and CX - <code>C</code>uster e<code>X</code>perience).</li>
+</ul>
+<p>Simples.</p>
+<h2 id="no-man-is-an-island">No man is an island</h2>
+<p>Keeping on the theme of Tech Debt; things like this need to be discussed openly.  More to the point, the inclusion of tech debt needs to be agreed AND it has to be captured.  This approach should be driven by good engineering leadership.</p>
+<h2 id="ideas-thick-and-fast">Ideas; thick and fast</h2>
+<p>To work rapidly towards a solution, ideas need to be thick and fast.  These will be dismissed and will help shape the eventual solution.  This goes for both architecture and code solutionizing.  The quicker the ideas are out there, the quicker these ideas can be critiqued.  With these ideas being shared, the discussion that will enevitably ensue will always bring the team members together.  <code>Collaboration</code> is your friend. The serendipity of this action will give more team members shared knowledge of this <code>problem domain</code> and will, in part, help in their personal development and education.</p>
+<h2 id="dont-be-precious-about-your-codebases">Don&rsquo;t be precious about your codebases</h2>
+<p>This time next month, 6 months, a year, 2 years, etc.. it won&rsquo;t look the same and most probably will not exists.</p>
+<p>Write tests and move on.</p>
+<h2 id="tdd">TDD</h2>
+<p>This approach is always spoken of, especially in interviews or technical tests, but sadly not always adhered too in practice.  In my experience, it always, ALWAYS results in succinct, readable and less verbose code.  Oh yeah, with tests. Bingo!</p>
+<h2 id="kick-towards-the-end-goal">Kick towards the end goal</h2>
+<p>Quick releases will measure your success rate and offer the greatest amount of flexibility to react and adapt.  So what do I mean to &ldquo;react and adapt&rdquo;.  When you are developing a new features, you never, EVER release the all-encompassing, panacea.  You devise a MVP (minimum viable product, or feature), to purely test your original hypothesis.  This way, if no one needs it OR can&rsquo;t use it, you can rapidly either (a) chalk it up to experience and move on OR (b) improve the <code>Us</code>ere<code>X</code>perience.  Ah yes, slow development and big bangs don&rsquo;t help.  Whether it&rsquo;s a rewrite or a new feature, you won&rsquo;t know whether you&rsquo;re on the right track until it&rsquo;s out there and, here&rsquo;s the biggy, and being measured!  Yeah, I went there!  I mean, how else are you going to know whether your feature is working or being used right?  This includes re-engineering technical problems too.</p>
+<h2 id="if-developing-features-have-the-po-provide-test-cases">If developing features, have the PO provide test-cases</h2>
+<p>There&rsquo;s 2 types of development work.  These are (a) Technical work which address engineering improvements and (b) Features.  As engineers, we know how to test our sh*t, but not necessarily how best to test a new feature.  This requires excellent product domain knowledge.  So, an important part of the effort is to have your PO (<code>P</code>roduct <code>O</code>wner) provide the test-cases.  This needs to be part of the Sprint.</p>
+<h2 id="let-your-architecture-deal-with-resilience">Let your architecture deal with resilience</h2>
+<p>A definition of Resilience:</p>
+<pre><code>Resilience is the ability for your solution to continue to operate without issue, when faced with a transient failure.
+</code></pre>
+<p>You&rsquo;ll think you&rsquo;re doing a good job by including a resilience framework to <code>exponentially backoff</code> or <code>circuit break</code> failed downstream dependencies.  Unless this is done properly and is known by all dependents, you&rsquo;ve creating a huge problem for others!  This is one of the reasons I hate HTTP chaining.  You are inadvertantly creating something that may cause DDoSing of your own infrastructure&hellip;even with a jitter!  There are better approaches to mitigate this - EDA.</p>
+<p>More on this later.</p>
+<h2 id="offload-cross-cutting-concerns">Offload cross-cutting concerns</h2>
+<p>This is in keeping with the DRY principle.  Heres a list of typical cross-cutting concerns you can achieve through the use of an API Gateway:</p>
+<ul>
+<li>authentication &amp; authorization</li>
+<li>service discovery integration</li>
+<li>response caching</li>
+<li>retry policies, circuit breaker, and QoS (quality of service)</li>
+<li>Rate limiting and throttling</li>
+<li>Load balancing</li>
+<li>Logging, tracing, correlation</li>
+<li>Headers, query strings, and claim transformation</li>
+<li>IP whitelisting</li>
+</ul>
+<p>What this gives you is a smaller attack surface areas as well as <code>facade</code>-esque capability to re-utilisize your services.  I am not saying that this, or aggregation, are the best solutions, more that they are just solutions that may work for your particular problem domain.  This by itself is NOT the entire solution but will help your architecture a better solution.</p>
+<p>More recently, a large number of the above cross-cutting concerns can be accomplished using technologies like <code>service meshes</code> (e.g. istio).  I digress &hellip;</p>
+<p>Take authorization for instance.  Implementing this repeatedly across all your services is simply a waste of time and effort.  The best place to target this, is at the API Gateway.  Done once, which means less code, less maintenance and one place to have your X.509 certificate.  Imagine what a pain it will be having to redeploy a new X.509 certificate?!  Mind you, not so much of a pain if you have your CI/CD pipelines configured!</p>
+<h2 id="eda-between-domains">EDA between domains</h2>
+<p>If you&rsquo;ve ever done DDD (domain driven development) or even attempted to group your services whtin bounded contexts, you will still have found you need data from another domain.  Think Orders and Logistics.  These typically will sit behind different domains.  There will be a time that these will need to be request information from one another.  What about reporting, especially, executive level summary reporting?  Each domain or even bounded context may/will have their own data repositories will will lead to some complicated and drawn out conversations when solutionizing!  Let&rsquo;s bounce back to requesting data.  Typically, you&rsquo;d use a RESTful approach to this or even gRPC - both using HTTP/2.  Either way, hopefully you will have configured internal/private HTTP APIs, as need to make this public even if they&rsquo;re only required by the backend services right?  The thing about HTTP traffic is that, it offers a point of failure, notice I&rsquo;m saying single point of failure&hellip;.we wouldn&rsquo;t do anything this silly would we?!  For HTTP calls, we&rsquo;d, again, typically have it wrapped up using some nice resilience framework yes?  So, if the first attempt fails, we&rsquo;d try again immediately then start to expotentially back off right?  And for good measure, we&rsquo;d have a jitter too yes?  Well, if you have multiple clients doing this and the is several levels deep, then you could have a real problem on your hands if you have a failure that is is nested pretty deep.  All, because a web form or similar is requiring data, causing a ripple affect across all your HTTP services!</p>
+<p>A better way to manage this is to have one BFF, that has access to all required to services that one web form request AND does NOT require need to violate cross-boundary calls. EDA (<code>E</code>vent <code>D</code>riven <code>D</code>evelopment) offers a solution to this.</p>
+<p>What the illustration below articulates is a way to have immediate across to data that is mutated in other domains, negating the need to having to request it each and everytime a web request is made:</p>
+<p><img src="../img/2020-05-18-14-40-59.png" alt="" /></p>
+<p>The data repositories above, as used by the consumers, are all denormalized, configured specifically for reads instead of writes.</p>
+<h2 id="only-take-the-microservices-route-if-this-addresses-the-issue">Only take the microservices route if this addresses the issue</h2>
+<p>&hellip; you&rsquo;re trying to solve!</p>
+<p>For everything we do, we need to justify it to someone above, whether they be senior management, stakeholders or even the board.  If we don&rsquo;t, it simiply won&rsquo;t get done. There&rsquo;s always some other priority that is more important right?!  So, the best way to justify a piece of work, albeit dealing with Tech Debt, is you have it to back it by meaningful metrics.  You can&rsquo;t, and you shouldn&rsquo;t, deem something worth doing because of your gut&hellip;if we build it, they will come kind of thing which is a no-no.</p>
+<p>This will help enormously by forcing you to identify the ACTUAL problem you&rsquo;re trying to solve.  Anyone who&rsquo;s trying to move away from Microservices will atest to the fact that they are not always the way to go.  Even if there&rsquo;s a lot of evidence present to suggest this.  Monolithics, I&rsquo;ve been reading a lot about this reversal recently, in one form or another (single process, modular and distributed) might give you, dependant on your scenario, equal or even more that one the complexities and maintenance overhead that Microservices brings to the game!  But, different horses for courses.  Just don&rsquo;t always be swayed by the new shiny.  Serverless obviously is the exception to the rule ;O).</p>
+<p>All I&rsquo;m going to say in the section is, always address the ACTUAL problem, and then let the best solution lead the technology choice, not the other way around.</p>
+<h2 id="cross-boundary-requests-metrics">Cross-boundary requests metrics</h2>
+<p>OMG, how easy is this??!!  Next!</p>
+<p>There&rsquo;s no excuse for not knowing how perfomant your solution is, and where fault responsibilities are.</p>
+<p>If you are calling across bounded context, notice I didn&rsquo;t say domains here, or when calling out to external services, you MUST capture latencies and errors rates.  I&rsquo;m not focusing here on the other 2 pillars of observabililty (tracing &amp; logging), although, all 3 pillars are super important.</p>
+<p>If you want a positive <code>Customer experience</code>, you must be the first to know about an failure.  Alerting will help here.  Alerting will tell you when a latency is creeping up or worse, when errors have started to happen.  Either way, you need a mechanism to give you the maximum about of time to address an issue if it arises.  Most monitoring solutions come with alerts that allow you to notify people/teams.  There are even feature that automatically assign the investigation to teams or specific indivuals.  Slightly off topic here, but only just, error management is hugely important to your organisation.  If used correctly, it can give you instant information, including all logging up to the actual error, even cross boundary in the error happened down stream in another internal service.  It pays for itself and takes the guessing out of most of the debugging effort.  This used to capture releases if powerful and again can help you pinpoint rapidly reasons for issues.</p>
+<h2 id="document-as-you-go-must-not-be-an-afterthought">Document as you go, must not be an afterthought</h2>
+<p>As we rapidly move from one task to the next, our memory of a prior piece of work will deminish.  Along with this will be the bigger picture.  I find documenting as you go is super useful.  Any not jsut for you, for your organisation.  I dreed to think how much time per year is spent on hunting down domain knowledge and reading through line at line of code.  Not to mention, inadvertantly implementing something that does adhere to the big picture simply because you were not aware.</p>
+<p>What helps for me is, capturing thoughts and possble solutions.  This leads to better articulation with your colleagues.  It also helps explaain Tech Debt.  How often have you had a &ldquo;Why on earth did they do this?!&rdquo; moment?  One of my sayings is always respect the legacy as, more oftern than that, it was the right thing to do at the time&hellip;you weren&rsquo;t there mannnnn!  Everyine can be be scinic after the fact!  So, to stop you coming off as an idiot with your colleagues, document you though process, final solution, your rationale and any Tech Debt (see section above).</p>
+<h2 id="no-initial-design-will-ever-play-out">No initial design will ever play out</h2>
+<p>I&rsquo;ve been doing this for years and never has anything ever played out exactly as first envisaged.  If anyone tells you different then they have never developed or architected anything, ever, EVER!  It&rsquo;s that simple.  This leads on nicely with the next section&hellip;</p>
+<h2 id="its-100-ok-to-change-your-mind">It&rsquo;s 100% ok to change your mind</h2>
+<p>It is 100% ok to change your mind.  If you&rsquo;re working for an organisation which makes this awkward or embarrasing then leave.  This does not include banter.  Banter is good.  We must do our utmost to make the environment we work in, a safe one.  One where it is absolutely o&rsquo;kay to make mistakes in and one where you can change your made.  These, simply put, are good engineering practices and good leadership.  Don&rsquo;t forget, if you&rsquo;re changing your mind, it is for the good of the organisation and not for shits and giggles.  If you make a mistake, and it&rsquo;s a whopper, then this is the fault the leadership team and not you.  Mistake don&rsquo;t include deliberate and melcious actions.  You do not stand by and let you colleagues make mistakes either.  Mind you, if you did, people will have already the cut of your jib.  Engineers, we&rsquo;re generally the good guys and girls who are morally uncorruptable and know right from wrong AND will move heaven and earth to help our colleagues.  Not sure you can say the same with other types of occupations.  Respek!</p>
+<h2 id="monorepos-for-shared-code---can-still-scale-by-deploying-to-separate-docker-containers">Monorepos for shared code - can still scale by deploying to separate docker containers</h2>
+<p>I read a blog post recently where it said monorepos can&rsquo;t scale&hellip; &ldquo;Calling Bullsh*t!&rdquo;</p>
+<p>I&rsquo;ve recently ventured into monorepos and the services I&rsquo;ve developed, that relay on shared code, can absolutely be scaled.  It just so happens there&rsquo;s no need for them too, but there is a requirement for them to be HA (highly available) which isn&rsquo;t the same thing but still requires at least one of an instance type to be running and to be able to recover gracefully if it does &ldquo;sh*t the bed&rdquo;.  So for our requirement, a monorepo works just fine.</p>
+<p>I cover this in another post I&rsquo;m in the process of writing and I will include the link here when published; promise!</p>
+<h2 id="code-to-interfaces-for-http-api-calls">Code to interfaces for HTTP API calls</h2>
+<p>One pattern that was shown to me not so long ago involved using a proxy as the gatekeeper to a HTTP API service.  This client can be either server-side or front-end facing.  The responsibility of this pattern is to guard against any breaking changing introduced unwittingly.</p>
+<p>So, why is this important?  Imagine you have an HTTP API.  It has several controllers (endpoints), that are called from other HTTP APIs, services or the browser.  Unless, your documentation is 100% up-to-date and you and, more importantly, your colleagues are ruthless in the pursuit of removing unaccessible code, you will end up with code that just isn&rsquo;t used but will inevitably need to be maintained.  Also, how often have you experienced your code, in production, just stop working? Only to find out that an endpoint signature has changed?!!!! WFT!!</p>
+<p>This is where this pattern comes into its own.  By shimming a service client in between the service and the client, you mitigate against any breaking changes.</p>
+<p><img src="../img/2020-05-18-16-33-34.png" alt="" /></p>
+<h2 id="keep-code-simple-doesnt-need-to-be-clever">Keep code simple, doesn&rsquo;t need to be clever.</h2>
+<p>OMG! How much time is wasted reading OR debugging complex code?!  Especially asynchronous code (thinking of .NET Core here).  God forbid your attention being distracted for a nano-second and having to start over again!  I am not saying there must not be any complex code, ever.  Some software requires complex code but surely not a web application right?</p>
+<h2 id="controllers-thin-mvc-should-be-thinlight---biz-logic-in-models">Controllers (thin MVC) should be thin/light - biz logic in models</h2>
+<p>I&rsquo;ve seen my fair share of controllers that contains line after line after line of business logic.  Business logic has no place in a controller.</p>
+<p>Another, slightest of going off topic here, is UX principles.  I&rsquo;ve always advocated that, if a client (think brower) moves away from page having issues a request but yet in receipt of that request&rsquo;s response, a pre-nav call should issue a cancel.  You can do this easily with ASP.NET Core.  This Cancellation token can be passed onto down and intervine in that executing request.  It&rsquo;s good practice but not often seen.</p>
+<p>Antoher advocated UX principle is to storie all form values in the browser&rsquo;s local storage to safe guard against catastropic failure, which may stop the user from submitting their input to the host or service endpoint. Client side code can then remind the user of uncommit changes at a later date.</p>
+<h2 id="open-source---the-not-so-promised-land">Open Source - the not so &ldquo;promised land&rdquo;</h2>
+<p>This deserves its own blog post.  For bravity, I&rsquo;ll summary the main points.  I apologise in advance if I leave out any specifics.</p>
+<p>I good portion of my development has been cloud based.  It&rsquo;s where I feel the most relaxed and confident.  It&rsquo;s also the source of my enjoyment.  It often makes light of any nightmarish architectural constraints that are brough about by on-premise solutions.</p>
+<p>Several years ago the <a href="https://www.reactivemanifesto.org/">Teactive Manifesto</a> came about.  A bunch of us subscribed to thing philosphy.  I think <a href="https://12factor.net/">12 Factor app</a> popped up around the same time.  I could be wrong though.  Anyways, not important.  One of the tenets of the Reactive Manifesto was message driven.  Hugely relavant for cloud based development.  It&rsquo;s like the 101 of Cloud development; decoupling dependencies.</p>
+<p>At this time, we had developed a HA solution.  The problem with it though, was it wasn&rsquo;t scalable.  Services, HTTP APIs and the web application itself would also be used in a active/active or active/passive configuration.  We had high hopes for our solution.  I was tasked to create a scalable solution, one that could take full advantage of cloud infrastrutre.  It eventually could, but the journey to get there was a bit of a rought one to say the least.</p>
+<p>As intimated at the beginning of this section, I&rsquo;m not going to be to forthcoming with the details.  This is definitely something for a fuller post.</p>
+<p>Our installation procedure was all Powershell driven.  We hadn&rsquo;t entertained including other products to support our product.  We just didn&rsquo;t have the experience, the budget or confidence of doing this.  After all, there were just 3 of us.  So, I set about investigating a way to effectively create our own software cluster capability that could scale.  This includes the automatic registering services that would come online to manage load. A well known Scala clsutering tech had been converted in part to .NET Framework.  This seemed ideal.  It was open source and lots positive references started to surface.  One of the benefits was <code>location tranparency</code>.  <code>Location transparency</code> is a term that used to identify network resoures by name and not by their actual location.  So, from a coding perspective, you can reference something from configuration, that could be running on another server, remote from where the <em>client</em> is interfacing with it. I think this is cool.</p>
+<p>The problem with it was that the clustering aspect of it took some considerable time to be ironed out.  It also didn&rsquo;t play nicely with IIS.  There was also limited online documentation around the topic of clustering through this OSS.  The author had a living to make and so all training was chargeable.  We didn&rsquo;t have a budget.  Myself and my lead developer worked through the available free online training.  This was extensive but it did take you down a path that would later prove difficult to back out of.  In short, you change your development paradigm to making everything message driven, even to the point of how your classes methods interacted with one other.  This was my 2nd mistake.  The 1st mistake was to use something that wasn&rsquo;t mature but more importantly, not fit for purpose for our requirements.</p>
+<p>As a consequence, we changed a large portion of our codebases on the promise that clustering will just work.  It didn&rsquo;t and it wasn&rsquo;t until later that we discovered it really didn&rsquo;t like IIS. I was told that it wasn&rsquo;t its fault, more of the fault of IIS.  My 3rd mistake was believing that by myself I could get it to work properly.  I couldn&rsquo;t and sadly this took a long time to realize.  This is one of those rare occasions when bloody-mindedness worked against me!</p>
+<p>During this time, I reimagined our CI/CD pipeline and started using Octopus Deploy to package up and deploy our HA Web product.  This made it extremely easy to include and deploy supporting solutions that complimented our own.  This presented us with the opportunity of using a replacement to this clustering library.  This was NATS. I had used NATS several time before and felt comfortable and confident with it. NATS is awesome.  The elation of finally moving away from this horror was indescribable.</p>
+<p>Eventually, our CI/CD pipeline would be used to explain our processes to potential partners and those customers we supported directly.  This gave them peace of mind, knowing how to develop our software, test it and deploy it. We also advocated the benefits of having multiple environments. There was not one partner/customer who did not take heed of this advice and extended their own established QA programme to include our product too.</p>
+<p>So, key take aways here are:</p>
+<ul>
+<li>do not use OSS in the way that it dependency is critical to any of your components / systems</li>
+<li>only use OSS that is mature, do not entertain versions ~1.0!</li>
+<li>if you do not get rapid success through PoC, be unequivocal in your move to a different solution</li>
+<li>do not go all in on something new, introduce it slowly, with limited exposure and measure it&rsquo;s performance (latency and error rates)</li>
+</ul>
+<h2 id="splitting-data-out-across-microservice">Splitting data out across microservice</h2>
+<p>&ldquo;What is meant to be kept together, should be kept together&rdquo;</p>
+<p>I&rsquo;ve had countless discussions with team members over the years on what a service (mainly SOA and Microservices) should include.  More often than not, the outcome of these discussions have been, &ldquo;let&rsquo;s wait and see what the metrics tell us, then decide&rdquo;. One of the principles of good engineering is not to prematurally optimise.  This is especially poignant if you&rsquo;re developing a new service and yet know if something will grow or be surplus to requirement.  So why waste both your time or effort on effectively trying to answer a question that cannot be answered?</p>
+<p>The more challenging conversation come about when services start to mature and you&rsquo;ve a service that has a dependency on another.  This is commonly referred to as a &ldquo;decomposing the database&rdquo;.  There are several patterns you can adopt, and each have their place.  If data that is required rarely changes, then simply derive the class from the data and embed this into the requesting service as a type collection (e.g. <code>IEnumerable&lt;{type}&gt;</code>).  Life normally isn&rsquo;t this simple and other solutions might include shared database or common sense will prevail and keep that data together in the same database.  However, one of the benefits of EDA (<code>E</code>vent <code>D</code>rive <code>D</code>evelopment), is that you can have a local copy of this dependency data.</p>
+<p>Obviously, this is a HUGE topic and I&rsquo;ve massively stepped over the common courtesy line by writing the above throw away comments.  But, to justify my rush through this section, I would say, do what&rsquo;s right based on your collected metrics.  There are plenty of patterns you can follow, here&rsquo;s a few:</p>
+<ul>
+<li>The shared Database</li>
+<li>Database view</li>
+<li>Database Wrapping Services</li>
+<li>Database as a Service Interface</li>
+<li>Transferring Owership</li>
+<li>Data Synchronisation</li>
+<li>Synchronisation Data in Application</li>
+<li>Tracer Write</li>
+<li>Splitting Apart the Database</li>
+<li>Split Table</li>
+<li>Transactions</li>
+<li>Sagas</li>
+<li>Event Driven Development</li>
+</ul>
+<p>I am of the opinion that not every bit of data has tpo be stored in a database.  These next 2 example will give exampled of how I&rsquo;ve employed this approach and why.</p>
+<h3 id="multi-tenant-user-hierarchy">Multi-tenant User hierarchy</h3>
+<p>In my previous employment, we had a HA web application that had database resource intensive use-cases. These use-cases would run everytime a user or hierarchy was updated. The update might involve them moving or being assigned to a new position (or role) in the hierarchy, sometimes a user exist in multiple locations at a time.  We called this capability the &ldquo;User Hierarchy&rdquo;.  This was all served from MSSQL (then Azure SQL then eventually AWS Aurora).  We had an HTTP API that people used (part of our SDK) to sync their product&rsquo;s user hierarchy with ours.  This too triggered these resource intensive use-cases.  We had replaced the datbase library with ADO.NET to reduce operation latency but this, if you had multiple Tenants sync&rsquo;ing or making modifications to users and or the hierarchy, then things from a performance perspective would get a little sluggish.</p>
+<p>It was the regeneration of the hierarchy that was the cultpret.  It would regenerate the user position using Left and Right boundary markers, to position a user&rsquo;s position wihtin a team or unit (structural domain node types).  They could also hold multiple roles, like Manager of a specific type of hierarchical node (e.g. unit manager, team manager).  Another dimension to the complexity was our Scheduling feature.  This would scheduled jobs to pull data from a Call Recorder&rsquo;s database (line of sight) or API.  This would use our internal entity IDs (think user, team, etc.) for mappings to their internal IDs.  So, the schuduler would have to be updated each and every time too, otherwise hierarchical groupings wouldn&rsquo;t line up (our Recorder queries had the capabiity to pull back a sample of recordings per hierarchical gorupings based on node types (Unit, Team).  It was sophicated as well as being a well respected and used feature.</p>
+<p>However, the hierarchy was a constraint.  It was a prime example of technical debt.  It needed to be dealt with so space had to be found to deal with it.</p>
+<p>So, we explored ways to remove the hierarchy from the database.  What we did was to move the resting place of the hierarchy to disk, and when ever it was required (think UI or our Scheduler feature), we&rsquo;d lazy load it into cache from disk.  We eventually improved on the soution by using gRPC and protobuf to reduce the execution time to ~1sec.  We also used both Azure Blog Storage and AWS S3 Buckets.</p>
+<p>This approach of not storing missing critical data led to other uses in our products too.</p>
+<h3 id="aggregation-reporting">Aggregation reporting</h3>
+<p>ETL</p>
+<h2 id="client-side-validation-should-never-substitude-server-side-validation">Client side validation should never substitude server side validation</h2>
+<p>An oldie but goldie.  I don&rsquo;t think I need to add more here do I?</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern">direct client to microservices Vs API Gateway pattern</a></li>
+<li><a href="https://docs.microsoft.com/en-gb/azure/architecture/patterns/gateway-offloading">gateway offloading</a></li>
+<li><a href="https://learning.oreilly.com/library/view/monolith-to-microservices">Monolith to Microservices</a></li>
+</ul>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#no-code-is-perfect">No code is perfect</a></li>
+        <li><a href="#tech-debt">Tech debt</a></li>
+        <li><a href="#no-man-is-an-island">No man is an island</a></li>
+        <li><a href="#ideas-thick-and-fast">Ideas; thick and fast</a></li>
+        <li><a href="#dont-be-precious-about-your-codebases">Don&rsquo;t be precious about your codebases</a></li>
+        <li><a href="#tdd">TDD</a></li>
+        <li><a href="#kick-towards-the-end-goal">Kick towards the end goal</a></li>
+        <li><a href="#if-developing-features-have-the-po-provide-test-cases">If developing features, have the PO provide test-cases</a></li>
+        <li><a href="#let-your-architecture-deal-with-resilience">Let your architecture deal with resilience</a></li>
+        <li><a href="#offload-cross-cutting-concerns">Offload cross-cutting concerns</a></li>
+        <li><a href="#eda-between-domains">EDA between domains</a></li>
+        <li><a href="#only-take-the-microservices-route-if-this-addresses-the-issue">Only take the microservices route if this addresses the issue</a></li>
+        <li><a href="#cross-boundary-requests-metrics">Cross-boundary requests metrics</a></li>
+        <li><a href="#document-as-you-go-must-not-be-an-afterthought">Document as you go, must not be an afterthought</a></li>
+        <li><a href="#no-initial-design-will-ever-play-out">No initial design will ever play out</a></li>
+        <li><a href="#its-100-ok-to-change-your-mind">It&rsquo;s 100% ok to change your mind</a></li>
+        <li><a href="#monorepos-for-shared-code---can-still-scale-by-deploying-to-separate-docker-containers">Monorepos for shared code - can still scale by deploying to separate docker containers</a></li>
+        <li><a href="#code-to-interfaces-for-http-api-calls">Code to interfaces for HTTP API calls</a></li>
+        <li><a href="#keep-code-simple-doesnt-need-to-be-clever">Keep code simple, doesn&rsquo;t need to be clever.</a></li>
+        <li><a href="#controllers-thin-mvc-should-be-thinlight---biz-logic-in-models">Controllers (thin MVC) should be thin/light - biz logic in models</a></li>
+        <li><a href="#open-source---the-not-so-promised-land">Open Source - the not so &ldquo;promised land&rdquo;</a></li>
+        <li><a href="#splitting-data-out-across-microservice">Splitting data out across microservice</a>
+          <ul>
+            <li><a href="#multi-tenant-user-hierarchy">Multi-tenant User hierarchy</a></li>
+            <li><a href="#aggregation-reporting">Aggregation reporting</a></li>
+          </ul>
+        </li>
+        <li><a href="#client-side-validation-should-never-substitude-server-side-validation">Client side validation should never substitude server side validation</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

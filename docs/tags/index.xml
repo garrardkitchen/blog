@@ -6,10 +6,136 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 06 Apr 2020 10:20:26 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 07:32:45 +0000</lastBuildDate>
     
 	<atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>jest</title>
+      <link>http://blog.garrardkitchen.com/tags/jest/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/jest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mssql</title>
+      <link>http://blog.garrardkitchen.com/tags/mssql/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/mssql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rabbitmq</title>
+      <link>http://blog.garrardkitchen.com/tags/rabbitmq/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sync</title>
+      <link>http://blog.garrardkitchen.com/tags/sync/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/sync/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>taskrouter</title>
+      <link>http://blog.garrardkitchen.com/tags/taskrouter/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/taskrouter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>twilio</title>
+      <link>http://blog.garrardkitchen.com/tags/twilio/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/twilio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>twilio sync</title>
+      <link>http://blog.garrardkitchen.com/tags/twilio-sync/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/twilio-sync/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>twilio taskrouter</title>
+      <link>http://blog.garrardkitchen.com/tags/twilio-taskrouter/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/twilio-taskrouter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unit testing</title>
+      <link>http://blog.garrardkitchen.com/tags/unit-testing/</link>
+      <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/unit-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>architecture</title>
+      <link>http://blog.garrardkitchen.com/tags/architecture/</link>
+      <pubDate>Mon, 18 May 2020 11:48:48 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>good engineering</title>
+      <link>http://blog.garrardkitchen.com/tags/good-engineering/</link>
+      <pubDate>Mon, 18 May 2020 11:48:48 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/good-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>good practices</title>
+      <link>http://blog.garrardkitchen.com/tags/good-practices/</link>
+      <pubDate>Mon, 18 May 2020 11:48:48 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/good-practices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guiding principles</title>
+      <link>http://blog.garrardkitchen.com/tags/guiding-principles/</link>
+      <pubDate>Mon, 18 May 2020 11:48:48 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/guiding-principles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>patterns</title>
+      <link>http://blog.garrardkitchen.com/tags/patterns/</link>
+      <pubDate>Mon, 18 May 2020 11:48:48 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/patterns/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>aws</title>
@@ -134,15 +260,6 @@
       <pubDate>Thu, 26 Mar 2020 06:09:14 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/The-Managers-Path/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>good engineering</title>
-      <link>http://blog.garrardkitchen.com/tags/good-engineering/</link>
-      <pubDate>Sun, 01 Mar 2020 20:09:14 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/good-engineering/</guid>
       <description></description>
     </item>
     
