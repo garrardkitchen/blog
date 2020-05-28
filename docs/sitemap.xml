@@ -4,92 +4,62 @@
   
   <url>
     <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/jest/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/mssql/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/rabbitmq/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/sync/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/taskrouter/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/twilio/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/twilio-sync/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/twilio-taskrouter/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/unit-testing/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/posts/jest-fs-readFileSync/</loc>
-    <lastmod>2020-05-28T07:32:45+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/architecture/</loc>
-    <lastmod>2020-05-19T09:27:15+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/good-engineering/</loc>
-    <lastmod>2020-05-19T09:27:15+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/good-practices/</loc>
-    <lastmod>2020-05-19T09:27:15+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/guiding-principles/</loc>
-    <lastmod>2020-05-19T09:27:15+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/patterns/</loc>
-    <lastmod>2020-05-19T09:27:15+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/reality-of-engineering/</loc>
-    <lastmod>2020-05-19T09:27:15+01:00</lastmod>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
   </url>
   
   <url>
@@ -169,6 +139,11 @@
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/The-Managers-Path/</loc>
+    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/good-engineering/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url>
   

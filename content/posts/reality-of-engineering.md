@@ -2,6 +2,7 @@
 title: "Reality of Engineering"
 date: 2020-05-18T11:48:48+01:00
 tags: ["good engineering", "good practices", "patterns", "architecture", "guiding principles"]
+draft: true
 ---
 
 I gave myself some downtime this weekend.  The weather was rubbish so unfortunately I couldn't execute some "list" tasks.  Instead, I watched some movies, helped my boys find stuff, build and generally make a mess - ah, the good stuff yeah?!  This gave me the necessary space to think about some of the areas of engineering that would have benefited me from knowing "at the time".  Below is a list of guiding principles, advice and general experience in engineering resulting from this "moment of clarify".  I never know whether to call it engineering or development. Apologies if I switch between the two terms in this post.  I essentially mean the same thing.  One thing to note, it's a list with some content.  It not exhaustive and they are _just_ my opinions. As always, this is a reminder to myself but hoping this will help others too!
