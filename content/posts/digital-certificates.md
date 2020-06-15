@@ -122,7 +122,7 @@ In this section I'm going to:
 
 Let's first generate the message I want to securely transmit:
 
-```
+```shell
 $ echo 'my secret message' > msg
 ```
 
@@ -130,17 +130,17 @@ $ echo 'my secret message' > msg
 
 Here I'm using the `genrsa` command.  This command generates an RA private key:
 
-```
+```shell
 $ openssl genrsa -out private.pem 4096
 ```
 
-```
+```shell
 $ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
 ```
 
 ## Extract public key
 
-```
+```shell
 $ openssl rsa -in private.pem -pubout -out public.pem
 ```
 
@@ -150,7 +150,7 @@ $ openssl rsa -in private.pem -pubout -out public.pem
 
 Here, I'm generating a hash (digest) of the message as well as signing it with the private key
 
-```
+```shell
 $ openssl dgst -sha256 -sign private.pem -out msg.signature msg
 ```
 
@@ -164,7 +164,7 @@ As `rsautl` uses the RSA algorithm directly, it can only be used to sign, or ver
 
 {{</ hint >}}
 
-```
+```shell
 $ openssl rsautl -sign -in msg -inkey private.pem -out msg.sig
 ```
 
@@ -172,7 +172,7 @@ $ openssl rsautl -sign -in msg -inkey private.pem -out msg.sig
 
 The `rsautl` command can be used to sign, verify, encrypt and decrypt data using the RSA algorithm.  
 
-```
+```shell
 $ openssl rsautl -encrypt -inkey public.pem -pubin -in msg -out msg.enc
 ```
 
@@ -180,7 +180,7 @@ _By including the `-pubin` switch, you're telling the command that the input key
 
 ## Decrypt the message
 
-```
+```shell
 $ openssl rsautl -decrypt -inkey private.pem -in msg.enc -out msg.dec
 ```
 
@@ -190,13 +190,14 @@ $ openssl rsautl -decrypt -inkey private.pem -in msg.enc -out msg.dec
 
 This uses the public key to decrypt the Hash of the original msg:
 
+pseudo logic:
 ```
 hash_1 = Hash ( msg )
 hash_2 = Dec ( Key -> Hash )
 IsVarified = hash_1 == hash_2
 ```
 
-```
+```shell
 $ openssl dgst -sha256 -verify public.pem -signature msg.signature msg
 Verified OK
 ```
@@ -205,26 +206,59 @@ Verified OK
 
 This verifies the original message using the signature and outputs it:
 
-```
+```shell
 $ openssl rsautl -verify -inkey private.pem -in msg.sig
 my secret message
 ```
 
 # Digital Certificates
 
-**_verify the identity of the entity presenting it_**
+**_To verify the identity of the entity presenting it_**
 
-So far, we've covered hashes, key pairs, digital signatures and encryption and decryption.
+So far, we've covered hashes, key pairs, digital signatures and encryption and decryption.  This section is where I cover, briefly, digital certificates.  I'm using a digital certificate to replace the key pair as covered above and to give the capability of using additional information to verify that the identity of the entity presenting this message.
 
-```
-$ openssl req -new
--newkey rsa:2048 -nodes -keyout privkeyDC.pem
--out myserver.csr
--subj "/C=UK/OU=IT/CN=myserver.com"
-```
+Let's start by creating a self-signed certificate. Type:
 
+```shell
+# create self-signed certificate 
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:4096 -keyout myserver.pem -out myserver.crt -subj "/C=UK/OU=IT/CN=myserver.com"
+```
 
+We can inspect the content of the certificate by typing:
+```shell
+openssl x509 -in myserver.crt -text -noout
+```
+
+For bravity, I'm using the same commands as used above to; extract public key, generate digital signature, encrypt/decrypt then verify the signature.  I've included all the statements in one block:
+
+```shell
+# extract public key from self-signed certificate
+openssl rsa -in myserver.pem -pubout -out server-public.pem
+
+# generate hash and sign (digital signature)
+$ openssl dgst -sha256 -sign myserver.pem -out msg.server-signature msg
+
+# encrypt my message
+openssl rsautl -encrypt -inkey server-public.pem -pubin -in msg -out msg.enc2
+
+# decrypt my encrypted message
+openssl rsautl -decrypt -inkey myserver.pem -in msg.enc2 -out msg.dec2
+
+# vertify signature
+openssl dgst -sha256 -verify server-public.pem -signature msg.server-signature msg
+```
+
+This results in:
+
+```
+Verified OK
+```
+
+So, how does the digital signature relate to the Signature verification against a jwt token?  
+
+A JWT signature is RSA SHA of the header and payload.  This algorithm is set in the header so we have all the information we need to decrypt the encrypted data.  However, we're not able to verify these points yet: (a) has the message been tampered with inflight and (b) the identity of the entity presenting this message.  
+
+In actual fact, you will see this if you copied the a JWT token without keys into jwt.io (selecting RSA256 algorithm).  It will show `Invalid Signature`.  So, to verify these points, you need to provide the public and private key.  It will use the private key to obtain the original Hash (hash of the original data) then decrypt this.  If once decrypted, this equates to the RSASHA246 HMAC, then the signature is verified. 
 
 # References
 
