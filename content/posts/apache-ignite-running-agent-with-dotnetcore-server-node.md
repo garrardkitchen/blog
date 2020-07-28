@@ -1,12 +1,15 @@
 ---
-title: "How to run the Apache Ignite Agent With an Ignite.NET Core Server Node"
+title: "How to run the Apache Ignite Agent with an Ignite.NET Core Server Node"
 date: 2020-07-28T13:48:46+01:00
 draft: false
 tags: ["apache ignite", "ignite", "gridgain", "data grid", "Ignite.NET"]
 ---
 
-I've recently been researching into [Apache Ignite](https://apacheignite-net.readme.io/docs/getting-started).  With using .NET Core, I have run into one or two challenges that I have had to work through.  One of which involves the Agent.  You use the Agent when you want to execute queries, SQL DML & DDL amongst other actions, from within the Web Console app.  The Agent acts as a proxy.  The Agent must connect to both the Web Console and your Server node or Thick Client node.
+I've recently been researching into [Apache Ignite](https://apacheignite-net.readme.io/docs/getting-started).  Apache Ignite is an in-memory, memory-centric, distributed database, caching and processing platform for transactional, analytical, and streaming workloads.  
 
+So why the post?  Well, with using .NET Core, I have run into one or two challenges that I have had to work through.  One of which involves the Agent.  I feel it is important to share with you how I get beyond this issue.  It may save you a lot of time if you're an Apache Ignite noob like me.  
+
+You use the Agent when you want to execute queries, SQL DML & DDL amongst other actions, from within the Web Console app.  The Agent acts as a proxy.  The Agent must connect to both the Web Console and your Server node or Thick Client node.
 
 As I say above, this Agent acts as a proxy between the Web Console (UI to configure clusters, execute SQL DML & DDL, and query KV stores including visuals on caches etc…) and a Server node (aka, `data node`) to execute SQL & KV stores.
 
