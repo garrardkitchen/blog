@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ignite.NET on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/Ignite.NET/</link>
+    <description>Recent content in Ignite.NET on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 28 Jul 2020 13:48:46 +0100</lastBuildDate>
+    
+	<atom:link href="http://blog.garrardkitchen.com/tags/Ignite.NET/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to run the Apache Ignite Agent With an Ignite.NET Core Server Node</title>
+      <link>http://blog.garrardkitchen.com/posts/apache-ignite-running-agent-with-dotnetcore-server-node/</link>
+      <pubDate>Tue, 28 Jul 2020 13:48:46 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/apache-ignite-running-agent-with-dotnetcore-server-node/</guid>
+      <description>I&amp;rsquo;ve recently been researching into Apache Ignite. With using .NET Core, I have run into one or two challenges that I have had to work through. One of which involves the Agent. You use the Agent when you want to execute queries, SQL DML &amp;amp; DDL amongst other actions, from within the Web Console app. The Agent acts as a proxy. The Agent must connect to both the Web Console and your Server node or Thick Client node.</description>
+    </item>
+    
+  </channel>
+</rss>

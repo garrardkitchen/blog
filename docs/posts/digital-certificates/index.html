@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="I&rsquo;ve been wanting to put some notes down on digital certificates, signing and JWT for some time now. I find there are plenty of confusing terms involved in this area, plus a few nuances that have added to my personal confusion. I feel it now important to document these before I forget and move on [to another project].
+So, what&rsquo;s triggered this post? Well, one of many tasks I&rsquo;m involved in [juggling] evolves SSO (single sign on)."><meta property="og:title" content="Digital Certificates" />
+<meta property="og:description" content="I&rsquo;ve been wanting to put some notes down on digital certificates, signing and JWT for some time now. I find there are plenty of confusing terms involved in this area, plus a few nuances that have added to my personal confusion. I feel it now important to document these before I forget and move on [to another project].
+So, what&rsquo;s triggered this post? Well, one of many tasks I&rsquo;m involved in [juggling] evolves SSO (single sign on)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/digital-certificates/" />
+<meta property="article:published_time" content="2020-06-08T12:57:32+01:00" />
+<meta property="article:modified_time" content="2020-06-15T17:33:23+01:00" />
+<title>Digital Certificates | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.26ca7b115dfe2011b39623e15c8a86b70ad0fc277af161f6927f8ba10bfe21ad.js" integrity="sha256-Jsp7EV3&#43;IBGzliPhXIqGtwrQ/Cd68WH2kn&#43;LoQv&#43;Ia0="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent With an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="active">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Digital Certificates</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#terms">Terms</a></li>
+    <li><a href="#symmetric-encyrption">Symmetric encyrption</a></li>
+    <li><a href="#asymmetric-encryption">Asymmetric encryption</a>
+      <ul>
+        <li><a href="#create-a-rsa-private-key">Create a RSA private key</a></li>
+        <li><a href="#extract-public-key">Extract public key</a></li>
+        <li><a href="#generate-a-digital-signature">Generate a digital signature</a>
+          <ul>
+            <li><a href="#using-dgst">using <code>dgst</code></a></li>
+            <li><a href="#using-rsautl">using <code>rsautl</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#encrypt-the-message">Encrypt the message</a></li>
+        <li><a href="#decrypt-the-message">Decrypt the message</a></li>
+        <li><a href="#verify-signature">Verify signature</a>
+          <ul>
+            <li><a href="#using-dgst-1">using <code>dgst</code></a></li>
+            <li><a href="#using-rsautl-1">using <code>rsautl</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#digital-certificates">Digital Certificates</a></li>
+    <li><a href="#jwt">JWT</a>
+      <ul>
+        <li><a href="#jwt-token-format">JWT Token format</a></li>
+        <li><a href="#how-is-the-signature-verified">How is the signature verified?</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/digital-certificates/">Digital Certificates</a>
+  </h1>
+  <p>
+  
+  <i>June 8, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;9&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;1862&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/digital-certificate/">digital certificate</a>, 
+  <a href="/tags/digital-signature/">digital signature</a>, 
+  <a href="/tags/encryption/">encryption</a>, 
+  <a href="/tags/hash/">hash</a>, 
+  <a href="/tags/key-pairs/">key pairs</a>, 
+  <a href="/tags/keys/">keys</a>, 
+  <a href="/tags/openssl/">openssl</a>, 
+  <a href="/tags/signing/">signing</a>, 
+  <a href="/tags/ssl/">ssl</a>, 
+  <a href="/tags/sso/">sso</a>
+</div>
+
+
+  <p><p>I&rsquo;ve been wanting to put some notes down on digital certificates, signing and JWT for some time now.  I find there are plenty of confusing terms involved in this area, plus a few nuances that have added to my personal confusion.  I feel it now important to document these before I forget and move on [to another project].</p>
+<p>So, what&rsquo;s triggered this post?  Well, one of many tasks I&rsquo;m involved in [juggling] evolves SSO (single sign on).  Albeit, mainly focused on the architecture on this task, I have compiled a few PoCs where I&rsquo;m using digital certificates for authentication.  In particular, SSOing into Twilio Flex and using an <code>identity</code> field returned from their I.AM service, to seamlessly log into our internal CRM, securely using a digital certificate.</p>
+<h1 id="terms">Terms</h1>
+<p>Ok, let&rsquo;s start with a few terms.  I&rsquo;ll slowly integrate these terms in the following examples.</p>
+<ul>
+<li>
+<p>Keys</p>
+<p>A key is something that is used to encrypt a piece of data (think JWT payload).  It can be phrase (series of characters) or a public/private key held in a digital certificate.</p>
+</li>
+<li>
+<p>Hash</p>
+<p>A hash is a piece of data, that cannot be reengineered to reveal it&rsquo;s original content, also referred to as a digest or one-way hash.</p>
+</li>
+<li>
+<p>SHA (Secure Hashing Algorithm)</p>
+<p>It is for cryptographic security. It is used to produce an irreversible and unique hash.</p>
+</li>
+<li>
+<p>Encryption</p>
+<p>The process of converting something to gobbledygook and only be able to read it when you have the key used when it was encrypted.</p>
+</li>
+<li>
+<p>Digital signature</p>
+<p>The encrypted hash, that proves the data has not been tampered with in-flighted AND verifies the identity of the entity presenting it.</p>
+</li>
+<li>
+<p>Signing</p>
+<p>The process of creating the digital signature.</p>
+</li>
+<li>
+<p>Base64</p>
+<p>The more efficient was of encoding and sending data over a network.</p>
+</li>
+<li>
+<p>Cipher algorithm</p>
+<p>A cipher algorithm is a mathematical formula designed specifically to obscure the value and content of data. Most valuable cipher algorithms use a key as part of the formula. This key is used to encrypt the data, and either that key or a complementary key is needed to decrypt the data back to a useful form.</p>
+</li>
+<li>
+<p>RSA (Rivest–Shamir–Adleman)</p>
+<p>RSA is one of the first public-key cryptosystems and is widely used for secure data transmission. In such a cryptosystem, the encryption key is public and distinct from the decryption key which is kept secret (private).</p>
+</li>
+<li>
+<p>Symmetric Encryption</p>
+<p>Symmetric encryption is a type of encryption where only one key (a secret key) is used to both encrypt and decrypt electronic information.</p>
+</li>
+<li>
+<p>Asymmetric Encryption</p>
+<p>Asymmetric Encryption is a form of Encryption where keys come in pairs. What one key encrypts, only the other can decrypt.</p>
+</li>
+<li>
+<p>X.509</p>
+<p>Is a standard format for public key certificates. Each X.509 certificate includes a public key, identifying information, and a digital signature.</p>
+</li>
+</ul>
+<p>Of course, if this [digital signature] is new to you, the above won&rsquo;t (yet) make much sense.</p>
+<p>I&rsquo;m going to walk you through an example, well 2 actually.  One that used a phrase as a key(aka keyphrase), and the other that used a public/private key found in a digital certificate (albeit, self-signed).  I am going to use a tool call <code>openssl</code>, not may have heard of it?</p>
+<h1 id="symmetric-encyrption">Symmetric encyrption</h1>
+<p><strong><em>Encryption using a keyphrase</em></strong></p>
+<p>In this first example, I&rsquo;m going to encrypt a message with a <code>keyphrase</code>.</p>
+<p>Before I begin, I&rsquo;m going to write the content of <code>my secret message</code> to a file called <code>msg.txt</code>.</p>
+<p>Next, I&rsquo;m going to encrypt this file it using a keyphrase of <code>abc123</code> and output the encrypted file to <code>msg.txt.enc</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ openssl enc -e -aes256 -k abc123 -in ./msg.txt -out ./msg.txt.enc
+</code></pre></div><p><em>above you&rsquo;ll see <strong>-aes256</strong>. This is the cipher algorithm we&rsquo;re using</em></p>
+<p>The encrypted file looks something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Salted__BmF�jԿŀa��1��\X
+	���{&#39;V�dFq�&amp;���L�8:������T
+</code></pre></div><p>Pure gobbledygook!</p>
+<p>Now, I&rsquo;m going to decrypt this encrypted file <code>msg.txt.enc</code> and output the encrypted file to <code>msg.txt.dec</code>.  It is imperative that I used the same <code>keyphrase</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ openssl enc -d -aes256 -k abc123 -in ./msg.txt.enc -out ./msg.txt.dec
+</code></pre></div><p>The decrypted file <code>msg.txt.dec</code> looks like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">my secret message
+</code></pre></div><p>If I had omitted the <code>keyphrase</code>, I will have been prompt for it which will have looked like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ openssl enc -d -e -aes256 -in ./msg.txt.enc -out ./msg.txt.dec
+enter aes-256-cbc decryption password:
+</code></pre></div><p>Or, if I had used the incorrect `keyphrase, I will have seen something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">bad decrypt
+140120216352064:error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt:../crypto/evp/evp_enc.c:583:
+</code></pre></div><p>A good simple illustration of how to encrypt and decrypt a message using <code>openssl enc</code> command.</p>
+<h1 id="asymmetric-encryption">Asymmetric encryption</h1>
+<p><strong><em>Encryption using a public/private key</em></strong></p>
+<p>In this section I&rsquo;m going to:</p>
+<ul>
+<li>Generate a RSA private key</li>
+<li>Extract the public key from the private key</li>
+<li>Generate a hash of the data I want to send, as well as signing it (using private key)</li>
+<li>Encrypt the data I want to send</li>
+<li>Decrypt the data I have received</li>
+<li>Verify the signature of the data received - <em>ensure it data wasn&rsquo;t tampered with in-flight</em></li>
+</ul>
+<p>Let&rsquo;s first generate the message I want to securely transmit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ echo <span style="color:#e6db74">&#39;my secret message&#39;</span> &gt; msg
+</code></pre></div><h2 id="create-a-rsa-private-key">Create a RSA private key</h2>
+<p>Here I&rsquo;m using the <code>genrsa</code> command.  This command generates an RA private key:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl genrsa -out private.pem <span style="color:#ae81ff">4096</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days <span style="color:#ae81ff">365</span>
+</code></pre></div><h2 id="extract-public-key">Extract public key</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl rsa -in private.pem -pubout -out public.pem
+</code></pre></div><h2 id="generate-a-digital-signature">Generate a digital signature</h2>
+<h3 id="using-dgst">using <code>dgst</code></h3>
+<p>Here, I&rsquo;m generating a hash (digest) of the message as well as signing it with the private key</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl dgst -sha256 -sign private.pem -out msg.signature msg
+</code></pre></div><h3 id="using-rsautl">using <code>rsautl</code></h3>
+<p><code>rsautl</code>, unlike <code>dgst</code>, does <strong>not create a hash</strong> or ASN1 encoding.</p>
+<blockquote class="book-hint danger">
+  As <code>rsautl</code> uses the RSA algorithm directly, it can only be used to sign, or verify, small pieces of data:
+</blockquote>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl rsautl -sign -in msg -inkey private.pem -out msg.sig
+</code></pre></div><h2 id="encrypt-the-message">Encrypt the message</h2>
+<p>The <code>rsautl</code> command can be used to sign, verify, encrypt and decrypt data using the RSA algorithm.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl rsautl -encrypt -inkey public.pem -pubin -in msg -out msg.enc
+</code></pre></div><p><em>By including the <code>-pubin</code> switch, you&rsquo;re telling the command that the input key file (<code>-inkey</code>) is an RSA public key. Withou this, it assumed you&rsquo;re using a private key</em></p>
+<h2 id="decrypt-the-message">Decrypt the message</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl rsautl -decrypt -inkey private.pem -in msg.enc -out msg.dec
+</code></pre></div><h2 id="verify-signature">Verify signature</h2>
+<h3 id="using-dgst-1">using <code>dgst</code></h3>
+<p>This uses the public key to decrypt the Hash of the original msg:</p>
+<p>pseudo logic:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">hash_1 = Hash ( msg )
+hash_2 = Dec ( Key -&gt; Hash )
+IsVarified = hash_1 == hash_2
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl dgst -sha256 -verify public.pem -signature msg.signature msg
+Verified OK
+</code></pre></div><h3 id="using-rsautl-1">using <code>rsautl</code></h3>
+<p>This verifies the original message using the signature and outputs it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ openssl rsautl -verify -inkey private.pem -in msg.sig
+my secret message
+</code></pre></div><h1 id="digital-certificates">Digital Certificates</h1>
+<p><strong><em>To verify the identity of the entity presenting it</em></strong></p>
+<p>So far, we&rsquo;ve covered hashes, key pairs, digital signatures and encryption and decryption.  This section is where I cover, briefly, digital certificates.  I&rsquo;m using a digital certificate to replace the key pair as covered above and to give the capability of using additional information to verify that the identity of the entity presenting this message.</p>
+<p>Let&rsquo;s start by creating a self-signed certificate. Type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># create self-signed certificate</span> 
+openssl req -x509 -sha256 -nodes -days <span style="color:#ae81ff">365</span> -newkey rsa:4096 -keyout myserver.pem -out myserver.crt -subj <span style="color:#e6db74">&#34;/C=UK/OU=IT/CN=myserver.com&#34;</span>
+</code></pre></div><p>We can inspect the content of the certificate by typing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">openssl x509 -in myserver.crt -text -noout
+</code></pre></div><p>For bravity, I&rsquo;m using the same commands as used above to; extract public key, generate digital signature, encrypt/decrypt then verify the signature.  I&rsquo;ve included all the statements in one block:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># extract public key from self-signed certificate</span>
+openssl rsa -in myserver.pem -pubout -out server-public.pem
+
+<span style="color:#75715e"># generate hash and sign (digital signature)</span>
+$ openssl dgst -sha256 -sign myserver.pem -out msg.server-signature msg
+
+<span style="color:#75715e"># encrypt my message</span>
+openssl rsautl -encrypt -inkey server-public.pem -pubin -in msg -out msg.enc2
+
+<span style="color:#75715e"># decrypt my encrypted message</span>
+openssl rsautl -decrypt -inkey myserver.pem -in msg.enc2 -out msg.dec2
+
+<span style="color:#75715e"># vertify signature</span>
+openssl dgst -sha256 -verify server-public.pem -signature msg.server-signature msg
+</code></pre></div><p>This results in:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Verified OK
+</code></pre></div><h1 id="jwt">JWT</h1>
+<p>So, how does the digital signature relate to the Signature verification against a JWT Token?</p>
+<p>In this section I will be using the jwt.io website.  From this site I can choose which cipher algorithm.  I will be using a RSA (widely used for secure data transmission and public-key cryptography) cipher as I&rsquo;m simulating the sending and receiving of a JWT Token over HTTP.</p>
+<p>A JWT signature will use RSA SHA (irreversible hash) of the header and payload.  This algorithm is set in the header so we have all the information we need to decrypt the encrypted data.  However, we&rsquo;re not able to verify these points yet: (a) has the message been tampered with inflight and (b) the identity of the entity presenting this message.</p>
+<p>In actual fact, you will see this if you copied the a JWT token without keys into jwt.io (selecting RSA256 algorithm).  It will show <code>Invalid Signature</code>.  So, to verify these points, you need to provide the public and private key.  It will use the private key to obtain the original Hash (hash of the original data) then decrypt this.  If once decrypted, this equates to the RSASHA246 HMAC, then the signature is verified.</p>
+<p>All I&rsquo;ve done is added a tenant property to the claims (payload). I&rsquo;ve doing this prove that I&rsquo;ve changed the claim and will become apparent shortly why I&rsquo;ve done this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;sub&#34;</span>: <span style="color:#e6db74">&#34;1234567890&#34;</span>,
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;John Doe&#34;</span>,
+  <span style="color:#f92672">&#34;admin&#34;</span>: <span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;iat&#34;</span>: <span style="color:#ae81ff">1516239022</span>,
+  <span style="color:#f92672">&#34;tenant&#34;</span>: <span style="color:#e6db74">&#34;foobaa&#34;</span>
+}
+</code></pre></div><p>Next, I copy in the public and private key into the verify signature area.  This all looks like this:</p>
+<p><img src="../img/2020-06-16-08-37-23.png" alt="" /></p>
+<p>I copy the encoded token (will paste it back in, in a moment) then refresh the page. The page is recent and defaults loaded (observe the changed payload):</p>
+<p><img src="../img/2020-06-16-08-42-02.png" alt="" /></p>
+<p>I now copy in my encoded token:</p>
+<p><img src="../img/2020-06-16-08-43-00.png" alt="" /></p>
+<p>You will see the <code>Invalid Signature</code> near the bottom, but, the correct payload is back!  This is because the certificates key pair in this default screen are different to my digital certificate&rsquo;s key pair.</p>
+<p>So, if I removed the entire encoded signature from the encoded token, we&rsquo;ll still see the decrypted payload:</p>
+<p><img src="../img/2020-06-16-09-00-15.png" alt="" /></p>
+<p>So, how&rsquo;s it validating the signature? &hellip;</p>
+<h2 id="jwt-token-format">JWT Token format</h2>
+<p>Let&rsquo;s remind ourselves of the structure of a JWT Token is:</p>
+<p>{<strong>header</strong>}.{<strong>payload</strong>}.{<strong>signature</strong>}</p>
+<p>The <strong>signature</strong>, with using the RS246 cipher, is a RSA SHA of the <strong>header</strong> (just cipher algorithm &amp; type, which is JWT) AND <strong>payload</strong>.  This simply means it is using a public-key (from our digital certificate) to encrypt a one-way hash of our original message (header + payload).</p>
+<h2 id="how-is-the-signature-verified">How is the signature verified?</h2>
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+     <!-- begin columns block -->
+<h3 id="token">Token</h3>
+<p><em>From encoded token</em></p>
+<p>Algorithm (HASH_1):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ENCRYPT (
+   KEY -&gt; (
+       HASH ( base64 (header) + &#34;.&#34; + base64 (payload) )
+   )
+)
+</code></pre></div><p>The <code>Signature</code> is RSA SHA of ( base64(header) + &ldquo;.&rdquo; + base64(payload)).</p>
+<p>Here, in the jwt.io site, it is recalculated after each valid payload change.</p>
+
+  </div>
+  
+  <div class="flex-even markdown-inner">
+     <!-- magic sparator, between columns -->
+<h3 id="key-pair">Key pair</h3>
+<p><em>Comparison using key pair</em></p>
+<p>Algorithm (HASH_2):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">DECRYPT ( 
+   KEY -&gt; ( 
+      HASH ( base64 (header) + &#34;.&#34; + base64 (payload) ) 
+   )    
+)
+</code></pre></div><p>It base64 encodes the header + payload using the key pair, then encrypts it.  If this matches the signature in the the encoded token then the signature is verified:</p>
+<p>VERIFIED = HASH_1 == HASH_2</p>
+
+  </div>
+  
+</div>
+
+<p>As soon as I paste in my public and private keys, it correctly verifies the digital signature:</p>
+<p><img src="../img/2020-06-16-09-02-20.png" alt="" /></p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://www.openssl.org/docs/man1.0.2/man1/genrsa.html">openssl genrsa</a></li>
+<li><a href="https://www.openssl.org/docs/man1.0.2/man1/rsautl.html">openssl rsautl</a></li>
+<li><a href="https://jumpnowtek.com/security/Code-signing-with-openssl.html">openssl examples</a></li>
+<li><a href="https://stackoverflow.com/questions/9951559/difference-between-openssl-rsautl-and-dgst#:~:text=The%20simple%20answer%20is%20that,only%20a%20signature%20as%20output.">the difference rsautl -sign AND dgst -sign</a></li>
+<li><a href="https://www.openssl.org/docs/man1.0.2/man1/">openssl</a></li>
+</ul>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#terms">Terms</a></li>
+    <li><a href="#symmetric-encyrption">Symmetric encyrption</a></li>
+    <li><a href="#asymmetric-encryption">Asymmetric encryption</a>
+      <ul>
+        <li><a href="#create-a-rsa-private-key">Create a RSA private key</a></li>
+        <li><a href="#extract-public-key">Extract public key</a></li>
+        <li><a href="#generate-a-digital-signature">Generate a digital signature</a>
+          <ul>
+            <li><a href="#using-dgst">using <code>dgst</code></a></li>
+            <li><a href="#using-rsautl">using <code>rsautl</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#encrypt-the-message">Encrypt the message</a></li>
+        <li><a href="#decrypt-the-message">Decrypt the message</a></li>
+        <li><a href="#verify-signature">Verify signature</a>
+          <ul>
+            <li><a href="#using-dgst-1">using <code>dgst</code></a></li>
+            <li><a href="#using-rsautl-1">using <code>rsautl</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#digital-certificates">Digital Certificates</a></li>
+    <li><a href="#jwt">JWT</a>
+      <ul>
+        <li><a href="#jwt-token-format">JWT Token format</a></li>
+        <li><a href="#how-is-the-signature-verified">How is the signature verified?</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

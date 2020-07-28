@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="With not wanting to have hard coded values pushed to a project&rsquo;s code repository, and an antiquated way to derive Azure Service Principal credentials, I set about exploring ways on accomplishing this with this in mind using Terraform.
+Attempt 1 Here ins my first attempt, I load all permutations into map variables. I use an environment variable as an indexer to the appropriate map value:
+provider &#34;azurerm&#34; { version = &#34;=2."><meta property="og:title" content="Terraform Get Values" />
+<meta property="og:description" content="With not wanting to have hard coded values pushed to a project&rsquo;s code repository, and an antiquated way to derive Azure Service Principal credentials, I set about exploring ways on accomplishing this with this in mind using Terraform.
+Attempt 1 Here ins my first attempt, I load all permutations into map variables. I use an environment variable as an indexer to the appropriate map value:
+provider &#34;azurerm&#34; { version = &#34;=2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/terraform-get-values/" />
+<meta property="article:published_time" content="2020-07-23T13:42:59+01:00" />
+<meta property="article:modified_time" content="2020-07-23T13:42:59+01:00" />
+<title>Terraform Get Values | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.26ca7b115dfe2011b39623e15c8a86b70ad0fc277af161f6927f8ba10bfe21ad.js" integrity="sha256-Jsp7EV3&#43;IBGzliPhXIqGtwrQ/Cd68WH2kn&#43;LoQv&#43;Ia0="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent With an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="active">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Terraform Get Values</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#attempt-1">Attempt 1</a></li>
+            <li><a href="#attempt-2">Attempt 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/terraform-get-values/">Terraform Get Values</a>
+  </h1>
+  <p>
+  
+  <i>July 23, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;322&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/terraform/">terraform</a>
+</div>
+
+
+  <p><p>With not wanting to have hard coded values pushed to a project&rsquo;s code repository, and an antiquated way to derive Azure Service Principal credentials, I set about exploring ways on accomplishing this with this in mind using Terraform.</p>
+<h3 id="attempt-1">Attempt 1</h3>
+<p>Here ins my first attempt, I load all permutations into map variables.  I use an environment variable as an indexer to the appropriate map value:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tf" data-lang="tf"><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;azurerm&#34;</span> {  
+  <span style="color:#a6e22e">version</span>         = <span style="color:#e6db74">&#34;=2.17&#34;</span>
+  ...  
+  <span style="color:#a6e22e">subscription_id</span> = var.<span style="color:#a6e22e">azure_subscription_id</span>[var.<span style="color:#a6e22e">environment</span>]     
+  <span style="color:#a6e22e">client_id</span>       = var.<span style="color:#a6e22e">azure_client_id</span>[var.<span style="color:#a6e22e">environment</span>]   
+  ...
+}
+<span style="color:#66d9ef">
+</span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_subscription_id&#34;</span> {
+  <span style="color:#a6e22e">type</span> = map
+  <span style="color:#a6e22e">default</span> = {
+    <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
+    <span style="color:#e6db74">&#34;prod&#34;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
+  }
+}
+<span style="color:#66d9ef">
+</span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_client_id&#34;</span> {
+  <span style="color:#a6e22e">type</span> = map
+  <span style="color:#a6e22e">default</span> = {
+    <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
+    <span style="color:#e6db74">&#34;prod&#34;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
+  }
+}
+...
+</code></pre></div><h3 id="attempt-2">Attempt 2</h3>
+<p>This second and more efficient approach, I used <code>jsondecode</code> function to load the entire credentials JSON to access the subscriptionId property:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tf" data-lang="tf"><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;azurerm&#34;</span> {  
+  <span style="color:#a6e22e">version</span>         = <span style="color:#e6db74">&#34;=2.17&#34;</span>
+  ...  
+  <span style="color:#a6e22e">subscription_id</span>   = var.<span style="color:#a6e22e">environment</span> =<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">?</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_dev</span>).<span style="color:#a6e22e">subscriptionId</span> <span style="color:#f92672">:</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_prod</span>).<span style="color:#a6e22e">subscriptionId</span>
+  <span style="color:#a6e22e">client_id</span>   = var.<span style="color:#a6e22e">environment</span> =<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">?</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_dev</span>).<span style="color:#a6e22e">clientId</span> <span style="color:#f92672">:</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_prod</span>).<span style="color:#a6e22e">clientId</span>
+  ...
+}
+<span style="color:#66d9ef">
+</span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_sp_dev&#34;</span> {
+  <span style="color:#a6e22e">type</span> = <span style="color:#a6e22e">string</span>
+  <span style="color:#a6e22e">default</span> = <span style="color:#f92672">&lt;&lt;EOT</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  {
+</span><span style="color:#e6db74">  &#34;clientId&#34;: &#34;********-****-****-****-************&#34;,
+</span><span style="color:#e6db74">  &#34;clientSecret&#34;: &#34;********-****-****-****-************&#34;,
+</span><span style="color:#e6db74">  &#34;subscriptionId&#34;: &#34;********-****-****-****-************&#34;,
+</span><span style="color:#e6db74">  &#34;tenantId&#34;: &#34;********-****-****-****-************&#34;,
+</span><span style="color:#e6db74">  &#34;activeDirectoryEndpointUrl&#34;: &#34;https://login.microsoftonline.com&#34;,
+</span><span style="color:#e6db74">  &#34;resourceManagerEndpointUrl&#34;: &#34;https://management.azure.com/&#34;,
+</span><span style="color:#e6db74">  &#34;activeDirectoryGraphResourceId&#34;: &#34;https://graph.windows.net/&#34;,
+</span><span style="color:#e6db74">  &#34;sqlManagementEndpointUrl&#34;: &#34;https://management.core.windows.net:8443/&#34;,
+</span><span style="color:#e6db74">  &#34;galleryEndpointUrl&#34;: &#34;https://gallery.azure.com/&#34;,
+</span><span style="color:#e6db74">  &#34;managementEndpointUrl&#34;: &#34;https://management.core.windows.net/&#34;
+</span><span style="color:#e6db74">  }
+</span><span style="color:#e6db74">  </span><span style="color:#f92672">EOT</span>
+}
+<span style="color:#66d9ef">
+</span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_sp_prod&#34;</span> {
+  <span style="color:#a6e22e">type</span> = <span style="color:#a6e22e">string</span>
+...
+</code></pre></div><p>Obviously, none of the above deals with not pushing these credentials into the code repository.</p>
+<p>So, in my opinion, there are 2 options available here.  The first option is to use a GitHub Secret and to inject this secret into a script file.  It could even be passed as a parameter to Terraform (e.g. <code>terrafor apply -var credentials={...}</code> ).  Or, the second option is to obtain this key using the GitHub <code>Azure/get-keyvault-secrets@v1.0</code> Action.  This method will then allow you to obtain the Service Principal credentials from an Azure KeyVault.  This latter approach means that we never need to expose these secrets outside of Azure, which we would have to do if we cut &amp; paste them into a GitHub Secret.</p>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#attempt-1">Attempt 1</a></li>
+            <li><a href="#attempt-2">Attempt 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

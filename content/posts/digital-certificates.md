@@ -20,33 +20,41 @@ Ok, let's start with a few terms.  I'll slowly integrate these terms in the foll
 
    A hash is a piece of data, that cannot be reengineered to reveal it's original content, also referred to as a digest or one-way hash.
 
+- SHA (Secure Hashing Algorithm)
+
+   It is for cryptographic security. It is used to produce an irreversible and unique hash.
+
 - Encryption
 
-   The process of converting something to gobbledygook and only be able to read it when you have the key used when it was encrypted
+   The process of converting something to gobbledygook and only be able to read it when you have the key used when it was encrypted.
 
 - Digital signature
 
-   The encrypted hash, that proves the data has not been tampered with in-flighted AND verifies the identity of the entity presenting it
+   The encrypted hash, that proves the data has not been tampered with in-flighted AND verifies the identity of the entity presenting it.
 
 - Signing
 
-   The process of creating the digital signature
+   The process of creating the digital signature.
 
 - Base64
    
-   The more efficient was of encoding and sending data over a network
+   The more efficient was of encoding and sending data over a network.
 
 - Cipher algorithm
 
    A cipher algorithm is a mathematical formula designed specifically to obscure the value and content of data. Most valuable cipher algorithms use a key as part of the formula. This key is used to encrypt the data, and either that key or a complementary key is needed to decrypt the data back to a useful form.
 
+- RSA (Rivest–Shamir–Adleman)
+
+   RSA is one of the first public-key cryptosystems and is widely used for secure data transmission. In such a cryptosystem, the encryption key is public and distinct from the decryption key which is kept secret (private).
+
 - Symmetric Encryption
 
-   Symmetric encryption is a type of encryption where only one key (a secret key) is used to both encrypt and decrypt electronic information
+   Symmetric encryption is a type of encryption where only one key (a secret key) is used to both encrypt and decrypt electronic information.
 
 - Asymmetric Encryption
 
-   Asymmetric Encryption is a form of Encryption where keys come in pairs. What one key encrypts, only the other can decrypt
+   Asymmetric Encryption is a form of Encryption where keys come in pairs. What one key encrypts, only the other can decrypt.
 
 - X.509
    
@@ -254,11 +262,106 @@ This results in:
 Verified OK
 ```
 
-So, how does the digital signature relate to the Signature verification against a jwt token?  
+# JWT 
 
-A JWT signature is RSA SHA of the header and payload.  This algorithm is set in the header so we have all the information we need to decrypt the encrypted data.  However, we're not able to verify these points yet: (a) has the message been tampered with inflight and (b) the identity of the entity presenting this message.  
+So, how does the digital signature relate to the Signature verification against a JWT Token?  
+
+In this section I will be using the jwt.io website.  From this site I can choose which cipher algorithm.  I will be using a RSA (widely used for secure data transmission and public-key cryptography) cipher as I'm simulating the sending and receiving of a JWT Token over HTTP.
+
+A JWT signature will use RSA SHA (irreversible hash) of the header and payload.  This algorithm is set in the header so we have all the information we need to decrypt the encrypted data.  However, we're not able to verify these points yet: (a) has the message been tampered with inflight and (b) the identity of the entity presenting this message.  
 
 In actual fact, you will see this if you copied the a JWT token without keys into jwt.io (selecting RSA256 algorithm).  It will show `Invalid Signature`.  So, to verify these points, you need to provide the public and private key.  It will use the private key to obtain the original Hash (hash of the original data) then decrypt this.  If once decrypted, this equates to the RSASHA246 HMAC, then the signature is verified. 
+
+All I've done is added a tenant property to the claims (payload). I've doing this prove that I've changed the claim and will become apparent shortly why I've done this:
+
+```json
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true,
+  "iat": 1516239022,
+  "tenant": "foobaa"
+}
+```
+
+Next, I copy in the public and private key into the verify signature area.  This all looks like this:
+
+
+![](../img/2020-06-16-08-37-23.png)
+
+I copy the encoded token (will paste it back in, in a moment) then refresh the page. The page is recent and defaults loaded (observe the changed payload):
+
+![](../img/2020-06-16-08-42-02.png)
+
+I now copy in my encoded token:
+
+![](../img/2020-06-16-08-43-00.png)
+
+You will see the `Invalid Signature` near the bottom, but, the correct payload is back!  This is because the certificates key pair in this default screen are different to my digital certificate's key pair. 
+
+So, if I removed the entire encoded signature from the encoded token, we'll still see the decrypted payload:
+
+![](../img/2020-06-16-09-00-15.png)
+
+So, how's it validating the signature? ...
+
+## JWT Token format
+
+Let's remind ourselves of the structure of a JWT Token is:
+
+{**header**}.{**payload**}.{**signature**}
+
+The **signature**, with using the RS246 cipher, is a RSA SHA of the **header** (just cipher algorithm & type, which is JWT) AND **payload**.  This simply means it is using a public-key (from our digital certificate) to encrypt a one-way hash of our original message (header + payload).
+
+## How is the signature verified?
+
+{{< columns >}} <!-- begin columns block -->
+### Token
+
+_From encoded token_
+
+Algorithm (HASH_1): 
+
+```
+ENCRYPT (
+   KEY -> (
+       HASH ( base64 (header) + "." + base64 (payload) )
+   )
+)
+```
+
+The `Signature` is RSA SHA of ( base64(header) + "." + base64(payload)). 
+
+Here, in the jwt.io site, it is recalculated after each valid payload change.
+
+
+<---> <!-- magic sparator, between columns -->
+
+
+### Key pair
+
+_Comparison using key pair_
+
+Algorithm (HASH_2): 
+```
+DECRYPT ( 
+   KEY -> ( 
+      HASH ( base64 (header) + "." + base64 (payload) ) 
+   )    
+)
+```
+It base64 encodes the header + payload using the key pair, then encrypts it.  If this matches the signature in the the encoded token then the signature is verified:
+
+VERIFIED = HASH_1 == HASH_2
+
+
+{{< /columns >}}
+
+
+As soon as I paste in my public and private keys, it correctly verifies the digital signature:
+
+![](../img/2020-06-16-09-02-20.png)
+
 
 # References
 
