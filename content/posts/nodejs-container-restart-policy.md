@@ -4,7 +4,7 @@ date: 2020-09-21T16:36:35+01:00
 tags: [nodejs, cluster, docker, docker-compose, resilience]
 ---
 
-If by accident to deploy a solution using the [Node.js](https://nodejs.org/en/) [Cluster API](https://nodejs.org/dist/latest-v14.x/docs/api/cluster.html) and and do not fork exited processesm then the following docker compose restart_policy will not help you:
+If by accident to deploy a solution using the [Node.js](https://nodejs.org/en/) [Cluster API](https://nodejs.org/dist/latest-v14.x/docs/api/cluster.html) and do not fork exited processes then the following `docker-compose` restart_policy will not help you:
 
 ```yml
 deploy:
