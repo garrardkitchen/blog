@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.ac6a52afc6f09dfa62350f21b22fdae459e0d359c5b93000cd6795486706cddd.js" integrity="sha256-rGpSr8bwnfpiNQ8hsi/a5Fng01nFuTAAzWeVSGcGzd0="></script>
+<script defer src="/en.search.min.de034ecf61fed95b0a6554d4eb847095abd8e45ffb8a1d3538fed57baf9ef571.js" integrity="sha256-3gNOz2H&#43;2VsKZVTU64RwlavY5F/7ih01OP7Ve6&#43;e9XE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -96,6 +96,16 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
     <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
   
 
@@ -137,6 +147,16 @@ https://github.com/alex-shpak/hugo-book
           
   
     <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
   
 
         </li>
@@ -264,6 +284,31 @@ https://github.com/alex-shpak/hugo-book
       <ul>
       
         <li class="flex justify-between">
+          <a href="/tags/cluster/">cluster</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/docker/">docker</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/docker-compose/">docker-compose</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/nodejs/">nodejs</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/resilience/">resilience</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
           <a href="/tags/apache-ignite/">apache ignite</a>
           <span>1</span>
         </li>
@@ -439,6 +484,41 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
         <li class="flex justify-between">
+          <a href="/tags/arrow-functions/">arrow functions</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/babel/">babel</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/class/">class</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/decorator/">decorator</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/destructuring/">destructuring</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/javascript/">javascript</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/typescript/">typescript</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
           <a href="/tags/Heisenberg-Effect/">Heisenberg Effect</a>
           <span>1</span>
         </li>
@@ -486,6 +566,51 @@ https://github.com/alex-shpak/hugo-book
 
 <article class="markdown book-post">
   <h2>
+    <a href="/posts/nodejs-container-restart-policy/">Nodejs Container Restart Policy</a>
+  </h2>
+  <p>
+  
+  <i>September 21, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;360&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/nodejs/">nodejs</a>, 
+  <a href="/tags/cluster/">cluster</a>, 
+  <a href="/tags/docker/">docker</a>, 
+  <a href="/tags/docker-compose/">docker-compose</a>, 
+  <a href="/tags/resilience/">resilience</a>
+</div>
+
+
+  <p>If by accident to deploy a solution using the Node.js Cluster API and do not fork exited processes then the following docker-compose restart_policy will not help you:
+deploy: restart_policy: condition: on-failure If you&rsquo;re using the Cluster API to schedule tasks across your processes, and all forked processes die, then the docker engine will just assume you&rsquo;ve gracefully shutdown.
+Take this code for example, you will see that it doesn&rsquo;t fork another process and therefore, at some point it will no longer process any anything:
+    <a href="/posts/nodejs-container-restart-policy/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
     <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
   </h2>
   <p>
@@ -514,9 +639,9 @@ https://github.com/alex-shpak/hugo-book
 <div>
   
   <a href="/tags/apache-ignite/">apache ignite</a>, 
-  <a href="/tags/data-grid/">data grid</a>, 
-  <a href="/tags/gridgain/">gridgain</a>, 
   <a href="/tags/ignite/">ignite</a>, 
+  <a href="/tags/gridgain/">gridgain</a>, 
+  <a href="/tags/data-grid/">data grid</a>, 
   <a href="/tags/Ignite.NET/">Ignite.NET</a>
 </div>
 
@@ -598,15 +723,15 @@ provider &#34;azurerm&#34; { version = &#34;=2.
 
 <div>
   
+  <a href="/tags/ssl/">ssl</a>, 
+  <a href="/tags/openssl/">openssl</a>, 
   <a href="/tags/digital-certificate/">digital certificate</a>, 
   <a href="/tags/digital-signature/">digital signature</a>, 
-  <a href="/tags/encryption/">encryption</a>, 
-  <a href="/tags/hash/">hash</a>, 
   <a href="/tags/key-pairs/">key pairs</a>, 
   <a href="/tags/keys/">keys</a>, 
-  <a href="/tags/openssl/">openssl</a>, 
   <a href="/tags/signing/">signing</a>, 
-  <a href="/tags/ssl/">ssl</a>, 
+  <a href="/tags/hash/">hash</a>, 
+  <a href="/tags/encryption/">encryption</a>, 
   <a href="/tags/sso/">sso</a>
 </div>
 
@@ -648,14 +773,14 @@ So, what&rsquo;s triggered this post? Well, one of many tasks I&rsquo;m involved
 <div>
   
   <a href="/tags/jest/">jest</a>, 
-  <a href="/tags/mssql/">mssql</a>, 
-  <a href="/tags/rabbitmq/">rabbitmq</a>, 
-  <a href="/tags/sync/">sync</a>, 
-  <a href="/tags/taskrouter/">taskrouter</a>, 
+  <a href="/tags/unit-testing/">unit testing</a>, 
   <a href="/tags/twilio/">twilio</a>, 
-  <a href="/tags/twilio-sync/">twilio sync</a>, 
+  <a href="/tags/rabbitmq/">rabbitmq</a>, 
   <a href="/tags/twilio-taskrouter/">twilio taskrouter</a>, 
-  <a href="/tags/unit-testing/">unit testing</a>
+  <a href="/tags/mssql/">mssql</a>, 
+  <a href="/tags/sync/">sync</a>, 
+  <a href="/tags/twilio-sync/">twilio sync</a>, 
+  <a href="/tags/taskrouter/">taskrouter</a>
 </div>
 
 
@@ -695,22 +820,68 @@ So, what&rsquo;s triggered this post? Well, one of many tasks I&rsquo;m involved
 
 <div>
   
-  <a href="/tags/aws/">aws</a>, 
-  <a href="/tags/azure/">azure</a>, 
   <a href="/tags/blogging/">blogging</a>, 
-  <a href="/tags/containers/">containers</a>, 
-  <a href="/tags/gcp/">gcp</a>, 
   <a href="/tags/kubernetes/">kubernetes</a>, 
+  <a href="/tags/setup/">setup</a>, 
+  <a href="/tags/windows/">windows</a>, 
+  <a href="/tags/containers/">containers</a>, 
   <a href="/tags/pods/">pods</a>, 
   <a href="/tags/services/">services</a>, 
-  <a href="/tags/setup/">setup</a>, 
-  <a href="/tags/windows/">windows</a>
+  <a href="/tags/azure/">azure</a>, 
+  <a href="/tags/aws/">aws</a>, 
+  <a href="/tags/gcp/">gcp</a>
 </div>
 
 
   <p>This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
 What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.
     <a href="/posts/kubernetes-on-windows/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/modern-javascript/">Modern-ish Javascript</a>
+  </h2>
+  <p>
+  
+  <i>April 5, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;715&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/javascript/">javascript</a>, 
+  <a href="/tags/destructuring/">destructuring</a>, 
+  <a href="/tags/arrow-functions/">arrow functions</a>, 
+  <a href="/tags/typescript/">typescript</a>, 
+  <a href="/tags/class/">class</a>, 
+  <a href="/tags/babel/">babel</a>, 
+  <a href="/tags/decorator/">decorator</a>
+</div>
+
+
+  <p>This post includes a few notes on ECMA language features that I like as well as some info on memory leaking. I have no doubt that it will read disjointed; I started this eons ago and only now have I decided to publish it.
+A simple reminder of what Node.js is &hellip;it is a set of APIs wrapped around the V8 Engine (written in c++) and is a high-performance JavaScript and WebAssembly engine.
+    <a href="/posts/modern-javascript/">...</a>
     
   </p>
 </article>
@@ -744,11 +915,11 @@ What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, 
 
 <div>
   
-  <a href="/tags/blogging/">blogging</a>, 
-  <a href="/tags/Heisenberg-Effect/">Heisenberg Effect</a>, 
   <a href="/tags/Hugo/">Hugo</a>, 
+  <a href="/tags/blogging/">blogging</a>, 
   <a href="/tags/mentoring/">mentoring</a>, 
-  <a href="/tags/The-Managers-Path/">The Manager&#39;s Path</a>
+  <a href="/tags/The-Managers-Path/">The Manager&#39;s Path</a>, 
+  <a href="/tags/Heisenberg-Effect/">Heisenberg Effect</a>
 </div>
 
 
@@ -789,8 +960,8 @@ The definition of Mentoring is the act of advising or training (someone, especia
 
 <div>
   
-  <a href="/tags/blogging/">blogging</a>, 
   <a href="/tags/Hugo/">Hugo</a>, 
+  <a href="/tags/blogging/">blogging</a>, 
   <a href="/tags/good-engineering/">good engineering</a>, 
   <a href="/tags/principles/">principles</a>
 </div>
@@ -854,6 +1025,31 @@ Most Engineers are fully versed in the foundations of writing quality, efficient
     <li class="book-section-flat">
       <strong>Tags</strong>
       <ul>
+      
+        <li class="flex justify-between">
+          <a href="/tags/cluster/">cluster</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/docker/">docker</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/docker-compose/">docker-compose</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/nodejs/">nodejs</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/resilience/">resilience</a>
+          <span>1</span>
+        </li>
       
         <li class="flex justify-between">
           <a href="/tags/apache-ignite/">apache ignite</a>
@@ -1027,6 +1223,41 @@ Most Engineers are fully versed in the foundations of writing quality, efficient
       
         <li class="flex justify-between">
           <a href="/tags/windows/">windows</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/arrow-functions/">arrow functions</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/babel/">babel</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/class/">class</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/decorator/">decorator</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/destructuring/">destructuring</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/javascript/">javascript</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/typescript/">typescript</a>
           <span>1</span>
         </li>
       

@@ -6,11 +6,7 @@
     <description>Recent content in taskrouter on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 28 May 2020 07:32:45 +0000</lastBuildDate>
-    
-	<atom:link href="http://blog.garrardkitchen.com/tags/taskrouter/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 28 May 2020 07:32:45 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/taskrouter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unit testing and mocking fs.ReadFileSync</title>
       <link>http://blog.garrardkitchen.com/posts/jest-fs-readFileSync/</link>

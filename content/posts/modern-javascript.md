@@ -2,18 +2,22 @@
 title: "Modern-ish Javascript"
 date: 2020-04-05T10:16:22+01:00
 draft: false
-tags: [javascript, destructuring, arrow functions]
+tags: [javascript, destructuring, arrow functions, typescript, class, babel, decorator]
 ---
 
 This post includes a few notes on ECMA language features that I like as well as some info on memory leaking.  I have no doubt that it will read disjointed; I started this eons ago and only now have I decided to publish it.
+
+A simple reminder of what Node.js is ...it is a set of APIs wrapped around the V8 Engine (written in c++) and is a high-performance JavaScript and WebAssembly engine.
 
 ## ES2015 (ES6)
 
 ### Class
 
-I find Javascript messy at the best of times.  When things are messy, personally I find it difficult to see the forest through the trees, and by this I mean, do I cover all the *-cases (use/edge/corner)?  Or worse, can I see the existing bugs or bug breaders?!  Then there's the lack of readability.  I've spoken to many devs about classes and a major prefer arrow functions (more modern).  They might be right as I too did default to arrow functions up until I drank the cool-aid on TypeScript (once to TS they're no going back)!
+I find Javascript messy at the best of times.  When things are messy, personally I find it difficult to see the forest through the trees, and by this I mean, have I coded for all the *-cases (use/edge/corner)?  Or worse, can I see the existing defects or bug breaders?!  Then there's the lack of readability. 
 
-Coming from an OOP background, I naturally gravitate towards constructs like classes.
+I've discussed the use of classes with many Engineers and I have had a mixed reception but in the main, most said they preferred the simplicity of arrow functions.  Not sure if there is a right or wrong answer to this (bit like the tabs or spaces...tabs, obvs!)... and at one time I will have agreed with the majority.  Now though is a different story.  Like so many others, I too have drank the cool-aid on TypeScript and now the only reason I can see myself opting for Javascript in the future is mainly for legacy reasons.
+
+Coming from an OOP background, I naturally gravitate towards constructs like classes:
 
 ```js
 class Admin extends User 
@@ -61,16 +65,14 @@ initialize = () => {}
 
 Awesome addition to the EMCA family!
 
-I've used to with create affect with Typescript and with at least one NestJS solution.
+I've used this with great affect with Typescript, and mostly with NestJS solutions.
 
-This is a contrived example on how you can use a basic decorator on a class function:
+This is a contrived example on how you can use _very_ basic decorator on a class function:
 
 _You must have configured your solution to use babel_
 
-
 {{< tabs "uniqueid" >}}
 {{< tab "example" >}}
-
 
 ```js
 class Content {  
@@ -83,15 +85,15 @@ class Content {
 function link(_find, _replace) {
     return function(target, key, descriptor) {
       var old = descriptor.value()      
-      descriptor.value = function hello() {
+      descriptor.value = () => {
         var n = old.replace(_find, _replace)        
-        return n;
-      };
+        return n
+      }
     }
 }
 
 const m = new Content()
-console.log(m.html());
+console.log(m.html())
 ```
 
 output:
@@ -143,7 +145,7 @@ package.json:
 
 ### Spread
 
-I was reminded of something useful this morning from a youtube video I was watching.  JS passes objects (non-primitives) by reference, ergo, memory pointers, so it is possible to effect an object outside of it's closure.  So, imagine you return an array of objects (e.g. from a service to a controller).  It is possible, to effect this array of objects from within the controller.  One way I have found to avoid this is by using the spread syntax: 
+I was reminded of something useful this morning (on the morning I wrote this, originally!) from a youtube video I was watching.  JS passes objects (non-primitives) by reference, ergo, memory pointers, so it is possible to effect an object outside of it's closure.  So, imagine you return an array of objects (e.g. from a service to a controller).  It is possible, to effect this array of objects from within the controller.  One way I have found to avoid this is by using the `spread` syntax: 
 
 ```js
 private readonly list: string[]

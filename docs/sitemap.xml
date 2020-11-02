@@ -3,43 +3,73 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/apache-ignite/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/data-grid/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/cluster/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/gridgain/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/docker/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/posts/apache-ignite-running-agent-with-dotnetcore-server-node/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/docker-compose/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/ignite/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/nodejs/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/Ignite.NET/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/posts/nodejs-container-restart-policy/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/resilience/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/apache-ignite/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/data-grid/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/gridgain/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/apache-ignite-running-agent-with-dotnetcore-server-node/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/ignite/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/Ignite.NET/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
   </url>
   
   <url>
@@ -210,6 +240,46 @@
   <url>
     <loc>http://blog.garrardkitchen.com/tags/windows/</loc>
     <lastmod>2020-04-28T20:06:09+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/arrow-functions/</loc>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/babel/</loc>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/class/</loc>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/decorator/</loc>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/destructuring/</loc>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/javascript/</loc>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/modern-javascript/</loc>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/typescript/</loc>
+    <lastmod>2020-11-02T14:52:25+00:00</lastmod>
   </url>
   
   <url>

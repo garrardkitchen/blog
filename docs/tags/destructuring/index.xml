@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>destructuring on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/destructuring/</link>
+    <description>Recent content in destructuring on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 05 Apr 2020 10:16:22 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/destructuring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modern-ish Javascript</title>
+      <link>http://blog.garrardkitchen.com/posts/modern-javascript/</link>
+      <pubDate>Sun, 05 Apr 2020 10:16:22 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/modern-javascript/</guid>
+      <description>This post includes a few notes on ECMA language features that I like as well as some info on memory leaking. I have no doubt that it will read disjointed; I started this eons ago and only now have I decided to publish it.
+A simple reminder of what Node.js is &amp;hellip;it is a set of APIs wrapped around the V8 Engine (written in c++) and is a high-performance JavaScript and WebAssembly engine.</description>
+    </item>
+    
+  </channel>
+</rss>

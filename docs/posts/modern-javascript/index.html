@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This post includes a few notes on ECMA language features that I like as well as some info on memory leaking. I have no doubt that it will read disjointed; I started this eons ago and only now have I decided to publish it.
+A simple reminder of what Node.js is &hellip;it is a set of APIs wrapped around the V8 Engine (written in c&#43;&#43;) and is a high-performance JavaScript and WebAssembly engine."><meta property="og:title" content="Modern-ish Javascript" />
+<meta property="og:description" content="This post includes a few notes on ECMA language features that I like as well as some info on memory leaking. I have no doubt that it will read disjointed; I started this eons ago and only now have I decided to publish it.
+A simple reminder of what Node.js is &hellip;it is a set of APIs wrapped around the V8 Engine (written in c&#43;&#43;) and is a high-performance JavaScript and WebAssembly engine." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/modern-javascript/" />
+<meta property="article:published_time" content="2020-04-05T10:16:22+01:00" />
+<meta property="article:modified_time" content="2020-11-02T14:52:25+00:00" />
+<title>Modern-ish Javascript | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.de034ecf61fed95b0a6554d4eb847095abd8e45ffb8a1d3538fed57baf9ef571.js" integrity="sha256-3gNOz2H&#43;2VsKZVTU64RwlavY5F/7ih01OP7Ve6&#43;e9XE="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="active">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Modern-ish Javascript</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#es2015-es6">ES2015 (ES6)</a>
+          <ul>
+            <li><a href="#class">Class</a></li>
+            <li><a href="#destructuring">Destructuring</a></li>
+            <li><a href="#arrow-function">Arrow function</a></li>
+          </ul>
+        </li>
+        <li><a href="#es2016-es7-language-features">ES2016 (ES7) Language Features</a>
+          <ul>
+            <li><a href="#the-decorator">The Decorator</a></li>
+          </ul>
+        </li>
+        <li><a href="#es2018-es9">ES2018 (ES9)</a>
+          <ul>
+            <li><a href="#spread">Spread</a></li>
+          </ul>
+        </li>
+        <li><a href="#memory">Memory</a>
+          <ul>
+            <li><a href="#functions-arguments-passed-by-value-always">Functions arguments passed by value; always</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/modern-javascript/">Modern-ish Javascript</a>
+  </h1>
+  <p>
+  
+  <i>April 5, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;715&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/javascript/">javascript</a>, 
+  <a href="/tags/destructuring/">destructuring</a>, 
+  <a href="/tags/arrow-functions/">arrow functions</a>, 
+  <a href="/tags/typescript/">typescript</a>, 
+  <a href="/tags/class/">class</a>, 
+  <a href="/tags/babel/">babel</a>, 
+  <a href="/tags/decorator/">decorator</a>
+</div>
+
+
+  <p><p>This post includes a few notes on ECMA language features that I like as well as some info on memory leaking.  I have no doubt that it will read disjointed; I started this eons ago and only now have I decided to publish it.</p>
+<p>A simple reminder of what Node.js is &hellip;it is a set of APIs wrapped around the V8 Engine (written in c++) and is a high-performance JavaScript and WebAssembly engine.</p>
+<h2 id="es2015-es6">ES2015 (ES6)</h2>
+<h3 id="class">Class</h3>
+<p>I find Javascript messy at the best of times.  When things are messy, personally I find it difficult to see the forest through the trees, and by this I mean, have I coded for all the *-cases (use/edge/corner)?  Or worse, can I see the existing defects or bug breaders?!  Then there&rsquo;s the lack of readability.</p>
+<p>I&rsquo;ve discussed the use of classes with many Engineers and I have had a mixed reception but in the main, most said they preferred the simplicity of arrow functions.  Not sure if there is a right or wrong answer to this (bit like the tabs or spaces&hellip;tabs, obvs!)&hellip; and at one time I will have agreed with the majority.  Now though is a different story.  Like so many others, I too have drank the cool-aid on TypeScript and now the only reason I can see myself opting for Javascript in the future is mainly for legacy reasons.</p>
+<p>Coming from an OOP background, I naturally gravitate towards constructs like classes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Admin</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">User</span> 
+{
+    <span style="color:#a6e22e">constructor</span> (<span style="color:#a6e22e">name</span>) {
+        <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">name</span>)
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">initialize</span>()
+    }
+    <span style="color:#a6e22e">initialize</span> <span style="color:#f92672">=</span> () =&gt; {}
+}
+
+</code></pre></div><h3 id="destructuring">Destructuring</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getProfile</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#66d9ef">return</span> {<span style="color:#a6e22e">firstname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;garrard&#34;</span>, <span style="color:#a6e22e">lastname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;kitchen&#34;</span>, <span style="color:#a6e22e">married</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>}
+}
+
+<span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">firstname</span>, <span style="color:#a6e22e">lastname</span>, ...<span style="color:#a6e22e">family</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">getProfile</span>()
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`firstname: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">firstname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`lastname: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">lastname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">family</span>)
+</code></pre></div><p>This would result in:</p>
+<p><img src="../img/2020-04-06-11-40-48.png" alt="" /></p>
+<h3 id="arrow-function">Arrow function</h3>
+<p>Arrow functions are a great addition to the ES spec!  Their scope is purely inside of it&rsquo;s closure and is not affected by the <code>this</code> context which may hoisted functions fall victum of.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">initialize</span> <span style="color:#f92672">=</span> () =&gt; {}
+</code></pre></div><h2 id="es2016-es7-language-features">ES2016 (ES7) Language Features</h2>
+<h3 id="the-decorator">The Decorator</h3>
+<p>Awesome addition to the EMCA family!</p>
+<p>I&rsquo;ve used this with great affect with Typescript, and mostly with NestJS solutions.</p>
+<p>This is a contrived example on how you can use <em>very</em> basic decorator on a class function:</p>
+<p><em>You must have configured your solution to use babel</em></p>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="hidden" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
+  <label for="tabs-uniqueid-0">example</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Content</span> {  
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">link</span>(<span style="color:#e6db74">&#39;nodejs&#39;</span>, <span style="color:#e6db74">&#34;&lt;a href=&#39;https://nodejs.org/en/&#39;&gt;Node.js&lt;/a&gt;&#34;</span>)
+    <span style="color:#a6e22e">html</span>() {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`This server language is called nodejs!`</span>
+    }
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">link</span>(<span style="color:#a6e22e">_find</span>, <span style="color:#a6e22e">_replace</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">descriptor</span>) {
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">old</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">descriptor</span>.<span style="color:#a6e22e">value</span>()      
+      <span style="color:#a6e22e">descriptor</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> () =&gt; {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">old</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#a6e22e">_find</span>, <span style="color:#a6e22e">_replace</span>)        
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span>
+      }
+    }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Content</span>()
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">html</span>())
+</code></pre></div><p>output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[nodemon] restarting due to changes...
+[nodemon] starting `babel-node index.js`
+This server language is called &lt;a href=&#39;https://nodejs.org/en/&#39;&gt;Node.js&lt;/a&gt;!
+[nodemon] clean exit - waiting for changes before restart
+</code></pre></div></div><input type="radio" class="hidden" name="tabs-uniqueid" id="tabs-uniqueid-1"  />
+  <label for="tabs-uniqueid-1">babel</label>
+  <div class="book-tabs-content markdown-inner"><p>package.json:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">...</span>
+  <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {    
+    <span style="color:#f92672">&#34;start&#34;</span>: <span style="color:#e6db74">&#34;nodemon --exec babel-node index.js&#34;</span>
+  }<span style="color:#960050;background-color:#1e0010">,</span>
+<span style="color:#960050;background-color:#1e0010">...</span>
+  <span style="color:#e6db74">&#34;devDependencies&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+    <span style="color:#f92672">&#34;@babel/core&#34;</span>: <span style="color:#e6db74">&#34;^7.12.3&#34;</span>,
+    <span style="color:#f92672">&#34;@babel/node&#34;</span>: <span style="color:#e6db74">&#34;^7.12.1&#34;</span>,
+    <span style="color:#f92672">&#34;nodemon&#34;</span>: <span style="color:#e6db74">&#34;^2.0.6&#34;</span>
+  }<span style="color:#960050;background-color:#1e0010">,</span>
+  <span style="color:#e6db74">&#34;dependencies&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+    <span style="color:#f92672">&#34;@babel/plugin-proposal-decorators&#34;</span>: <span style="color:#e6db74">&#34;^7.12.1&#34;</span>
+  }
+<span style="color:#960050;background-color:#1e0010">...</span>
+</code></pre></div><p>.babelrc:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;plugins&#34;</span>: [
+    [<span style="color:#e6db74">&#34;@babel/plugin-proposal-decorators&#34;</span>, {
+      <span style="color:#f92672">&#34;legacy&#34;</span>: <span style="color:#66d9ef">true</span>
+    }]
+  ]
+}
+</code></pre></div></div></div>
+
+<h2 id="es2018-es9">ES2018 (ES9)</h2>
+<h3 id="spread">Spread</h3>
+<p>I was reminded of something useful this morning (on the morning I wrote this, originally!) from a youtube video I was watching.  JS passes objects (non-primitives) by reference, ergo, memory pointers, so it is possible to effect an object outside of it&rsquo;s closure.  So, imagine you return an array of objects (e.g. from a service to a controller).  It is possible, to effect this array of objects from within the controller.  One way I have found to avoid this is by using the <code>spread</code> syntax:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">private</span> <span style="color:#a6e22e">readonly</span> <span style="color:#a6e22e">list</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>[]
+<span style="color:#a6e22e">getList</span>() {
+   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">list</span>
+}
+</code></pre></div><p>you can do this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">getList</span>() {
+    <span style="color:#66d9ef">return</span> [...<span style="color:#a6e22e">list</span>]
+}
+</code></pre></div><p>Obvs, the 👆 is using an array but you can do this same with an object too {&hellip;list}</p>
+<h2 id="memory">Memory</h2>
+<h3 id="functions-arguments-passed-by-value-always">Functions arguments passed by value; always</h3>
+<p><em>See also <a href="#spread">spread</a> 👆 to for advance on how to avoid memory leakage.</em></p>
+<p>Further to the above, JS always passes by value (not reference) ALL augments to a function.  This means that, if you pass in an argument (primitive or object) into a function, the closure is honoured and therefore any changes made to this value inside the closure is not reflected outside, example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A&#34;</span>
+<span style="color:#a6e22e">getValue</span>(<span style="color:#a6e22e">v</span>){
+  <span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;B&#34;</span>
+}
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getValue</span>(<span style="color:#a6e22e">v</span>)
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>) <span style="color:#75715e">// output: AB 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">v</span>) <span style="color:#75715e">// output: A
+</span></code></pre></div></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#es2015-es6">ES2015 (ES6)</a>
+          <ul>
+            <li><a href="#class">Class</a></li>
+            <li><a href="#destructuring">Destructuring</a></li>
+            <li><a href="#arrow-function">Arrow function</a></li>
+          </ul>
+        </li>
+        <li><a href="#es2016-es7-language-features">ES2016 (ES7) Language Features</a>
+          <ul>
+            <li><a href="#the-decorator">The Decorator</a></li>
+          </ul>
+        </li>
+        <li><a href="#es2018-es9">ES2018 (ES9)</a>
+          <ul>
+            <li><a href="#spread">Spread</a></li>
+          </ul>
+        </li>
+        <li><a href="#memory">Memory</a>
+          <ul>
+            <li><a href="#functions-arguments-passed-by-value-always">Functions arguments passed by value; always</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

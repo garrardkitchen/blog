@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>resilience on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/resilience/</link>
+    <description>Recent content in resilience on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 21 Sep 2020 16:36:35 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/resilience/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nodejs Container Restart Policy</title>
+      <link>http://blog.garrardkitchen.com/posts/nodejs-container-restart-policy/</link>
+      <pubDate>Mon, 21 Sep 2020 16:36:35 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/nodejs-container-restart-policy/</guid>
+      <description>If by accident to deploy a solution using the Node.js Cluster API and do not fork exited processes then the following docker-compose restart_policy will not help you:
+deploy: restart_policy: condition: on-failure If you&amp;rsquo;re using the Cluster API to schedule tasks across your processes, and all forked processes die, then the docker engine will just assume you&amp;rsquo;ve gracefully shutdown.
+Take this code for example, you will see that it doesn&amp;rsquo;t fork another process and therefore, at some point it will no longer process any anything:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -18,7 +18,7 @@ So, what&rsquo;s triggered this post? Well, one of many tasks I&rsquo;m involved
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.ac6a52afc6f09dfa62350f21b22fdae459e0d359c5b93000cd6795486706cddd.js" integrity="sha256-rGpSr8bwnfpiNQ8hsi/a5Fng01nFuTAAzWeVSGcGzd0="></script>
+<script defer src="/en.search.min.de034ecf61fed95b0a6554d4eb847095abd8e45ffb8a1d3538fed57baf9ef571.js" integrity="sha256-3gNOz2H&#43;2VsKZVTU64RwlavY5F/7ih01OP7Ve6&#43;e9XE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -98,6 +98,16 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
     <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
   
 
@@ -139,6 +149,16 @@ https://github.com/alex-shpak/hugo-book
           
   
     <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
   
 
         </li>
@@ -320,15 +340,15 @@ https://github.com/alex-shpak/hugo-book
 
 <div>
   
+  <a href="/tags/ssl/">ssl</a>, 
+  <a href="/tags/openssl/">openssl</a>, 
   <a href="/tags/digital-certificate/">digital certificate</a>, 
   <a href="/tags/digital-signature/">digital signature</a>, 
-  <a href="/tags/encryption/">encryption</a>, 
-  <a href="/tags/hash/">hash</a>, 
   <a href="/tags/key-pairs/">key pairs</a>, 
   <a href="/tags/keys/">keys</a>, 
-  <a href="/tags/openssl/">openssl</a>, 
   <a href="/tags/signing/">signing</a>, 
-  <a href="/tags/ssl/">ssl</a>, 
+  <a href="/tags/hash/">hash</a>, 
+  <a href="/tags/encryption/">encryption</a>, 
   <a href="/tags/sso/">sso</a>
 </div>
 
@@ -464,7 +484,7 @@ my secret message
 <p><strong><em>To verify the identity of the entity presenting it</em></strong></p>
 <p>So far, we&rsquo;ve covered hashes, key pairs, digital signatures and encryption and decryption.  This section is where I cover, briefly, digital certificates.  I&rsquo;m using a digital certificate to replace the key pair as covered above and to give the capability of using additional information to verify that the identity of the entity presenting this message.</p>
 <p>Let&rsquo;s start by creating a self-signed certificate. Type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># create self-signed certificate</span> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># create self-signed certificate </span>
 openssl req -x509 -sha256 -nodes -days <span style="color:#ae81ff">365</span> -newkey rsa:4096 -keyout myserver.pem -out myserver.crt -subj <span style="color:#e6db74">&#34;/C=UK/OU=IT/CN=myserver.com&#34;</span>
 </code></pre></div><p>We can inspect the content of the certificate by typing:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">openssl x509 -in myserver.crt -text -noout

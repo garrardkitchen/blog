@@ -6,11 +6,7 @@
     <description>Recent content in Ignite.NET on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 28 Jul 2020 13:48:46 +0100</lastBuildDate>
-    
-	<atom:link href="http://blog.garrardkitchen.com/tags/Ignite.NET/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 28 Jul 2020 13:48:46 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/Ignite.NET/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</title>
       <link>http://blog.garrardkitchen.com/posts/apache-ignite-running-agent-with-dotnetcore-server-node/</link>
