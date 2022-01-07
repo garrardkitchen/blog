@@ -43,9 +43,9 @@ I added this user using this command:
 sudo usermod -a -G docker <user>
 ```
 
-I ran `docker ps` again but still now dice. 🤔.
+I ran `docker ps` again but still no dice. 🤔.
 
-I then checked the status of docker service using this command:
+I then checked the status of the docker service using this command:
 
 ```powershell
 sudo systemctl status docker
@@ -79,7 +79,7 @@ Jan 06 14:42:21 *redacted* runsvc.sh[291703]: 2022-01-06 14:42:21Z: Running job:
 Jan 06 14:42:41 *redacted* runsvc.sh[291703]: 2022-01-06 14:42:41Z: Job deploy completed with result: Failed
 
 Jan 06 14:46:19 *redacted* runsvc.sh[291703]: 2022-01-06 14:46:19Z: Running job: deploy
-
+...
 {{< /hint >}}
 
 I restarted the self-hosted runner using these commands:

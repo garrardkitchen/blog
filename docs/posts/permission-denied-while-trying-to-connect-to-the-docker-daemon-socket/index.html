@@ -18,7 +18,7 @@ Got permission denied while trying to connect to the Docker daemon socket at uni
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.08ea3d80f36a4e043e2c2d9411819bac659d432985643b7b8ca90ad2142e0ff5.js" integrity="sha256-COo9gPNqTgQ&#43;LC2UEYGbrGWdQymFZDt7jKkK0hQuD/U="></script>
+<script defer src="/en.search.min.c85ad8e8428efe4c61a44bd7adc4d5c5493a99886c6df0f50b9b8cf61af97360.js" integrity="sha256-yFrY6EKO/kxhpEvXrcTVxUk6mYhsbfD1C5uM9hr5c2A="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -321,7 +321,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;480&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;482&nbsp;words
   
 
   
@@ -359,8 +359,8 @@ https://github.com/alex-shpak/hugo-book
 </code></pre></div><p>Ah, that&rsquo;s odd.  This user wasn&rsquo;t a member and therefore begs the question, how did this ever work in the first place?!!</p>
 <p>I added this user using this command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sudo usermod -a -G docker &lt;user&gt;
-</code></pre></div><p>I ran <code>docker ps</code> again but still now dice. 🤔.</p>
-<p>I then checked the status of docker service using this command:</p>
+</code></pre></div><p>I ran <code>docker ps</code> again but still no dice. 🤔.</p>
+<p>I then checked the status of the docker service using this command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sudo systemctl status docker
 </code></pre></div><p>It reported:</p>
 <blockquote class="book-hint info">
@@ -377,7 +377,8 @@ sudo ./svc.sh start
 <p>Dec 19 22:02:35 <em>redacted</em> runsvc.sh[291703]: 2021-12-19 22:02:35Z: Runner reconnected.</p>
 <p>Jan 06 14:42:21 <em>redacted</em> runsvc.sh[291703]: 2022-01-06 14:42:21Z: Running job: deploy</p>
 <p>Jan 06 14:42:41 <em>redacted</em> runsvc.sh[291703]: 2022-01-06 14:42:41Z: Job deploy completed with result: Failed</p>
-<p>Jan 06 14:46:19 <em>redacted</em> runsvc.sh[291703]: 2022-01-06 14:46:19Z: Running job: deploy</p>
+<p>Jan 06 14:46:19 <em>redacted</em> runsvc.sh[291703]: 2022-01-06 14:46:19Z: Running job: deploy
+&hellip;</p>
 
 </blockquote>
 
