@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>keda on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/keda/</link>
+    <description>Recent content in keda on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 06 Nov 2020 09:54:02 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/keda/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Outing With Dapr</title>
+      <link>http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/</link>
+      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/</guid>
+      <description>TL;DR: Not as forgiving as I&amp;rsquo;d have liked &amp;hellip;
+I was a speaker at a meet-up in Manchester in late 2020. I spoke about Dapr, Keda and the NestJS Framework. My talk topic was on &amp;ldquo;Writing less code - let your architecture and abstractions help with your *-cases&amp;rdquo;. The * in the title is a wildcard for use/edge/corner.
+My code examples can be found here (includes both docker compose &amp;amp; Kubernetes manifests) - https://github.</description>
+    </item>
+    
+  </channel>
+</rss>

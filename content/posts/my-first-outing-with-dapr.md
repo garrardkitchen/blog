@@ -1,10 +1,17 @@
 ---
 title: "My First Outing With Dapr"
 date: 2020-11-06T09:54:02Z
-tags: [dapr, kubernetes, redis, secret store csi driver, aks]
+tags: [dapr, kubernetes, redis, secret store csi driver, aks, nestjs, keda]
 ---
 
 TL;DR: Not as forgiving as I'd have liked ...
+
+{{< hint info >}}
+
+I was a speaker at a meet-up in Manchester in late 2020. I spoke about Dapr, Keda and the NestJS Framework.  My talk topic was on "Writing less code - let your architecture and abstractions help with your *-cases".  The `*` in the title is a wildcard for use/edge/corner.  
+
+My code examples can be found here (includes both docker compose & Kubernetes manifests) - https://github.com/garrardkitchen/meetup-nov20
+{{< /hint >}}
 
 ## Challenge #1 
 
