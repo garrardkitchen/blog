@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TL;DR: Not as forgiving as I&rsquo;d have liked &hellip;
+Challenge #1 This took a little longer than I&rsquo;d have liked!
+I was using the internal DNS to resolve the port of my redis service. My Redis single instance was deployed via a deployment manifest, along with a LoadBalancer Service - purely to give me remote access.
+I&rsquo;d first create a secret, by typing:
+$ kubectl create secret generic db-passwords --from-literal=redis-password=&#39;&lt;password&gt;&#39; This is the deployment manifest:"><meta property="og:title" content="My First Outing With Dapr" />
+<meta property="og:description" content="TL;DR: Not as forgiving as I&rsquo;d have liked &hellip;
+Challenge #1 This took a little longer than I&rsquo;d have liked!
+I was using the internal DNS to resolve the port of my redis service. My Redis single instance was deployed via a deployment manifest, along with a LoadBalancer Service - purely to give me remote access.
+I&rsquo;d first create a secret, by typing:
+$ kubectl create secret generic db-passwords --from-literal=redis-password=&#39;&lt;password&gt;&#39; This is the deployment manifest:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/" />
+<meta property="article:published_time" content="2020-11-06T09:54:02+00:00" />
+<meta property="article:modified_time" content="2020-11-06T11:34:01+00:00" />
+<title>My First Outing With Dapr | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.1889f38a82402e8d6b2a3722434f3d7663aa03c5afab34e28a6c185dbaa4d619.js" integrity="sha256-GInzioJALo1rKjciQ089dmOqA8WvqzTiimwYXbqk1hk="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="active">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>My First Outing With Dapr</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#challenge-1">Challenge #1</a></li>
+        <li><a href="#challenge-2">Challenge #2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/my-first-outing-with-dapr/">My First Outing With Dapr</a>
+  </h1>
+  <p>
+  
+  <i>November 6, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;498&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/dapr/">dapr</a>, 
+  <a href="/tags/kubernetes/">kubernetes</a>, 
+  <a href="/tags/redis/">redis</a>, 
+  <a href="/tags/secret-store-csi-driver/">secret store csi driver</a>, 
+  <a href="/tags/aks/">aks</a>
+</div>
+
+
+  <p><p>TL;DR: Not as forgiving as I&rsquo;d have liked &hellip;</p>
+<h2 id="challenge-1">Challenge #1</h2>
+<p>This took a little longer than I&rsquo;d have liked!</p>
+<p>I was using the internal DNS to resolve the port of my redis service.  My Redis single instance was deployed via a deployment manifest, along with a LoadBalancer Service - purely to give me remote access.</p>
+<p>I&rsquo;d first create a secret, by typing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ kubectl create secret generic db-passwords --from-literal=redis-password=&#39;&lt;password&gt;&#39;
+</code></pre></div><p>This is the deployment manifest:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis-svc</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis-svc</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
+  <span style="color:#f92672">ports</span>:
+    - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">6379</span>
+      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">6379</span>
+      <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
+---
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span> <span style="color:#75715e">#  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
+  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672">template</span>:
+    <span style="color:#f92672">metadata</span>:
+      <span style="color:#f92672">labels</span>:
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
+    <span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">containers</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cache</span>
+          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis</span>
+          <span style="color:#f92672">args</span>: [<span style="color:#e6db74">&#34;redis-server&#34;</span>, <span style="color:#e6db74">&#34;--requirepass&#34;</span>, <span style="color:#ae81ff">$(PASSWORD) ]</span>
+          <span style="color:#f92672">env</span>:
+            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">PASSWORD</span>
+              <span style="color:#f92672">valueFrom</span>:
+                <span style="color:#f92672">secretKeyRef</span>:
+                  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">db-passwords</span>
+                  <span style="color:#f92672">key</span>: <span style="color:#ae81ff">redis-password</span>
+          <span style="color:#f92672">resources</span>:
+            <span style="color:#f92672">requests</span>:
+              <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">100m</span>
+              <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">100Mi</span>
+          <span style="color:#f92672">ports</span>:
+            - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">6379</span>
+
+</code></pre></div><p>This deployed correctly.</p>
+<p>I then deployed my Dapr state store component:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">dapr.io/v1alpha1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Component</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mystore</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">state.redis</span>
+  <span style="color:#f92672">metadata</span>:
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisHost</span>
+      <span style="color:#f92672">value</span>: <span style="color:#ae81ff">redis.meetup-dapr-demo.svc.cluster.local:6379</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisPassword</span>
+      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;********&#34;</span>
+</code></pre></div><p>However, I could not for the life of me give my application access to the state store!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ dapr logs -a http-api -k -n meetup-dapr-demo
+...
+time=&#34;2020-11-06T09:47:02.218770653Z&#34; level=error msg=&#34;process component mystore error, redis store: error connecting to redis at redis.meetup-dapr-demo.svc.cluster.local:6379: dial tcp: lookup redis.meetup-dapr-demo.svc.cluster.local on 10.0.0.10:53: no such host&#34; app_id=http-api instance=http-api-6bc44f8957-q2lvn scope=dapr.runtime type=log ver=0.11.3
+</code></pre></div><p>Having trying every permutation known to <em>non-gender-specific-person-entity</em> I remembered I was kaing it available behind a service.  So, I&rsquo;d been using <code>redis.meetup-dapr-demo.svc.cluster.local:6379</code> when I should have used <code> redis-svc.meetup-dapr-demo.svc.cluster.local:6379</code>.</p>
+<p>Once I&rsquo;d corrected my mistake, it connected without error.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">dapr.io/v1alpha1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Component</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mystore</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">state.redis</span>
+  <span style="color:#f92672">metadata</span>:
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisHost</span>
+      <span style="color:#f92672">value</span>: <span style="color:#ae81ff">redis-svc.meetup-dapr-demo.svc.cluster.local:6379</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisPassword</span>
+      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;********&#34;</span>
+</code></pre></div><h2 id="challenge-2">Challenge #2</h2>
+<p>secrets!</p>
+<p>You&rsquo;re application is going to report something similar to this - NOAUTH Authentication required - if you&rsquo;re Dapr is deployed to a different namespace to that of your application:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">time=&#34;2020-11-06T11:19:06.985273661Z&#34; level=error msg=&#34;process component mystore error, redis store: error connecting to redis at redis-svc.meetup-dapr-demo.svc.cluster.local:6379: NOAUTH Authentication required.&#34; app_id=http-api instance=http-api-7d49cf59d5-9blwf scope=dapr.runtime type=log ver=0.11.3
+</code></pre></div><p>To circumvent this, you must create a role and binding this to the default <code>ServiceAccount</code>.  This role <code>secret-reader</code> allows a <code>get</code> of the <code>secrets</code> resource within the <code>meetup-depr-demo</code> namespace.  An example manifest is here:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret-reader</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+<span style="color:#f92672">rules</span>:
+  - <span style="color:#f92672">apiGroups</span>: [<span style="color:#e6db74">&#34;&#34;</span>]
+    <span style="color:#f92672">resources</span>: [<span style="color:#e6db74">&#34;secrets&#34;</span>]
+    <span style="color:#f92672">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>]
+---
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">RoleBinding</span>
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dapr-secret-reader</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+<span style="color:#f92672">subjects</span>:
+  - <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">default</span>
+<span style="color:#f92672">roleRef</span>:
+  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret-reader</span>
+  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
+</code></pre></div><p>Once deployed, you&rsquo;ll see something similar to this in your dapr logs:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">time=&#34;2020-11-06T11:23:20.529658232Z&#34; level=info msg=&#34;component loaded. name: mystore, type: state.redis&#34; app_id=http-api instance=http-api-7d49cf59d5-kszdz scope=dapr.runtime type=log ver=0.11.3
+</code></pre></div><hr>
+<blockquote class="book-hint info">
+  <p>This post was created some time ago.  Now, we&rsquo;re using the Secrets Store CSI Driver to map Azure KeyVault secrets to containers running in our AKS clusters.</p>
+<p>Ref: <a href="https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver">https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver</a></p>
+
+</blockquote>
+
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#challenge-1">Challenge #1</a></li>
+        <li><a href="#challenge-2">Challenge #2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

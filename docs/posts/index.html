@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.de034ecf61fed95b0a6554d4eb847095abd8e45ffb8a1d3538fed57baf9ef571.js" integrity="sha256-3gNOz2H&#43;2VsKZVTU64RwlavY5F/7ih01OP7Ve6&#43;e9XE="></script>
+<script defer src="/en.search.min.1889f38a82402e8d6b2a3722434f3d7663aa03c5afab34e28a6c185dbaa4d619.js" integrity="sha256-GInzioJALo1rKjciQ089dmOqA8WvqzTiimwYXbqk1hk="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -91,6 +91,36 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -284,6 +314,66 @@ https://github.com/alex-shpak/hugo-book
       <ul>
       
         <li class="flex justify-between">
+          <a href="/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/">docker, linux, github actions, GHA, Self-Hosted Runner, dotnet, Azure Container Registry, ACR, containers, pods</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/aks/">aks</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/dapr/">dapr</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/kubernetes/">kubernetes</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/redis/">redis</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/secret-store-csi-driver/">secret store csi driver</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/best-practice/">best practice</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/cm/">cm</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/configmap/">configmap</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/kubectl/">kubectl</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/kuberetes/">kuberetes</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/secrets/">secrets</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
           <a href="/tags/cluster/">cluster</a>
           <span>1</span>
         </li>
@@ -459,11 +549,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
         <li class="flex justify-between">
-          <a href="/tags/kubernetes/">kubernetes</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
           <a href="/tags/pods/">pods</a>
           <span>1</span>
         </li>
@@ -563,6 +648,139 @@ https://github.com/alex-shpak/hugo-book
 
       
       
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  </h2>
+  <p>
+  
+  <i>January 7, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;480&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/">docker, linux, github actions, GHA, Self-Hosted Runner, dotnet, Azure Container Registry, ACR, containers, pods</a>
+</div>
+
+
+  <p>Out of the blue today, first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted linux Runners 😱:
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &ldquo;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&quot;: dial unix /var/run/docker.sock: connect: permission deniedWe have several GitHub Self-Hosted Runners running on Linux and Windows O/S that produce, amongst other artefacts, Linux and Windows images.
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/my-first-outing-with-dapr/">My First Outing With Dapr</a>
+  </h2>
+  <p>
+  
+  <i>November 6, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;498&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/dapr/">dapr</a>, 
+  <a href="/tags/kubernetes/">kubernetes</a>, 
+  <a href="/tags/redis/">redis</a>, 
+  <a href="/tags/secret-store-csi-driver/">secret store csi driver</a>, 
+  <a href="/tags/aks/">aks</a>
+</div>
+
+
+  <p>TL;DR: Not as forgiving as I&rsquo;d have liked &hellip;
+Challenge #1 This took a little longer than I&rsquo;d have liked!
+I was using the internal DNS to resolve the port of my redis service. My Redis single instance was deployed via a deployment manifest, along with a LoadBalancer Service - purely to give me remote access.
+I&rsquo;d first create a secret, by typing:
+$ kubectl create secret generic db-passwords --from-literal=redis-password=&#39;&lt;password&gt;&#39; This is the deployment manifest:
+    <a href="/posts/my-first-outing-with-dapr/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/how-to-use-kubernetes-configmap/">How to Use Kubernetes Configmap</a>
+  </h2>
+  <p>
+  
+  <i>November 2, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;721&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/kuberetes/">kuberetes</a>, 
+  <a href="/tags/configmap/">configmap</a>, 
+  <a href="/tags/cm/">cm</a>, 
+  <a href="/tags/kubectl/">kubectl</a>, 
+  <a href="/tags/secrets/">secrets</a>, 
+  <a href="/tags/best-practice/">best practice</a>
+</div>
+
+
+  <p>There&rsquo;s a ton of material out there on how to use a ConfigMap. In this post I will provide a recap on the basics then I drill into how to protect your secrets!
+There are a few ways to create a configMap. Here, I cover just two of these ways;--from-env-file and &ndash;from-literal. I won&rsquo;t cover options like from volume.
+How to create a ConfigMap from a literal To create a configMap from literals and from the command line, you would type this:
+    <a href="/posts/how-to-use-kubernetes-configmap/">...</a>
+    
+  </p>
+</article>
 
 <article class="markdown book-post">
   <h2>
@@ -886,96 +1104,28 @@ A simple reminder of what Node.js is &hellip;it is a set of APIs wrapped around 
   </p>
 </article>
 
-<article class="markdown book-post">
-  <h2>
-    <a href="/posts/mentoring/">How do I mentor?</a>
-  </h2>
-  <p>
-  
-  <i>March 26, 2020</i>&nbsp;
-  
-
-  
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;7&nbsp;mins read time
-  
-  
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;1473&nbsp;words
-  
-
-  
-  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
-  
-</p>
 
 
-
-
-
-
-
-<div>
-  
-  <a href="/tags/Hugo/">Hugo</a>, 
-  <a href="/tags/blogging/">blogging</a>, 
-  <a href="/tags/mentoring/">mentoring</a>, 
-  <a href="/tags/The-Managers-Path/">The Manager&#39;s Path</a>, 
-  <a href="/tags/Heisenberg-Effect/">Heisenberg Effect</a>
-</div>
-
-
-  <p>I have written this post to document my experiences of mentoring. I have mentored front-end engineers, back-end engineers and UX designers. I have had the pleasure of helping others as well as learning one of two things about myself along this journey too. If ever you get the opportunity to be a mentor, I recommend you jump at the opportunity. It is a self-rewarding experience.
-So, what is mentoring?&hellip;
-The definition of Mentoring is the act of advising or training (someone, especially a younger colleague).
-    <a href="/posts/mentoring/">...</a>
-    
-  </p>
-</article>
-
-<article class="markdown book-post">
-  <h2>
-    <a href="/posts/principles/">Good Engineering - Principles</a>
-  </h2>
-  <p>
-  
-  <i>March 1, 2020</i>&nbsp;
-  
-
-  
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;24&nbsp;mins read time
-  
-  
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;4944&nbsp;words
-  
-
-  
-  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
-  
-</p>
-
-
-
-
-
-
-
-<div>
-  
-  <a href="/tags/Hugo/">Hugo</a>, 
-  <a href="/tags/blogging/">blogging</a>, 
-  <a href="/tags/good-engineering/">good engineering</a>, 
-  <a href="/tags/principles/">principles</a>
-</div>
-
-
-  <p>I have written this post as a method to document what I see as the basics, foundations if you will, for good engineering. Undoubtedly if you are a seasoned engineer, you will recognised all of these principles, less so, if you&rsquo;re just starting out.
-Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers.
-    <a href="/posts/principles/">...</a>
-    
-  </p>
-</article>
-
-
-
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
 
 
  
@@ -1025,6 +1175,66 @@ Most Engineers are fully versed in the foundations of writing quality, efficient
     <li class="book-section-flat">
       <strong>Tags</strong>
       <ul>
+      
+        <li class="flex justify-between">
+          <a href="/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/">docker, linux, github actions, GHA, Self-Hosted Runner, dotnet, Azure Container Registry, ACR, containers, pods</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/aks/">aks</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/dapr/">dapr</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/kubernetes/">kubernetes</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/redis/">redis</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/secret-store-csi-driver/">secret store csi driver</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/best-practice/">best practice</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/cm/">cm</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/configmap/">configmap</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/kubectl/">kubectl</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/kuberetes/">kuberetes</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/secrets/">secrets</a>
+          <span>1</span>
+        </li>
       
         <li class="flex justify-between">
           <a href="/tags/cluster/">cluster</a>
@@ -1198,11 +1408,6 @@ Most Engineers are fully versed in the foundations of writing quality, efficient
       
         <li class="flex justify-between">
           <a href="/tags/gcp/">gcp</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/kubernetes/">kubernetes</a>
           <span>1</span>
         </li>
       

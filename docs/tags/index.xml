@@ -6,7 +6,115 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 21 Sep 2020 16:36:35 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jan 2022 08:20:20 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker, linux, github actions, GHA, Self-Hosted Runner, dotnet, Azure Container Registry, ACR, containers, pods</title>
+      <link>http://blog.garrardkitchen.com/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/</link>
+      <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aks</title>
+      <link>http://blog.garrardkitchen.com/tags/aks/</link>
+      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/aks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dapr</title>
+      <link>http://blog.garrardkitchen.com/tags/dapr/</link>
+      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/dapr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>http://blog.garrardkitchen.com/tags/kubernetes/</link>
+      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis</title>
+      <link>http://blog.garrardkitchen.com/tags/redis/</link>
+      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>secret store csi driver</title>
+      <link>http://blog.garrardkitchen.com/tags/secret-store-csi-driver/</link>
+      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/secret-store-csi-driver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>best practice</title>
+      <link>http://blog.garrardkitchen.com/tags/best-practice/</link>
+      <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/best-practice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cm</title>
+      <link>http://blog.garrardkitchen.com/tags/cm/</link>
+      <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/cm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>configmap</title>
+      <link>http://blog.garrardkitchen.com/tags/configmap/</link>
+      <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/configmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubectl</title>
+      <link>http://blog.garrardkitchen.com/tags/kubectl/</link>
+      <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/kubectl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kuberetes</title>
+      <link>http://blog.garrardkitchen.com/tags/kuberetes/</link>
+      <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/kuberetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>secrets</title>
+      <link>http://blog.garrardkitchen.com/tags/secrets/</link>
+      <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/secrets/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>cluster</title>
       <link>http://blog.garrardkitchen.com/tags/cluster/</link>
@@ -319,15 +427,6 @@
       <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>http://blog.garrardkitchen.com/tags/kubernetes/</link>
-      <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     

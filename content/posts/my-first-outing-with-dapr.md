@@ -1,7 +1,7 @@
 ---
 title: "My First Outing With Dapr"
 date: 2020-11-06T09:54:02Z
-tags: [dapr, kubernetes, redis]
+tags: [dapr, kubernetes, redis, secret store csi driver, aks]
 ---
 
 TL;DR: Not as forgiving as I'd have liked ...
@@ -154,7 +154,17 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Once deployed, you'll see somthing similar to this in your dapr logs:
+Once deployed, you'll see something similar to this in your dapr logs:
 ```
 time="2020-11-06T11:23:20.529658232Z" level=info msg="component loaded. name: mystore, type: state.redis" app_id=http-api instance=http-api-7d49cf59d5-kszdz scope=dapr.runtime type=log ver=0.11.3
 ```
+
+---
+
+{{< hint info >}}
+
+This post was created some time ago.  Now, we're using the Secrets Store CSI Driver to map Azure KeyVault secrets to containers running in our AKS clusters.
+
+Ref: https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver
+{{< /hint >}}
+

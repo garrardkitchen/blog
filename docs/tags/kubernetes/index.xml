@@ -6,7 +6,20 @@
     <description>Recent content in kubernetes on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 06 Apr 2020 10:20:26 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Nov 2020 09:54:02 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Outing With Dapr</title>
+      <link>http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/</link>
+      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/</guid>
+      <description>TL;DR: Not as forgiving as I&amp;rsquo;d have liked &amp;hellip;
+Challenge #1 This took a little longer than I&amp;rsquo;d have liked!
+I was using the internal DNS to resolve the port of my redis service. My Redis single instance was deployed via a deployment manifest, along with a LoadBalancer Service - purely to give me remote access.
+I&amp;rsquo;d first create a secret, by typing:
+$ kubectl create secret generic db-passwords --from-literal=redis-password=&amp;#39;&amp;lt;password&amp;gt;&amp;#39; This is the deployment manifest:</description>
+    </item>
+    
     <item>
       <title>Kubernetes on Windows</title>
       <link>http://blog.garrardkitchen.com/posts/kubernetes-on-windows/</link>

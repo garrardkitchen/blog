@@ -6,7 +6,41 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 21 Sep 2020 16:36:35 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jan 2022 08:20:20 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Permission Denied While Trying to Connect to the Docker Daemon Socket</title>
+      <link>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</link>
+      <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</guid>
+      <description>Out of the blue today, first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted linux Runners 😱:
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &amp;ldquo;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&amp;quot;: dial unix /var/run/docker.sock: connect: permission deniedWe have several GitHub Self-Hosted Runners running on Linux and Windows O/S that produce, amongst other artefacts, Linux and Windows images.</description>
+    </item>
+    
+    <item>
+      <title>My First Outing With Dapr</title>
+      <link>http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/</link>
+      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/</guid>
+      <description>TL;DR: Not as forgiving as I&amp;rsquo;d have liked &amp;hellip;
+Challenge #1 This took a little longer than I&amp;rsquo;d have liked!
+I was using the internal DNS to resolve the port of my redis service. My Redis single instance was deployed via a deployment manifest, along with a LoadBalancer Service - purely to give me remote access.
+I&amp;rsquo;d first create a secret, by typing:
+$ kubectl create secret generic db-passwords --from-literal=redis-password=&amp;#39;&amp;lt;password&amp;gt;&amp;#39; This is the deployment manifest:</description>
+    </item>
+    
+    <item>
+      <title>How to Use Kubernetes Configmap</title>
+      <link>http://blog.garrardkitchen.com/posts/how-to-use-kubernetes-configmap/</link>
+      <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/how-to-use-kubernetes-configmap/</guid>
+      <description>There&amp;rsquo;s a ton of material out there on how to use a ConfigMap. In this post I will provide a recap on the basics then I drill into how to protect your secrets!
+There are a few ways to create a configMap. Here, I cover just two of these ways;--from-env-file and &amp;ndash;from-literal. I won&amp;rsquo;t cover options like from volume.
+How to create a ConfigMap from a literal To create a configMap from literals and from the command line, you would type this:</description>
+    </item>
+    
     <item>
       <title>Nodejs Container Restart Policy</title>
       <link>http://blog.garrardkitchen.com/posts/nodejs-container-restart-policy/</link>
