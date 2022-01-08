@@ -12,7 +12,7 @@ We are using Self-Hosted Runners to build and deploy our applications to AKS.  W
 
 We're targeting 2 guest operating systems with our containerization orchestration solution - AKS.  These are Linux (.NET Core workloads) and Windows (.NET Framework workloads).  We are having to upgrade our .NET Framework runtimes to 4.8 as this is the minimum requirement to running containers in Kubernetes in Azure.
 
-There are subtle GitHub Actions Workload expression differences when working with Powershell and bash.  I'll drill into these subtleties below.
+There are subtle GitHub Actions Workflows expression differences when working with Powershell and bash.  I'll drill into these subtleties below.
 
 Here is a snippet from our `deploy` GHA workflow.  We use a workflow_dispatch to deploy either feature branches or our main branch.  Feature branches are deployed to our Development Cluster and non-feature branches to our Production Cluster.
 
@@ -33,11 +33,11 @@ Here is a snippet from our `deploy` GHA workflow.  We use a workflow_dispatch to
 
 ```
 
-In the example above, we generating env vars that are used later in this workflow.  The above is running on one of our linux self-hosted runners so using bash script.
+In the example above, we generate env vars that are used later in this workflow.  The above is running on one of our Linux Self-Hosted Runners so using bash script.
 
-This above example will not update env vars when run on a windows self-hosted runner (powershell).
+The above example will not update env vars when run on a Windows Self-Hosted Runner (PowerShell).
 
-The equivalent when targeing windows is:
+The equivalent when targeting windows is:
 
 ```yml
 - name: SETUP MAIN BRANCH
@@ -55,7 +55,7 @@ The equivalent when targeing windows is:
     echo "PWD=$(Get-Location)" >> $env:GITHUB_ENV        
 ```
 
-Notationally, the only difference here is `>> $GITHUB_ENV` and `>> $env:GITHUB_ENV`.  Powershell requires the presuffix of `env:` (as in `Get-ChildItem env:`).  The consumer syntax of this env var is the same - `${{ env.TAG }}` so it's only the publishing of this env var that needs to change between shells.
+Notationally, the only difference here is `>> $GITHUB_ENV` and `>> $env:GITHUB_ENV`.  Powershell requires the pre-suffix of `env:` (as in `Get-ChildItem env:`).  The consumer syntax of this env var is the same - `${{ env.TAG }}` so it's only the publishing of this env var that needs to change between shells.
 
 Here's an example of where this env var is being consumed:
 
@@ -75,7 +75,7 @@ Here's an example of where this env var is being consumed:
 
 # CICD
 
-Being sympathetic to our development teams nuances...
+Being sympathetic to our development teams' nuances...
 
 {{< hint info >}}
 

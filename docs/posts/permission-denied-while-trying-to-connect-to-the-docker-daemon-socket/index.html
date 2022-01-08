@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Out of the blue today, first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted linux Runners 😱:
+<meta name="description" content="Out of the blue today, my first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted Linux Runners 😱:
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &ldquo;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&quot;: dial unix /var/run/docker.sock: connect: permission deniedWe have several GitHub Self-Hosted Runners running on Linux and Windows O/S that produce, amongst other artefacts, Linux and Windows images."><meta property="og:title" content="Permission Denied While Trying to Connect to the Docker Daemon Socket" />
-<meta property="og:description" content="Out of the blue today, first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted linux Runners 😱:
+<meta property="og:description" content="Out of the blue today, my first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted Linux Runners 😱:
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &ldquo;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&quot;: dial unix /var/run/docker.sock: connect: permission deniedWe have several GitHub Self-Hosted Runners running on Linux and Windows O/S that produce, amongst other artefacts, Linux and Windows images." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" />
@@ -18,7 +18,7 @@ Got permission denied while trying to connect to the Docker daemon socket at uni
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.305f0acd8f308ad08b0cb14db6a29dba7e8506f7bb27d72b6e36ce2a5a1391e9.js" integrity="sha256-MF8KzY8witCLDLFNtqKdun6FBve7J9crbjbOKloTkek="></script>
+<script defer src="/en.search.min.9d24cd15e0b53ed46ea9e17eb9f1f0088c1c9cf60a8e92327cf4ef48307df451.js" integrity="sha256-nSTNFeC1PtRuqeF&#43;ufHwCIwcnPYKjpIyfPTvSDB99FE="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -341,7 +341,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;482&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;485&nbsp;words
   
 
   
@@ -361,7 +361,7 @@ https://github.com/alex-shpak/hugo-book
 </div>
 
 
-  <p><p>Out of the blue today, first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted linux Runners 😱:</p>
+  <p><p>Out of the blue today, my first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted Linux Runners 😱:</p>
 <blockquote class="book-hint danger">
   Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &ldquo;<a href="http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json%22:">http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&quot;:</a> dial unix /var/run/docker.sock: connect: permission denied
 </blockquote>
@@ -371,10 +371,10 @@ https://github.com/alex-shpak/hugo-book
 </blockquote>
 
 <p>It had been running fine prior to my break so what gives?  I started to investigate&hellip;</p>
-<p>I logged in linux VM with same creds I used when I installed the self-hosted runner.  I used the following command just to confirm the same outcome:</p>
+<p>I logged in Linux VM with the same creds I used when I installed the Self-Hosted Runner.  I used the following command to confirm the same outcome:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">docker ps
 </code></pre></div><p>Yup, same thing.</p>
-<p>First thing I wanted to check was that this user was a member of the <code>docker</code> group so I entered:</p>
+<p>The first thing I wanted to check was that this user is a member of the <code>docker</code> group so I entered:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sudo groups &lt;user&gt;
 </code></pre></div><p>Ah, that&rsquo;s odd.  This user wasn&rsquo;t a member and therefore begs the question, how did this ever work in the first place?!!</p>
 <p>I added this user using this command:</p>
@@ -397,15 +397,15 @@ sudo ./svc.sh start
 <p>Dec 19 22:02:35 <em>redacted</em> runsvc.sh[291703]: 2021-12-19 22:02:35Z: Runner reconnected.</p>
 <p>Jan 06 14:42:21 <em>redacted</em> runsvc.sh[291703]: 2022-01-06 14:42:21Z: Running job: deploy</p>
 <p>Jan 06 14:42:41 <em>redacted</em> runsvc.sh[291703]: 2022-01-06 14:42:41Z: Job deploy completed with result: Failed</p>
-<p>Jan 06 14:46:19 <em>redacted</em> runsvc.sh[291703]: 2022-01-06 14:46:19Z: Running job: deploy
-&hellip;</p>
+<p>Jan 06 14:46:19 <em>redacted</em> runsvc.sh[291703]: 2022-01-06 14:46:19Z: Running job: deploy</p>
+<p>&hellip;</p>
 
 </blockquote>
 
-<p>I restarted the self-hosted runner using these commands:</p>
+<p>I restarted the Self-Hosted Runner using these commands:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sudo ./svc.sh stop
 sudo ./svc.sh start
-</code></pre></div><p>Then I logged out and back in again to confirm docker access <code>docker ps</code> and finished off by re-running failed GH Action Workflow.  🥳 Equilibrium is once again restored.  As per protocol, I shared issue and resolution with our IT Team in case this crops up again when I&rsquo;m not online to help.</p>
+</code></pre></div><p>Then I logged out and back in again to confirm docker access <code>docker ps</code> and finished off by re-running the failed GH Action Workflow.  🥳 Equilibrium is once again restored.  As per protocol, I shared issue and resolution with our IT Team in case this crops up again when I&rsquo;m not online to help.</p>
 </p>
 </article>
  

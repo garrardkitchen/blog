@@ -4,7 +4,7 @@ date: 2022-01-07T08:20:20Z
 tags: docker, linux, github actions, GHA, Self-Hosted Runner, dotnet, Azure Container Registry, ACR, containers, pods
 ---
 
-Out of the blue today, first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted linux Runners 😱:
+Out of the blue today, my first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted Linux Runners 😱:
 
 {{< hint danger >}}
 
@@ -21,7 +21,7 @@ We have several GitHub Self-Hosted Runners running on Linux and Windows O/S that
 
 It had been running fine prior to my break so what gives?  I started to investigate...
 
-I logged in linux VM with same creds I used when I installed the self-hosted runner.  I used the following command just to confirm the same outcome:
+I logged in Linux VM with the same creds I used when I installed the Self-Hosted Runner.  I used the following command to confirm the same outcome:
 
 ```powershell
 docker ps
@@ -29,7 +29,7 @@ docker ps
 
 Yup, same thing.
 
-First thing I wanted to check was that this user was a member of the `docker` group so I entered:
+The first thing I wanted to check was that this user is a member of the `docker` group so I entered:
 
 ```powershell
 sudo groups <user>
@@ -79,14 +79,15 @@ Jan 06 14:42:21 *redacted* runsvc.sh[291703]: 2022-01-06 14:42:21Z: Running job:
 Jan 06 14:42:41 *redacted* runsvc.sh[291703]: 2022-01-06 14:42:41Z: Job deploy completed with result: Failed
 
 Jan 06 14:46:19 *redacted* runsvc.sh[291703]: 2022-01-06 14:46:19Z: Running job: deploy
+
 ...
 {{< /hint >}}
 
-I restarted the self-hosted runner using these commands:
+I restarted the Self-Hosted Runner using these commands:
 
 ```powershell
 sudo ./svc.sh stop
 sudo ./svc.sh start
 ```
 
-Then I logged out and back in again to confirm docker access `docker ps` and finished off by re-running failed GH Action Workflow.  🥳 Equilibrium is once again restored.  As per protocol, I shared issue and resolution with our IT Team in case this crops up again when I'm not online to help.
+Then I logged out and back in again to confirm docker access `docker ps` and finished off by re-running the failed GH Action Workflow.  🥳 Equilibrium is once again restored.  As per protocol, I shared issue and resolution with our IT Team in case this crops up again when I'm not online to help.

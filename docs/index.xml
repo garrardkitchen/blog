@@ -31,7 +31,7 @@
       <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
       
       <guid>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</guid>
-      <description>Out of the blue today, first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted linux Runners 😱:
+      <description>Out of the blue today, my first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted Linux Runners 😱:
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &amp;ldquo;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&amp;quot;: dial unix /var/run/docker.sock: connect: permission deniedWe have several GitHub Self-Hosted Runners running on Linux and Windows O/S that produce, amongst other artefacts, Linux and Windows images.</description>
     </item>
     
