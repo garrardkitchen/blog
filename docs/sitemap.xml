@@ -4,21 +4,31 @@
   
   <url>
     <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2022-01-08T11:09:12+00:00</lastmod>
+    <lastmod>2022-01-08T15:13:52+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/posts/github-actions-workflows-syntax-windows-and-linux/</loc>
-    <lastmod>2022-01-08T11:09:12+00:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/posts/github-actions-workflow-env-vars/</loc>
+    <lastmod>2022-01-08T15:13:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/github-actions-linux-windows-syntax-self-hosted-runner-environment-variables-workflow-cicd/</loc>
-    <lastmod>2022-01-08T11:09:12+00:00</lastmod>
+    <lastmod>2022-01-08T15:13:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/</loc>
+    <lastmod>2022-01-08T15:13:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/.net-framework-.net-core-.NET-6.0-.NET-3.1-end-fo-life-support-linux-windows-syntax-self-hosted-runner-cicd-fasttrak/</loc>
+    <lastmod>2022-01-08T11:09:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/runtimes/</loc>
     <lastmod>2022-01-08T11:09:12+00:00</lastmod>
   </url>
   

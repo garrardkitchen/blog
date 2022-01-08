@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers. I say &ldquo;part of this mission&rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS."><meta property="og:title" content="Runtimes" />
+<meta property="og:description" content="In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers. I say &ldquo;part of this mission&rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/runtimes/" />
+<meta property="article:published_time" content="2022-01-08T11:09:12+00:00" />
+<meta property="article:modified_time" content="2022-01-08T11:09:12+00:00" />
+<title>Runtimes | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.305f0acd8f308ad08b0cb14db6a29dba7e8506f7bb27d72b6e36ce2a5a1391e9.js" integrity="sha256-MF8KzY8witCLDLFNtqKdun6FBve7J9crbjbOKloTkek="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="active">Runtimes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Runtimes</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents"></nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/runtimes/">Runtimes</a>
+  </h1>
+  <p>
+  
+  <i>January 8, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;830&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/.net-framework-.net-core-.NET-6.0-.NET-3.1-end-fo-life-support-linux-windows-syntax-self-hosted-runner-cicd-fasttrak/">.net framework, .net core, .NET 6.0, .NET 3.1, end-fo-life support, linux, windows, syntax, self-hosted runner, cicd, fasttrak</a>
+</div>
+
+
+  <p><p>In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure.  Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers.  I say &ldquo;part of this mission&rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.  I hope to cover more on this in later posts.</p>
+<p>With being deliberately ambiguous on actual numbers here, we have a <em>fair</em> amount of workloads that are running on runtimes that have surpassed their end-of-life support status 😱.  I am sure we&rsquo;re not the only organization that finds itself in this predicament.  One of the first things our CTO wanted when he came onboard was for us to sort out our runtimes.</p>
+<p>What this means is that we have .NET Framework and .NET Core workloads that need to be migrated to a runtime that is not out of support (now or anytime soon).  At the same time, the target runtime has to have hit the mature (at least on it&rsquo;s 1st minor release) status.  .NET 6.0 is now GA but it&rsquo;s paint is still a little wet.  Understandably there is some concern, borderline trepidation towards targeting this new version.  There are impactful benefits (improved performance, greater stability, improved GC, cost benefits resulting from being more perfomant, less vulnerabilities, improved security, etc&hellip;) and our current runtime target for our .NET Core workloads is 3.1.  However, end-of-life support for this particular version is the end of this year - <a href="https://docs.microsoft.com/en-us/lifecycle/products/microsoft-net-and-net-core">03.Dec.2022</a>.  So, at some point, this upgrade needs to happen.  With planning and prioritization, this can happen when appropriate.</p>
+<p>One strategy of delivering confidence with a runtime is to update a few apps, consecutively; providing you&rsquo;ve availability to accommodate such an approach.  Timeboxed: (1) A simple (CRUD-esque HTTP API that sits on top of a Db) workload then (2) one that involves an <code>data-in-motion</code> aspect (message queue, consumer paradigm, non-http api).</p>
+<p>Another approach to reducing concern, mitigating risk, etc&hellip; is to meet with the SME (Subject matter expert) - a Microsoft representative - and listen to what they have to say.  I have orchestrated such a meeting - we are being helped/guided by Microsoft FastTrak.  The advice received was to upgrade.  We were also reminded of the migration paths to take when moving to a target version.  Here are some demonstrative links that will help you through this process:</p>
+<ul>
+<li>
+<p>Migration guidance found here ➡ <a href="https://docs.microsoft.com/en-us/aspnet/core/migration/31-to-60?view=aspnetcore-6.0&amp;tabs=visual-studio">migrate from asp.net core 3.1 to 6.0</a>.</p>
+</li>
+<li>
+<p>An example of breaking changes between versions can be found here ➡ <a href="https://docs.microsoft.com/en-us/dotnet/core/compatibility/3.1">breaking changes in .NET Core 3.1</a></p>
+</li>
+</ul>
+<p>Most of our workloads are simple HTTP API CRUDs that sit aloft databases.  In short, we&rsquo;re not doing anything too complicated and so this makes most of our pain points the result of external NuGet package dependencies.</p>
+<p>IMO, it is important to establish, if at all possible, a feedback loop back to Microsoft.  If you are fortunate to have an established relationship with Microsoft and have access to certain areas/teams - eg FastTrak, or even a Support plan, if/when issues do arise (eg increased exception frequency, uncharacteristic high latency, poor performance, frequent CG, memory leaks, socket exhaustion, etc&hellip;), you can feed these back and receive remediation advice until a fix (if not a result of poor implementation) becomes available.  We had been plagued with issues (socket exhaustion, CG, memory leaks) with those workloads on ASP.NET Core 2.* but now see less issues with those ASP.NET Core workloads that are now on 3.1.</p>
+<p>To compliment the above I would also recommend agreeing on, and capturing, metrics that are demonstrative of your gains from the runtime upgrade.  This is where metrics come into their own. Generally, metrics tend to have a greater retention period than logs, and therefore can paint an informed picture over a wider span of time than logging can.  Generally speaking, lack of memory is going to be more catastrophic than thottling through lack of CPU.  When your RSS or working set bytes are depleted, more often than not your application will terminate due to OOM (out of memory) exception - state and workflow blown away unless you&rsquo;ve employed patterns to mitigate against these edge/corner cases - most don&rsquo;t.  In particular, I am refering to container_memory_rss and container_memory_working_set_bytes due to working with kubernetes.</p>
+<p>The above is not a definitive list of must do&rsquo;s and in part, is overly simplistic. IMO, it is important to stay current with runtimes to benefit from the improvements they deliver on.  For me though, their stability and vulnerabilities they address is the most important.  It is scary how many organisations run on runtimes that are out of support.  Yes, applications may still run but ask yourself this, how much is this truly costing your company, how much is it costing our environment and finally, how much could your company suffer because they are exposed to vulnerabilities?</p>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

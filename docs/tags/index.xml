@@ -6,13 +6,22 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 08 Jan 2022 11:09:12 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jan 2022 15:13:52 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github actions, linux, windows, syntax, self-hosted runner, environment variables, workflow, cicd</title>
       <link>http://blog.garrardkitchen.com/tags/github-actions-linux-windows-syntax-self-hosted-runner-environment-variables-workflow-cicd/</link>
-      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      <pubDate>Sat, 08 Jan 2022 15:13:52 +0000</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/github-actions-linux-windows-syntax-self-hosted-runner-environment-variables-workflow-cicd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.net framework, .net core, .NET 6.0, .NET 3.1, end-fo-life support, linux, windows, syntax, self-hosted runner, cicd, fasttrak</title>
+      <link>http://blog.garrardkitchen.com/tags/.net-framework-.net-core-.NET-6.0-.NET-3.1-end-fo-life-support-linux-windows-syntax-self-hosted-runner-cicd-fasttrak/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/.net-framework-.net-core-.NET-6.0-.NET-3.1-end-fo-life-support-linux-windows-syntax-self-hosted-runner-cicd-fasttrak/</guid>
       <description></description>
     </item>
     

@@ -9,14 +9,14 @@
 <meta property="og:description" content="Made by &lt;a href=&#34;http://www.garrardkitchen.com&#34;&gt;Garrard Kitchen&lt;/a&gt;" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/" />
-<meta property="og:updated_time" content="2022-01-08T11:09:12+00:00" />
+<meta property="og:updated_time" content="2022-01-08T15:13:52+00:00" />
 <title>Blog | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.b308171645b223b749eebef628d5dbd88edd7af40b8a9ef4e79c6d6436bee848.js" integrity="sha256-swgXFkWyI7dJ7r72KNXb2I7devQLip7055xtZDa&#43;6Eg="></script>
+<script defer src="/en.search.min.305f0acd8f308ad08b0cb14db6a29dba7e8506f7bb27d72b6e36ce2a5a1391e9.js" integrity="sha256-MF8KzY8witCLDLFNtqKdun6FBve7J9crbjbOKloTkek="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -97,7 +97,17 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/posts/github-actions-workflows-syntax-windows-and-linux/" class="">Github Actions Workflows Syntax Windows and Linux</a>
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="">Runtimes</a>
   
 
         </li>
@@ -323,7 +333,7 @@ https://github.com/alex-shpak/hugo-book
 
 <article class="markdown book-post">
   <h2>
-    <a href="/posts/github-actions-workflows-syntax-windows-and-linux/">Github Actions Workflows Syntax Windows and Linux</a>
+    <a href="/posts/github-actions-workflow-env-vars/">Github Actions Workflow Env Vars</a>
   </h2>
 
   <p>
@@ -332,10 +342,10 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;mins read time
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;981&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;667&nbsp;words
   
 
   
@@ -355,8 +365,48 @@ https://github.com/alex-shpak/hugo-book
 </div>
 
 
-  <p>Runtimes In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and swarm docker containers. I say &ldquo;part of this mission&rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.
-    <a href="/posts/github-actions-workflows-syntax-windows-and-linux/">...</a>
+  <p>In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers. I say &ldquo;part of this mission&rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.
+    <a href="/posts/github-actions-workflow-env-vars/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/runtimes/">Runtimes</a>
+  </h2>
+
+  <p>
+  
+  <i>January 8, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;830&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/.net-framework-.net-core-.NET-6.0-.NET-3.1-end-fo-life-support-linux-windows-syntax-self-hosted-runner-cicd-fasttrak/">.net framework, .net core, .NET 6.0, .NET 3.1, end-fo-life support, linux, windows, syntax, self-hosted runner, cicd, fasttrak</a>
+</div>
+
+
+  <p>In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers. I say &ldquo;part of this mission&rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.
+    <a href="/posts/runtimes/">...</a>
     
   </p>
 </article>
@@ -725,56 +775,6 @@ So, what&rsquo;s triggered this post? Well, one of many tasks I&rsquo;m involved
   <p>I&rsquo;d just ran npm run test in a newly created package I&rsquo;d added to a monorepo (lerna) I&rsquo;d created for a project I was working on that integrates with Twilio Sync, RabbitMQ, Twilio TaskRouter and MSSQL, and I go this:
 *******************************consumers\packages\eda [CRMBROK-233 +0 ~2 -0 !]&gt; npm run test &gt; @cf247/eda@1.0.2 test *******************************consumers\packages\eda &gt; jest FAIL __tests__/eda.test.js ● Test suite failed to run ENOENT: no such file or directory, open &#39;.
     <a href="/posts/jest-fs-readFileSync/">...</a>
-    
-  </p>
-</article>
-
-<article class="markdown book-post">
-  <h2>
-    <a href="/posts/kubernetes-on-windows/">Kubernetes on Windows</a>
-  </h2>
-
-  <p>
-  
-  <i>April 6, 2020</i>&nbsp;
-  
-
-  
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;9&nbsp;mins read time
-  
-  
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;1735&nbsp;words
-  
-
-  
-  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
-  
-</p>
-
-
-
-
-
-
-
-<div>
-  
-  <a href="/tags/blogging/">blogging</a>, 
-  <a href="/tags/kubernetes/">kubernetes</a>, 
-  <a href="/tags/setup/">setup</a>, 
-  <a href="/tags/windows/">windows</a>, 
-  <a href="/tags/containers/">containers</a>, 
-  <a href="/tags/pods/">pods</a>, 
-  <a href="/tags/services/">services</a>, 
-  <a href="/tags/azure/">azure</a>, 
-  <a href="/tags/aws/">aws</a>, 
-  <a href="/tags/gcp/">gcp</a>
-</div>
-
-
-  <p>This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
-What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem.
-    <a href="/posts/kubernetes-on-windows/">...</a>
     
   </p>
 </article>

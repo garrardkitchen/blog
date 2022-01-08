@@ -6,14 +6,23 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 08 Jan 2022 11:09:12 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jan 2022 15:13:52 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Github Actions Workflows Syntax Windows and Linux</title>
-      <link>http://blog.garrardkitchen.com/posts/github-actions-workflows-syntax-windows-and-linux/</link>
+      <title>Github Actions Workflow Env Vars</title>
+      <link>http://blog.garrardkitchen.com/posts/github-actions-workflow-env-vars/</link>
+      <pubDate>Sat, 08 Jan 2022 15:13:52 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/github-actions-workflow-env-vars/</guid>
+      <description>In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers. I say &amp;ldquo;part of this mission&amp;rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.</description>
+    </item>
+    
+    <item>
+      <title>Runtimes</title>
+      <link>http://blog.garrardkitchen.com/posts/runtimes/</link>
       <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/posts/github-actions-workflows-syntax-windows-and-linux/</guid>
-      <description>Runtimes In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and swarm docker containers. I say &amp;ldquo;part of this mission&amp;rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.</description>
+      <guid>http://blog.garrardkitchen.com/posts/runtimes/</guid>
+      <description>In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers. I say &amp;ldquo;part of this mission&amp;rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.</description>
     </item>
     
     <item>
