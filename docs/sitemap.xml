@@ -4,22 +4,32 @@
   
   <url>
     <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+    <lastmod>2022-01-08T11:09:12+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/</loc>
-    <lastmod>2022-01-07T09:07:27+00:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/posts/github-actions-workflows-syntax-windows-and-linux/</loc>
+    <lastmod>2022-01-08T11:09:12+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</loc>
-    <lastmod>2022-01-07T09:07:27+00:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/github-actions-linux-windows-syntax-self-hosted-runner-environment-variables-workflow-cicd/</loc>
+    <lastmod>2022-01-08T11:09:12+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+    <lastmod>2022-01-08T11:09:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/</loc>
+    <lastmod>2022-01-07T09:43:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</loc>
+    <lastmod>2022-01-07T09:43:07+00:00</lastmod>
   </url>
   
   <url>
