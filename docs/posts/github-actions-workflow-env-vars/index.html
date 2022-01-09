@@ -16,7 +16,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.47fe61d16c331b167b13a14c2a746eb29069b6f80d46e772360640d4086366bf.js" integrity="sha256-R/5h0WwzGxZ7E6FMKnRuspBptvgNRudyNgZA1AhjZr8="></script>
+<script defer src="/en.search.min.0a299e750c5635c5c77e8214fb77601d5d2181d27031e19d9cf2701c514a6e29.js" integrity="sha256-CimedQxWNcXHfoIU&#43;3dgHV0hgdJwMeGdnPJwHFFKbik="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -344,7 +344,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;667&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;690&nbsp;words
   
 
   
@@ -368,8 +368,8 @@ https://github.com/alex-shpak/hugo-book
 <h1 id="github-workflows">Github workflows</h1>
 <p>We are using Self-Hosted Runners to build and deploy our applications to AKS.  We have a Hub&amp;Spoke network architecture and our AKS clusters are private.  We have other backing services that are deliberately behind Azure Private Endpoints.  Our architecture enables us to deploy securely from our company network to our spoke VNETs that exist across our Azure Subscriptions.</p>
 <p>We&rsquo;re targeting 2 guest operating systems with our containerization orchestration solution - AKS.  These are Linux (.NET Core workloads) and Windows (.NET Framework workloads).  We are having to upgrade our .NET Framework runtimes to 4.8 as this is the minimum requirement to running containers in Kubernetes in Azure.</p>
-<p>There are subtle GitHub Actions Workflows expression differences when working with Powershell and bash.  I&rsquo;ll drill into these subtleties below.</p>
-<p>Here is a snippet from our <code>deploy</code> GHA workflow.  We use a workflow_dispatch to deploy either feature branches or our main branch.  Feature branches are deployed to our Development Cluster and non-feature branches to our Production Cluster.</p>
+<p>There are subtle GitHub Actions Workflows expression differences when working with Powershell and bash.  Here in this post I concentrate on how you create and set env vars.</p>
+<p>Is the snippet below, which is from our <code>deploy</code> GHA workflow, I use a workflow_dispatch to deploy either a feature branch or our main branch.  Feature branches are deployed to our Development Cluster and non-feature branches to our Production Cluster.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">SETUP MAIN BRANCH</span>
   <span style="color:#f92672">if</span>: <span style="color:#ae81ff">${{ github.ref == &#39;refs/heads/main&#39; || github.ref == &#39;refs/heads/master&#39; }}</span>
   <span style="color:#f92672">run</span>: <span style="color:#ae81ff">|    </span>
@@ -383,7 +383,6 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="color:#e6db74">    echo &#34;ENV=dev&#34; &gt;&gt; $GITHUB_ENV        
 </span><span style="color:#e6db74">    echo &#34;TAG=${{ github.ref_name }}&#34; &gt;&gt; $GITHUB_ENV
 </span><span style="color:#e6db74">    echo &#34;PWD=$(pwd)&#34; &gt;&gt; $GITHUB_ENV        </span>    
-
 </code></pre></div><p>In the example above, we generate env vars that are used later in this workflow.  The above is running on one of our Linux Self-Hosted Runners so using bash script.</p>
 <p>The above example will not update env vars when run on a Windows Self-Hosted Runner (PowerShell).</p>
 <p>The equivalent when targeting windows is:</p>
@@ -400,8 +399,8 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="color:#e6db74">    echo &#34;ENV=dev&#34; &gt;&gt; $env:GITHUB_ENV        
 </span><span style="color:#e6db74">    echo &#34;TAG=${{ github.ref_name }}&#34; &gt;&gt; $env:GITHUB_ENV
 </span><span style="color:#e6db74">    echo &#34;PWD=$(Get-Location)&#34; &gt;&gt; $env:GITHUB_ENV        </span>    
-</code></pre></div><p>Notationally, the only difference here is <code>&gt;&gt; $GITHUB_ENV</code> and <code>&gt;&gt; $env:GITHUB_ENV</code>.  Powershell requires the pre-suffix of <code>env:</code> (as in <code>Get-ChildItem env:</code>).  The consumer syntax of this env var is the same - <code>${{ env.TAG }}</code> so it&rsquo;s only the publishing of this env var that needs to change between shells.</p>
-<p>Here&rsquo;s an example of where this env var is being consumed:</p>
+</code></pre></div><p>Notationally, the only difference here is <code>&gt;&gt; $GITHUB_ENV</code> and <code>&gt;&gt; $env:GITHUB_ENV</code>.  Powershell requires the pre-suffix of <code>env:</code> (as in <code>Get-ChildItem env:</code>).  The consumer syntax of this env var remains the same between shells - <code>${{ env.TAG }}</code> - so it&rsquo;s only the creation of this env var that needs to change between shells.</p>
+<p>For context, I&rsquo;ve pasted below an example of where the <code>TAG</code> env var is being consumed:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">BUILD AND PUSH</span>
   <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">    try {
@@ -411,10 +410,9 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="color:#e6db74">    } catch {
 </span><span style="color:#e6db74">        Write-Output &#34;Could not push to ACR, error occured with docker build&#34;
 </span><span style="color:#e6db74">        Exit 1
-</span><span style="color:#e6db74">    }        
-</span><span style="color:#e6db74">    </span>    
+</span><span style="color:#e6db74">    }        </span>    
 </code></pre></div><h1 id="cicd">CICD</h1>
-<p>Being sympathetic to our development teams' nuances&hellip;</p>
+<p>Here&rsquo;s a note on being sympathetic to our development teams' nuances&hellip;</p>
 <blockquote class="book-hint info">
   We are using the approach of regenerating feature images and deploying from one workflow_dispatcher instead of triggering a deployment from a merge to a dedicated development branch. Our (the virtual team I&rsquo;m managing that is the Platform Team - senior staff) combined experience lead us to determine that a dedicated development branch will get out of sync with our main branch.  This is especially problematic if your branching strategy predicates promoting to production via a merge to main from a dedicated development branch.  To compound this point, we often have multiple developers concurrently working on the same repo so this in itself presents inherent complexities so arriving at a CICD pipelines wasn&rsquo;t clear cut as teams have subtle nuances around how they build &amp; deploy features/fixes.
 </blockquote>

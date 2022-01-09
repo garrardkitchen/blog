@@ -17,11 +17,9 @@ We have several GitHub Self-Hosted Runners running on Linux and Windows O/S that
 
 {{< /hint >}}
 
-
-
 It had been running fine prior to my break so what gives?  I started to investigate...
 
-I logged in Linux VM with the same creds I used when I installed the Self-Hosted Runner.  I used the following command to confirm the same outcome:
+I logged in to the Linux VM where this particular Self-Hosted Runner is hosted with the same credentials as used when I installed the Self-Hosted Runner originally.  I used the following command to confirm the same outcome:
 
 ```powershell
 docker ps
@@ -29,13 +27,13 @@ docker ps
 
 Yup, same thing.
 
-The first thing I wanted to check was that this user is a member of the `docker` group so I entered:
+The next configuration I wanted to check was whether this user is a member of the `docker` group so I used this command:
 
 ```powershell
 sudo groups <user>
 ```
 
-Ah, that's odd.  This user wasn't a member and therefore begs the question, how did this ever work in the first place?!!
+Mmmmm, that's odd.  This user wasn't a member and therefore begs the question, how did this ever work in the first place?!!
 
 I added this user using this command:
 

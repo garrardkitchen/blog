@@ -18,7 +18,7 @@ Got permission denied while trying to connect to the Docker daemon socket at uni
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.47fe61d16c331b167b13a14c2a746eb29069b6f80d46e772360640d4086366bf.js" integrity="sha256-R/5h0WwzGxZ7E6FMKnRuspBptvgNRudyNgZA1AhjZr8="></script>
+<script defer src="/en.search.min.0a299e750c5635c5c77e8214fb77601d5d2181d27031e19d9cf2701c514a6e29.js" integrity="sha256-CimedQxWNcXHfoIU&#43;3dgHV0hgdJwMeGdnPJwHFFKbik="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -341,7 +341,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;485&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;497&nbsp;words
   
 
   
@@ -371,12 +371,12 @@ https://github.com/alex-shpak/hugo-book
 </blockquote>
 
 <p>It had been running fine prior to my break so what gives?  I started to investigate&hellip;</p>
-<p>I logged in Linux VM with the same creds I used when I installed the Self-Hosted Runner.  I used the following command to confirm the same outcome:</p>
+<p>I logged in to the Linux VM where this particular Self-Hosted Runner is hosted with the same credentials as used when I installed the Self-Hosted Runner originally.  I used the following command to confirm the same outcome:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">docker ps
 </code></pre></div><p>Yup, same thing.</p>
-<p>The first thing I wanted to check was that this user is a member of the <code>docker</code> group so I entered:</p>
+<p>The next configuration I wanted to check was whether this user is a member of the <code>docker</code> group so I used this command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sudo groups &lt;user&gt;
-</code></pre></div><p>Ah, that&rsquo;s odd.  This user wasn&rsquo;t a member and therefore begs the question, how did this ever work in the first place?!!</p>
+</code></pre></div><p>Mmmmm, that&rsquo;s odd.  This user wasn&rsquo;t a member and therefore begs the question, how did this ever work in the first place?!!</p>
 <p>I added this user using this command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sudo usermod -a -G docker &lt;user&gt;
 </code></pre></div><p>I ran <code>docker ps</code> again but still no dice. 🤔.</p>

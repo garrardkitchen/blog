@@ -12,9 +12,9 @@ We are using Self-Hosted Runners to build and deploy our applications to AKS.  W
 
 We're targeting 2 guest operating systems with our containerization orchestration solution - AKS.  These are Linux (.NET Core workloads) and Windows (.NET Framework workloads).  We are having to upgrade our .NET Framework runtimes to 4.8 as this is the minimum requirement to running containers in Kubernetes in Azure.
 
-There are subtle GitHub Actions Workflows expression differences when working with Powershell and bash.  I'll drill into these subtleties below.
+There are subtle GitHub Actions Workflows expression differences when working with Powershell and bash.  Here in this post I concentrate on how you create and set env vars.
 
-Here is a snippet from our `deploy` GHA workflow.  We use a workflow_dispatch to deploy either feature branches or our main branch.  Feature branches are deployed to our Development Cluster and non-feature branches to our Production Cluster.
+Is the snippet below, which is from our `deploy` GHA workflow, I use a workflow_dispatch to deploy either a feature branch or our main branch.  Feature branches are deployed to our Development Cluster and non-feature branches to our Production Cluster.
 
 ```yml
 - name: SETUP MAIN BRANCH
@@ -30,7 +30,6 @@ Here is a snippet from our `deploy` GHA workflow.  We use a workflow_dispatch to
     echo "ENV=dev" >> $GITHUB_ENV        
     echo "TAG=${{ github.ref_name }}" >> $GITHUB_ENV
     echo "PWD=$(pwd)" >> $GITHUB_ENV        
-
 ```
 
 In the example above, we generate env vars that are used later in this workflow.  The above is running on one of our Linux Self-Hosted Runners so using bash script.
@@ -55,9 +54,9 @@ The equivalent when targeting windows is:
     echo "PWD=$(Get-Location)" >> $env:GITHUB_ENV        
 ```
 
-Notationally, the only difference here is `>> $GITHUB_ENV` and `>> $env:GITHUB_ENV`.  Powershell requires the pre-suffix of `env:` (as in `Get-ChildItem env:`).  The consumer syntax of this env var is the same - `${{ env.TAG }}` so it's only the publishing of this env var that needs to change between shells.
+Notationally, the only difference here is `>> $GITHUB_ENV` and `>> $env:GITHUB_ENV`.  Powershell requires the pre-suffix of `env:` (as in `Get-ChildItem env:`).  The consumer syntax of this env var remains the same between shells - `${{ env.TAG }}` - so it's only the creation of this env var that needs to change between shells.
 
-Here's an example of where this env var is being consumed:
+For context, I've pasted below an example of where the `TAG` env var is being consumed:
 
 ```yml
 - name: BUILD AND PUSH
@@ -70,17 +69,14 @@ Here's an example of where this env var is being consumed:
         Write-Output "Could not push to ACR, error occured with docker build"
         Exit 1
     }        
-    
 ```
 
 # CICD
 
-Being sympathetic to our development teams' nuances...
+Here's a note on being sympathetic to our development teams' nuances...
 
 {{< hint info >}}
 
 We are using the approach of regenerating feature images and deploying from one workflow_dispatcher instead of triggering a deployment from a merge to a dedicated development branch. Our (the virtual team I'm managing that is the Platform Team - senior staff) combined experience lead us to determine that a dedicated development branch will get out of sync with our main branch.  This is especially problematic if your branching strategy predicates promoting to production via a merge to main from a dedicated development branch.  To compound this point, we often have multiple developers concurrently working on the same repo so this in itself presents inherent complexities so arriving at a CICD pipelines wasn't clear cut as teams have subtle nuances around how they build & deploy features/fixes.
 
 {{< /hint >}}
-
-
