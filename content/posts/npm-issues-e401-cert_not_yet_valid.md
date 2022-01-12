@@ -45,7 +45,7 @@ So, I ran this:
 docker build -t <image:tag> .
 ```
 
-Oh no!  The error returned!
+Oh no!  The error has returned!
 
 This is the Dockerfile:
 
@@ -78,7 +78,7 @@ always-auth=true
 According to this Microsoft documentation post ➡ [npm scopes](https://docs.microsoft.com/en-us/azure/devops/artifacts/npm/scopes?view=azure-devops#credentials-setup), the token structure was incomplete. I corrected the structure:
 
 ```
-registry=https://pkgs.dev.azure.com/<org-name>/_packaging/npm_feed/npm/registry
+registry=https://pkgs.dev.azure.com/<org-name>/_packaging/<feed-name>/npm/registry
 always-auth=true
 //pkgs.dev.azure.com/<org-name>/_packaging/<feed-name>/npm/registry/:username=<any-value-not-empty>
 //pkgs.dev.azure.com/<org-name>/_packaging/<feed-name>/npm/registry/:_password=<Base64-encoded-PAT>
