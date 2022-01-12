@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Today a PR Merge resulted in a GHA failure. Sadly, this is not the only CICD pipeline to fail this year! This particular pipeline builds a NodeJS Image, pushes the image to ACR and deploys the service to a production Docker Swarm (on merge to main).
+This was the error:
+ [3/7] RUN npm install:
+#7 1.469 npm ERR! code E401
+#7 1.470 npm ERR! Unable to authenticate, need: Bearer authorization_uri=https://login."><meta property="og:title" content="Npm E401 and CERT_NOT_YET_VALID" />
+<meta property="og:description" content="Today a PR Merge resulted in a GHA failure. Sadly, this is not the only CICD pipeline to fail this year! This particular pipeline builds a NodeJS Image, pushes the image to ACR and deploys the service to a production Docker Swarm (on merge to main).
+This was the error:
+ [3/7] RUN npm install:
+#7 1.469 npm ERR! code E401
+#7 1.470 npm ERR! Unable to authenticate, need: Bearer authorization_uri=https://login." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/npm-issues-e401-cert_not_yet_valid/" />
+<meta property="article:published_time" content="2022-01-11T11:47:54+00:00" />
+<meta property="article:modified_time" content="2022-01-11T11:47:54+00:00" />
+<title>Npm E401 and CERT_NOT_YET_VALID | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.7a69b4791c966d7a6421f1c8c2172f73779921d9b31df6bb7f8fb82acc7707db.js" integrity="sha256-emm0eRyWbXpkIfHIwhcvc3eZIdmzHfa7f4&#43;4Ksx3B9s="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/npm-issues-e401-cert_not_yet_valid/" class="active">Npm E401 and CERT_NOT_YET_VALID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="">Runtimes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Npm E401 and CERT_NOT_YET_VALID</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/npm-issues-e401-cert_not_yet_valid/">Npm E401 and CERT_NOT_YET_VALID</a>
+  </h1>
+  <p>
+  
+  <i>January 11, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;626&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/">github actions, npm, nodejs, e401, cert_not_yet_valid, docker, acr, npmrc, GH Secrets</a>
+</div>
+
+
+  <p><p>Today a PR Merge resulted in a GHA failure.  Sadly, this is not the only CICD pipeline to fail this year!  This particular pipeline builds a NodeJS Image, pushes the image to ACR and deploys the service to a production Docker Swarm (on merge to main).</p>
+<p>This was the error:</p>
+<blockquote class="book-hint danger">
+  <hr>
+<p>[3/7] RUN npm install:</p>
+<p>#7 1.469 npm ERR! code E401</p>
+<p>#7 1.470 npm ERR! Unable to authenticate, need: Bearer authorization_uri=https://login.windows.net/736f9f**-0**9-49**-86**-b******31f407, Basic realm=&ldquo;<a href="https://pkgsprodsu3weu.app.pkgs.visualstudio.com/%22,">https://pkgsprodsu3weu.app.pkgs.visualstudio.com/&quot;,</a> TFS-Federated</p>
+<p>#7 1.475</p>
+<p>#7 1.475 npm ERR! A complete log of this run can be found in:</p>
+<p>#7 1.475 npm ERR!     /root/.npm/_logs/2021-12-27T09_38_24_060Z-debug.log</p>
+
+</blockquote>
+
+<p>Mmmm, E401? 🤔</p>
+<p>I&rsquo;ve not seen this error before but as it was auth related, assumed the PAT token had expired <sup>1</sup>.  Google&hellip;</p>
+<p>I did not have the actual .npmrc file that was in a GH Secret so I used my own local .npmrc file to confirm I can pull from our organisation&rsquo;s npm feed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd &lt;project-root&gt;
+rm node-modules
+npm cache clean --force
+npm install
+</code></pre></div><p>It worked.  So, I had my first fallback option - regenerate PAT, register centrally for a reminder of when the PAT is to expire and update GH secret.  However, I was not yet done.  I had not yet reproduced verbatim the pipeline, egro a <code>docker build</code>.</p>
+<p>So, I ran this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">docker build -t &lt;image<span style="color:#960050;background-color:#1e0010">:</span>tag&gt; .
+</code></pre></div><p>Oh no!  The error returned!</p>
+<p>This is the Dockerfile:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:14.4.0</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . .<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> npm install<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> echo <span style="color:#e6db74">&#39;module.exports = &#39;</span> | cat - node_modules/@&lt;redacted&gt;/&lt;redacted&gt;/dist/libs/&lt;redacted&gt;-lib/index.js &gt; temp <span style="color:#f92672">&amp;&amp;</span> mv temp helpers/index.js<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> cd helpers <span style="color:#f92672">&amp;&amp;</span> ls -la<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> head -10 helpers/index.js<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span>
+<span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 80</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;npm&#34;</span>, <span style="color:#e6db74">&#34;run&#34;</span>, <span style="color:#e6db74">&#34;&lt;redacted&gt;&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>Apart from it not being the LTS, there was nothing obviously wrong with it plus it had been building ok leading up to this.</p>
+<p>This a the credentials part of the .npmrc:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">registry=https://pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry
+always-auth=true
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry/:username=&lt;any-value-not-empty&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry/:_password=&lt;Base64-encoded-PAT&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry/:email=&lt;email-is-not-used&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry/:always-auth=true
+</code></pre></div><p>According to this Microsoft documentation post ➡ <a href="https://docs.microsoft.com/en-us/azure/devops/artifacts/npm/scopes?view=azure-devops#credentials-setup">npm scopes</a>, the token structure was incomplete. I corrected the structure:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">registry=https://pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/npm_feed/npm/registry
+always-auth=true
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry/:username=&lt;any-value-not-empty&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry/:_password=&lt;Base64-encoded-PAT&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry/:email=&lt;email-is-not-used&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/registry/:always-auth=true
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/:username=&lt;any-value-not-empty&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/:_password=&lt;Base64-encoded-PAT&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/:email=&lt;email-is-not-used&gt;
+//pkgs.dev.azure.com/&lt;org-name&gt;/_packaging/&lt;feed-name&gt;/npm/:always-auth=true
+</code></pre></div><p>I re-ran the <code>docker build -t &lt;image:tag&gt; .</code> This time I got a different error but the original <code>E401</code> error had gone away!</p>
+<p>The new error:</p>
+<blockquote class="book-hint danger">
+  <p>#7 43.61 npm ERR! code CERT_NOT_YET_VALID</p>
+<p>#7 43.61 npm ERR! errno CERT_NOT_YET_VALID</p>
+<p>#7 43.61 npm ERR! request to <a href="https://xuavsblobprodsu6weus12.blob.core.windows.net/b-7a3f75bdbbf3432bbe2621e93c98932a/86CDB768B8C395B14974">https://xuavsblobprodsu6weus12.blob.core.windows.net/b-7a3f75bdbbf3432bbe2621e93c98932a/86CDB768B8C395B14974</a><em><strong><strong><strong><strong>1963D831555B55E3458</strong></strong></strong></strong></em>************.blob?sv=2019-07-07&amp;sr=b&amp;si=1&amp;sig=LUCuO42mrmOAx5N*************zds9RWS0v2qL%2FwbB86c%3D&amp;spr=https&amp;se=2022-01-12T11%3A42%3A24Z&amp;rscl=x-e2eid-59793e65-**********-a727df6e-***********-session-59793e65-**********-a727df6e-8c628cc8&amp;rscd=attachment%3B%20filename%3D%22string-width-4.2.3.tgz%22 failed, reason: certificate is not yet valid</p>
+
+</blockquote>
+
+<p>Mmmm, <code>CERT_NOT_YET_VALID</code>.  I&rsquo;d not seen this error before.  Google&hellip;</p>
+<p>After a short period of online research 👀 I found a suggestion about being explicit in setting the default npm registry.  This meant I had to insert <code>RUN npm config set registry http://registry.npmjs.org</code> before the <code>RUN npm install</code> command.  The resulting Dockerfile then looked like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:14.4.0</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . .<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> npm config set registry http://registry.npmjs.org<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> npm install <span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> echo <span style="color:#e6db74">&#39;module.exports = &#39;</span> | cat - node_modules/@&lt;redacted&gt;/&lt;redacted&gt;/dist/libs/&lt;redacted&gt;-lib/index.js &gt; temp <span style="color:#f92672">&amp;&amp;</span> mv temp helpers/index.js<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> cd helpers <span style="color:#f92672">&amp;&amp;</span> ls -la<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> head -10 helpers/index.js<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span>
+<span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 80</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;npm&#34;</span>, <span style="color:#e6db74">&#34;run&#34;</span>, <span style="color:#e6db74">&#34;prod&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>I re-ran the <code>docker build -t &lt;image:tag&gt; .</code> and success!  🥳</p>
+<p>I updated the appropriate GH Secret with the modified .npmrc file and asked the author of the PR that had reported this issue originally to make the 1 line change to the Dockerfile.  He made the change, prompted for another PR review and merged to main on approval.  The GHA ran successfully!  The usual monitoring post deploy and feature/fix was confirmed and I set about updating internal documentation providing instructions on what to do to remediate for others and notifying all via slack that of this.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/azure/devops/artifacts/npm/scopes?view=azure-devops">Npm scopes</a></li>
+</ul>
+<hr>
+<p><sup>1</sup> - secrets that expire need to be registered centrally on a system that can notify you in advance, giving you ample time to remediate.  For our Azure AAD SP (Service Principals) client secrets, we run an Automation Runbook each day that traverses the Azure Resource Graph and alerts me via email of those SP that will be expiring within 30 days.</p>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
