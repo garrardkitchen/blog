@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.d1b23a1e351b586d86318057f6743b5d78a3b8656b291a2bed70456ad1ecccf0.js" integrity="sha256-0bI6HjUbWG2GMYBX9nQ7XXijuGVrKRor7XBFatHszPA="></script>
+<script defer src="/en.search.min.e1ad977f7dcc9ccf8b5913af59d47f6d30b5cabafade779bfe1df78c5abae237.js" integrity="sha256-4a2Xf33MnM&#43;LWROvWdR/bTC1yrr63neb/h33jFq64jc="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -91,6 +91,26 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-selectors-and-labels/" class="">K8s Selectors and Labels</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/azure-defender-for-cloud/" class="">Azure Defender for Cloud</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -342,6 +362,16 @@ https://github.com/alex-shpak/hugo-book
     <li class="book-section-flat">
       <strong>Tags</strong>
       <ul>
+      
+        <li class="flex justify-between">
+          <a href="/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/">kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/">azure, defender for cloud, cicd, cve, github actions, windows containers</a>
+          <span>1</span>
+        </li>
       
         <li class="flex justify-between">
           <a href="/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/">github actions, npm, nodejs, e401, cert_not_yet_valid, docker, acr, npmrc, GH Secrets</a>
@@ -706,6 +736,86 @@ https://github.com/alex-shpak/hugo-book
 
 <article class="markdown book-post">
   <h2>
+    <a href="/posts/k8s-selectors-and-labels/">K8s Selectors and Labels</a>
+  </h2>
+  <p>
+  
+  <i>January 15, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;512&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/">kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl</a>
+</div>
+
+
+  <p>Right, what&rsquo;s the deal with all the labels and metadata in a Deployment manifest?!!!!
+Take this example:
+apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&rsquo;s mention of matchLabels in selector??? What does it all mean?
+    <a href="/posts/k8s-selectors-and-labels/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/azure-defender-for-cloud/">Azure Defender for Cloud</a>
+  </h2>
+  <p>
+  
+  <i>January 15, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;615&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/">azure, defender for cloud, cicd, cve, github actions, windows containers</a>
+</div>
+
+
+  <p>Defender for Cloud Containers Setting up Defender for Cloud Containers to work with your CICD pipeline is quick and uncomplicated. I do not walk through these set up steps in this post. For that, you can follow those few steps here in this Microsoft post instead ➡ Setup. The goal of this post is to highlight a few areas of interest and to share my opinions on this feature. I have understandably obfuscated sensitive information.
+    <a href="/posts/azure-defender-for-cloud/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
     <a href="/posts/npm-issues-e401-cert_not_yet_valid/">Npm E401 and CERT_NOT_YET_VALID</a>
   </h2>
   <p>
@@ -799,7 +909,7 @@ This was the error:
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;988&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;992&nbsp;words
   
 
   
@@ -1047,96 +1157,6 @@ So why the post? Well, with using .NET Core, I have run into one or two challeng
   </p>
 </article>
 
-<article class="markdown book-post">
-  <h2>
-    <a href="/posts/terraform-get-values/">Terraform Get Values</a>
-  </h2>
-  <p>
-  
-  <i>July 23, 2020</i>&nbsp;
-  
-
-  
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
-  
-  
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;322&nbsp;words
-  
-
-  
-  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
-  
-</p>
-
-
-
-
-
-
-
-<div>
-  
-  <a href="/tags/terraform/">terraform</a>
-</div>
-
-
-  <p>With not wanting to have hard coded values pushed to a project&rsquo;s code repository, and an antiquated way to derive Azure Service Principal credentials, I set about exploring ways on accomplishing this with this in mind using Terraform.
-Attempt 1 Here ins my first attempt, I load all permutations into map variables. I use an environment variable as an indexer to the appropriate map value:
-provider &#34;azurerm&#34; { version = &#34;=2.
-    <a href="/posts/terraform-get-values/">...</a>
-    
-  </p>
-</article>
-
-<article class="markdown book-post">
-  <h2>
-    <a href="/posts/digital-certificates/">Digital Certificates</a>
-  </h2>
-  <p>
-  
-  <i>June 8, 2020</i>&nbsp;
-  
-
-  
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;9&nbsp;mins read time
-  
-  
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;1862&nbsp;words
-  
-
-  
-  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
-  
-</p>
-
-
-
-
-
-
-
-<div>
-  
-  <a href="/tags/ssl/">ssl</a>, 
-  <a href="/tags/openssl/">openssl</a>, 
-  <a href="/tags/digital-certificate/">digital certificate</a>, 
-  <a href="/tags/digital-signature/">digital signature</a>, 
-  <a href="/tags/key-pairs/">key pairs</a>, 
-  <a href="/tags/keys/">keys</a>, 
-  <a href="/tags/signing/">signing</a>, 
-  <a href="/tags/hash/">hash</a>, 
-  <a href="/tags/encryption/">encryption</a>, 
-  <a href="/tags/sso/">sso</a>
-</div>
-
-
-  <p>I&rsquo;ve been wanting to put some notes down on digital certificates, signing and JWT for some time now. I find there are plenty of confusing terms involved in this area, plus a few nuances that have added to my personal confusion. I feel it now important to document these before I forget and move on [to another project].
-So, what&rsquo;s triggered this post? Well, one of many tasks I&rsquo;m involved in [juggling] evolves SSO (single sign on).
-    <a href="/posts/digital-certificates/">...</a>
-    
-  </p>
-</article>
-
 
 
 <ul class="pagination">
@@ -1208,6 +1228,16 @@ So, what&rsquo;s triggered this post? Well, one of many tasks I&rsquo;m involved
     <li class="book-section-flat">
       <strong>Tags</strong>
       <ul>
+      
+        <li class="flex justify-between">
+          <a href="/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/">kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/">azure, defender for cloud, cicd, cve, github actions, windows containers</a>
+          <span>1</span>
+        </li>
       
         <li class="flex justify-between">
           <a href="/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/">github actions, npm, nodejs, e401, cert_not_yet_valid, docker, acr, npmrc, GH Secrets</a>

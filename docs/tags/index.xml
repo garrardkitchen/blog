@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 11 Jan 2022 11:47:54 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Jan 2022 13:30:42 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl</title>
+      <link>http://blog.garrardkitchen.com/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure, defender for cloud, cicd, cve, github actions, windows containers</title>
+      <link>http://blog.garrardkitchen.com/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/</link>
+      <pubDate>Sat, 15 Jan 2022 11:57:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>github actions, npm, nodejs, e401, cert_not_yet_valid, docker, acr, npmrc, GH Secrets</title>
       <link>http://blog.garrardkitchen.com/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/</link>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Defender for Cloud Containers Setting up Defender for Cloud Containers to work with your CICD pipeline is quick and uncomplicated. I do not walk through these set up steps in this post. For that, you can follow those few steps here in this Microsoft post instead ➡ Setup. The goal of this post is to highlight a few areas of interest and to share my opinions on this feature. I have understandably obfuscated sensitive information."><meta property="og:title" content="Azure Defender for Cloud" />
+<meta property="og:description" content="Defender for Cloud Containers Setting up Defender for Cloud Containers to work with your CICD pipeline is quick and uncomplicated. I do not walk through these set up steps in this post. For that, you can follow those few steps here in this Microsoft post instead ➡ Setup. The goal of this post is to highlight a few areas of interest and to share my opinions on this feature. I have understandably obfuscated sensitive information." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/azure-defender-for-cloud/" />
+<meta property="article:published_time" content="2022-01-15T11:57:20+00:00" />
+<meta property="article:modified_time" content="2022-01-15T11:57:20+00:00" />
+<title>Azure Defender for Cloud | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.e1ad977f7dcc9ccf8b5913af59d47f6d30b5cabafade779bfe1df78c5abae237.js" integrity="sha256-4a2Xf33MnM&#43;LWROvWdR/bTC1yrr63neb/h33jFq64jc="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-selectors-and-labels/" class="">K8s Selectors and Labels</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/azure-defender-for-cloud/" class="active">Azure Defender for Cloud</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/npm-issues-e401-cert_not_yet_valid/" class="">Npm E401 and CERT_NOT_YET_VALID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="">Runtimes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Azure Defender for Cloud</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#defender-for-cloud-containers">Defender for Cloud Containers</a></li>
+    <li><a href="#set-up">Set up</a></li>
+    <li><a href="#results">Results</a>
+      <ul>
+        <li><a href="#gh-action-job">GH Action Job</a></li>
+        <li><a href="#azure-blade">Azure blade</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/azure-defender-for-cloud/">Azure Defender for Cloud</a>
+  </h1>
+  <p>
+  
+  <i>January 15, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;615&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/">azure, defender for cloud, cicd, cve, github actions, windows containers</a>
+</div>
+
+
+  <p><h1 id="defender-for-cloud-containers">Defender for Cloud Containers</h1>
+<p>Setting up <strong>Defender for Cloud Containers</strong> to work with your CICD pipeline is quick and uncomplicated.  I do not walk through these set up steps in this post.  For that, you can follow those few steps here in this Microsoft post instead ➡ <a href="https://docs.microsoft.com/en-gb/azure/defender-for-cloud/defender-for-container-registries-cicd">Setup</a>.  The goal of this post is to highlight a few areas of interest and to share my opinions on this feature. I have <em>understandably</em> obfuscated sensitive information.</p>
+<p><strong>TL;DR:</strong></p>
+<p>Pros:</p>
+<ul>
+<li>Rapid inclusion in your GH Actions CICD pipeline</li>
+<li>Uncomplicated</li>
+<li>Adherence to industry preferred practice</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>Expected ALL findings from GHA run to be visible in Defender blade</li>
+<li>Doesn&rsquo;t support windows containers (.NET Framework workloads) 😱 substantiated here ➡ <a href="https://docs.microsoft.com/en-gb/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#availability">Availability</a></li>
+</ul>
+<h1 id="set-up">Set up</h1>
+<p>It takes very little time to configure image scanning and to secure your container images.  In my current role as Head of Cloud Platform at Carfinance 247 I am spear heading the migration effort to move our entire workload real estate from on-premise to Azure.  As part of this mission, we&rsquo;re using GH Actions for our CICD pipelines.  Azure Defender of Cloud Containers compliments GH Actions and I personally have found it a very painless exercise <sup>1</sup>.  It takes little more time than it does to actually read their instructions to configure, run and see the scan summary and remediation advice.</p>
+<p>With regards to configuring Azure Defender for Cloud, all it takes a few mouse clicks and you&rsquo;re done.  During this process, you will be required to copy 2 values it makes available to you that will need to be added as GitHub secrets.</p>
+<p>The final step is to insert 2 GH Actions into your GHA Workflow.  You may need to seperate your build and push steps as per their instructions.  Below is a snippet from one of our deploy GH Actions Workflows that shows how we&rsquo;ve incorporated these GH Actions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">...
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">BUILD IMAGE</span>
+  <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">    cd ${{ env.ROOT_DIR }}   
+</span><span style="color:#e6db74">    
+</span><span style="color:#e6db74">    docker build -t ${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }} -f ${{ env.ROOT_DIR }}/${{ env.APP_DOCKERFILE }} .
+</span><span style="color:#e6db74">    errorCode=$?
+</span><span style="color:#e6db74">    if [ $errorCode -ne 0 ]; then
+</span><span style="color:#e6db74">      echo &#34;Could not build to ACR, error occured with docker build&#34;
+</span><span style="color:#e6db74">      exit 1
+</span><span style="color:#e6db74">    fi
+</span><span style="color:#e6db74">    </span>    
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">SCAN FOR VULNERABILITIES</span>
+  <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">Azure/container-scan@v0         </span>
+  <span style="color:#f92672">id</span>: <span style="color:#ae81ff">container-scan</span>
+  <span style="color:#f92672">continue-on-error</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">with</span>:
+    <span style="color:#f92672">image-name</span>: <span style="color:#ae81ff">${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }}</span>
+
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">PUSH TO ACR</span>
+  <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">    docker push ${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }}
+</span><span style="color:#e6db74">    errorCode=$?
+</span><span style="color:#e6db74">    if [ $errorCode -ne 0 ]; then
+</span><span style="color:#e6db74">      echo &#34;Could not build to ACR, error occured with docker build&#34;
+</span><span style="color:#e6db74">      exit 1
+</span><span style="color:#e6db74">    fi</span>    
+
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">POST LOGS TO APPINSIGHTS</span>
+  <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">Azure/publish-security-assessments@v0</span>
+  <span style="color:#f92672">with</span>: 
+    <span style="color:#f92672">scan-results-path</span>: <span style="color:#ae81ff">${{ steps.container-scan.outputs.scan-report-path }}</span>
+    <span style="color:#f92672">connection-string</span>: <span style="color:#ae81ff">${{ secrets.AZ_APPINSIGHTS_CONNECTION_STRING }}</span>
+    <span style="color:#f92672">subscription-token</span>: <span style="color:#ae81ff">${{ secrets.AZ_SUBSCRIPTION_TOKEN }}</span>
+...
+</code></pre></div><p><em>👆 We are not using (AZ_APPINSIGHTS_CONNECTION_STRING, AZ_SUBSCRIPTION_TOKEN) secrets names</em></p>
+<h1 id="results">Results</h1>
+<p>There are 2 places where you can view the Commons Vulnerabilities and Exposures.  These locations are wihtin GH Actions and the Defender for Cloud Blade in the Azure portal.</p>
+<h2 id="gh-action-job">GH Action Job</h2>
+<p><img src="../img/2022-01-15-15-51-01.png" alt="" /></p>
+<h2 id="azure-blade">Azure blade</h2>
+<p><img src="../img/2022-01-15-12-06-38.png" alt="" /></p>
+<h1 id="summary">Summary</h1>
+<p>In summary:</p>
+<ul>
+<li>I found it quick to get up and running and see the CVEs and remediation advice</li>
+<li><sup>1</sup> - Like with most processes, IMO, if there&rsquo;s no predetermined action to react to findings - e.g. automated Runbook - then it&rsquo;s a pointless exercise and your organisation <em>will</em> remain exposed to such vulnerabilities</li>
+<li>IMO, this has be part of a wider initiative. For example, the inclusion of code quality analysis is a must to avoid vulnerabilities, bugs and poor coding practices/implementations making it into the codebase in the first place.  This is how <em>we</em> roll. GitHub makes this easy!</li>
+<li>I find it surprising how many CVEs, irrespective of criticality, are present in established docker images. You don&rsquo;t have to look far to discover them!</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li>
+<p><a href="https://docs.microsoft.com/en-gb/azure/defender-for-cloud/defender-for-container-registries-cicd">Setup defender for container registries</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-gb/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks">Defender for cloud</a></p>
+</li>
+</ul>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#defender-for-cloud-containers">Defender for Cloud Containers</a></li>
+    <li><a href="#set-up">Set up</a></li>
+    <li><a href="#results">Results</a>
+      <ul>
+        <li><a href="#gh-action-job">GH Action Job</a></li>
+        <li><a href="#azure-blade">Azure blade</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

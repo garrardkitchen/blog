@@ -4,22 +4,42 @@
   
   <url>
     <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2022-01-12T09:08:20+00:00</lastmod>
+    <lastmod>2022-01-15T13:30:42+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/</loc>
-    <lastmod>2022-01-12T09:08:20+00:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/</loc>
+    <lastmod>2022-01-15T13:30:42+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.garrardkitchen.com/posts/npm-issues-e401-cert_not_yet_valid/</loc>
-    <lastmod>2022-01-12T09:08:20+00:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/</loc>
+    <lastmod>2022-01-15T13:30:42+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.garrardkitchen.com/tags/</loc>
-    <lastmod>2022-01-12T09:08:20+00:00</lastmod>
+    <lastmod>2022-01-15T13:30:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/azure-defender-for-cloud/</loc>
+    <lastmod>2022-01-15T11:57:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/</loc>
+    <lastmod>2022-01-15T11:57:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/</loc>
+    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.garrardkitchen.com/posts/npm-issues-e401-cert_not_yet_valid/</loc>
+    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
   </url>
   
   <url>
