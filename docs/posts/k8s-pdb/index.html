@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pod Disruption Budget When working with Kubernetes, one crucial component of configuration is known as a PDB (Pod Disruption Budget). A PDB will ensure your workload remains running when you work through a Voluntary Disruption.
+What on earth is a Voluntary Disruption? A Voluntary Disruption is when you trigger an action that causes the disruption. For example, if you wish to upgrade a Minor AKS version or any action that recycles a Node Pool."><meta property="og:title" content="Kubernetes Pod Disruption Budget and the Helm hasKey Function" />
+<meta property="og:description" content="Pod Disruption Budget When working with Kubernetes, one crucial component of configuration is known as a PDB (Pod Disruption Budget). A PDB will ensure your workload remains running when you work through a Voluntary Disruption.
+What on earth is a Voluntary Disruption? A Voluntary Disruption is when you trigger an action that causes the disruption. For example, if you wish to upgrade a Minor AKS version or any action that recycles a Node Pool." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/k8s-pdb/" />
+<meta property="article:published_time" content="2022-01-21T14:19:01+00:00" />
+<meta property="article:modified_time" content="2022-01-21T14:19:01+00:00" />
+<title>Kubernetes Pod Disruption Budget and the Helm hasKey Function | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.9e3d60186ace3a54bfb77dd0f21a4df605073e542d72037cba71e23869791857.js" integrity="sha256-nj1gGGrOOlS/t33Q8hpN9gUHPlQtcgN8unHiOGl5GFc="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-install-e401/" class="">Nodejs Install E401</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-pdb/" class="active">Kubernetes Pod Disruption Budget and the Helm hasKey Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-self-hosted-runner/" class="">Adding more Github Self-Hosted Runners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-selectors-and-labels/" class="">K8s Selectors and Labels</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/azure-defender-for-cloud/" class="">Azure Defender for Cloud</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/npm-issues-e401-cert_not_yet_valid/" class="">Npm E401 and CERT_NOT_YET_VALID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="">Runtimes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Kubernetes Pod Disruption Budget and the Helm hasKey Function</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pod-disruption-budget">Pod Disruption Budget</a></li>
+    <li><a href="#how-to-use-the-value-provided-by-the-developer">How to use the value provided by the developer</a></li>
+    <li><a href="#how-to-provide-a-default-value">How to provide a default value</a></li>
+    <li><a href="#how-to-ensure-theres-at-least-one-pod-running">How to ensure there&rsquo;s at least one pod running</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/k8s-pdb/">Kubernetes Pod Disruption Budget and the Helm hasKey Function</a>
+  </h1>
+  <p>
+  
+  <i>January 21, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;596&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+
+  <p><h1 id="pod-disruption-budget">Pod Disruption Budget</h1>
+<p>When working with Kubernetes, one crucial component of configuration is known as a PDB (Pod Disruption Budget).  A PDB will ensure your workload remains running when you work through a <strong>Voluntary Disruption</strong>.</p>
+<p>What on earth is a <strong>Voluntary Disruption</strong>?  A Voluntary Disruption is when you trigger an action <em>that causes the</em> disruption.  For example, if you wish to upgrade a Minor AKS version or any action that recycles a Node Pool. Click here ➡ <a href="https://kubernetes.io/docs/concepts/workloads/pods/disruptions/">Disruptions</a> to read up on what Disruptions are.</p>
+<p>This is what a PDB manifest looks like this.  This example tells Kubernetes to make sure there&rsquo;s always a minimum of 2 Pods running during a disruption:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">policy/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PodDisruptionBudget</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-awesome-microservice-pdb</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">minAvailable</span>: <span style="color:#ae81ff">2</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">my-awesome-microservice-api</span>
+</code></pre></div><p>We use Helm Charts so part the declaration that wraps the <code>minAvailable</code> property looks like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">{{- <span style="color:#ae81ff">if hasKey .Values &#34;pdb&#34;  }} </span>
+{{- <span style="color:#ae81ff">if hasKey .Values.pdb &#34;minAvailable&#34; }} </span>
+<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">.Values.pdb.minAvailable }}   </span>
+{{- <span style="color:#ae81ff">end}}   </span>
+{{- <span style="color:#ae81ff">else }}</span>
+<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
+</code></pre></div><p>Right, what&rsquo;s going on here then?!!!</p>
+<p>There are a few things that I need to accommodate for within the PDB.  These are:</p>
+<ul>
+<li>Apply a specific value that may be contained within a values .yaml file</li>
+<li>Provide a default value if one is not supplied</li>
+<li>Ensure there&rsquo;s at least 1 pod running throughout the disruption so a workload doesn&rsquo;t go offline during this period. 😱</li>
+</ul>
+<h1 id="how-to-use-the-value-provided-by-the-developer">How to use the value provided by the developer</h1>
+<p>I&rsquo;ve designed our CICD pipeline so we get base configurations (one .NET Framework IIS workloads, one for .NET Core Web workloads, one for &hellip; etc.) from one git repo, and get all application(s) configuration properties from the application git repo itself (📂 /.k8s/).  It is here from within the application&rsquo;s repo we set the properties for a service(s) within a <code>values-&lt;env&gt;.yaml</code> file.   If there&rsquo;s more than one application found in an application&rsquo;s git repo, the name is reflected in the name of values .yaml file to provide uniqueness - eg <code>values-&lt;consumer&gt;-&lt;env&gt;.yaml</code>.</p>
+<p>It is in this values .yaml file we set - if at all - a value to the <code>pdb.minAvailable</code> nested property.</p>
+<p>Here, in this control flow, we are checking that both pdb and minAvailable properties exist.  If they do, we apply the <code>minAvailable</code> value.  We use the hasKey function to good affect to check for the existence of a property in another property:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">{{- <span style="color:#ae81ff">if hasKey .Values &#34;pdb&#34;  }} </span>
+{{- <span style="color:#ae81ff">if hasKey .Values.pdb &#34;minAvailable&#34; }} </span>
+<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">.Values.pdb.minAvailable }}   </span>
+{{- <span style="color:#ae81ff">end }}   </span>
+{{- <span style="color:#ae81ff">else }}</span>
+</code></pre></div><h1 id="how-to-provide-a-default-value">How to provide a default value</h1>
+<p>If the application configuration does not contain a <code>minAvailable</code> property, we take the value found in the <code>replicaCount</code> value and use this.  However, we do not insist on the same value, but instead 1 less - <code>(sub .Values.replicaCount 1)</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">...
+{{- <span style="color:#ae81ff">else }}</span>
+<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
+{{- <span style="color:#ae81ff">end }} </span>
+</code></pre></div><h1 id="how-to-ensure-theres-at-least-one-pod-running">How to ensure there&rsquo;s at least one pod running</h1>
+<p>We must ensure at least one instance of a workload is running and if we simply reduced the <code>replicaCount</code> by one and left it at that, we could end up with a budget of zero.  I don&rsquo;t want this to happen.  What I do here is use the <code>max</code> function to good effect to safeguard against this ever being a zero - and if <code>replicaCount: 1</code>, then the expression would read <code>max (0) 1</code>, meaning 1 would be the value used.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">...
+{{- <span style="color:#ae81ff">else }}</span>
+<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
+{{- <span style="color:#ae81ff">end }} </span>
+</code></pre></div><h1 id="references">References</h1>
+<ul>
+<li><a href="https://github.com/helm/helm-www/blob/main/content/en/docs/chart_template_guide/function_list.md#floor">Helm Functions</a></li>
+<li><a href="https://helm.sh/docs/chart_template_guide/control_structures/">Flow control</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/workloads/pods/disruptions/">Disruptions</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler#voluntary-disruptions">Best practices - Voluntary Disruption</a></li>
+</ul>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pod-disruption-budget">Pod Disruption Budget</a></li>
+    <li><a href="#how-to-use-the-value-provided-by-the-developer">How to use the value provided by the developer</a></li>
+    <li><a href="#how-to-provide-a-default-value">How to provide a default value</a></li>
+    <li><a href="#how-to-ensure-theres-at-least-one-pod-running">How to ensure there&rsquo;s at least one pod running</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

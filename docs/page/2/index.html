@@ -9,14 +9,14 @@
 <meta property="og:description" content="Made by &lt;a href=&#34;http://www.garrardkitchen.com&#34;&gt;Garrard Kitchen&lt;/a&gt;" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/" />
-<meta property="og:updated_time" content="2022-01-15T13:30:42+00:00" />
+<meta property="og:updated_time" content="2022-01-22T16:54:48+00:00" />
 <title>Blog | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.e1ad977f7dcc9ccf8b5913af59d47f6d30b5cabafade779bfe1df78c5abae237.js" integrity="sha256-4a2Xf33MnM&#43;LWROvWdR/bTC1yrr63neb/h33jFq64jc="></script>
+<script defer src="/en.search.min.9e3d60186ace3a54bfb77dd0f21a4df605073e542d72037cba71e23869791857.js" integrity="sha256-nj1gGGrOOlS/t33Q8hpN9gUHPlQtcgN8unHiOGl5GFc="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -92,6 +92,36 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-install-e401/" class="">Nodejs Install E401</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-pdb/" class="">Kubernetes Pod Disruption Budget and the Helm hasKey Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-self-hosted-runner/" class="">Adding more Github Self-Hosted Runners</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -360,6 +390,144 @@ https://github.com/alex-shpak/hugo-book
 
 <p style="text-align: center;"><strong>BLACK LIVES MATTER</strong></p>
 
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/how-to-use-kubernetes-configmap/">How to Use Kubernetes Configmap</a>
+  </h2>
+
+  <p>
+  
+  <i>November 2, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;721&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/kuberetes/">kuberetes</a>, 
+  <a href="/tags/configmap/">configmap</a>, 
+  <a href="/tags/cm/">cm</a>, 
+  <a href="/tags/kubectl/">kubectl</a>, 
+  <a href="/tags/secrets/">secrets</a>, 
+  <a href="/tags/best-practice/">best practice</a>
+</div>
+
+
+  <p>There&rsquo;s a ton of material out there on how to use a ConfigMap. In this post I will provide a recap on the basics then I drill into how to protect your secrets!
+There are a few ways to create a configMap. Here, I cover just two of these ways;--from-env-file and &ndash;from-literal. I won&rsquo;t cover options like from volume.
+How to create a ConfigMap from a literal To create a configMap from literals and from the command line, you would type this:
+    <a href="/posts/how-to-use-kubernetes-configmap/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/nodejs-container-restart-policy/">Nodejs Container Restart Policy</a>
+  </h2>
+
+  <p>
+  
+  <i>September 21, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;360&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/nodejs/">nodejs</a>, 
+  <a href="/tags/cluster/">cluster</a>, 
+  <a href="/tags/docker/">docker</a>, 
+  <a href="/tags/docker-compose/">docker-compose</a>, 
+  <a href="/tags/resilience/">resilience</a>
+</div>
+
+
+  <p>If by accident to deploy a solution using the Node.js Cluster API and do not fork exited processes then the following docker-compose restart_policy will not help you:
+deploy: restart_policy: condition: on-failure If you&rsquo;re using the Cluster API to schedule tasks across your processes, and all forked processes die, then the docker engine will just assume you&rsquo;ve gracefully shutdown.
+Take this code for example, you will see that it doesn&rsquo;t fork another process and therefore, at some point it will no longer process any anything:
+    <a href="/posts/nodejs-container-restart-policy/">...</a>
+    
+  </p>
+</article>
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  </h2>
+
+  <p>
+  
+  <i>July 28, 2020</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;384&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/apache-ignite/">apache ignite</a>, 
+  <a href="/tags/ignite/">ignite</a>, 
+  <a href="/tags/gridgain/">gridgain</a>, 
+  <a href="/tags/data-grid/">data grid</a>, 
+  <a href="/tags/Ignite.NET/">Ignite.NET</a>
+</div>
+
+
+  <p>I&rsquo;ve recently been researching into Apache Ignite. Apache Ignite is an in-memory, memory-centric, distributed database, caching and processing platform for transactional, analytical, and streaming workloads.
+So why the post? Well, with using .NET Core, I have run into one or two challenges that I have had to work through. One of which involves the Agent. I feel it is important to share with you how I get beyond this issue. It may save you a lot of time if you&rsquo;re an Apache Ignite noob like me.
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/">...</a>
+    
+  </p>
+</article>
 
 <article class="markdown book-post">
   <h2>

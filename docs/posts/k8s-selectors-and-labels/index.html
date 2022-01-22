@@ -6,21 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Right, what&rsquo;s the deal with all the labels and metadata in a Deployment manifest?!!!!
 Take this example:
-apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&rsquo;s mention of matchLabels in selector??? What does it all mean?"><meta property="og:title" content="K8s Selectors and Labels" />
+apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx foo: baa template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&rsquo;s mention of matchLabels in selector??? What does it all mean?"><meta property="og:title" content="K8s Selectors and Labels" />
 <meta property="og:description" content="Right, what&rsquo;s the deal with all the labels and metadata in a Deployment manifest?!!!!
 Take this example:
-apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&rsquo;s mention of matchLabels in selector??? What does it all mean?" />
+apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx foo: baa template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&rsquo;s mention of matchLabels in selector??? What does it all mean?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/" />
 <meta property="article:published_time" content="2022-01-15T13:30:42+00:00" />
-<meta property="article:modified_time" content="2022-01-15T13:30:42+00:00" />
+<meta property="article:modified_time" content="2022-01-15T17:16:41+00:00" />
 <title>K8s Selectors and Labels | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.e1ad977f7dcc9ccf8b5913af59d47f6d30b5cabafade779bfe1df78c5abae237.js" integrity="sha256-4a2Xf33MnM&#43;LWROvWdR/bTC1yrr63neb/h33jFq64jc="></script>
+<script defer src="/en.search.min.9e3d60186ace3a54bfb77dd0f21a4df605073e542d72037cba71e23869791857.js" integrity="sha256-nj1gGGrOOlS/t33Q8hpN9gUHPlQtcgN8unHiOGl5GFc="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -95,6 +95,36 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-install-e401/" class="">Nodejs Install E401</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-pdb/" class="">Kubernetes Pod Disruption Budget and the Helm hasKey Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-self-hosted-runner/" class="">Adding more Github Self-Hosted Runners</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -379,7 +409,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;512&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;514&nbsp;words
   
 
   
@@ -413,6 +443,7 @@ https://github.com/alex-shpak/hugo-book
   <span style="color:#f92672">selector</span>:
     <span style="color:#f92672">matchLabels</span>:
       <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
+      <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
   <span style="color:#f92672">template</span>:
     <span style="color:#f92672">metadata</span>:
       <span style="color:#f92672">labels</span>:

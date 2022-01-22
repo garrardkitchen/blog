@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nodejs, e401, azure functions, npm feed, upstream feed, typpescript on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/nodejs-e401-azure-functions-npm-feed-upstream-feed-typpescript/</link>
+    <description>Recent content in nodejs, e401, azure functions, npm feed, upstream feed, typpescript on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 22 Jan 2022 16:54:48 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/nodejs-e401-azure-functions-npm-feed-upstream-feed-typpescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nodejs Install E401</title>
+      <link>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</link>
+      <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</guid>
+      <description>Today I created a simple nodeJS Azure Functions app to start building out a PoC and when I tried to install it&amp;rsquo;s dependencies like so:
+npm install I got this little cherub back instead:
+npm ERR! code E401
+npm ERR! Incorrect or missing password.
+npm ERR! If you were trying to login, change your password, create an
+npm ERR! authentication token or enable two-factor authentication then
+npm ERR! that means you likely typed your password in incorrectly.</description>
+    </item>
+    
+  </channel>
+</rss>

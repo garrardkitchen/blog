@@ -4,7 +4,7 @@ date: 2022-01-11T15:11:39Z
 draft: true
 ---
 
-windwos blaa ...
+windows blaa ...
 
 framework 4.8
 
@@ -17,7 +17,7 @@ IIS app
 
 load test - artillery.io
 
-5 mins, arrivalRate of 5, some load, enough to agitate but not enough to maz of App Gateway
+5 mins, arrivalRate of 5, some load, enough to agitate but not enough to max out the App Gateway
 
 KubeEvents 
 | where ObjectKind == 'Pod' and  ClusterName == '<redacted>'  and  Namespace == '<redacted>'

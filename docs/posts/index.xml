@@ -7,6 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language><atom:link href="http://blog.garrardkitchen.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Nodejs Install E401</title>
+      <link>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</link>
+      <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</guid>
+      <description>Today I created a simple nodeJS Azure Functions app to start building out a PoC and when I tried to install it&amp;rsquo;s dependencies like so:
+npm install I got this little cherub back instead:
+npm ERR! code E401
+npm ERR! Incorrect or missing password.
+npm ERR! If you were trying to login, change your password, create an
+npm ERR! authentication token or enable two-factor authentication then
+npm ERR! that means you likely typed your password in incorrectly.</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes Pod Disruption Budget and the Helm hasKey Function</title>
+      <link>http://blog.garrardkitchen.com/posts/k8s-pdb/</link>
+      <pubDate>Fri, 21 Jan 2022 14:19:01 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/k8s-pdb/</guid>
+      <description>Pod Disruption Budget When working with Kubernetes, one crucial component of configuration is known as a PDB (Pod Disruption Budget). A PDB will ensure your workload remains running when you work through a Voluntary Disruption.
+What on earth is a Voluntary Disruption? A Voluntary Disruption is when you trigger an action that causes the disruption. For example, if you wish to upgrade a Minor AKS version or any action that recycles a Node Pool.</description>
+    </item>
+    
+    <item>
+      <title>Adding more Github Self-Hosted Runners</title>
+      <link>http://blog.garrardkitchen.com/posts/github-self-hosted-runner/</link>
+      <pubDate>Tue, 18 Jan 2022 11:50:13 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/github-self-hosted-runner/</guid>
+      <description>Adding more GitHub Self-Hosted Runners To help build out our numbers of GitHub Self-Hosted Runner, we took a shortcut and had cloned an existing Linux VM.
+Unfortunately, the by-product of doing this resulted in (a) the clonee (source) Linux VM had their Self-Hosted hijacked by the new VM and (b) we had a Runner registered in GitHub that didn&amp;rsquo;t actually have a running runner - Offline 🤪.
+Madness!
+Ok, so what to do?</description>
+    </item>
+    
+    <item>
       <title>K8s Selectors and Labels</title>
       <link>http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/</link>
       <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
@@ -14,7 +51,7 @@
       <guid>http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/</guid>
       <description>Right, what&amp;rsquo;s the deal with all the labels and metadata in a Deployment manifest?!!!!
 Take this example:
-apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&amp;rsquo;s mention of matchLabels in selector??? What does it all mean?</description>
+apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx foo: baa template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&amp;rsquo;s mention of matchLabels in selector??? What does it all mean?</description>
     </item>
     
     <item>

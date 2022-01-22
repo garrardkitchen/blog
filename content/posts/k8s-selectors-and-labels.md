@@ -21,6 +21,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
+      foo: baa
   template:
     metadata:
       labels:
