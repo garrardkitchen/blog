@@ -8,7 +8,7 @@ draft: false
 
 When working with Kubernetes, one crucial component of configuration is known as a PDB (Pod Disruption Budget).  A PDB will ensure your workload remains running when you work through a **Voluntary Disruption**.
 
-What on earth is a **Voluntary Disruption**?  A Voluntary Disruption is when you trigger an action _that causes the_ disruption.  For example, if you wish to upgrade a Minor AKS version or any action that recycles a Node Pool. Click here ➡ [Disruptions](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) to read up on what Disruptions are.  
+What on earth is a **Voluntary Disruption**?  A **Voluntary Disruption** is when you trigger an action _that causes the_ disruption.  For example, if you wish to upgrade a Minor AKS version or any action that recycles a Node Pool. Click here ➡ [Disruptions](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) to read up on what Disruptions are.  
  
 This is what a PDB manifest looks like this.  This example tells Kubernetes to make sure there's always a minimum of 2 Pods running during a disruption:
 
@@ -30,14 +30,15 @@ We use Helm Charts so part the declaration that wraps the `minAvailable` propert
 {{- if hasKey .Values "pdb"  }} 
 {{- if hasKey .Values.pdb "minAvailable" }} 
 minAvailable: {{ .Values.pdb.minAvailable }}   
-{{- end}}   
+{{- end }}   
 {{- else }}
 minAvailable: {{ max (sub .Values.replicaCount 1) 1 }} 
+{{- end }}
 ```
 
-Right, what's going on here then?!!!
+What on earth is going on here then?!
 
-There are a few things that I need to accommodate for within the PDB.  These are:
+There are a few rules that I need to accommodate for within our workload PDBs.  These are:
 - Apply a specific value that may be contained within a values .yaml file
 - Provide a default value if one is not supplied
 - Ensure there's at least 1 pod running throughout the disruption so a workload doesn't go offline during this period. 😱
