@@ -13,7 +13,7 @@
       <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
       
       <guid>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</guid>
-      <description>Today I created a simple nodeJS Azure Functions app to start building out a PoC and when I tried to install it&amp;rsquo;s dependencies like so:
+      <description>Today I created a simple nodeJS Azure Functions Applicaiton to start building out a PoC and when I tried to install it&amp;rsquo;s dependencies like so:
 npm install I got this little cherub back instead:
 npm ERR! code E401
 npm ERR! Incorrect or missing password.

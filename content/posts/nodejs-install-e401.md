@@ -4,7 +4,7 @@ date: 2022-01-22T16:54:48Z
 tags: nodejs, e401, azure functions, npm feed, upstream feed, typpescript
 ---
 
-Today I created a simple nodeJS Azure Functions app to start building out a PoC and when I tried to install it's dependencies like so:
+Today I created a simple nodeJS Azure Functions Applicaiton to start building out a PoC and when I tried to install it's dependencies like so:
 
 ```powershell
 npm install
@@ -41,11 +41,11 @@ npm ERR!     C:\Users\garrard.kitchen\AppData\Local\npm-cache\_logs\2022-01-22T1
 
 {{</ hint >}}
 
-Ok then, obviously I've set my default registry somewhere to something other than npmjs!
+Ok then, I've _obviously_ set my default registry to something other than npmjs!
 
 This will not have been an issue or noticeable if I had have been connected to my works VPN as I know for a fact, the upstream sources of our npm Azure DevOps npm feed is in fact `https://registry.npmjs.org`.
 
-Anyhow, to work through this slight annoyance, for this I typed:
+Anyhow, to work through this slight annoyance, I typed:
 
 ```powershell
 nodejs install --registry https://registry.npmjs.org
