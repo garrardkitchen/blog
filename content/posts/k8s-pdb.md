@@ -49,7 +49,7 @@ I've designed our CICD pipeline so we get base configurations (one .NET Framewor
 
 It is in this values .yaml file we set - if at all - a value to the `pdb.minAvailable` nested property.
  
-Here, in this control flow, we are checking that both pdb and minAvailable properties exist.  If they do, we apply the `minAvailable` value.  We use the hasKey function to good affect to check for the existence of a property in another property:
+Here, in this control flow, we are checking that both pdb and minAvailable properties exist.  If they do, we apply the `minAvailable` value.  We use the hasKey function to good effect to check for the existence of a property in another property:
 
 ```yml
 {{- if hasKey .Values "pdb"  }} 
