@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language><atom:link href="http://blog.garrardkitchen.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>The Grass Is Rarely Greener</title>
+      <link>http://blog.garrardkitchen.com/posts/the-grass-is-rarely-greener/</link>
+      <pubDate>Sun, 30 Jan 2022 18:27:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/the-grass-is-rarely-greener/</guid>
+      <description>I had a conversation recently and this reminded me of something that happened to me. Hence, why I&amp;rsquo;m writing this Post. The conversation was over moving to a different Cloud provider. Hopefully, this Post&amp;rsquo;s title makes sense now!
+Several years back, the company that I was working for at the time shifted to AWS, away from Azure. It was heavily suggested - I was present during that conversation - that it would be in our favour if we &amp;ldquo;jumped ship&amp;rdquo; to their platform.</description>
+    </item>
+    
+    <item>
       <title>Nodejs Install E401</title>
       <link>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</link>
       <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>

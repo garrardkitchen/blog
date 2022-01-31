@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 22 Jan 2022 16:54:48 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jan 2022 18:27:54 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>azure, aws, promises, relationship</title>
+      <link>http://blog.garrardkitchen.com/tags/azure-aws-promises-relationship/</link>
+      <pubDate>Sun, 30 Jan 2022 18:27:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/azure-aws-promises-relationship/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>nodejs, e401, azure functions, npm feed, upstream feed, typpescript</title>
       <link>http://blog.garrardkitchen.com/tags/nodejs-e401-azure-functions-npm-feed-upstream-feed-typpescript/</link>
