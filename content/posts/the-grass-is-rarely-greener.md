@@ -1,14 +1,14 @@
 ---
 title: "The Grass Is Rarely Greener"
 date: 2022-01-30T18:27:54Z
-tags: azure, aws, promises, relationship
+tags: azure, aws, empty promises, building relationship, willing, attrition
 ---
 
-I had a conversation recently and this reminded me of something that happened to me.  Hence, why I'm writing this Post.  The conversation was over moving to a different Cloud provider. Hopefully, this Post's title makes sense now!
+I recently had a conversation that steered up some _surpressed_ memories.  The conversation was related to moving to a different Cloud vendor.  That journey didn't work out so well for me and the company I was working for at the time.  Sadly, that company stopped trading and I don't think it's that much of a leap to link that journey to the surmise of that company.  Hopefully now the title of this post is starting to make sense?
 
-Several years back, the company that I was working for at the time shifted to AWS, away from Azure.  It was heavily suggested - I was present during that conversation - that it would be in our interest if we "jumped ship" to _their_ platform.  "Their" being "AWS".  Long story short, sadly it was not.  In fact, it turned out to be a huge waste of time.  IMO, they should never have suggested this.  There were other suggestions made that _they_ really should not have made; sadly we followed these too.  In retrospect, it was totally unjustifiable not to mention unfair for them to suggest any of this for a company of that size [small], especially knowing how long all of this would take.  I even gained 2 certifications to help best advise the company on how to implement/integrate with the AWS Platform and backing services.
+Several years back, the company that I was working for at the time shifted to AWS, away from Azure.  It was heavily suggested - I was present during that conversation - that it would be in our interest if we "jumped ship" to _their_ platform.  "Their" being "AWS".  Long story short, sadly it was not.  In fact, it turned out to be a huge waste of time.  IMO, they should never have suggested this.  There were other suggestions made that _they_ really should not have made; sadly we followed these too.  In retrospect, it was totally unjustifiable not to mention unfair for them to suggest any of this for a company of that size [small], especially knowing how long all of this would take to do.  I even gained 2 certifications to help best advise the company on how to implement/integrate with the AWS Platform and backing services.
 
-If you are thinking, "You are grown-ups with years of experience under your belt yeah, so you didn't have to go with what they said?!".  Indeed, but it was AWS and these people we were talking to were big hitters and as such, the "carrot" was big. Who wouldn't right?!
+If you are thinking, "You are grown-ups with years of experience under your belt yeah, so you didn't have to go with what they said did you?".  Indeed, but it was AWS and these people we were talking to were big hitters and as such, the "carrot" was big. Who wouldn't right?!
 
 I will return to this in a later post but for now I will call out, IMO, several important and possibly overlooked considerations when contemplating a move to a different Cloud Provider.
 
@@ -32,7 +32,7 @@ Here are a few nuggets that will hopefully resonate:
 
 8 - If technical issues are plaguing you, then likely they'll manifest themselves also on a different cloud provider.  So, if you've invested heavily with a particular tech, or approach, and this is too costly, too risky to the business due to instability, first understand why first before jumping ship.  You never know, you might be using it inefficiently or incorrectly.  Take AKS for instance.  It's hugely involved.  If you get any part of that wrong, it's a risk to your business.
 
-There will be more I'm sure, but for the sake of getting closure on this topic, I will leave it at this.  
+There will be more I'm sure, but for the sake of getting closure on this topic and to put these emotions back into _that_ box, I will leave it there.  
 
 # Recommendations
 
@@ -44,3 +44,4 @@ In summary, my advice is this; evaluate your current platform to identify (in no
 - Automation (eg runbook when metric exceeded, cron jobs)
 - What is your prominent tech?  For example, if your ecosystem is predominately .NET then Azure is a justifiable Cloud Platform.  You simply won't get the same depth/scope of features/integrations if you go with a different Cloud Provider.  Think about it...would you offer up all your crown jewels to a competing provider? I rest my case!
 
+I do hope this post has been informative.  If I help one person avoid this _more often than not wasted effort_, then this post will have been worth it.  Changes of this magnitude are laden with risk and one thing companies are adverse to is risk.
