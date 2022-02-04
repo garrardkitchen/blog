@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 30 Jan 2022 18:27:54 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Feb 2022 08:38:16 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>csharp, .net, stack, heap, allocations, gc, boxing</title>
+      <link>http://blog.garrardkitchen.com/tags/csharp-.net-stack-heap-allocations-gc-boxing/</link>
+      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/csharp-.net-stack-heap-allocations-gc-boxing/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>azure, aws, empty promises, building relationship, willing, attrition, managed service</title>
       <link>http://blog.garrardkitchen.com/tags/azure-aws-empty-promises-building-relationship-willing-attrition-managed-service/</link>
