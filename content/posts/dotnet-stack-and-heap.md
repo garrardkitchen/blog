@@ -7,14 +7,14 @@ tags: csharp, .net, stack, heap, allocations, gc, boxing
 
 This week I have been investigating how to reduce memory allocation in a few HTTP APIs.  I won't go into any explicit work related examples here but I will touch on facets relating to this effort.  
 
-Let's start off by looking at `Reference Types` and `Value types` and how they get allocated into the heap,.  I will also touch on concepts such as boxing and GC pressure.
+Let's start off by looking at `Reference Types` and `Value types` and how they get allocated into the Heap,.  I will also touch on concepts such as boxing and GC pressure.
 
 Let me start off with some facts:
 
-- A `Reference types` always get allocated on the heap
-- A `Value types` _mostly_ get put on the stack, but _do_ get placed on the heap sometimes.
-- If `Value type` is hoisted (top level class field) on a class, this gets allocated on the heap along with it's parent.
-- If `Value type` is boxed, this too gets allocated on the heap
+- A `Reference types` always get allocated on the Heap
+- A `Value types` _mostly_ get put on the stack, but _do_ get placed on the Heap sometimes.
+- If `Value type` is class field (hoisted top level class field), this gets allocated on the Heap along with it's parent.
+- If `Value type` is boxed, this too gets allocated on the Heap
 
 Yikes, confusing yes?
 
@@ -35,11 +35,11 @@ public class NewOrder
 }
 ```
 
-Due to it being a class field, it is allocated on heap with it's parent `NewOrder`.  This is seen here:
+Due to it being a class field, it is allocated on Heap with it's parent `NewOrder`.  This is seen here:
 
 ![](../img/2022-02-04-09-08-06.png)
 
-The same will happen if you hoist a Struct to the root of the class.  Take this code for instance, the Item struct is placed on the heap along with it's parent (see screengrab below):
+The same will happen if you hoist a Struct to the root of the class.  Take this code for instance, the Item struct is placed on the Heap along with it's parent (see screengrab below):
 
 ```c#
 public class Order
@@ -60,7 +60,7 @@ public struct Item
 
 **Example 2: Boxing**
 
-Class Properties `Value Types` don't get placed on the heap.  However, if they get `boxed` (eg via string interpolation, method group, lamba expression), then they do.
+Class Properties `Value Types` don't get placed on the Heap.  However, if they get `boxed` (eg via string interpolation, method group, lamba expression), then they do.
 
 This example shows the result on the ItemCount property after it gets boxed via string interpolation:
 
@@ -70,7 +70,7 @@ This example shows the result on the ItemCount property after it gets boxed via 
 
 _Boxing and unboxing_
 
-**Boxing** is process of converting a `Value Type` to the type `object` (aka implicit conversion). It creates a new allocation in the Heap, copies in the `Values type` value and returns a pointer. 
+**Boxing** is process of converting a `Value Type` to the type `object` (aka implicit conversion). It creates a new allocation in the Heap, copies in the `Values type` value and returns a reference. 
 
 See the last int32 instance in this screengrab:
 
@@ -95,14 +95,17 @@ Reviewing your code and identifying changes that can reduce allocation, will hel
 
 Also worth noting here too is that whenever GC executes, your running application will stop and will resume once GC completes.
 
-To reiterate an earlier point, there are many approaches to avoiding GC pressure.  These are well documented and are easily found on the internet.  I've included several below for completeness:
+To reiterate an earlier point, there are many approaches to reducing GC pressure.  These are well documented and are easily found on the internet.  I've included several below for completeness:
 
 - Avoid memory leaks (big topic!)
-- Use  (when appropriate) in place of a Class
-- Usng a StringBuilder correctly
+- Use (when appropriate) in place of a Class
+- Using a StringBuilder correctly
+- Use .NET 6 & c# 10. String interpolaton uses the new DefaultStringInterpolatedHandler, avoiding unnecessary boxing on `Value Type` values.
 - Avoid finalizers
 - Setting the initial seize of a _dynamic_ collection
 - ArrayPool for short lived arrays (large)
+
+As a side note here due to the inclusion of the .NET 6 and string interpolation point above, I've now been using .NET 6 for a few months.  This includes both exploritory and new projects.  I was especially keen to start using .NET 6 from the benefits from process isolation (out-of-process) - fewer conflicts, DI and full control of the process that we're all used to with paradigms outside of the serverless model. I have grown to like the minimum API. Like most, I initially felt uneasy with the lack of c# verbosity but now welcome it.  I do, and I am sure I am not alone here, have been using both BenchmarkDotNET and SharpLab to compare performance and language decompilation.  I didn't bother much with .NET 5.  This was due to .NET 5 never having the LTS label. 
 
 ## References
 

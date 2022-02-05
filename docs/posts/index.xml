@@ -13,7 +13,7 @@
       
       <guid>http://blog.garrardkitchen.com/posts/dotnet-stack-and-heap/</guid>
       <description>This week I have been investigating how to reduce memory allocation in a few HTTP APIs. I won&amp;rsquo;t go into any explicit work related examples here but I will touch on facets relating to this effort.
-Let&amp;rsquo;s start off by looking at Reference Types and Value types and how they get allocated into the heap,. I will also touch on concepts such as boxing and GC pressure.
+Let&amp;rsquo;s start off by looking at Reference Types and Value types and how they get allocated into the Heap,. I will also touch on concepts such as boxing and GC pressure.
 Let me start off with some facts:</description>
     </item>
     

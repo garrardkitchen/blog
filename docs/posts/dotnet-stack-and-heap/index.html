@@ -5,22 +5,22 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="This week I have been investigating how to reduce memory allocation in a few HTTP APIs. I won&rsquo;t go into any explicit work related examples here but I will touch on facets relating to this effort.
-Let&rsquo;s start off by looking at Reference Types and Value types and how they get allocated into the heap,. I will also touch on concepts such as boxing and GC pressure.
+Let&rsquo;s start off by looking at Reference Types and Value types and how they get allocated into the Heap,. I will also touch on concepts such as boxing and GC pressure.
 Let me start off with some facts:"><meta property="og:title" content=".NET Stack, Heap and Boxing" />
 <meta property="og:description" content="This week I have been investigating how to reduce memory allocation in a few HTTP APIs. I won&rsquo;t go into any explicit work related examples here but I will touch on facets relating to this effort.
-Let&rsquo;s start off by looking at Reference Types and Value types and how they get allocated into the heap,. I will also touch on concepts such as boxing and GC pressure.
+Let&rsquo;s start off by looking at Reference Types and Value types and how they get allocated into the Heap,. I will also touch on concepts such as boxing and GC pressure.
 Let me start off with some facts:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/dotnet-stack-and-heap/" />
 <meta property="article:published_time" content="2022-02-04T08:38:16+00:00" />
-<meta property="article:modified_time" content="2022-02-04T08:38:16+00:00" />
+<meta property="article:modified_time" content="2022-02-04T22:11:38+00:00" />
 <title>.NET Stack, Heap and Boxing | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.76c108c6f6b025855d5f916e574b8f53cfb59c386c85834c134202f40ec8cc64.js" integrity="sha256-dsEIxvawJYVdX5FuV0uPU8&#43;1nDhshYNME0IC9A7IzGQ="></script>
+<script defer src="/en.search.min.1ed48e13d6c73829c9c6277e5be80a3aff4928104b43714719f7d9471d87a3d9.js" integrity="sha256-HtSOE9bHOCnJxid&#43;W&#43;gKOv9JKBBLQ3FHGffZRx2Ho9k="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -431,10 +431,10 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;751&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;908&nbsp;words
   
 
   
@@ -455,13 +455,13 @@ https://github.com/alex-shpak/hugo-book
 
 
   <p><p>This week I have been investigating how to reduce memory allocation in a few HTTP APIs.  I won&rsquo;t go into any explicit work related examples here but I will touch on facets relating to this effort.</p>
-<p>Let&rsquo;s start off by looking at <code>Reference Types</code> and <code>Value types</code> and how they get allocated into the heap,.  I will also touch on concepts such as boxing and GC pressure.</p>
+<p>Let&rsquo;s start off by looking at <code>Reference Types</code> and <code>Value types</code> and how they get allocated into the Heap,.  I will also touch on concepts such as boxing and GC pressure.</p>
 <p>Let me start off with some facts:</p>
 <ul>
-<li>A <code>Reference types</code> always get allocated on the heap</li>
-<li>A <code>Value types</code> <em>mostly</em> get put on the stack, but <em>do</em> get placed on the heap sometimes.</li>
-<li>If <code>Value type</code> is hoisted (top level class field) on a class, this gets allocated on the heap along with it&rsquo;s parent.</li>
-<li>If <code>Value type</code> is boxed, this too gets allocated on the heap</li>
+<li>A <code>Reference types</code> always get allocated on the Heap</li>
+<li>A <code>Value types</code> <em>mostly</em> get put on the stack, but <em>do</em> get placed on the Heap sometimes.</li>
+<li>If <code>Value type</code> is class field (hoisted top level class field), this gets allocated on the Heap along with it&rsquo;s parent.</li>
+<li>If <code>Value type</code> is boxed, this too gets allocated on the Heap</li>
 </ul>
 <p>Yikes, confusing yes?</p>
 <h2 id="examples">Examples</h2>
@@ -474,9 +474,9 @@ https://github.com/alex-shpak/hugo-book
     
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> PlaceOrder() {}
 }
-</code></pre></div><p>Due to it being a class field, it is allocated on heap with it&rsquo;s parent <code>NewOrder</code>.  This is seen here:</p>
+</code></pre></div><p>Due to it being a class field, it is allocated on Heap with it&rsquo;s parent <code>NewOrder</code>.  This is seen here:</p>
 <p><img src="../img/2022-02-04-09-08-06.png" alt="" /></p>
-<p>The same will happen if you hoist a Struct to the root of the class.  Take this code for instance, the Item struct is placed on the heap along with it&rsquo;s parent (see screengrab below):</p>
+<p>The same will happen if you hoist a Struct to the root of the class.  Take this code for instance, the Item struct is placed on the Heap along with it&rsquo;s parent (see screengrab below):</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span>
 {
     <span style="color:#66d9ef">private</span> Item _item = <span style="color:#66d9ef">new</span> Item();
@@ -491,12 +491,12 @@ https://github.com/alex-shpak/hugo-book
 }
 </code></pre></div><p><img src="../img/2022-02-04-13-15-28.png" alt="" /></p>
 <p><strong>Example 2: Boxing</strong></p>
-<p>Class Properties <code>Value Types</code> don&rsquo;t get placed on the heap.  However, if they get <code>boxed</code> (eg via string interpolation, method group, lamba expression), then they do.</p>
+<p>Class Properties <code>Value Types</code> don&rsquo;t get placed on the Heap.  However, if they get <code>boxed</code> (eg via string interpolation, method group, lamba expression), then they do.</p>
 <p>This example shows the result on the ItemCount property after it gets boxed via string interpolation:</p>
 <p><img src="../img/2022-02-04-09-39-50.png" alt="" /></p>
 <h2 id="concepts">Concepts</h2>
 <p><em>Boxing and unboxing</em></p>
-<p><strong>Boxing</strong> is process of converting a <code>Value Type</code> to the type <code>object</code> (aka implicit conversion). It creates a new allocation in the Heap, copies in the <code>Values type</code> value and returns a pointer.</p>
+<p><strong>Boxing</strong> is process of converting a <code>Value Type</code> to the type <code>object</code> (aka implicit conversion). It creates a new allocation in the Heap, copies in the <code>Values type</code> value and returns a reference.</p>
 <p>See the last int32 instance in this screengrab:</p>
 <p><img src="../img/2022-02-04-10-01-21.png" alt="" /></p>
 <p><strong>Unboxing</strong>, on the hand, is the reverse and is the process of converting a type <code>object</code> to a <code>Value Type</code> (aka explicit conversion).</p>
@@ -508,15 +508,17 @@ https://github.com/alex-shpak/hugo-book
 <p>GC pressure means that the GC is feeling the strain and increasingly becoming overwhelmed deallocating memory.  This <em>could</em> be the result of an incorrect GC configuration.  If you&rsquo;re not careful, your production docker container workload(s) may not have adeqaute available private memory.  If this is the case then GC will be working twice as hard to avoid an OOM exception.  Lack of memory will kill your app.  Lack of CPU however will simply throttle your app and will not result in your app being kill.  There is one example when this isn&rsquo;t exactly true.  Let&rsquo;s say you have a pod running in your kubernetes cluster, and your configuration includes both Liveness and a Readiness probes.  If your CPU is maxed out and your HTTP Listener can&rsquo;t receive and respond to HTTP requests during the time the probes parameters allow (combination of periodSeconds, failureThreshold and timeoutSeconds), then neither probe will have the availability to inform AKS that it&rsquo;s still alive but just busy so don&rsquo;t shut me down.  So, the inevitable will happen. Yes, AKS will kill your pod and restart another; providing you&rsquo;ve a ReplicaSet configured.</p>
 <p>Reviewing your code and identifying changes that can reduce allocation, will help.  It&rsquo;s not the only approach.  More often than not though, especially with a focus on using less space (Big O Notation), will result in larger method frames, plus verbose code, plus determinate collection sizes, etc&hellip; .</p>
 <p>Also worth noting here too is that whenever GC executes, your running application will stop and will resume once GC completes.</p>
-<p>To reiterate an earlier point, there are many approaches to avoiding GC pressure.  These are well documented and are easily found on the internet.  I&rsquo;ve included several below for completeness:</p>
+<p>To reiterate an earlier point, there are many approaches to reducing GC pressure.  These are well documented and are easily found on the internet.  I&rsquo;ve included several below for completeness:</p>
 <ul>
 <li>Avoid memory leaks (big topic!)</li>
-<li>Use  (when appropriate) in place of a Class</li>
-<li>Usng a StringBuilder correctly</li>
+<li>Use (when appropriate) in place of a Class</li>
+<li>Using a StringBuilder correctly</li>
+<li>Use .NET 6 &amp; c# 10. String interpolaton uses the new DefaultStringInterpolatedHandler, avoiding unnecessary boxing on <code>Value Type</code> values.</li>
 <li>Avoid finalizers</li>
 <li>Setting the initial seize of a <em>dynamic</em> collection</li>
 <li>ArrayPool for short lived arrays (large)</li>
 </ul>
+<p>As a side note here due to the inclusion of the .NET 6 and string interpolation point above, I&rsquo;ve now been using .NET 6 for a few months.  This includes both exploritory and new projects.  I was especially keen to start using .NET 6 from the benefits from process isolation (out-of-process) - fewer conflicts, DI and full control of the process that we&rsquo;re all used to with paradigms outside of the serverless model. I have grown to like the minimum API. Like most, I initially felt uneasy with the lack of c# verbosity but now welcome it.  I do, and I am sure I am not alone here, have been using both BenchmarkDotNET and SharpLab to compare performance and language decompilation.  I didn&rsquo;t bother much with .NET 5.  This was due to .NET 5 never having the LTS label.</p>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/boxing-and-unboxing">Boxing/unboxing</a></li>
