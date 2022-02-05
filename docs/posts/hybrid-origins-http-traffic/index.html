@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="We&rsquo;re migrating our on-premise workloads to Azure. This has presented several challenges. One of which is what I am covering specifically here in this post and that is &hellip;
+ How to reduce code change effort?
+ This isn&rsquo;t about updating runtimes, this is about having workloads spread across different platforms that need to talk to each other (with some HTTP chaining 👀). It is not uncommon for one HTTP API to need to talk to another HTTP API."><meta property="og:title" content="Hybrid Origins Http Traffic" />
+<meta property="og:description" content="We&rsquo;re migrating our on-premise workloads to Azure. This has presented several challenges. One of which is what I am covering specifically here in this post and that is &hellip;
+ How to reduce code change effort?
+ This isn&rsquo;t about updating runtimes, this is about having workloads spread across different platforms that need to talk to each other (with some HTTP chaining 👀). It is not uncommon for one HTTP API to need to talk to another HTTP API." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/hybrid-origins-http-traffic/" />
+<meta property="article:published_time" content="2022-01-15T17:25:37+00:00" />
+<meta property="article:modified_time" content="2022-01-22T19:16:05+00:00" />
+<title>Hybrid Origins Http Traffic | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/dotnet-stack-and-heap/" class="">.NET Stack, Heap and Boxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/the-grass-is-rarely-greener/" class="">The Grass Is Rarely Greener</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-install-e401/" class="">Nodejs Install E401</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-pdb/" class="">Kubernetes Pod Disruption Budget and the Helm hasKey Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-self-hosted-runner/" class="">Adding more Github Self-Hosted Runners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/hybrid-origins-http-traffic/" class="active">Hybrid Origins Http Traffic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-selectors-and-labels/" class="">K8s Selectors and Labels</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/azure-defender-for-cloud/" class="">Azure Defender for Cloud</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/npm-issues-e401-cert_not_yet_valid/" class="">Npm E401 and CERT_NOT_YET_VALID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="">Runtimes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Hybrid Origins Http Traffic</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents"></nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/hybrid-origins-http-traffic/">Hybrid Origins Http Traffic</a>
+  </h1>
+  <p>
+  
+  <i>January 15, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;532&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/cloudflare-dns-uri-forwarder-page-rules-zones-domain-hostname/">cloudflare, dns, uri forwarder, page rules, zones, domain, hostname</a>
+</div>
+
+
+  <p><p>We&rsquo;re migrating our on-premise workloads to Azure.  This has presented several challenges.  One of which is what I am covering specifically here in this post and that is &hellip;</p>
+<blockquote>
+<p>How to reduce code change effort?</p>
+</blockquote>
+<p>This isn&rsquo;t about updating runtimes, this is about having workloads spread across different platforms that need to talk to each other (with some HTTP chaining 👀).  It is not uncommon for one HTTP API to need to talk to another HTTP API.  If you move one HTTP service to run in different zone, you will need update references in those ALL dependant services so they point to that new DNS Hostname.  This isn&rsquo;t a big issue if you&rsquo;ve only few HTTP APIs.  However, if you&rsquo;ve 100+ HTTP APIs that you&rsquo;re migrating, including many with several HTTP dependencies, then this quickly becomes daunting and a potential PR approval and deployment (multiple environments) scheduling nightmare.  A simple domain name search in your organisation&rsquo;s Github account will illuminate my point.</p>
+<p>Ok, so the nightmare scenario has been painted.  What can you do.</p>
+<p>With the HttpClients we&rsquo;re using - .NET Framework and .NET Core, as a default have AllowAutoRedirect as true.  So why is this important.  Well, if you want to simply have a redirect rule return a temporary redirect - 302 - then your HttpClient will automatically react to this and reissue the same HTTP Request.  However, it does not use the original Authorization header.  Yikes.</p>
+<p>We use CloudFlare.  They are the best at what they do.  We&rsquo;re looking; as company we have an excellent relationship with CF and with that we get Stirling advice.</p>
+<p>We originally used their Page Rule redirect to map to a different host.  This is where we observed that the authz header being stripped on the AutoRedirect.</p>
+<p>Ok, so what can be do?  Well, we can make lots of additional code changes to plug this use-case in all HTTP Handler related code and be hated by all engineers for the rest of my days or look for a cross-cutting solution.  Back to CF we go&hellip; .  Two of my guiding principles for the migration effort is (1) to reduce cognitive overload and (2) effort required (this includes unnecessary code changes).  Ultimately, simplify <em>all</em> facets of the migration.  I don&rsquo;t want my engineers feeling the same levels of pain that I am.</p>
+<p>I can confirm we have a solution and it is in play.  Boo-yah!</p>
+<p>There are few things you have to do.  Here&rsquo;s a short list that I will go into more detail on shortly:</p>
+<ul>
+<li>CF Page rules in domain you&rsquo;re mapping from</li>
+<li>CF CNAME set as DNS proxy</li>
+<li>DNS forwarders if you&rsquo;ve dev/test environment on-premise</li>
+<li>If you&rsquo;re using Windows VMs with IIS to server up HTTP APIs, you need to a new hostname to your bindings list</li>
+<li>nginx origin configs (to receive and forward requests from new hostname so you can have weighted traffic load-balanced across both new and old environments during the rollout of to the new target of a particular HTTP API)</li>
+</ul>
+<p>Yes, there&rsquo;s plenty there, most of which can be automated - think Terraform.</p>
+<p>I&rsquo;m going to focus on changes to CF here as this is where the real magic happens!</p>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

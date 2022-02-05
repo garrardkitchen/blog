@@ -12,9 +12,10 @@ Let's start off by looking at `Reference Types` and `Value types` and how they g
 Let me start off with some facts:
 
 - A `Reference types` always get allocated on the Heap
-- A `Value types` _mostly_ get put on the stack, but _do_ get placed on the Heap sometimes.
+- A `Value type` _mostly_ get put on the stack, but _do_ get placed on the Heap sometimes.
 - If `Value type` is a class field (hoisted top-level class field), this gets allocated on the Heap along with it's parent.
 - If `Value type` is boxed, this too gets allocated on the Heap
+- A `ref Struct` will always be added to the Stack as the compiler will not allow it (field cannot be of byref-like type) to be added as a class field, but `Value type` in the Struct will be allocated if boxed
 
 Yikes, confusing yes?
 

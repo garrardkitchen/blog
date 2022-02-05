@@ -13,14 +13,14 @@ Let me start off with some facts:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/dotnet-stack-and-heap/" />
 <meta property="article:published_time" content="2022-02-04T08:38:16+00:00" />
-<meta property="article:modified_time" content="2022-02-05T08:30:38+00:00" />
+<meta property="article:modified_time" content="2022-02-05T08:48:27+00:00" />
 <title>.NET Stack, Heap and Boxing | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.cfe3cfe400176be884fc1ac4bb1c47e54769255ef9236f6247fd4259b284cb3f.js" integrity="sha256-z&#43;PP5AAXa&#43;iE/BrEuxxH5UdpJV75I29iR/1CWbKEyz8="></script>
+<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -141,6 +141,16 @@ https://github.com/alex-shpak/hugo-book
           
   
     <a href="/posts/github-self-hosted-runner/" class="">Adding more Github Self-Hosted Runners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/hybrid-origins-http-traffic/" class="">Hybrid Origins Http Traffic</a>
   
 
         </li>
@@ -434,7 +444,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;905&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;946&nbsp;words
   
 
   
@@ -459,9 +469,10 @@ https://github.com/alex-shpak/hugo-book
 <p>Let me start off with some facts:</p>
 <ul>
 <li>A <code>Reference types</code> always get allocated on the Heap</li>
-<li>A <code>Value types</code> <em>mostly</em> get put on the stack, but <em>do</em> get placed on the Heap sometimes.</li>
+<li>A <code>Value type</code> <em>mostly</em> get put on the stack, but <em>do</em> get placed on the Heap sometimes.</li>
 <li>If <code>Value type</code> is a class field (hoisted top-level class field), this gets allocated on the Heap along with it&rsquo;s parent.</li>
 <li>If <code>Value type</code> is boxed, this too gets allocated on the Heap</li>
+<li>A <code>ref Struct</code> will always be added to the Stack as the compiler will not allow it (field cannot be of byref-like type) to be added as a class field, but <code>Value type</code> in the Struct will be allocated if boxed</li>
 </ul>
 <p>Yikes, confusing yes?</p>
 <h2 id="examples">Examples</h2>

@@ -44,6 +44,15 @@
     </item>
     
     <item>
+      <title>cloudflare, dns, uri forwarder, page rules, zones, domain, hostname</title>
+      <link>http://blog.garrardkitchen.com/tags/cloudflare-dns-uri-forwarder-page-rules-zones-domain-hostname/</link>
+      <pubDate>Sat, 15 Jan 2022 17:25:37 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/cloudflare-dns-uri-forwarder-page-rules-zones-domain-hostname/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl</title>
       <link>http://blog.garrardkitchen.com/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/</link>
       <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
