@@ -13,16 +13,17 @@ Unfortunately, the by-product of doing this resulted in (a) the clonee (source) 
 Madness!
 Ok, so what to do?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/github-self-hosted-runner/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/github-self-hosted-runner/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-18T11:50:13+00:00" />
 <meta property="article:modified_time" content="2022-01-22T19:16:05+00:00" />
+
 <title>Adding more Github Self-Hosted Runners | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -97,6 +98,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -386,7 +397,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -460,7 +471,9 @@ https://github.com/alex-shpak/hugo-book
 
 <div>
   
-  <a href="/tags/github-self-hosted-runner-linux-issue/">github self-hosted runner, linux, issue</a>
+  <a href="/tags/github-self-hosted-runner/">github self-hosted runner</a>, 
+  <a href="/tags/linux/">linux</a>, 
+  <a href="/tags/issue/">issue</a>
 </div>
 
 
@@ -477,30 +490,30 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 <h2 id="first-lets-deal-with-the-new-vm">First, let&rsquo;s deal with the New VM</h2>
 <p>First of all, we need to remove the correct Runner service so I ran:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sudo systemctl | grep runner
-...
-sudo systemctl  | grep runner
-  actions.runner.&lt;org&gt;.&lt;hostname&gt;.service                                                loaded active 
-</code></pre></div><p>I then copied the above service (<code>actions.runner.&lt;org&gt;.&lt;hostname&gt;.service</code>) name into clipboard and past in below (<code>&lt;service-name&gt;</code>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">systemctl stop &lt;service-name&gt;
-systemctl disable &lt;service-name&gt;
-</code></pre></div><p>Next, I returned to the GitHub portal and navigated to the Runners page and selected the new Runner.  What I&rsquo;m aiming to do here is to get a token that I can use to remove the Runner from the new VM:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>sudo systemctl | grep runner
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>sudo systemctl  | grep runner
+</span></span><span style="display:flex;"><span>  actions.runner.&lt;org&gt;.&lt;hostname&gt;.service                                                loaded active 
+</span></span></code></pre></div><p>I then copied the above service (<code>actions.runner.&lt;org&gt;.&lt;hostname&gt;.service</code>) name into clipboard and past in below (<code>&lt;service-name&gt;</code>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>systemctl stop &lt;service-name&gt;
+</span></span><span style="display:flex;"><span>systemctl disable &lt;service-name&gt;
+</span></span></code></pre></div><p>Next, I returned to the GitHub portal and navigated to the Runners page and selected the new Runner.  What I&rsquo;m aiming to do here is to get a token that I can use to remove the Runner from the new VM:</p>
 <p><img src="../img/2022-01-18-11-58-18.png" alt="" /></p>
 <p>I pressed the <code>Remove</code> button</p>
 <p><img src="../img/2022-01-18-11-53-09.png" alt="" /></p>
 <p>then copied and executed this on the new VM:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">./config.sh remove --token &lt;redacted&gt;
-</code></pre></div><p>I re-ran the <code>config.sh</code> by:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">./config.sh --url https<span style="color:#960050;background-color:#1e0010">:</span>//github.com/&lt;org&gt; --token &lt;redacted&gt;
-sudo ./svc.sh install
-sudo ./svc.sh start
-</code></pre></div><p>At this point I saw the Self-Hosted Runner return to the GitHub Runners page - Showing as <code>Idle</code> and not as <code>Offline</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>./config.sh remove --token &lt;redacted&gt;
+</span></span></code></pre></div><p>I re-ran the <code>config.sh</code> by:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>./config.sh --url https<span style="color:#960050;background-color:#1e0010">:</span>//github.com/&lt;org&gt; --token &lt;redacted&gt;
+</span></span><span style="display:flex;"><span>sudo ./svc.sh install
+</span></span><span style="display:flex;"><span>sudo ./svc.sh start
+</span></span></code></pre></div><p>At this point I saw the Self-Hosted Runner return to the GitHub Runners page - Showing as <code>Idle</code> and not as <code>Offline</code>.</p>
 <h2 id="bring-the-clonee-back-online">Bring the Clonee back online</h2>
 <p>At this point, I could now longer see the Clonee&rsquo;s hostname in the list of Runners.</p>
 <p>I returned to the Clonee VM and ran:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd actions-runners
-sudo ./svc.sh start
-</code></pre></div><p>This restarts the Runner as a service.  It then became visible in the GitHub Runners page.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd actions-runners
+</span></span><span style="display:flex;"><span>sudo ./svc.sh start
+</span></span></code></pre></div><p>This restarts the Runner as a service.  It then became visible in the GitHub Runners page.</p>
 </p>
 </article>
  

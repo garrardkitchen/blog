@@ -1,7 +1,7 @@
 ---
 title: "Azure Defender for Cloud"
 date: 2022-01-15T11:57:20Z
-tags: azure, defender for cloud, cicd, cve, github actions, windows containers
+tags: [azure, defender for cloud, cicd, cve, github actions, windows containers]
 ---
 
 # Defender for Cloud Containers

@@ -1,7 +1,7 @@
 ---
 title: "Permission Denied While Trying to Connect to the Docker Daemon Socket"
 date: 2022-01-07T08:20:20Z
-tags: docker, linux, github actions, GHA, Self-Hosted Runner, dotnet, Azure Container Registry, ACR, containers, pods
+tags: [docker, linux, github actions, GHA, Self-Hosted Runner, dotnet, Azure Container Registry, ACR, containers, pods]
 ---
 
 Out of the blue today, my first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted Linux Runners 😱:

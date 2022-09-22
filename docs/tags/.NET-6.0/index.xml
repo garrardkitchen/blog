@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>.NET 6.0 on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/.NET-6.0/</link>
+    <description>Recent content in .NET 6.0 on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 08 Jan 2022 11:09:12 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/.NET-6.0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Runtimes</title>
+      <link>http://blog.garrardkitchen.com/posts/runtimes/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/runtimes/</guid>
+      <description>In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers. I say &amp;ldquo;part of this mission&amp;rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.</description>
+    </item>
+    
+  </channel>
+</rss>

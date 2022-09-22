@@ -9,16 +9,17 @@ What on earth is a Voluntary Disruption? A Voluntary Disruption is when you trig
 <meta property="og:description" content="Pod Disruption Budget When working with Kubernetes, one crucial component of configuration is known as a PDB (Pod Disruption Budget). A PDB will ensure your workload remains running when you work through a Voluntary Disruption.
 What on earth is a Voluntary Disruption? A Voluntary Disruption is when you trigger an action that causes the disruption. For example, if you wish to upgrade a Minor AKS version or any action that recycles a Node Pool." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/k8s-pdb/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/k8s-pdb/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-21T14:19:01+00:00" />
 <meta property="article:modified_time" content="2022-01-22T19:22:55+00:00" />
+
 <title>Kubernetes Pod Disruption Budget and the Helm hasKey Function | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -93,6 +94,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -382,7 +393,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -458,24 +469,24 @@ https://github.com/alex-shpak/hugo-book
 <p>When working with Kubernetes, one crucial component of configuration is known as a PDB (Pod Disruption Budget).  A PDB will ensure your workload remains running when you work through a <strong>Voluntary Disruption</strong>.</p>
 <p>What on earth is a <strong>Voluntary Disruption</strong>?  A <strong>Voluntary Disruption</strong> is when you trigger an action <em>that causes the</em> disruption.  For example, if you wish to upgrade a Minor AKS version or any action that recycles a Node Pool. Click here ➡ <a href="https://kubernetes.io/docs/concepts/workloads/pods/disruptions/">Disruptions</a> to read up on what Disruptions are.</p>
 <p>This is what a PDB manifest looks like this.  This example tells Kubernetes to make sure there&rsquo;s always a minimum of 2 Pods running during a disruption:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">policy/v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PodDisruptionBudget</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-awesome-microservice-pdb</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">minAvailable</span>: <span style="color:#ae81ff">2</span>
-  <span style="color:#f92672">selector</span>:
-    <span style="color:#f92672">matchLabels</span>:
-      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">my-awesome-microservice-api</span>
-</code></pre></div><p>We use Helm Charts so part the declaration that wraps the <code>minAvailable</code> property looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">{{- <span style="color:#ae81ff">if hasKey .Values &#34;pdb&#34;  }} </span>
-{{- <span style="color:#ae81ff">if hasKey .Values.pdb &#34;minAvailable&#34; }} </span>
-<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">.Values.pdb.minAvailable }}   </span>
-{{- <span style="color:#ae81ff">end }}   </span>
-{{- <span style="color:#ae81ff">else }}</span>
-<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
-{{- <span style="color:#ae81ff">end }}</span>
-</code></pre></div><p>What on earth is going on here then?!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">policy/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PodDisruptionBudget</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-awesome-microservice-pdb</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">minAvailable</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">my-awesome-microservice-api</span>
+</span></span></code></pre></div><p>We use Helm Charts so part the declaration that wraps the <code>minAvailable</code> property looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{{- <span style="color:#ae81ff">if hasKey .Values &#34;pdb&#34;  }} </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">if hasKey .Values.pdb &#34;minAvailable&#34; }} </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">.Values.pdb.minAvailable }}   </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">end }}   </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">else }}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">end }}</span>
+</span></span></code></pre></div><p>What on earth is going on here then?!</p>
 <p>There are a few rules that I need to accommodate for within our workload PDBs.  These are:</p>
 <ul>
 <li>Apply a specific value that may be contained within a values .yaml file</li>
@@ -486,24 +497,24 @@ https://github.com/alex-shpak/hugo-book
 <p>I&rsquo;ve designed our CICD pipeline so we get base configurations (one .NET Framework IIS workloads, one for .NET Core Web workloads, one for &hellip; etc.) from one git repo, and get all application(s) configuration properties from the application git repo itself (📂 /.k8s/).  It is here from within the application&rsquo;s repo we set the properties for a service(s) within a <code>values-&lt;env&gt;.yaml</code> file.   If there&rsquo;s more than one application found in an application&rsquo;s git repo, the name is reflected in the name of values .yaml file to provide uniqueness - eg <code>values-&lt;consumer&gt;-&lt;env&gt;.yaml</code>.</p>
 <p>It is in this values .yaml file we set - if at all - a value to the <code>pdb.minAvailable</code> nested property.</p>
 <p>Here, in this control flow, we are checking that both pdb and minAvailable properties exist.  If they do, we apply the <code>minAvailable</code> value.  We use the hasKey function to good effect to check for the existence of a property in another property:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">{{- <span style="color:#ae81ff">if hasKey .Values &#34;pdb&#34;  }} </span>
-{{- <span style="color:#ae81ff">if hasKey .Values.pdb &#34;minAvailable&#34; }} </span>
-<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">.Values.pdb.minAvailable }}   </span>
-{{- <span style="color:#ae81ff">end }}   </span>
-{{- <span style="color:#ae81ff">else }}</span>
-</code></pre></div><h1 id="how-to-provide-a-default-value">How to provide a default value</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>{{- <span style="color:#ae81ff">if hasKey .Values &#34;pdb&#34;  }} </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">if hasKey .Values.pdb &#34;minAvailable&#34; }} </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">.Values.pdb.minAvailable }}   </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">end }}   </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">else }}</span>
+</span></span></code></pre></div><h1 id="how-to-provide-a-default-value">How to provide a default value</h1>
 <p>If the application configuration does not contain a <code>minAvailable</code> property, we take the value found in the <code>replicaCount</code> value and use this.  However, we do not insist on the same value, but instead 1 less - <code>(sub .Values.replicaCount 1)</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">...
-{{- <span style="color:#ae81ff">else }}</span>
-<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
-{{- <span style="color:#ae81ff">end }} </span>
-</code></pre></div><h1 id="how-to-ensure-theres-at-least-one-pod-running">How to ensure there&rsquo;s at least one pod running</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">else }}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">end }} </span>
+</span></span></code></pre></div><h1 id="how-to-ensure-theres-at-least-one-pod-running">How to ensure there&rsquo;s at least one pod running</h1>
 <p>We must ensure at least one instance of a workload is running and if we simply reduced the <code>replicaCount</code> by one and left it at that, we could end up with a budget of zero.  I don&rsquo;t want this to happen.  What I do here is use the <code>max</code> function to good effect to safeguard against this ever being a zero - and if <code>replicaCount: 1</code>, then the expression would read <code>max (0) 1</code>, meaning 1 would be the value used.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">...
-{{- <span style="color:#ae81ff">else }}</span>
-<span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
-{{- <span style="color:#ae81ff">end }} </span>
-</code></pre></div><h1 id="references">References</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">else }}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">minAvailable</span>: {{ <span style="color:#ae81ff">max (sub .Values.replicaCount 1) 1 }} </span>
+</span></span><span style="display:flex;"><span>{{- <span style="color:#ae81ff">end }} </span>
+</span></span></code></pre></div><h1 id="references">References</h1>
 <ul>
 <li><a href="https://github.com/helm/helm-www/blob/main/content/en/docs/chart_template_guide/function_list.md#floor">Helm Functions</a></li>
 <li><a href="https://helm.sh/docs/chart_template_guide/control_structures/">Flow control</a></li>

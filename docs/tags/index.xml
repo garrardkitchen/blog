@@ -6,103 +6,670 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 04 Feb 2022 08:38:16 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Sep 2022 20:58:53 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>csharp, .net, stack, heap, allocations, gc, boxing</title>
-      <link>http://blog.garrardkitchen.com/tags/csharp-.net-stack-heap-allocations-gc-boxing/</link>
+      <title>azure</title>
+      <link>http://blog.garrardkitchen.com/tags/azure/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chromedriver</title>
+      <link>http://blog.garrardkitchen.com/tags/chromedriver/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/chromedriver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://blog.garrardkitchen.com/tags/docker/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>functionsapp</title>
+      <link>http://blog.garrardkitchen.com/tags/functionsapp/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/functionsapp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://blog.garrardkitchen.com/tags/linux/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nuget</title>
+      <link>http://blog.garrardkitchen.com/tags/nuget/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/nuget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>runtime identifier</title>
+      <link>http://blog.garrardkitchen.com/tags/runtime-identifier/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/runtime-identifier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>selenium</title>
+      <link>http://blog.garrardkitchen.com/tags/selenium/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/selenium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.net</title>
+      <link>http://blog.garrardkitchen.com/tags/.net/</link>
       <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/csharp-.net-stack-heap-allocations-gc-boxing/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/.net/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>azure, aws, empty promises, building relationship, willing, attrition, managed service</title>
-      <link>http://blog.garrardkitchen.com/tags/azure-aws-empty-promises-building-relationship-willing-attrition-managed-service/</link>
+      <title>allocations</title>
+      <link>http://blog.garrardkitchen.com/tags/allocations/</link>
+      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/allocations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>boxing</title>
+      <link>http://blog.garrardkitchen.com/tags/boxing/</link>
+      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/boxing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csharp</title>
+      <link>http://blog.garrardkitchen.com/tags/csharp/</link>
+      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/csharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gc</title>
+      <link>http://blog.garrardkitchen.com/tags/gc/</link>
+      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/gc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heap</title>
+      <link>http://blog.garrardkitchen.com/tags/heap/</link>
+      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/heap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stack</title>
+      <link>http://blog.garrardkitchen.com/tags/stack/</link>
+      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/stack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>attrition</title>
+      <link>http://blog.garrardkitchen.com/tags/attrition/</link>
       <pubDate>Sun, 30 Jan 2022 18:27:54 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/azure-aws-empty-promises-building-relationship-willing-attrition-managed-service/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/attrition/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>nodejs, e401, azure functions, npm feed, upstream feed, typpescript</title>
-      <link>http://blog.garrardkitchen.com/tags/nodejs-e401-azure-functions-npm-feed-upstream-feed-typpescript/</link>
+      <title>aws</title>
+      <link>http://blog.garrardkitchen.com/tags/aws/</link>
+      <pubDate>Sun, 30 Jan 2022 18:27:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>building relationship</title>
+      <link>http://blog.garrardkitchen.com/tags/building-relationship/</link>
+      <pubDate>Sun, 30 Jan 2022 18:27:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/building-relationship/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>empty promises</title>
+      <link>http://blog.garrardkitchen.com/tags/empty-promises/</link>
+      <pubDate>Sun, 30 Jan 2022 18:27:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/empty-promises/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>managed service</title>
+      <link>http://blog.garrardkitchen.com/tags/managed-service/</link>
+      <pubDate>Sun, 30 Jan 2022 18:27:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/managed-service/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>willing</title>
+      <link>http://blog.garrardkitchen.com/tags/willing/</link>
+      <pubDate>Sun, 30 Jan 2022 18:27:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/willing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure functions</title>
+      <link>http://blog.garrardkitchen.com/tags/azure-functions/</link>
       <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/nodejs-e401-azure-functions-npm-feed-upstream-feed-typpescript/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/azure-functions/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>github self-hosted runner, linux, issue</title>
-      <link>http://blog.garrardkitchen.com/tags/github-self-hosted-runner-linux-issue/</link>
+      <title>e401</title>
+      <link>http://blog.garrardkitchen.com/tags/e401/</link>
+      <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/e401/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nodejs</title>
+      <link>http://blog.garrardkitchen.com/tags/nodejs/</link>
+      <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm feed</title>
+      <link>http://blog.garrardkitchen.com/tags/npm-feed/</link>
+      <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/npm-feed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>http://blog.garrardkitchen.com/tags/typescript/</link>
+      <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>upstream feed</title>
+      <link>http://blog.garrardkitchen.com/tags/upstream-feed/</link>
+      <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/upstream-feed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github self-hosted runner</title>
+      <link>http://blog.garrardkitchen.com/tags/github-self-hosted-runner/</link>
       <pubDate>Tue, 18 Jan 2022 11:50:13 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/github-self-hosted-runner-linux-issue/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/github-self-hosted-runner/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>cloudflare, dns, uri forwarder, page rules, zones, domain, hostname</title>
-      <link>http://blog.garrardkitchen.com/tags/cloudflare-dns-uri-forwarder-page-rules-zones-domain-hostname/</link>
+      <title>issue</title>
+      <link>http://blog.garrardkitchen.com/tags/issue/</link>
+      <pubDate>Tue, 18 Jan 2022 11:50:13 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/issue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloudflare</title>
+      <link>http://blog.garrardkitchen.com/tags/cloudflare/</link>
       <pubDate>Sat, 15 Jan 2022 17:25:37 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/cloudflare-dns-uri-forwarder-page-rules-zones-domain-hostname/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/cloudflare/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl</title>
-      <link>http://blog.garrardkitchen.com/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/</link>
+      <title>dns</title>
+      <link>http://blog.garrardkitchen.com/tags/dns/</link>
+      <pubDate>Sat, 15 Jan 2022 17:25:37 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>domain</title>
+      <link>http://blog.garrardkitchen.com/tags/domain/</link>
+      <pubDate>Sat, 15 Jan 2022 17:25:37 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/domain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hostname</title>
+      <link>http://blog.garrardkitchen.com/tags/hostname/</link>
+      <pubDate>Sat, 15 Jan 2022 17:25:37 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/hostname/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>page rules</title>
+      <link>http://blog.garrardkitchen.com/tags/page-rules/</link>
+      <pubDate>Sat, 15 Jan 2022 17:25:37 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/page-rules/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uri forwarder</title>
+      <link>http://blog.garrardkitchen.com/tags/uri-forwarder/</link>
+      <pubDate>Sat, 15 Jan 2022 17:25:37 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/uri-forwarder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zones</title>
+      <link>http://blog.garrardkitchen.com/tags/zones/</link>
+      <pubDate>Sat, 15 Jan 2022 17:25:37 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/zones/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deployment</title>
+      <link>http://blog.garrardkitchen.com/tags/deployment/</link>
       <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/deployment/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>azure, defender for cloud, cicd, cve, github actions, windows containers</title>
-      <link>http://blog.garrardkitchen.com/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/</link>
+      <title>equality-based</title>
+      <link>http://blog.garrardkitchen.com/tags/equality-based/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/equality-based/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>http://blog.garrardkitchen.com/tags/k8s/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubectl</title>
+      <link>http://blog.garrardkitchen.com/tags/kubectl/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/kubectl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>http://blog.garrardkitchen.com/tags/kubernetes/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pod</title>
+      <link>http://blog.garrardkitchen.com/tags/pod/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/pod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>replicaset</title>
+      <link>http://blog.garrardkitchen.com/tags/replicaset/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/replicaset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>selectors</title>
+      <link>http://blog.garrardkitchen.com/tags/selectors/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/selectors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>set-based</title>
+      <link>http://blog.garrardkitchen.com/tags/set-based/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/set-based/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cicd</title>
+      <link>http://blog.garrardkitchen.com/tags/cicd/</link>
       <pubDate>Sat, 15 Jan 2022 11:57:20 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/cicd/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>github actions, npm, nodejs, e401, cert_not_yet_valid, docker, acr, npmrc, GH Secrets</title>
-      <link>http://blog.garrardkitchen.com/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/</link>
+      <title>cve</title>
+      <link>http://blog.garrardkitchen.com/tags/cve/</link>
+      <pubDate>Sat, 15 Jan 2022 11:57:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/cve/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>defender for cloud</title>
+      <link>http://blog.garrardkitchen.com/tags/defender-for-cloud/</link>
+      <pubDate>Sat, 15 Jan 2022 11:57:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/defender-for-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github actions</title>
+      <link>http://blog.garrardkitchen.com/tags/github-actions/</link>
+      <pubDate>Sat, 15 Jan 2022 11:57:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows containers</title>
+      <link>http://blog.garrardkitchen.com/tags/windows-containers/</link>
+      <pubDate>Sat, 15 Jan 2022 11:57:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/windows-containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>acr</title>
+      <link>http://blog.garrardkitchen.com/tags/acr/</link>
       <pubDate>Tue, 11 Jan 2022 11:47:54 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/acr/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>github actions, linux, windows, syntax, self-hosted runner, environment variables, workflow, cicd</title>
-      <link>http://blog.garrardkitchen.com/tags/github-actions-linux-windows-syntax-self-hosted-runner-environment-variables-workflow-cicd/</link>
+      <title>cert_not_yet_valid</title>
+      <link>http://blog.garrardkitchen.com/tags/cert_not_yet_valid/</link>
+      <pubDate>Tue, 11 Jan 2022 11:47:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/cert_not_yet_valid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GH Secrets</title>
+      <link>http://blog.garrardkitchen.com/tags/GH-Secrets/</link>
+      <pubDate>Tue, 11 Jan 2022 11:47:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/GH-Secrets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>http://blog.garrardkitchen.com/tags/npm/</link>
+      <pubDate>Tue, 11 Jan 2022 11:47:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npmrc</title>
+      <link>http://blog.garrardkitchen.com/tags/npmrc/</link>
+      <pubDate>Tue, 11 Jan 2022 11:47:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/npmrc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>environment variables</title>
+      <link>http://blog.garrardkitchen.com/tags/environment-variables/</link>
       <pubDate>Sat, 08 Jan 2022 15:13:52 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/github-actions-linux-windows-syntax-self-hosted-runner-environment-variables-workflow-cicd/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/environment-variables/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>.net framework, .net core, .NET 6.0, .NET 3.1, end-fo-life support, linux, windows, syntax, self-hosted runner, cicd, microsoft fasttrak, code quality, image scanning, licensing, cve, nuget, npm</title>
-      <link>http://blog.garrardkitchen.com/tags/.net-framework-.net-core-.NET-6.0-.NET-3.1-end-fo-life-support-linux-windows-syntax-self-hosted-runner-cicd-microsoft-fasttrak-code-quality-image-scanning-licensing-cve-nuget-npm/</link>
+      <title>self-hosted runner</title>
+      <link>http://blog.garrardkitchen.com/tags/self-hosted-runner/</link>
+      <pubDate>Sat, 08 Jan 2022 15:13:52 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/self-hosted-runner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syntax</title>
+      <link>http://blog.garrardkitchen.com/tags/syntax/</link>
+      <pubDate>Sat, 08 Jan 2022 15:13:52 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/syntax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>http://blog.garrardkitchen.com/tags/windows/</link>
+      <pubDate>Sat, 08 Jan 2022 15:13:52 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow</title>
+      <link>http://blog.garrardkitchen.com/tags/workflow/</link>
+      <pubDate>Sat, 08 Jan 2022 15:13:52 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/workflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.NET 3.1</title>
+      <link>http://blog.garrardkitchen.com/tags/.NET-3.1/</link>
       <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/.net-framework-.net-core-.NET-6.0-.NET-3.1-end-fo-life-support-linux-windows-syntax-self-hosted-runner-cicd-microsoft-fasttrak-code-quality-image-scanning-licensing-cve-nuget-npm/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/.NET-3.1/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>docker, linux, github actions, GHA, Self-Hosted Runner, dotnet, Azure Container Registry, ACR, containers, pods</title>
-      <link>http://blog.garrardkitchen.com/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/</link>
+      <title>.NET 6.0</title>
+      <link>http://blog.garrardkitchen.com/tags/.NET-6.0/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/.NET-6.0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.net core</title>
+      <link>http://blog.garrardkitchen.com/tags/.net-core/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/.net-core/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.net framework</title>
+      <link>http://blog.garrardkitchen.com/tags/.net-framework/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/.net-framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code quality</title>
+      <link>http://blog.garrardkitchen.com/tags/code-quality/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/code-quality/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>end-fo-life support</title>
+      <link>http://blog.garrardkitchen.com/tags/end-fo-life-support/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/end-fo-life-support/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>image scanning</title>
+      <link>http://blog.garrardkitchen.com/tags/image-scanning/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/image-scanning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>licensing</title>
+      <link>http://blog.garrardkitchen.com/tags/licensing/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/licensing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microsoft fasttrak</title>
+      <link>http://blog.garrardkitchen.com/tags/microsoft-fasttrak/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/microsoft-fasttrak/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure Container Registry</title>
+      <link>http://blog.garrardkitchen.com/tags/Azure-Container-Registry/</link>
       <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/Azure-Container-Registry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>containers</title>
+      <link>http://blog.garrardkitchen.com/tags/containers/</link>
+      <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dotnet</title>
+      <link>http://blog.garrardkitchen.com/tags/dotnet/</link>
+      <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/dotnet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GHA</title>
+      <link>http://blog.garrardkitchen.com/tags/GHA/</link>
+      <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/GHA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pods</title>
+      <link>http://blog.garrardkitchen.com/tags/pods/</link>
+      <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/pods/</guid>
       <description></description>
     </item>
     
@@ -130,15 +697,6 @@
       <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/keda/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>http://blog.garrardkitchen.com/tags/kubernetes/</link>
-      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -197,15 +755,6 @@
     </item>
     
     <item>
-      <title>kubectl</title>
-      <link>http://blog.garrardkitchen.com/tags/kubectl/</link>
-      <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/kubectl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>kuberetes</title>
       <link>http://blog.garrardkitchen.com/tags/kuberetes/</link>
       <pubDate>Mon, 02 Nov 2020 15:31:12 +0000</pubDate>
@@ -233,29 +782,11 @@
     </item>
     
     <item>
-      <title>docker</title>
-      <link>http://blog.garrardkitchen.com/tags/docker/</link>
-      <pubDate>Mon, 21 Sep 2020 16:36:35 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>docker-compose</title>
       <link>http://blog.garrardkitchen.com/tags/docker-compose/</link>
       <pubDate>Mon, 21 Sep 2020 16:36:35 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/docker-compose/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nodejs</title>
-      <link>http://blog.garrardkitchen.com/tags/nodejs/</link>
-      <pubDate>Mon, 21 Sep 2020 16:36:35 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/nodejs/</guid>
       <description></description>
     </item>
     
@@ -494,24 +1025,6 @@
     </item>
     
     <item>
-      <title>aws</title>
-      <link>http://blog.garrardkitchen.com/tags/aws/</link>
-      <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>azure</title>
-      <link>http://blog.garrardkitchen.com/tags/azure/</link>
-      <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/azure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>blogging</title>
       <link>http://blog.garrardkitchen.com/tags/blogging/</link>
       <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
@@ -521,29 +1034,11 @@
     </item>
     
     <item>
-      <title>containers</title>
-      <link>http://blog.garrardkitchen.com/tags/containers/</link>
-      <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/containers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>gcp</title>
       <link>http://blog.garrardkitchen.com/tags/gcp/</link>
       <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pods</title>
-      <link>http://blog.garrardkitchen.com/tags/pods/</link>
-      <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/pods/</guid>
       <description></description>
     </item>
     
@@ -562,15 +1057,6 @@
       <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/setup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>windows</title>
-      <link>http://blog.garrardkitchen.com/tags/windows/</link>
-      <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/windows/</guid>
       <description></description>
     </item>
     
@@ -625,15 +1111,6 @@
       <pubDate>Sun, 05 Apr 2020 10:16:22 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>typescript</title>
-      <link>http://blog.garrardkitchen.com/tags/typescript/</link>
-      <pubDate>Sun, 05 Apr 2020 10:16:22 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/typescript/</guid>
       <description></description>
     </item>
     

@@ -9,16 +9,17 @@ What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, 
 <meta property="og:description" content="This post is a reminder to me of what needs to be installed in order for a pod, created from a local image, that is to be served up via a kubernetes cluster, to be run from your local development environment.
 What is Kubernetes and why is it so important? &ldquo;Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/kubernetes-on-windows/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/kubernetes-on-windows/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-04-06T10:20:26+01:00" />
 <meta property="article:modified_time" content="2020-04-28T20:06:09+01:00" />
+
 <title>Kubernetes on Windows | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -93,6 +94,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -382,7 +393,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -447,10 +458,10 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;9&nbsp;mins read time
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;7&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;1735&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;1467&nbsp;words
   
 
   
@@ -678,60 +689,60 @@ https://github.com/alex-shpak/hugo-book
 <h3 id="how-do-i-install-kubectl-and-what-the-heck-is-it">How do I install <code>kubectl</code> (and what the heck is it)?</h3>
 <p><a href="https://github.com/kubernetes/kubectl"><strong>kubectl</strong></a> is a CLI (command line interface) tool for controlling Kubernetes clusters.  You can use this tool to deploy applications, inspect and manage cluster resources and view logs.</p>
 <p>To ease the installation process, use <a href="https://chocolatey.org/packages">chocolatey</a> to install <a href="https://github.com/kubernetes/kubectl">kubernetes-cli</a>, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">choco</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">kubernetes-cli</span>
-</code></pre></div><h3 id="how-do-i-install-minikube-and-what-the-heck-is-it">How do I install minikube (and what the heck is it)?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">choco</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">kubernetes-cli</span>
+</span></span></code></pre></div><h3 id="how-do-i-install-minikube-and-what-the-heck-is-it">How do I install minikube (and what the heck is it)?</h3>
 <p><code>Minikube</code> implements a local Kubernetes cluster and is deemed the best tool for local Kubernetes application development.</p>
 <p>To ease the installation process, use <a href="https://chocolatey.org/packages">chocolatey</a> to install <a href="https://github.com/kubernetes/minikube"><strong>minikube</strong></a>, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">choco</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">minikube</span>
-</code></pre></div><p>Before you start, you must ensure that you have a platform virtualisation system available. Platform virtualisation software provides the mechanism to run virtual machines and containers in isolation and exposes them to one or more networks.  It is within a virtual machine that your Kubernetes cluster will run.  Windows 10 comes with a virtualisation hypervisor feature called <code>hyper-v</code>. You need to ensure it is running first.  To do this, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">Enable-WindowsOptionalFeature</span> <span style="color:#a6e22e">-Online</span> <span style="color:#a6e22e">-FeatureName</span> <span style="color:#a6e22e">Microsoft-Hyper-V</span> <span style="color:#a6e22e">-All</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">start</span> <span style="color:#a6e22e">--driver</span> <span style="color:#a6e22e">hyperv</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">v1.9.1</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Microsoft</span> <span style="color:#a6e22e">Windows</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">Enterprise</span> <span style="color:#a6e22e">10.0.18363</span> <span style="color:#a6e22e">Build</span> <span style="color:#ae81ff">18363</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Using</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">hyperv</span> <span style="color:#a6e22e">driver</span> <span style="color:#a6e22e">based</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">user</span> <span style="color:#a6e22e">configuration</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Downloading</span> <span style="color:#a6e22e">VM</span> <span style="color:#a6e22e">boot</span> <span style="color:#a6e22e">image</span> <span style="color:#a6e22e">...</span>
-    &gt; <span style="color:#a6e22e">minikube-v1.9.0.iso.sha256:</span> <span style="color:#ae81ff">65</span> <span style="color:#a6e22e">B</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#ae81ff">65</span> <span style="color:#a6e22e">B</span> [<span style="color:#a6e22e">--------------</span>] <span style="color:#ae81ff">100.00</span><span style="color:#75715e">% ? p/s 0s
-</span><span style="color:#75715e"></span>    &gt; <span style="color:#a6e22e">minikube-v1.9.0.iso:</span> <span style="color:#ae81ff">174.93</span> <span style="color:#a6e22e">MiB</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#ae81ff">174.93</span> <span style="color:#a6e22e">MiB</span> [ <span style="color:#ae81ff">100.00</span><span style="color:#75715e">% 1.03 MiB p/s 2m51s
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Starting</span> <span style="color:#a6e22e">control</span> <span style="color:#a6e22e">plane</span> <span style="color:#a6e22e">node</span> <span style="color:#a6e22e">m01</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">cluster</span> <span style="color:#a6e22e">minikube</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Creating</span> <span style="color:#a6e22e">hyperv</span> <span style="color:#a6e22e">VM</span> <span style="color:#e6db74">(CPUs=2, Memory=6000MB, Disk=20000MB)</span> <span style="color:#a6e22e">...</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Preparing</span> <span style="color:#a6e22e">Kubernetes</span> <span style="color:#a6e22e">v1.18.0</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Docker</span> <span style="color:#a6e22e">19.03.8</span> <span style="color:#a6e22e">...</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Enabling</span> <span style="color:#a6e22e">addons:</span> <span style="color:#a6e22e">default-storageclass,</span> <span style="color:#a6e22e">storage-provisioner</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Done!</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">now</span> <span style="color:#a6e22e">configured</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">&#34;minikube&#34;</span>
-</code></pre></div><h3 id="steps-to-take-to-configure-your-environment">Steps to take to configure your environment</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">choco</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">minikube</span>
+</span></span></code></pre></div><p>Before you start, you must ensure that you have a platform virtualisation system available. Platform virtualisation software provides the mechanism to run virtual machines and containers in isolation and exposes them to one or more networks.  It is within a virtual machine that your Kubernetes cluster will run.  Windows 10 comes with a virtualisation hypervisor feature called <code>hyper-v</code>. You need to ensure it is running first.  To do this, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">Enable-WindowsOptionalFeature</span> <span style="color:#a6e22e">-Online</span> <span style="color:#a6e22e">-FeatureName</span> <span style="color:#a6e22e">Microsoft-Hyper-V</span> <span style="color:#a6e22e">-All</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">start</span> <span style="color:#a6e22e">--driver</span> <span style="color:#a6e22e">hyperv</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">v1.9.1</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Microsoft</span> <span style="color:#a6e22e">Windows</span> <span style="color:#ae81ff">10</span> <span style="color:#a6e22e">Enterprise</span> <span style="color:#a6e22e">10.0.18363</span> <span style="color:#a6e22e">Build</span> <span style="color:#ae81ff">18363</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Using</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">hyperv</span> <span style="color:#a6e22e">driver</span> <span style="color:#a6e22e">based</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">user</span> <span style="color:#a6e22e">configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Downloading</span> <span style="color:#a6e22e">VM</span> <span style="color:#a6e22e">boot</span> <span style="color:#a6e22e">image</span> <span style="color:#a6e22e">...</span>
+</span></span><span style="display:flex;"><span>    &gt; <span style="color:#a6e22e">minikube-v1.9.0.iso.sha256:</span> <span style="color:#ae81ff">65</span> <span style="color:#a6e22e">B</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#ae81ff">65</span> <span style="color:#a6e22e">B</span> [<span style="color:#a6e22e">--------------</span>] <span style="color:#ae81ff">100.00</span><span style="color:#75715e">% ? p/s 0s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &gt; <span style="color:#a6e22e">minikube-v1.9.0.iso:</span> <span style="color:#ae81ff">174.93</span> <span style="color:#a6e22e">MiB</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#ae81ff">174.93</span> <span style="color:#a6e22e">MiB</span> [ <span style="color:#ae81ff">100.00</span><span style="color:#75715e">% 1.03 MiB p/s 2m51s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Starting</span> <span style="color:#a6e22e">control</span> <span style="color:#a6e22e">plane</span> <span style="color:#a6e22e">node</span> <span style="color:#a6e22e">m01</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">cluster</span> <span style="color:#a6e22e">minikube</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Creating</span> <span style="color:#a6e22e">hyperv</span> <span style="color:#a6e22e">VM</span> <span style="color:#e6db74">(CPUs=2, Memory=6000MB, Disk=20000MB)</span> <span style="color:#a6e22e">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Preparing</span> <span style="color:#a6e22e">Kubernetes</span> <span style="color:#a6e22e">v1.18.0</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Docker</span> <span style="color:#a6e22e">19.03.8</span> <span style="color:#a6e22e">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Enabling</span> <span style="color:#a6e22e">addons:</span> <span style="color:#a6e22e">default-storageclass,</span> <span style="color:#a6e22e">storage-provisioner</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Done!</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">now</span> <span style="color:#a6e22e">configured</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">&#34;minikube&#34;</span>
+</span></span></code></pre></div><h3 id="steps-to-take-to-configure-your-environment">Steps to take to configure your environment</h3>
 <p>To set up your minikube environment, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span>
-<span style="color:#a6e22e">$Env:DOCKER_TLS_VERIFY</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;1&#34;</span>
-<span style="color:#a6e22e">$Env:DOCKER_HOST</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;tcp:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:2376&#34;
-<span style="color:#a6e22e">$Env:DOCKER_CERT_PATH</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;C:\Users\garrard.kitchen\.minikube\certs&#34;</span>
-<span style="color:#a6e22e">$Env:MINIKUBE_ACTIVE_DOCKERD</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;minikube&#34;</span>
-<span style="color:#a6e22e">#</span> <span style="color:#a6e22e">To</span> <span style="color:#a6e22e">point</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">shell</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">minikube&#39;s</span> <span style="color:#a6e22e">docker-daemon,</span> <span style="color:#a6e22e">run:</span>
-<span style="color:#a6e22e">#</span> <span style="color:#a6e22e">&amp;</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">-p</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">Invoke-Expression</span>
-</code></pre></div><p>To point your shell to minikube&rsquo;s docker-daemon, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">Invoke-Expression</span>
-</code></pre></div><p>To get access to minikube&rsquo;s dashboard, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube.exe</span> <span style="color:#a6e22e">dashboard</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Verifying</span> <span style="color:#a6e22e">dashboard</span> <span style="color:#a6e22e">health</span> <span style="color:#a6e22e">...</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Launching</span> <span style="color:#a6e22e">proxy</span> <span style="color:#a6e22e">...</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Verifying</span> <span style="color:#a6e22e">proxy</span> <span style="color:#a6e22e">health</span> <span style="color:#a6e22e">...</span>
-<span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Opening</span> <span style="color:#a6e22e">http:</span><span style="color:#960050;background-color:#1e0010">/</span>/127.0.0.1:54553/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy<span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">browser...</span>
-</code></pre></div><p>Here&rsquo;s some sample nodejs (<code>server.js</code>) code. It starts a server on port 8080:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>);
-
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">handleRequest</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Received request for URL: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">url</span>);
-    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>);
-    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;Hello World!&#39;</span>);
-};
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;started&#34;</span>)
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">www</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#a6e22e">handleRequest</span>);
-<span style="color:#a6e22e">www</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">8080</span>);
-</code></pre></div><p>Here&rsquo;s a <code>Dockerfile</code> for the above <code>nodejs</code> server. Please observe that it exposes port 8080. This ensures that network TCP traffic can be received by the container via port 8080.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:13.5.0</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> server.js .<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [ <span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;server.js&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>To build a image of the above <code>Dockerfile</code>, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">-t</span> <span style="color:#a6e22e">hello-world:1</span> <span style="color:#a6e22e">.</span>
-</code></pre></div><!-- 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$Env:DOCKER_TLS_VERIFY</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$Env:DOCKER_HOST</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;tcp:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:2376&#34;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$Env:DOCKER_CERT_PATH</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;C:\Users\garrard.kitchen\.minikube\certs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$Env:MINIKUBE_ACTIVE_DOCKERD</span> <span style="color:#a6e22e">=</span> <span style="color:#a6e22e">&#34;minikube&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">#</span> <span style="color:#a6e22e">To</span> <span style="color:#a6e22e">point</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">shell</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">minikube&#39;s</span> <span style="color:#a6e22e">docker-daemon,</span> <span style="color:#a6e22e">run:</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">#</span> <span style="color:#a6e22e">&amp;</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">-p</span> <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">Invoke-Expression</span>
+</span></span></code></pre></div><p>To point your shell to minikube&rsquo;s docker-daemon, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">docker-env</span> <span style="color:#a6e22e">|</span> <span style="color:#a6e22e">Invoke-Expression</span>
+</span></span></code></pre></div><p>To get access to minikube&rsquo;s dashboard, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube.exe</span> <span style="color:#a6e22e">dashboard</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Verifying</span> <span style="color:#a6e22e">dashboard</span> <span style="color:#a6e22e">health</span> <span style="color:#a6e22e">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Launching</span> <span style="color:#a6e22e">proxy</span> <span style="color:#a6e22e">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Verifying</span> <span style="color:#a6e22e">proxy</span> <span style="color:#a6e22e">health</span> <span style="color:#a6e22e">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> <span style="color:#a6e22e">Opening</span> <span style="color:#a6e22e">http:</span><span style="color:#960050;background-color:#1e0010">/</span>/127.0.0.1:54553/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy<span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">browser...</span>
+</span></span></code></pre></div><p>Here&rsquo;s some sample nodejs (<code>server.js</code>) code. It starts a server on port 8080:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">handleRequest</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Received request for URL: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">url</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;Hello World!&#39;</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;started&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">www</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#a6e22e">handleRequest</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">www</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">8080</span>);
+</span></span></code></pre></div><p>Here&rsquo;s a <code>Dockerfile</code> for the above <code>nodejs</code> server. Please observe that it exposes port 8080. This ensures that network TCP traffic can be received by the container via port 8080.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:13.5.0</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> server.js .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [ <span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;server.js&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>To build a image of the above <code>Dockerfile</code>, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">-t</span> <span style="color:#a6e22e">hello-world:1</span> <span style="color:#a6e22e">.</span>
+</span></span></code></pre></div><!-- 
 <div style="padding:2px; margin-top: 20px; margin-bottom: 20px;">
 
     <style>
@@ -826,86 +837,86 @@ https://github.com/alex-shpak/hugo-book
 </blockquote>
 
 <p>To check that the image exists in Minikube&rsquo;s built-in Docker daemon, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">ssh</span>
-<span style="color:#a6e22e">$</span> <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">images</span>
-</code></pre></div><p>You should see something similar to this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ minikube ssh
-                         _             _
-            _         _ ( )           ( )
-  ___ ___  (_)  ___  (_)| |/&#39;)  _   _ | |_      __
-/&#39; _ ` _ `\| |/&#39; _ `\| || , &lt;  ( ) ( )| &#39;_`\  /&#39;__`\
-| ( ) ( ) || || ( ) || || |\`\ | (_) || |_) )(  ___/
-(_) (_) (_)(_)(_) (_)(_)(_) (_)`\___/&#39;(_,__/&#39;`\____)
-
-$ docker images
-REPOSITORY                                TAG                 IMAGE ID            CREATED             SIZE
-hello-world                               1                   55f40b7f5c32        13 days ago         660MB
-hello-world                               latest              50c4285f25a5        13 days ago         660MB
-nginx                                     latest              ed21b7a8aee9        2 weeks ago         127MB
-k8s.gcr.io/kube-proxy                     v1.18.0             43940c34f24f        3 weeks ago         117MB
-k8s.gcr.io/kube-scheduler                 v1.18.0             a31f78c7c8ce        3 weeks ago         95.3MB
-k8s.gcr.io/kube-apiserver                 v1.18.0             74060cea7f70        3 weeks ago         173MB
-k8s.gcr.io/kube-controller-manager        v1.18.0             d3e55153f52f        3 weeks ago         162MB
-kubernetesui/dashboard                    v2.0.0-rc6          cdc71b5a8a0e        5 weeks ago         221MB
-k8s.gcr.io/pause                          3.2                 80d28bedfe5d        2 months ago        683kB
-k8s.gcr.io/coredns                        1.6.7               67da37a9a360        2 months ago        43.8MB
-kindest/kindnetd                          0.5.3               aa67fec7d7ef        5 months ago        78.5MB
-k8s.gcr.io/etcd                           3.4.3-0             303ce5db0e90        5 months ago        288MB
-kubernetesui/metrics-scraper              v1.0.2              3b08661dc379        5 months ago        40.1MB
-gcr.io/k8s-minikube/storage-provisioner   v1.8.1              4689081edb10        2 years ago         80.8MB
-</code></pre></div><p>To run this image as a pod, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--image=hello-world:1</span> <span style="color:#a6e22e">--port=8080</span> <span style="color:#a6e22e">--image-pull-policy=never</span>
-<span style="color:#a6e22e">pod</span>/hello-world <span style="color:#a6e22e">created</span>
-</code></pre></div><p>The <code>--image-pull-policy=never</code> is telling Kubectl to use the local image and not one from a container registry (<a href="https://hub.docker.com/">Docker</a>, <a href="https://azure.microsoft.com/en-us/services/container-registry/">ACR</a>, <a href="https://aws.amazon.com/ecr/">ECR</a>, <a href="https://cloud.google.com/container-registry">GCP</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">ssh</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">docker</span> <span style="color:#a6e22e">images</span>
+</span></span></code></pre></div><p>You should see something similar to this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ minikube ssh
+</span></span><span style="display:flex;"><span>                         _             _
+</span></span><span style="display:flex;"><span>            _         _ ( )           ( )
+</span></span><span style="display:flex;"><span>  ___ ___  (_)  ___  (_)| |/&#39;)  _   _ | |_      __
+</span></span><span style="display:flex;"><span>/&#39; _ ` _ `\| |/&#39; _ `\| || , &lt;  ( ) ( )| &#39;_`\  /&#39;__`\
+</span></span><span style="display:flex;"><span>| ( ) ( ) || || ( ) || || |\`\ | (_) || |_) )(  ___/
+</span></span><span style="display:flex;"><span>(_) (_) (_)(_)(_) (_)(_)(_) (_)`\___/&#39;(_,__/&#39;`\____)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ docker images
+</span></span><span style="display:flex;"><span>REPOSITORY                                TAG                 IMAGE ID            CREATED             SIZE
+</span></span><span style="display:flex;"><span>hello-world                               1                   55f40b7f5c32        13 days ago         660MB
+</span></span><span style="display:flex;"><span>hello-world                               latest              50c4285f25a5        13 days ago         660MB
+</span></span><span style="display:flex;"><span>nginx                                     latest              ed21b7a8aee9        2 weeks ago         127MB
+</span></span><span style="display:flex;"><span>k8s.gcr.io/kube-proxy                     v1.18.0             43940c34f24f        3 weeks ago         117MB
+</span></span><span style="display:flex;"><span>k8s.gcr.io/kube-scheduler                 v1.18.0             a31f78c7c8ce        3 weeks ago         95.3MB
+</span></span><span style="display:flex;"><span>k8s.gcr.io/kube-apiserver                 v1.18.0             74060cea7f70        3 weeks ago         173MB
+</span></span><span style="display:flex;"><span>k8s.gcr.io/kube-controller-manager        v1.18.0             d3e55153f52f        3 weeks ago         162MB
+</span></span><span style="display:flex;"><span>kubernetesui/dashboard                    v2.0.0-rc6          cdc71b5a8a0e        5 weeks ago         221MB
+</span></span><span style="display:flex;"><span>k8s.gcr.io/pause                          3.2                 80d28bedfe5d        2 months ago        683kB
+</span></span><span style="display:flex;"><span>k8s.gcr.io/coredns                        1.6.7               67da37a9a360        2 months ago        43.8MB
+</span></span><span style="display:flex;"><span>kindest/kindnetd                          0.5.3               aa67fec7d7ef        5 months ago        78.5MB
+</span></span><span style="display:flex;"><span>k8s.gcr.io/etcd                           3.4.3-0             303ce5db0e90        5 months ago        288MB
+</span></span><span style="display:flex;"><span>kubernetesui/metrics-scraper              v1.0.2              3b08661dc379        5 months ago        40.1MB
+</span></span><span style="display:flex;"><span>gcr.io/k8s-minikube/storage-provisioner   v1.8.1              4689081edb10        2 years ago         80.8MB
+</span></span></code></pre></div><p>To run this image as a pod, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--image=hello-world:1</span> <span style="color:#a6e22e">--port=8080</span> <span style="color:#a6e22e">--image-pull-policy=never</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pod</span>/hello-world <span style="color:#a6e22e">created</span>
+</span></span></code></pre></div><p>The <code>--image-pull-policy=never</code> is telling Kubectl to use the local image and not one from a container registry (<a href="https://hub.docker.com/">Docker</a>, <a href="https://azure.microsoft.com/en-us/services/container-registry/">ACR</a>, <a href="https://aws.amazon.com/ecr/">ECR</a>, <a href="https://cloud.google.com/container-registry">GCP</a>)</p>
 <p>To expose this port for external access (from browser) from outside of the cluster, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">expose</span> <span style="color:#a6e22e">pod</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--type=LoadBalancer</span>
-<span style="color:#a6e22e">service</span> <span style="color:#a6e22e">&#34;hello-world&#34;</span> <span style="color:#a6e22e">exposed</span>
-</code></pre></div><p>To confirm your <code>service</code> is running and to get the <code>port number</code> of this <code>exposed service</code>, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">services</span>
-<span style="color:#a6e22e">NAME</span>          <span style="color:#a6e22e">TYPE</span>           <span style="color:#a6e22e">CLUSTER-IP</span>      <span style="color:#a6e22e">EXTERNAL-IP</span>   <span style="color:#a6e22e">PORT</span><span style="color:#e6db74">(S)</span>          <span style="color:#a6e22e">AGE</span>
-<span style="color:#a6e22e">hello-world</span>   <span style="color:#a6e22e">LoadBalancer</span>   <span style="color:#a6e22e">10.111.126.10</span>   &lt;<span style="color:#a6e22e">pending</span>&gt;     <span style="color:#a6e22e">8080:31589</span>/TCP   <span style="color:#a6e22e">45h</span>
-<span style="color:#a6e22e">kubernetes</span>    <span style="color:#a6e22e">ClusterIP</span>      <span style="color:#a6e22e">10.96.0.1</span>       &lt;<span style="color:#a6e22e">none</span>&gt;        <span style="color:#ae81ff">443</span>/TCP          <span style="color:#a6e22e">2d16h</span>
-</code></pre></div><blockquote class="book-hint info">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">expose</span> <span style="color:#a6e22e">pod</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--type=LoadBalancer</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">service</span> <span style="color:#a6e22e">&#34;hello-world&#34;</span> <span style="color:#a6e22e">exposed</span>
+</span></span></code></pre></div><p>To confirm your <code>service</code> is running and to get the <code>port number</code> of this <code>exposed service</code>, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">services</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">NAME</span>          <span style="color:#a6e22e">TYPE</span>           <span style="color:#a6e22e">CLUSTER-IP</span>      <span style="color:#a6e22e">EXTERNAL-IP</span>   <span style="color:#a6e22e">PORT</span><span style="color:#e6db74">(S)</span>          <span style="color:#a6e22e">AGE</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hello-world</span>   <span style="color:#a6e22e">LoadBalancer</span>   <span style="color:#a6e22e">10.111.126.10</span>   &lt;<span style="color:#a6e22e">pending</span>&gt;     <span style="color:#a6e22e">8080:31589</span>/TCP   <span style="color:#a6e22e">45h</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">kubernetes</span>    <span style="color:#a6e22e">ClusterIP</span>      <span style="color:#a6e22e">10.96.0.1</span>       &lt;<span style="color:#a6e22e">none</span>&gt;        <span style="color:#ae81ff">443</span>/TCP          <span style="color:#a6e22e">2d16h</span>
+</span></span></code></pre></div><blockquote class="book-hint info">
   You will see the <strong>&lt;pending&gt;</strong> state of your LoadBalancer if you do not have not a Load Balancer integrated with your cluster.  For your local development environment, it is nothing to worry about.
 </blockquote>
 
 <p>You will see that the <strong>hello-world</strong> service is accessible via port <strong>8080</strong>. However, we still don&rsquo;t know behind what IPv4 address, this services is available.  To get the IPv4 address of your cluster, you type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">ip</span>
-<span style="color:#a6e22e">192.168.75.126</span>
-</code></pre></div><p>Finally, to access your service, run the cURL command, using the <code>minikube ip</code> address and the TCP port as listed in the <code>kubectl get services</code> output:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">curl</span> <span style="color:#a6e22e">&#34;http:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:31589&#34; <span style="color:#a6e22e">-UseBasicParsing</span>
-<span style="color:#a6e22e">StatusCode</span>        <span style="color:#a6e22e">:</span> <span style="color:#ae81ff">200</span>
-<span style="color:#a6e22e">StatusDescription</span> <span style="color:#a6e22e">:</span> <span style="color:#a6e22e">OK</span>
-<span style="color:#a6e22e">Content</span>           <span style="color:#a6e22e">:</span> {<span style="color:#a6e22e">72,</span> <span style="color:#a6e22e">101,</span> <span style="color:#a6e22e">108,</span> <span style="color:#a6e22e">108...</span>}
-<span style="color:#a6e22e">RawContent</span>        <span style="color:#a6e22e">:</span> <span style="color:#a6e22e">HTTP</span>/1.1 <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
-                    <span style="color:#a6e22e">Connection:</span> <span style="color:#a6e22e">keep-alive</span>
-                    <span style="color:#a6e22e">Transfer-Encoding:</span> <span style="color:#a6e22e">chunked</span>
-                    <span style="color:#a6e22e">Date:</span> <span style="color:#a6e22e">Mon,</span> <span style="color:#ae81ff">06</span> <span style="color:#a6e22e">Apr</span> <span style="color:#ae81ff">2020</span> <span style="color:#a6e22e">13:05:42</span> <span style="color:#a6e22e">GMT</span>
-
-                    <span style="color:#a6e22e">Hello</span> <span style="color:#a6e22e">World!</span>
-<span style="color:#a6e22e">Headers</span>           <span style="color:#a6e22e">:</span> {[<span style="color:#a6e22e">Connection,</span> <span style="color:#a6e22e">keep-alive</span>]<span style="color:#a6e22e">,</span> [<span style="color:#a6e22e">Transfer-Encoding,</span> <span style="color:#a6e22e">chunked</span>]<span style="color:#a6e22e">,</span> [<span style="color:#a6e22e">Date,</span> <span style="color:#a6e22e">Mon,</span> <span style="color:#ae81ff">06</span> <span style="color:#a6e22e">Apr</span> <span style="color:#ae81ff">2020</span> <span style="color:#a6e22e">13:05:42</span> <span style="color:#a6e22e">GMT</span>]}
-<span style="color:#a6e22e">RawContentLength</span>  <span style="color:#a6e22e">:</span> <span style="color:#ae81ff">12</span>
-</code></pre></div><p>You can also use minikube to obtain your service&rsquo;s url. To do this, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">service</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--url</span>
-<span style="color:#a6e22e">http:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:31589
-</code></pre></div><h3 id="useful-kubectl-commands">Useful <code>kubectl</code> commands</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">ip</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">192.168.75.126</span>
+</span></span></code></pre></div><p>Finally, to access your service, run the cURL command, using the <code>minikube ip</code> address and the TCP port as listed in the <code>kubectl get services</code> output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">curl</span> <span style="color:#a6e22e">&#34;http:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:31589&#34; <span style="color:#a6e22e">-UseBasicParsing</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">StatusCode</span>        <span style="color:#a6e22e">:</span> <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">StatusDescription</span> <span style="color:#a6e22e">:</span> <span style="color:#a6e22e">OK</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Content</span>           <span style="color:#a6e22e">:</span> {<span style="color:#a6e22e">72,</span> <span style="color:#a6e22e">101,</span> <span style="color:#a6e22e">108,</span> <span style="color:#a6e22e">108...</span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">RawContent</span>        <span style="color:#a6e22e">:</span> <span style="color:#a6e22e">HTTP</span>/1.1 <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">Connection:</span> <span style="color:#a6e22e">keep-alive</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">Transfer-Encoding:</span> <span style="color:#a6e22e">chunked</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">Date:</span> <span style="color:#a6e22e">Mon,</span> <span style="color:#ae81ff">06</span> <span style="color:#a6e22e">Apr</span> <span style="color:#ae81ff">2020</span> <span style="color:#a6e22e">13:05:42</span> <span style="color:#a6e22e">GMT</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">Hello</span> <span style="color:#a6e22e">World!</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Headers</span>           <span style="color:#a6e22e">:</span> {[<span style="color:#a6e22e">Connection,</span> <span style="color:#a6e22e">keep-alive</span>]<span style="color:#a6e22e">,</span> [<span style="color:#a6e22e">Transfer-Encoding,</span> <span style="color:#a6e22e">chunked</span>]<span style="color:#a6e22e">,</span> [<span style="color:#a6e22e">Date,</span> <span style="color:#a6e22e">Mon,</span> <span style="color:#ae81ff">06</span> <span style="color:#a6e22e">Apr</span> <span style="color:#ae81ff">2020</span> <span style="color:#a6e22e">13:05:42</span> <span style="color:#a6e22e">GMT</span>]}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">RawContentLength</span>  <span style="color:#a6e22e">:</span> <span style="color:#ae81ff">12</span>
+</span></span></code></pre></div><p>You can also use minikube to obtain your service&rsquo;s url. To do this, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">minikube</span> <span style="color:#a6e22e">service</span> <span style="color:#a6e22e">hello-world</span> <span style="color:#a6e22e">--url</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">http:</span><span style="color:#960050;background-color:#1e0010">/</span>/192.168.75.126:31589
+</span></span></code></pre></div><h3 id="useful-kubectl-commands">Useful <code>kubectl</code> commands</h3>
 <p>This first command is important. Some background first&hellip;a <code>context</code> is a group of access parameters. Each <code>context</code> contains a <code>Kubernetes cluster</code>, a <code>user</code>, and a <code>namespace</code>.  When you are working with multiple contexts off of your development machine, you may run into compatibility issues due to your client version not being compatible with the server API version. All <code>kubectl</code> commands will run against the <code>current context</code>. To check your client version, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">version</span> <span style="color:#a6e22e">--client</span>
-<span style="color:#a6e22e">Client</span> <span style="color:#a6e22e">Version:</span> <span style="color:#a6e22e">version.Info</span>{<span style="color:#a6e22e">Major:&#34;1&#34;,</span> <span style="color:#a6e22e">Minor:&#34;18&#34;,</span> <span style="color:#a6e22e">GitVersion:&#34;v1.18.0&#34;,</span> <span style="color:#a6e22e">GitCommit:&#34;9e991415386e4cf155a24b1da15becaa390438d8&#34;,</span> <span style="color:#a6e22e">GitTreeState:&#34;clean&#34;,</span> <span style="color:#a6e22e">BuildDate:&#34;2020-03-25T14:58:59Z&#34;,</span> <span style="color:#a6e22e">GoVersion:&#34;go1.13.8&#34;,</span> <span style="color:#a6e22e">Compiler:&#34;gc&#34;,</span> <span style="color:#a6e22e">Platform:&#34;windows</span>/amd64&#34;}
-</code></pre></div><p>To ascertain your current context, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">current-context</span>
-<span style="color:#a6e22e">minikube</span>
-</code></pre></div><p>To list all of your configured contexts, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">get-contexts</span>
-<span style="color:#a6e22e">CURRENT</span>   <span style="color:#a6e22e">NAME</span>                 <span style="color:#a6e22e">CLUSTER</span>          <span style="color:#a6e22e">AUTHINFO</span>         <span style="color:#a6e22e">NAMESPACE</span>
-          <span style="color:#a6e22e">docker-desktop</span>       <span style="color:#a6e22e">docker-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>
-          <span style="color:#a6e22e">docker-for-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>
-<span style="color:#a6e22e">*</span>         <span style="color:#a6e22e">minikube</span>             <span style="color:#a6e22e">minikube</span>         <span style="color:#a6e22e">minikube</span>
-</code></pre></div><p>The * next to <strong>minikube</strong> indicates that <strong>minikube</strong> is your current context.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">version</span> <span style="color:#a6e22e">--client</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Client</span> <span style="color:#a6e22e">Version:</span> <span style="color:#a6e22e">version.Info</span>{<span style="color:#a6e22e">Major:&#34;1&#34;,</span> <span style="color:#a6e22e">Minor:&#34;18&#34;,</span> <span style="color:#a6e22e">GitVersion:&#34;v1.18.0&#34;,</span> <span style="color:#a6e22e">GitCommit:&#34;9e991415386e4cf155a24b1da15becaa390438d8&#34;,</span> <span style="color:#a6e22e">GitTreeState:&#34;clean&#34;,</span> <span style="color:#a6e22e">BuildDate:&#34;2020-03-25T14:58:59Z&#34;,</span> <span style="color:#a6e22e">GoVersion:&#34;go1.13.8&#34;,</span> <span style="color:#a6e22e">Compiler:&#34;gc&#34;,</span> <span style="color:#a6e22e">Platform:&#34;windows</span>/amd64&#34;}
+</span></span></code></pre></div><p>To ascertain your current context, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">current-context</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">minikube</span>
+</span></span></code></pre></div><p>To list all of your configured contexts, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">get-contexts</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">CURRENT</span>   <span style="color:#a6e22e">NAME</span>                 <span style="color:#a6e22e">CLUSTER</span>          <span style="color:#a6e22e">AUTHINFO</span>         <span style="color:#a6e22e">NAMESPACE</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">docker-desktop</span>       <span style="color:#a6e22e">docker-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">docker-for-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>   <span style="color:#a6e22e">docker-desktop</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span>         <span style="color:#a6e22e">minikube</span>             <span style="color:#a6e22e">minikube</span>         <span style="color:#a6e22e">minikube</span>
+</span></span></code></pre></div><p>The * next to <strong>minikube</strong> indicates that <strong>minikube</strong> is your current context.</p>
 <p>If you are configured to access a cluster hosted from a cloud provider such as <code>Azure</code>, then this context will also be listed.</p>
 <p>To use a specific context, run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">use-context</span> <span style="color:#a6e22e">docker-for-desktop</span>
-</code></pre></div><h2 id="references">References</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">PS</span> <span style="color:#a6e22e">C:\</span>&gt; <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">config</span> <span style="color:#a6e22e">use-context</span> <span style="color:#a6e22e">docker-for-desktop</span>
+</span></span></code></pre></div><h2 id="references">References</h2>
 <ul>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Install Kubernetes</a></li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">Install Minikube</a></li>

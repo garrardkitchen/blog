@@ -11,16 +11,17 @@ How to create a ConfigMap from a literal To create a configMap from literals and
 There are a few ways to create a configMap. Here, I cover just two of these ways;--from-env-file and &ndash;from-literal. I won&rsquo;t cover options like from volume.
 How to create a ConfigMap from a literal To create a configMap from literals and from the command line, you would type this:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/how-to-use-kubernetes-configmap/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/how-to-use-kubernetes-configmap/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-11-02T15:31:12+00:00" />
 <meta property="article:modified_time" content="2020-11-03T11:00:39+00:00" />
+
 <title>How to Use Kubernetes Configmap | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -95,6 +96,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -384,7 +395,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -479,132 +490,132 @@ https://github.com/alex-shpak/hugo-book
 <p>There are a few ways to create a configMap.  Here, I cover just two of these ways;<code>--from-env-file</code> and &ndash;from-literal.  I won&rsquo;t cover options like from volume.</p>
 <h2 id="how-to-create-a-configmap-from-a-literal">How to create a ConfigMap from a literal</h2>
 <p>To create a configMap from literals and from the command line, you would type this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">create</span> <span style="color:#a6e22e">configmap</span> <span style="color:#a6e22e">config-demo-lit</span> <span style="color:#a6e22e">--from-literal=user.name=garrardkitchen</span> <span style="color:#a6e22e">--from-literal=user.type=admin</span>
-</code></pre></div><p>To confirm the values, you would type this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">kubectl get cm config-demo-lit -o yaml
-apiVersion: v1
-data:
-  user.name: garrardkitchen
-  user.type: admin
-kind: ConfigMap
-metadata:
-  creationTimestamp: &#34;2020-11-02T16:06:30Z&#34;
-  name: config-demo-lit
-  namespace: dapr-demo
-  resourceVersion: ****
-  selfLink: /api/v1/namespaces/dapr-demo/configmaps/config-demo-lit
-  uid: ****
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">create</span> <span style="color:#a6e22e">configmap</span> <span style="color:#a6e22e">config-demo-lit</span> <span style="color:#a6e22e">--from-literal=user.name=garrardkitchen</span> <span style="color:#a6e22e">--from-literal=user.type=admin</span>
+</span></span></code></pre></div><p>To confirm the values, you would type this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>kubectl get cm config-demo-lit -o yaml
+</span></span><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>data:
+</span></span><span style="display:flex;"><span>  user.name: garrardkitchen
+</span></span><span style="display:flex;"><span>  user.type: admin
+</span></span><span style="display:flex;"><span>kind: ConfigMap
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  creationTimestamp: &#34;2020-11-02T16:06:30Z&#34;
+</span></span><span style="display:flex;"><span>  name: config-demo-lit
+</span></span><span style="display:flex;"><span>  namespace: dapr-demo
+</span></span><span style="display:flex;"><span>  resourceVersion: ****
+</span></span><span style="display:flex;"><span>  selfLink: /api/v1/namespaces/dapr-demo/configmaps/config-demo-lit
+</span></span><span style="display:flex;"><span>  uid: ****
+</span></span></code></pre></div><hr>
 <h2 id="how-to-create-a-configmap-from-an-env-file">How to create a ConfigMap from an .env file</h2>
 <h3 id="from-the-command-line">From the command line</h3>
 <p>To create a configMap from the command line, you would type this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">create</span> <span style="color:#a6e22e">configmap</span> <span style="color:#a6e22e">demo-config</span> <span style="color:#a6e22e">--from-env-file=config</span>/.env.prod
-</code></pre></div><p>To confirm the values, you would type this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ kubectl cm config-demo-1 -o yaml
-apiVersion: v1
-data:
-  foo: baa
-  name: garrard
-kind: ConfigMap
-metadata:
-  creationTimestamp: &#34;2020-11-02T15:44:52Z&#34;
-  name: config-demo-1
-  namespace: dapr-demo
-  resourceVersion: ****
-  selfLink: /api/v1/namespaces/dapr-demo/configmaps/config-demo-1
-  uid: ****
-</code></pre></div><p>👆 <code>cm</code> is shorthand for <code>configmap</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">create</span> <span style="color:#a6e22e">configmap</span> <span style="color:#a6e22e">demo-config</span> <span style="color:#a6e22e">--from-env-file=config</span>/.env.prod
+</span></span></code></pre></div><p>To confirm the values, you would type this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ kubectl cm config-demo-1 -o yaml
+</span></span><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>data:
+</span></span><span style="display:flex;"><span>  foo: baa
+</span></span><span style="display:flex;"><span>  name: garrard
+</span></span><span style="display:flex;"><span>kind: ConfigMap
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  creationTimestamp: &#34;2020-11-02T15:44:52Z&#34;
+</span></span><span style="display:flex;"><span>  name: config-demo-1
+</span></span><span style="display:flex;"><span>  namespace: dapr-demo
+</span></span><span style="display:flex;"><span>  resourceVersion: ****
+</span></span><span style="display:flex;"><span>  selfLink: /api/v1/namespaces/dapr-demo/configmaps/config-demo-1
+</span></span><span style="display:flex;"><span>  uid: ****
+</span></span></code></pre></div><p>👆 <code>cm</code> is shorthand for <code>configmap</code></p>
 <h3 id="from-a-kubernetes-manifest-file">From a Kubernetes Manifest file</h3>
 <p>To create a configMap from a manifest, you would create a <code>yml|yaml</code> file using the <code>kind: ConfigMap</code> like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ConfigMap</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-2</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">dapr-demo</span>
-<span style="color:#f92672">data</span>:
-  <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">garrard  </span>
-</code></pre></div><p>To confirm the values, you would type this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ kubectl cm config-demo-2 -o yaml
-apiVersion: v1
-data:
-  foo: baa
-  name: garrard
-kind: ConfigMap
-metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {&#34;apiVersion&#34;:&#34;v1&#34;,&#34;data&#34;:{&#34;foo&#34;:&#34;baa&#34;,&#34;name&#34;:&#34;garrard&#34;},&#34;kind&#34;:&#34;ConfigMap&#34;,&#34;metadata&#34;:{&#34;annotations&#34;:{},&#34;name&#34;:&#34;config-demo-2&#34;,&#34;namespace&#34;:&#34;dapr-demo&#34;}}
-  creationTimestamp: &#34;2020-11-02T15:49:48Z&#34;
-  name: config-demo-2
-  namespace: dapr-demo
-  resourceVersion: *****
-  selfLink: /api/v1/namespaces/dapr-demo/configmaps/config-demo-2
-  uid: ****
-</code></pre></div><h2 id="how-to-use-this-in-a-pod">How to use this in a pod</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ConfigMap</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">dapr-demo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">data</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">garrard  </span>
+</span></span></code></pre></div><p>To confirm the values, you would type this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ kubectl cm config-demo-2 -o yaml
+</span></span><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>data:
+</span></span><span style="display:flex;"><span>  foo: baa
+</span></span><span style="display:flex;"><span>  name: garrard
+</span></span><span style="display:flex;"><span>kind: ConfigMap
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  annotations:
+</span></span><span style="display:flex;"><span>    kubectl.kubernetes.io/last-applied-configuration: |
+</span></span><span style="display:flex;"><span>      {&#34;apiVersion&#34;:&#34;v1&#34;,&#34;data&#34;:{&#34;foo&#34;:&#34;baa&#34;,&#34;name&#34;:&#34;garrard&#34;},&#34;kind&#34;:&#34;ConfigMap&#34;,&#34;metadata&#34;:{&#34;annotations&#34;:{},&#34;name&#34;:&#34;config-demo-2&#34;,&#34;namespace&#34;:&#34;dapr-demo&#34;}}
+</span></span><span style="display:flex;"><span>  creationTimestamp: &#34;2020-11-02T15:49:48Z&#34;
+</span></span><span style="display:flex;"><span>  name: config-demo-2
+</span></span><span style="display:flex;"><span>  namespace: dapr-demo
+</span></span><span style="display:flex;"><span>  resourceVersion: *****
+</span></span><span style="display:flex;"><span>  selfLink: /api/v1/namespaces/dapr-demo/configmaps/config-demo-2
+</span></span><span style="display:flex;"><span>  uid: ****
+</span></span></code></pre></div><h2 id="how-to-use-this-in-a-pod">How to use this in a pod</h2>
 <p>Here, I&rsquo;m setting up environment variables from different ConfigMaps. <code>config-demo-2</code> is set up from manifest file and <code>config-demo-lit</code> is set up from literals.</p>
 <p>This is an example pod manifest called <code>pod-demo.yml</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test-pod</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">containers</span>:
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test-cache</span>
-      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">k8s.gcr.io/busybox</span>
-      <span style="color:#f92672">command</span>: [<span style="color:#e6db74">&#34;/bin/sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;env&#34;</span>]
-      <span style="color:#f92672">env</span>:
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME</span>
-          <span style="color:#f92672">valueFrom</span>:
-            <span style="color:#f92672">configMapKeyRef</span>:
-              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-2</span>
-              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">name</span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ROLE</span>
-          <span style="color:#f92672">valueFrom</span>:
-            <span style="color:#f92672">configMapKeyRef</span>:
-              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-lit</span>
-              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">user.type</span>
-  <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">Never</span>
-</code></pre></div><p>All that this 👆 does, is output to STDOUT, a list of environment variables.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test-pod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">test-cache</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">k8s.gcr.io/busybox</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>: [<span style="color:#e6db74">&#34;/bin/sh&#34;</span>, <span style="color:#e6db74">&#34;-c&#34;</span>, <span style="color:#e6db74">&#34;env&#34;</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">configMapKeyRef</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-2</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">name</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ROLE</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">configMapKeyRef</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-lit</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">user.type</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">Never</span>
+</span></span></code></pre></div><p>All that this 👆 does, is output to STDOUT, a list of environment variables.</p>
 <p>To apply this manifest, type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">kubectl.exe</span> <span style="color:#a6e22e">apply</span> <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">.\pod-demo.yml</span>
-</code></pre></div><p>To confirm the 2 environment variables have been set, type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ kubectl logs test-pod
-...
-HOSTNAME=test-pod
-NAME=garrard
-ROLE=admin
-...
-</code></pre></div><h2 id="how-to-use-secrets">How to use Secrets</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">kubectl.exe</span> <span style="color:#a6e22e">apply</span> <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">.\pod-demo.yml</span>
+</span></span></code></pre></div><p>To confirm the 2 environment variables have been set, type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ kubectl logs test-pod
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>HOSTNAME=test-pod
+</span></span><span style="display:flex;"><span>NAME=garrard
+</span></span><span style="display:flex;"><span>ROLE=admin
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="how-to-use-secrets">How to use Secrets</h2>
 <p>TBC</p>
 <h2 id="how-to-stop-people-from-finding-out-your-secrets">How to stop people from finding out your secrets.</h2>
 <p>At the end of the day, the secrets are only Base64 encoded.  Anyone with the appropriate level of permissions will be able to see your secrets.  One way to stop users from seeing your secrets is by only allow particular groups of people access.</p>
 <p>To create a secret, type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ kubectl create secret generic db-passwords --from-literal=mongodb-password=&#39;mypassword&#39;
-</code></pre></div><p>To see what secrets we have, type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ kubectl get secrets
-NAME                           TYPE                                  DATA   AGE
-dapr-operator-token-mgdqs      kubernetes.io/service-account-token   3      2d13h
-dapr-sidecar-injector-cert     Opaque                                2      2d13h
-dapr-trust-bundle              Opaque                                3      2d13h
-dashboard-reader-token-j9rcg   kubernetes.io/service-account-token   3      2d13h
-db-passwords                   Opaque                                1      5s
-default-token-xl2rz            kubernetes.io/service-account-token   3      2d14h
-sh.helm.release.v1.dapr.v1     helm.sh/release.v1                    1      2d13h
-</code></pre></div><p>To see the actual password, type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ kubectl get secrets db-passwords -o yaml
-apiVersion: v1
-data:
-  mongodb-password: bXlwYXNzd29yZA==
-kind: Secret
-metadata:
-  creationTimestamp: &#34;2020-11-03T10:00:14Z&#34;
-  name: db-passwords
-  namespace: dapr-demo
-  resourceVersion: ****
-  selfLink: /api/v1/namespaces/dapr-demo/secrets/db-passwords
-  uid: ****
-</code></pre></div><blockquote class="book-hint danger">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ kubectl create secret generic db-passwords --from-literal=mongodb-password=&#39;mypassword&#39;
+</span></span></code></pre></div><p>To see what secrets we have, type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ kubectl get secrets
+</span></span><span style="display:flex;"><span>NAME                           TYPE                                  DATA   AGE
+</span></span><span style="display:flex;"><span>dapr-operator-token-mgdqs      kubernetes.io/service-account-token   3      2d13h
+</span></span><span style="display:flex;"><span>dapr-sidecar-injector-cert     Opaque                                2      2d13h
+</span></span><span style="display:flex;"><span>dapr-trust-bundle              Opaque                                3      2d13h
+</span></span><span style="display:flex;"><span>dashboard-reader-token-j9rcg   kubernetes.io/service-account-token   3      2d13h
+</span></span><span style="display:flex;"><span>db-passwords                   Opaque                                1      5s
+</span></span><span style="display:flex;"><span>default-token-xl2rz            kubernetes.io/service-account-token   3      2d14h
+</span></span><span style="display:flex;"><span>sh.helm.release.v1.dapr.v1     helm.sh/release.v1                    1      2d13h
+</span></span></code></pre></div><p>To see the actual password, type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ kubectl get secrets db-passwords -o yaml
+</span></span><span style="display:flex;"><span>apiVersion: v1
+</span></span><span style="display:flex;"><span>data:
+</span></span><span style="display:flex;"><span>  mongodb-password: bXlwYXNzd29yZA==
+</span></span><span style="display:flex;"><span>kind: Secret
+</span></span><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  creationTimestamp: &#34;2020-11-03T10:00:14Z&#34;
+</span></span><span style="display:flex;"><span>  name: db-passwords
+</span></span><span style="display:flex;"><span>  namespace: dapr-demo
+</span></span><span style="display:flex;"><span>  resourceVersion: ****
+</span></span><span style="display:flex;"><span>  selfLink: /api/v1/namespaces/dapr-demo/secrets/db-passwords
+</span></span><span style="display:flex;"><span>  uid: ****
+</span></span></code></pre></div><blockquote class="book-hint danger">
   This is just a Base64 encoded string of <code>mypassword</code>.  This is not secure enough.  We need another way of to protect our sensitive information/passwords.
 </blockquote>
 
@@ -612,68 +623,67 @@ metadata:
 <p>Here&rsquo;s a link to how Kubernetes deals with secrets</p>
 <p>To use this secret with a deployment, save this to <code>aks-deploy-mongodb-demo.yml</code>:</p>
 <p><em>Please note, this is not a production configuration</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mongodb-svc</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">dapr-demo</span>
-  <span style="color:#f92672">labels</span>:
-    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">mongodb-svc</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
-  <span style="color:#f92672">ports</span>:
-  - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">27017</span>
-    <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">27017</span>    
-    <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP  </span>
-  <span style="color:#f92672">selector</span>:
-    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">mongodb</span>
----
-<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span> <span style="color:#75715e">#  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mongodb</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">dapr-demo</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">selector</span>:
-    <span style="color:#f92672">matchLabels</span>:
-      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">mongodb</span>
-  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#f92672">template</span>:
-    <span style="color:#f92672">metadata</span>:
-      <span style="color:#f92672">labels</span>:
-        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">mongodb        </span>
-    <span style="color:#f92672">spec</span>:
-      <span style="color:#f92672">containers</span>:
-      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mongodb        </span>
-        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo</span>
-        <span style="color:#f92672">resources</span>:
-          <span style="color:#f92672">requests</span>:
-            <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">100m</span>
-            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">100Mi</span>
-        <span style="color:#f92672">ports</span>:
-        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">27017</span>
-        <span style="color:#f92672">env</span>:
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MONGO_USERNAME</span>
-          <span style="color:#f92672">valueFrom</span>:
-            <span style="color:#f92672">configMapKeyRef</span>:
-              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-lit</span>
-              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">user.name              </span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MONGO_INITDB_ROOT_USERNAME</span>
-          <span style="color:#f92672">valueFrom</span>:
-            <span style="color:#f92672">configMapKeyRef</span>:
-              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-lit</span>
-              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">user.name        </span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MONGO_INITDB_ROOT_PASSWORD</span>
-          <span style="color:#f92672">valueFrom</span>:
-            <span style="color:#f92672">secretKeyRef</span>:
-              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">db-passwords</span>
-              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">mongodb-password                      </span>
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MONGO_DBNAME</span>
-          <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;orders&#34;</span>
-
-</code></pre></div><p>To deploy the above 👆, type this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ps" data-lang="ps"><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">apply</span> <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">.\aks-deploy-mongodb-demo.yml</span>
-</code></pre></div></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mongodb-svc</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">dapr-demo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">mongodb-svc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">27017</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">27017</span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP  </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">mongodb</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span> <span style="color:#75715e">#  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mongodb</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">dapr-demo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">mongodb</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">mongodb        </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mongodb        </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">requests</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">100m</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">100Mi</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">27017</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MONGO_USERNAME</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">configMapKeyRef</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-lit</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">user.name              </span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MONGO_INITDB_ROOT_USERNAME</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">configMapKeyRef</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config-demo-lit</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">user.name        </span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MONGO_INITDB_ROOT_PASSWORD</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">secretKeyRef</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">db-passwords</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">mongodb-password                      </span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MONGO_DBNAME</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;orders&#34;</span>
+</span></span></code></pre></div><p>To deploy the above 👆, type this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ps" data-lang="ps"><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">kubectl</span> <span style="color:#a6e22e">apply</span> <span style="color:#a6e22e">-f</span> <span style="color:#a6e22e">.\aks-deploy-mongodb-demo.yml</span>
+</span></span></code></pre></div></p>
 </article>
  
       

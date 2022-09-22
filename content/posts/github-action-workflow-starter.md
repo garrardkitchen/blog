@@ -1,7 +1,7 @@
 ---
 title: "Github Action Workflow Starter"
 date: 2022-01-09T15:36:45Z
-tags: github action workflow, starter, cruft, azure devops, bamboo, github plans
+tags: [github action workflow, starter, cruft, azure devops, bamboo, github plans]
 draft: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "K8s Selectors and Labels"
 date: 2022-01-15T13:30:42Z
-tags: kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl
+tags: [kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl]
 ---
 
 Right, what's the deal with all the labels and metadata in a Deployment manifest?!!!!

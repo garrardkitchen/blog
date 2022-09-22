@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nuget on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/nuget/</link>
+    <description>Recent content in nuget on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 21 Sep 2022 20:58:53 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/nuget/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Conditionally Include a Nuget Package</title>
+      <link>http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/</guid>
+      <description>The context I have implemented a solution that as it&amp;rsquo;s primary objective iterates through a sequence of HTTP Requests and page interactions. With sequencing through these steps regularly it gives the support team the maximum amount of time to react to an outage. This outage can be isolated to this particular service, or can originate from any of it&amp;rsquo;s downstream dependencies.
+To help with the automation of these steps, I&amp;rsquo;m using Selenium and in particular, it&amp;rsquo;s headless browser capability in conjunction with ChromeDriver.</description>
+    </item>
+    
+    <item>
+      <title>Runtimes</title>
+      <link>http://blog.garrardkitchen.com/posts/runtimes/</link>
+      <pubDate>Sat, 08 Jan 2022 11:09:12 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/runtimes/</guid>
+      <description>In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure. Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers. I say &amp;ldquo;part of this mission&amp;rdquo; as another aspect of this migration is to create a new foundation for our platform - AKS.</description>
+    </item>
+    
+  </channel>
+</rss>

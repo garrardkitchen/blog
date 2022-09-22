@@ -9,16 +9,17 @@ Most Engineers are fully versed in the foundations of writing quality, efficient
 <meta property="og:description" content="I have written this post as a method to document what I see as the basics, foundations if you will, for good engineering. Undoubtedly if you are a seasoned engineer, you will recognised all of these principles, less so, if you&rsquo;re just starting out.
 Most Engineers are fully versed in the foundations of writing quality, efficient, succinct and testable code. As a Principal Engineer, one of my responsibilities is to ensure that these (1) foundations are recognised by the engineers and (2) are adhered to by all engineers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/principles/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/principles/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-03-01T20:09:14+01:00" />
 <meta property="article:modified_time" content="2020-04-18T10:10:29+01:00" />
+
 <title>Good Engineering - Principles | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -93,6 +94,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -382,7 +393,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -527,17 +538,17 @@ https://github.com/alex-shpak/hugo-book
 <h3 id="defensive-coding"><a href="">Defensive coding</a></h3>
 <p>(guard against invalid class method parameters and accidental null assignment to class properties instead of an equality condition!)</p>
 <p>This is one example of defensive coding:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>(<span style="color:#66d9ef">string</span> firstnaame, <span style="color:#66d9ef">string</span> lastname, <span style="color:#66d9ef">int</span> age) 
-{
-    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">null</span> == firstname) 
-    {
-        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> NullReferenceException(<span style="color:#e6db74">&#34;Firstname cannot be null&#34;</span>)
-    }
-...
-</code></pre></div><p>The above demonstrates an example of defensive coding.  The first is that we need to test for valid constructor parameter values when instantiating a class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>(<span style="color:#66d9ef">string</span> firstnaame, <span style="color:#66d9ef">string</span> lastname, <span style="color:#66d9ef">int</span> age) 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">null</span> == firstname) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> NullReferenceException(<span style="color:#e6db74">&#34;Firstname cannot be null&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>The above demonstrates an example of defensive coding.  The first is that we need to test for valid constructor parameter values when instantiating a class.</p>
 <p>The second, is to avoid mistakes that might not be picked up by your compiler.  For instance, a common mistake doing this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">if</span> (firstname = <span style="color:#66d9ef">null</span>)
-</code></pre></div><p>A .NET Compiler is more than happy allowing this above syntax, as, after all, it&rsquo;s an <strong>assignment operator</strong> and not a <strong>equality operator</strong> as in above in the <strong>class constructor</strong>.  By switching these around, you&rsquo;re making a positive pattern changing and <em>should</em> avoid making this silly mistake again.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (firstname = <span style="color:#66d9ef">null</span>)
+</span></span></code></pre></div><p>A .NET Compiler is more than happy allowing this above syntax, as, after all, it&rsquo;s an <strong>assignment operator</strong> and not a <strong>equality operator</strong> as in above in the <strong>class constructor</strong>.  By switching these around, you&rsquo;re making a positive pattern changing and <em>should</em> avoid making this silly mistake again.</p>
 <h3 id="do-no-more"><a href="">Do no more</a></h3>
 <p>(and do no less - thank you <em>eXtreme Programming</em>!).</p>
 <p>If you code outside the scope, you&rsquo;re in danger of creating code that isn&rsquo;t used or needed.  The worse thing about this is that others will have to maintain this code.  How can this be?  Well, it&rsquo;s common - think <strong>HTTP chaining</strong> - for code not to be culled especially if there is a disconnect between these dependencies and there&rsquo;s no IDE/compiler to shout at you.</p>
@@ -593,55 +604,55 @@ Next!
 <p>A class (no method) should have one and only one reason to change, meaning that a class (or method) should have only one job.</p>
 <p>&ldquo;When a class has more than responsibility, there are also more reasons to change that class&rdquo;</p>
 <p>Here&rsquo;s an example of a class )<em>purposefully awful for illustrative purposes</em>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>() 
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Username {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>;}
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Fullname {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>;}
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger _logger;
-    <span style="color:#66d9ef">private</span> IDbContext _db;
-
-    <span style="color:#66d9ef">public</span> User()
-    {
-        _logger = <span style="color:#66d9ef">new</span> Logger() 
-        _db = <span style="color:#66d9ef">new</span> UserContext();
-    }
-
-    <span style="color:#66d9ef">public</span> Task&lt;User&gt; GetProfile(<span style="color:#66d9ef">string</span> username) 
-    {
-        ...
-        _logger.Info(<span style="color:#e6db74">$&#34;Found profie for {username}&#34;</span>)
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
-    }    
-}
-</code></pre></div><p>You could say that the above includes both a model responsibility and a service responsibility.  These should be split into two separate .NET types, as in this example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>() 
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Username {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>;}
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Fullname {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>;}
-    <span style="color:#66d9ef">public</span> User(<span style="color:#66d9ef">string</span> username, <span style="color:#66d9ef">string</span> Fullname) 
-    {
-        ...
-    }    
-}
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserService</span>() 
-{
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger _logger;
-
-    <span style="color:#66d9ef">public</span> UserService(ILogger _logger, IDbContext db)
-    {
-        _logger = _logger    
-        _db = db;    
-    }
-
-    <span style="color:#66d9ef">public</span> Task&lt;User&gt; GetProfile(<span style="color:#66d9ef">string</span> username) 
-    {
-        ...
-        _logger.Info(<span style="color:#e6db74">$&#34;Found profie for {username}&#34;</span>)
-        <span style="color:#66d9ef">return</span> user;
-    }    
-}
-</code></pre></div><p>Here are the benefits of principles:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>() 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Username {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>;}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Fullname {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>;}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger _logger;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IDbContext _db;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> User()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _logger = <span style="color:#66d9ef">new</span> Logger() 
+</span></span><span style="display:flex;"><span>        _db = <span style="color:#66d9ef">new</span> UserContext();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Task&lt;User&gt; GetProfile(<span style="color:#66d9ef">string</span> username) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>        _logger.Info(<span style="color:#e6db74">$&#34;Found profie for {username}&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>    }    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>You could say that the above includes both a model responsibility and a service responsibility.  These should be split into two separate .NET types, as in this example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>() 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Username {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>;}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Fullname {<span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>;}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> User(<span style="color:#66d9ef">string</span> username, <span style="color:#66d9ef">string</span> Fullname) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }    
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserService</span>() 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger _logger;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> UserService(ILogger _logger, IDbContext db)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _logger = _logger    
+</span></span><span style="display:flex;"><span>        _db = db;    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Task&lt;User&gt; GetProfile(<span style="color:#66d9ef">string</span> username) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>        _logger.Info(<span style="color:#e6db74">$&#34;Found profie for {username}&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> user;
+</span></span><span style="display:flex;"><span>    }    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here are the benefits of principles:</p>
 <ul>
 <li>Reduces complexity in your code</li>
 <li>Increases readability, extensibility, and maintenance of your code</li>
@@ -662,135 +673,135 @@ Next!
 <h5 id="closed-modification">Closed modification:</h5>
 <p>This is very easy to explain&hellip;only make modifications to code if there&rsquo;s a bug.</p>
 <p>This sample looks at delegating method logic to derived classes.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> 
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> GetOrderDiscount(<span style="color:#66d9ef">double</span> price, ProductType productType) 
-    {
-        <span style="color:#66d9ef">double</span> newPrice = <span style="color:#ae81ff">0</span>;
-        <span style="color:#66d9ef">if</span> (productType == ProductType.Food) 
-        {
-            newPrice = price - <span style="color:#ae81ff">0.1</span>;
-        } 
-        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (productType == ProductType.Hardware) 
-        {
-            newPrice = price - <span style="color:#ae81ff">0.5</span>;
-        }
-        <span style="color:#66d9ef">return</span> newPrice;
-    }
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> ProductType 
-{
-    Food,
-    Hardward
-}
-</code></pre></div><p>Can rewrite, still using base implementation (think <strong>decorator pattern</strong>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> 
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">double</span> GetOrderDiscount(<span style="color:#66d9ef">double</span> price) 
-    {
-        <span style="color:#66d9ef">return</span> price;
-    }
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FoodOrder</span> : Order 
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">double</span> GetOrderDiscount(<span style="color:#66d9ef">double</span> price) 
-    {
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">base</span>.GetOrderDiscount(price) - <span style="color:#ae81ff">0.1</span>;
-    }
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HardwareOrder</span> : Order 
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">double</span> GetOrderDiscount(<span style="color:#66d9ef">double</span> price) 
-    {
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">base</span>.GetOrderDiscount(price) - <span style="color:#ae81ff">0.5</span>;
-    }
-}
-</code></pre></div><h4 id="liskov-principle"><a href="">Liskov Principle</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> GetOrderDiscount(<span style="color:#66d9ef">double</span> price, ProductType productType) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">double</span> newPrice = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (productType == ProductType.Food) 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            newPrice = price - <span style="color:#ae81ff">0.1</span>;
+</span></span><span style="display:flex;"><span>        } 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (productType == ProductType.Hardware) 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            newPrice = price - <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> newPrice;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> ProductType 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Food,
+</span></span><span style="display:flex;"><span>    Hardward
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Can rewrite, still using base implementation (think <strong>decorator pattern</strong>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">double</span> GetOrderDiscount(<span style="color:#66d9ef">double</span> price) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> price;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FoodOrder</span> : Order 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">double</span> GetOrderDiscount(<span style="color:#66d9ef">double</span> price) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">base</span>.GetOrderDiscount(price) - <span style="color:#ae81ff">0.1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HardwareOrder</span> : Order 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">double</span> GetOrderDiscount(<span style="color:#66d9ef">double</span> price) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">base</span>.GetOrderDiscount(price) - <span style="color:#ae81ff">0.5</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="liskov-principle"><a href="">Liskov Principle</a></h4>
 <p>Definition: &ldquo;<em>Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.</em>&rdquo; &hellip; clear as mud right?</p>
 <p>All this is stating is that every subclass/derived class should be substitutable for their base/parent class.</p>
 <p>The example below demonstrates a violation of the <strong>Liskov principle</strong>, as by replacing the parent class (SumEvenNumbersOnly-&gt;Calculator), this does compromise the integrity of the <strong>derived class</strong> as the <strong>higher-order class</strong> is not replaced by the <strong>derived class</strong>.  Here, both <code>cal</code> and <code>eventsOnly</code> variables will be the same:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">...
-<span style="color:#66d9ef">var</span> nums = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[] {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>};
-Calculator cal = <span style="color:#66d9ef">new</span> Calculator(nums);
-Calculator evensOnly = <span style="color:#66d9ef">new</span> SumEvenNumbersOnly(nums);
-...
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span>
-{
-    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">int</span>[] _numbers;
-
-    <span style="color:#66d9ef">public</span> Calculator(<span style="color:#66d9ef">int</span>[] numbers)
-    {
-        _numbers = numbers;
-    }
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Sum() =&gt; _numbers.Sum();
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SumEvenNumbersOnly</span> : Calculator
-{
-    <span style="color:#66d9ef">public</span> SumEvenNumbersOnly(<span style="color:#66d9ef">int</span>[] numbers) : <span style="color:#66d9ef">base</span>(numbers)
-    {
-    }
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>  Sum() =&gt; _numbers.Where(x=&gt;x % <span style="color:#ae81ff">2</span> == <span style="color:#ae81ff">0</span>).Sum();
-}
-</code></pre></div><p>Here we have changed the assumed base class to an <strong>abstract class</strong>. Now, it can&rsquo;t be instantiated and instead, must be inherited.  This ensures the <strong>derived classes</strong> must implement the method detail. So, even if we replace the type declaration with the <strong>higher-order</strong> class, we should still get the intended result:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">...
-<span style="color:#66d9ef">var</span> nums = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[] {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>};
-Calculator cal = <span style="color:#66d9ef">new</span> SumAllNumbersOnly(nums);
-Calculator evensOnly = <span style="color:#66d9ef">new</span> SumEvenNumbersOnly(nums);
-... 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span>
-{
-    <span style="color:#66d9ef">protected</span> IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; _num;
-
-    <span style="color:#66d9ef">protected</span> Calculator(IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; num)
-    {
-        _num = num;
-    }
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">int</span> Sum();
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SumAllNumbersOnly</span> : Calculator
-{
-    <span style="color:#66d9ef">public</span> SumAllNumbersOnly(IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; num) : <span style="color:#66d9ef">base</span>(num)
-    {
-    }
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">int</span> Sum() =&gt; _num.Sum();
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SumEvenNumbersOnly</span> : Calculator
-{
-    <span style="color:#66d9ef">public</span> SumEvenNumbersOnly(IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; num) : <span style="color:#66d9ef">base</span>(num)
-    {
-    }
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">int</span> Sum() =&gt; _num.Where(x =&gt; x % <span style="color:#ae81ff">2</span> == <span style="color:#ae81ff">0</span>).Sum();
-}
-</code></pre></div><h4 id="interface-segregation-principle"><a href="">Interface Segregation Principle</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> nums = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[] {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>};
+</span></span><span style="display:flex;"><span>Calculator cal = <span style="color:#66d9ef">new</span> Calculator(nums);
+</span></span><span style="display:flex;"><span>Calculator evensOnly = <span style="color:#66d9ef">new</span> SumEvenNumbersOnly(nums);
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">int</span>[] _numbers;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Calculator(<span style="color:#66d9ef">int</span>[] numbers)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _numbers = numbers;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Sum() =&gt; _numbers.Sum();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SumEvenNumbersOnly</span> : Calculator
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> SumEvenNumbersOnly(<span style="color:#66d9ef">int</span>[] numbers) : <span style="color:#66d9ef">base</span>(numbers)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>  Sum() =&gt; _numbers.Where(x=&gt;x % <span style="color:#ae81ff">2</span> == <span style="color:#ae81ff">0</span>).Sum();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Here we have changed the assumed base class to an <strong>abstract class</strong>. Now, it can&rsquo;t be instantiated and instead, must be inherited.  This ensures the <strong>derived classes</strong> must implement the method detail. So, even if we replace the type declaration with the <strong>higher-order</strong> class, we should still get the intended result:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> nums = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[] {<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>};
+</span></span><span style="display:flex;"><span>Calculator cal = <span style="color:#66d9ef">new</span> SumAllNumbersOnly(nums);
+</span></span><span style="display:flex;"><span>Calculator evensOnly = <span style="color:#66d9ef">new</span> SumEvenNumbersOnly(nums);
+</span></span><span style="display:flex;"><span>... 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculator</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; _num;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> Calculator(IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; num)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _num = num;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">int</span> Sum();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SumAllNumbersOnly</span> : Calculator
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> SumAllNumbersOnly(IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; num) : <span style="color:#66d9ef">base</span>(num)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">int</span> Sum() =&gt; _num.Sum();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SumEvenNumbersOnly</span> : Calculator
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> SumEvenNumbersOnly(IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; num) : <span style="color:#66d9ef">base</span>(num)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">int</span> Sum() =&gt; _num.Where(x =&gt; x % <span style="color:#ae81ff">2</span> == <span style="color:#ae81ff">0</span>).Sum();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="interface-segregation-principle"><a href="">Interface Segregation Principle</a></h4>
 <p>A client should never be forced to implement an interface that it doesn&rsquo;t use or clients shouldn&rsquo;t be forced to depend on methods they do not use.</p>
 <p>Take the following interface:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IAllTheThings 
-{
-    Task&lt;IAsyncEnumerable&lt;Claim&gt;&gt; GetClaims(<span style="color:#66d9ef">string</span> username);
-    Task&lt;IAsyncEnumerable&lt;User&gt;&gt; GetUsers(<span style="color:#66d9ef">string</span> team);
-    Task&lt;User&gt; AddUsers(User user);
-}
-</code></pre></div><p>There&rsquo;s a clear distinction in responsibilities that are being suggested here by the contract name.  Sufficed to say, these should be split across different interfaces:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IUser 
-{    
-    Task&lt;IAsyncEnumerable&lt;User&gt;&gt; GetUsers(<span style="color:#66d9ef">string</span> team);
-    Task&lt;User&gt; AddUsers(User user);
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IClaim
-{
-    Task&lt;IAsyncEnumerable&lt;Claim&gt;&gt; GetClaims(<span style="color:#66d9ef">string</span> username);    
-}
-</code></pre></div><h4 id="dependency-inversion-principle"><a href="">Dependency Inversion Principle</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IAllTheThings</span> 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Task&lt;IAsyncEnumerable&lt;Claim&gt;&gt; GetClaims(<span style="color:#66d9ef">string</span> username);
+</span></span><span style="display:flex;"><span>    Task&lt;IAsyncEnumerable&lt;User&gt;&gt; GetUsers(<span style="color:#66d9ef">string</span> team);
+</span></span><span style="display:flex;"><span>    Task&lt;User&gt; AddUsers(User user);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>There&rsquo;s a clear distinction in responsibilities that are being suggested here by the contract name.  Sufficed to say, these should be split across different interfaces:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IUser</span> 
+</span></span><span style="display:flex;"><span>{    
+</span></span><span style="display:flex;"><span>    Task&lt;IAsyncEnumerable&lt;User&gt;&gt; GetUsers(<span style="color:#66d9ef">string</span> team);
+</span></span><span style="display:flex;"><span>    Task&lt;User&gt; AddUsers(User user);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IClaim</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Task&lt;IAsyncEnumerable&lt;Claim&gt;&gt; GetClaims(<span style="color:#66d9ef">string</span> username);    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="dependency-inversion-principle"><a href="">Dependency Inversion Principle</a></h4>
 <p>There are 2 rules here:</p>
 <ul>
 <li>High-level modules should not depend on lower-level modules. Both should depend on abstractions.</li>
@@ -798,61 +809,59 @@ Calculator evensOnly = <span style="color:#66d9ef">new</span> SumEvenNumbersOnly
 </ul>
 <p>Let&rsquo;s deal with the first rule first.  High-level means policy, business logic and the bigger picture.  Lower-level means, closer to the bare metal (think <strong>I/O</strong>, <strong>networking</strong>, <strong>Db</strong>, <strong>storage</strong>, <strong>UI</strong>, etc&hellip;).  Lower-level tend to change more frequently too.</p>
 <p>These two examples show perfectly the before and after of the move to a &lsquo;depend on abstraction&rsquo;:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BusinessRule</span> 
-{
-    <span style="color:#66d9ef">private</span> DbContext _context;    
-    <span style="color:#66d9ef">public</span> BusinessRule() 
-    {
-        _context = <span style="color:#66d9ef">new</span> DbContext();
-    }
-    <span style="color:#66d9ef">public</span> Rule GetRule(<span style="color:#66d9ef">string</span> ruleName) 
-    {
-        _context.GetRuleByName(ruleName);
-    }
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbContext</span> 
-{     
-    <span style="color:#66d9ef">public</span> DbContext() 
-    {        
-    }
-    <span style="color:#66d9ef">public</span> Rule GetRuleByName(<span style="color:#66d9ef">string</span> name) 
-    {
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Rule(<span style="color:#66d9ef">new</span> {Name = <span style="color:#e6db74">&#34;Allow All The Things&#34;</span>, Allow = <span style="color:#66d9ef">false</span>})
-    }
-}
-
-</code></pre></div><p>After changing to an abstraction:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IDbContext 
-{
-    Rule GetRuleByName(<span style="color:#66d9ef">string</span> name);
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BusinessRule</span> 
-{
-    <span style="color:#66d9ef">private</span> IDbContext _context;    
-    <span style="color:#66d9ef">public</span> BusinessRule(IDbContext context) 
-    {
-        _context = context;
-    }
-    <span style="color:#66d9ef">public</span> Rule GetRule(<span style="color:#66d9ef">string</span> ruleName) 
-    {
-        _context.GetRuleByName(ruleName);
-    }
-}
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbContext</span> : IDbContext
-{     
-    <span style="color:#66d9ef">public</span> DbContext() 
-    {        
-    }
-    <span style="color:#66d9ef">public</span> Rule GetRuleByName(<span style="color:#66d9ef">string</span> name) 
-    {
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Rule(<span style="color:#66d9ef">new</span> {Name = <span style="color:#e6db74">&#34;Allow All The Things&#34;</span>, Allow = <span style="color:#66d9ef">false</span>})
-    }
-}
-
-</code></pre></div><p>With the above change, the DbContext can be any class as long as it inherits from the IDbContext interface and has a method with a signature of Rule GetRuleByName(string name).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BusinessRule</span> 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> DbContext _context;    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> BusinessRule() 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _context = <span style="color:#66d9ef">new</span> DbContext();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Rule GetRule(<span style="color:#66d9ef">string</span> ruleName) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _context.GetRuleByName(ruleName);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbContext</span> 
+</span></span><span style="display:flex;"><span>{     
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DbContext() 
+</span></span><span style="display:flex;"><span>    {        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Rule GetRuleByName(<span style="color:#66d9ef">string</span> name) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Rule(<span style="color:#66d9ef">new</span> {Name = <span style="color:#e6db74">&#34;Allow All The Things&#34;</span>, Allow = <span style="color:#66d9ef">false</span>})
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After changing to an abstraction:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IDbContext</span> 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Rule GetRuleByName(<span style="color:#66d9ef">string</span> name);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BusinessRule</span> 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> IDbContext _context;    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> BusinessRule(IDbContext context) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _context = context;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Rule GetRule(<span style="color:#66d9ef">string</span> ruleName) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _context.GetRuleByName(ruleName);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbContext</span> : IDbContext
+</span></span><span style="display:flex;"><span>{     
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DbContext() 
+</span></span><span style="display:flex;"><span>    {        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Rule GetRuleByName(<span style="color:#66d9ef">string</span> name) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Rule(<span style="color:#66d9ef">new</span> {Name = <span style="color:#e6db74">&#34;Allow All The Things&#34;</span>, Allow = <span style="color:#66d9ef">false</span>})
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>With the above change, the DbContext can be any class as long as it inherits from the IDbContext interface and has a method with a signature of Rule GetRuleByName(string name).</p>
 <p>The above is demonstrative of the 2nd rule; do not depend on the detail. As you can see, in the example above, we&rsquo;re depending on an interface method contract and the actual implementational detail is being dealt with by the Lower-level class.</p>
 <p>The above example includes <strong>Dependency Injection</strong>.  Although you can accomplish <strong>IoC</strong> with <strong>DI</strong>, they are not the same thing.  <strong>IoC</strong> does not mention anything about the direction of the dependency.</p>
 <h5 id="generalization-restrictions">Generalization restrictions</h5>
@@ -878,62 +887,62 @@ Calculator evensOnly = <span style="color:#66d9ef">new</span> SumEvenNumbersOnly
 <p>In the <strong>.NET</strong> world, there are many <strong>testing frameworks</strong> available; <strong>xUnit</strong>, <strong>NUnit</strong>, <strong>MSTest</strong> to name a few.  There are also many mocking frameworks available; <strong>Moq</strong>, <strong>NSubstitute</strong>, <strong>JustMock</strong>, again, to name a few.  Frameworks like these help make the testing process and overall experience less painful and cumbersome and some might even say it makes this part of development, pleasurable!</p>
 <p>My <strong>.NET Core</strong> testing and mocking preferences are <a href="https://xunit.net/">xUnit</a> &amp; <a href="https://github.com/moq/moq4">Moq</a> and my javascript (including <strong>node.js</strong>) testing framework preference is <a href="https://jestjs.io/">Jest</a>.</p>
 <p>This code sample shows how both a testing and mocking frameworks compliment each other:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> Moq;
-<span style="color:#66d9ef">using</span> Xunit;
-
-<span style="color:#66d9ef">namespace</span> BasicAAATestExample
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IUser
-    {
-        <span style="color:#66d9ef">string</span> GetFullname();
-        <span style="color:#66d9ef">string</span> Firstname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-        <span style="color:#66d9ef">string</span> Lastname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-    }
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> : IUser
-    {
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Firstname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Lastname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetFullname()
-        {
-            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">$&#34;{Firstname} {Lastname}&#34;</span>;
-        }
-    }
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Notify</span>
-    {
-        <span style="color:#66d9ef">private</span> IUser _user;
-
-        <span style="color:#66d9ef">public</span> Notify(IUser user) =&gt; _user = user;
-
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetMessage() =&gt; <span style="color:#e6db74">$&#34;{_user.GetFullname()} has been notified&#34;</span>;
-    }
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotifyTests</span>
-    {
-<span style="color:#a6e22e">        [Theory]</span>
-<span style="color:#a6e22e">        [InlineData(&#34;Garrard&#34;, &#34;Kitchen&#34;, &#34;Garrard Kitchen has been notified&#34;)]</span>
-<span style="color:#a6e22e">        [InlineData(&#34;Charles&#34;, &#34;Kitchen&#34;, &#34;Charles Kitchen has been notified&#34;)]</span>
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> GivenGetMessageIsCalled_WhenFirstAndLastNameExist_ThenReturnsANotificationMessage(<span style="color:#66d9ef">string</span> firstname,
-            <span style="color:#66d9ef">string</span> lastname, <span style="color:#66d9ef">string</span> expected)
-        {
-            <span style="color:#75715e">// arrange
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">var</span> mockUser = <span style="color:#66d9ef">new</span> Mock&lt;IUser&gt;();
-            mockUser.Setup(x =&gt; x.GetFullname()).Returns(<span style="color:#e6db74">$&#34;{firstname} {lastname}&#34;</span>);
-            <span style="color:#66d9ef">var</span> sut = <span style="color:#66d9ef">new</span> Notify(mockUser.Object);
-
-            <span style="color:#75715e">// act
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">string</span> message = sut.GetMessage();
-
-            <span style="color:#75715e">// assert
-</span><span style="color:#75715e"></span>            Assert.Equal(expected, message);
-            mockUser.Verify(x =&gt; x.GetFullname(), Times.Once);
-        }
-    }
-}
-</code></pre></div><p>The single unit test above follows the <strong>AAA</strong> (<strong>Arrange, Act, Assert</strong>) pattern and is a common way of writing <strong>unit tests</strong> for a method under test:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Moq;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Xunit;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> BasicAAATestExample
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IUser</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">string</span> GetFullname();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">string</span> Firstname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">string</span> Lastname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> : IUser
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Firstname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Lastname { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetFullname()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">$&#34;{Firstname} {Lastname}&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Notify</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> IUser _user;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> Notify(IUser user) =&gt; _user = user;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetMessage() =&gt; <span style="color:#e6db74">$&#34;{_user.GetFullname()} has been notified&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotifyTests</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [Theory]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [InlineData(&#34;Garrard&#34;, &#34;Kitchen&#34;, &#34;Garrard Kitchen has been notified&#34;)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [InlineData(&#34;Charles&#34;, &#34;Kitchen&#34;, &#34;Charles Kitchen has been notified&#34;)]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> GivenGetMessageIsCalled_WhenFirstAndLastNameExist_ThenReturnsANotificationMessage(<span style="color:#66d9ef">string</span> firstname,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">string</span> lastname, <span style="color:#66d9ef">string</span> expected)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// arrange</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> mockUser = <span style="color:#66d9ef">new</span> Mock&lt;IUser&gt;();
+</span></span><span style="display:flex;"><span>            mockUser.Setup(x =&gt; x.GetFullname()).Returns(<span style="color:#e6db74">$&#34;{firstname} {lastname}&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> sut = <span style="color:#66d9ef">new</span> Notify(mockUser.Object);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// act</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">string</span> message = sut.GetMessage();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// assert</span>
+</span></span><span style="display:flex;"><span>            Assert.Equal(expected, message);
+</span></span><span style="display:flex;"><span>            mockUser.Verify(x =&gt; x.GetFullname(), Times.Once);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The single unit test above follows the <strong>AAA</strong> (<strong>Arrange, Act, Assert</strong>) pattern and is a common way of writing <strong>unit tests</strong> for a method under test:</p>
 <ul>
 <li>the <code>Arrange</code> section of a unit test method initializes objects and sets the value of the data that is passed to the method under test</li>
 <li>the <code>Act</code> section invokes the method under test with the arranged parameters</li>
@@ -979,7 +988,7 @@ Calculator evensOnly = <span style="color:#66d9ef">new</span> SumEvenNumbersOnly
 <p>After the session has finished I like to perform one final task.  This is to document findings/learnings and areas that require further investigation.  This is normally helped by capturing notes as we go along.</p>
 <p>As a side note to <strong>TDD</strong>, with modern compilers (think Roslyn in the .NET world) and even linting to a certain extent, you know if something will fail - if a reference type (.NET) does not exist yet - as your IDE <em>will be screaming at you</em>, so I don&rsquo;t run tests that are missing these reference types (think classes and interfaces in the .NET world).</p>
 <h3 id="discussion-point"><a href="">Discussion point</a></h3>
-<p>I&rsquo;m sure I&rsquo;m not alone here when I say, having the time available for 2 Engineers to code together for skills transfer etc is a challenging one.  An agile sprint doesn&rsquo;t facilitate this.  This is something that I often refer to as having the &lsquo;space to learn&rsquo;.  The pressures of a sprint often, sadly, works against this.  This is doubly as difficult, if your sprint is made up of technical debt, BAU, Ad-hoc etc&hellip;  Timeboxing &lsquo;effort&rsquo; into percentages doesn&rsquo;t always present an obvious education path for your Engineers either.  Having a day (developer day or similar) dedicated to learning also never really quite works out the way it&rsquo;s meant too, plus, &lsquo;a day&rsquo;?!  In my experience, this, and trying to cram <em>genius</em> into a time box also never quite works either.  After all, you can&rsquo;t schedule <em>genius</em>, in the same way, you can&rsquo;t guarantee that the best Engineers are in your locality, or that the best time for Engineers to work is between 9-5.</p>
+<p>I&rsquo;m sure I&rsquo;m not alone here when I say, having the time available for 2 Engineers to code together for skills transfer etc is a challenging one.  An agile sprint doesn&rsquo;t facilitate this.  This is something that I often refer to as having the &lsquo;space to learn&rsquo;.  The pressures of a sprint often, sadly, works against this.  This is doubly as difficult, if your sprint is made up of technical debt, BAU, Ad-hoc etc&hellip;  Timeboxing &rsquo;effort&rsquo; into percentages doesn&rsquo;t always present an obvious education path for your Engineers either.  Having a day (developer day or similar) dedicated to learning also never really quite works out the way it&rsquo;s meant too, plus, &lsquo;a day&rsquo;?!  In my experience, this, and trying to cram <em>genius</em> into a time box also never quite works either.  After all, you can&rsquo;t schedule <em>genius</em>, in the same way, you can&rsquo;t guarantee that the best Engineers are in your locality, or that the best time for Engineers to work is between 9-5.</p>
 <p><em>What is the answer? A mixture of all the above, at hock and at scheduled times, to ensure quality and advancement of skills.</em></p>
 <p>When I do speak out regarding the above, I inevitably also lead this conversation into Engineering not having the kit [hardware &amp; software] they need.  Engineers require the software and hardware they deem as necessary to be effective in their role.  I once gave an analogy of, not giving Engineers the right kit is like giving a roller brush and a Pogo stick to Michelangelo to paint the Sistine Chapel ceiling.  He&rsquo;ll manage it &hellip; eventually, but the attention to detail and accuracy will be woefully inadequate.</p>
 <hr>

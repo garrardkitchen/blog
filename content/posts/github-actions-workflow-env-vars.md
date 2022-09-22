@@ -1,7 +1,7 @@
 ---
 title: "Github Actions Workflow Env Vars"
 date: 2022-01-08T15:13:52Z
-tags: github actions, linux, windows, syntax, self-hosted runner, environment variables, workflow, cicd
+tags: [github actions, linux, windows, syntax, self-hosted runner, environment variables, workflow, cicd]
 ---
 
 In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure.  Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers.  I say "part of this mission" as another aspect of this migration is to create a new foundation for our platform - AKS.  I hope to cover more on this in later posts.

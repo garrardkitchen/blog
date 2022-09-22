@@ -11,16 +11,17 @@ Take this code for example, you will see that it doesn&rsquo;t fork another proc
 deploy: restart_policy: condition: on-failure If you&rsquo;re using the Cluster API to schedule tasks across your processes, and all forked processes die, then the docker engine will just assume you&rsquo;ve gracefully shutdown.
 Take this code for example, you will see that it doesn&rsquo;t fork another process and therefore, at some point it will no longer process any anything:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/nodejs-container-restart-policy/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/nodejs-container-restart-policy/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-09-21T16:36:35+01:00" />
 <meta property="article:modified_time" content="2020-11-02T12:10:57+00:00" />
+
 <title>Nodejs Container Restart Policy | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -95,6 +96,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -384,7 +395,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -433,7 +444,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;360&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;364&nbsp;words
   
 
   
@@ -458,77 +469,76 @@ https://github.com/alex-shpak/hugo-book
 
 
   <p><p>If by accident to deploy a solution using the <a href="https://nodejs.org/en/">Node.js</a> <a href="https://nodejs.org/dist/latest-v14.x/docs/api/cluster.html">Cluster API</a> and do not fork exited processes then the following <code>docker-compose</code> restart_policy will not help you:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">deploy</span>:
-    <span style="color:#f92672">restart_policy</span>:
-        <span style="color:#f92672">condition</span>: <span style="color:#66d9ef">on</span>-<span style="color:#ae81ff">failure</span>
-</code></pre></div><p>If you&rsquo;re using the Cluster API to schedule tasks across your processes, and all forked processes die, then the docker engine will just assume you&rsquo;ve gracefully shutdown.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart_policy</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#66d9ef">on</span>-<span style="color:#ae81ff">failure</span>
+</span></span></code></pre></div><p>If you&rsquo;re using the Cluster API to schedule tasks across your processes, and all forked processes die, then the docker engine will just assume you&rsquo;ve gracefully shutdown.</p>
 <p>Take this code for example, you will see that it doesn&rsquo;t fork another process and therefore, at some point it will no longer process any anything:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Injectable</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@nestjs/common&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">cluster</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;cluster&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">os</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;os&#39;</span>
-
-<span style="color:#66d9ef">@Injectable</span>()
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClusterService</span> {
-
-    <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">clusterize</span>(<span style="color:#a6e22e">numCPUs</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">void</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
-
-        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">isMaster</span> ) {
-
-            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">procs</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">numCPUs</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">cpus</span>().<span style="color:#a6e22e">length</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">cpus</span>().<span style="color:#a6e22e">length</span> : <span style="color:#66d9ef">numCPUs</span>
-
-            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`GOING TO USE </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">procs</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> PROCESSES`</span>)
-            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`MASTER SERVER (</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">) IS RUNNING `</span>);
-            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`MASTER SERVER (</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">) IS RUNNING `</span>);
-            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`SCHED_NONE: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">SCHED_NONE</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
-            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`SCHED_RR: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">SCHED_RR</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
-            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`CLUSTER SCHEDULING POLICY: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">schedulingPolicy</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
-
-            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">procs</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
-                <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">worker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">fork</span>();
-                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`CREATING PROCESS </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
-            }
-
-            <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;exit&#39;</span>, (<span style="color:#a6e22e">worker</span>, <span style="color:#a6e22e">code</span>, <span style="color:#a6e22e">signal</span>) <span style="color:#f92672">=&gt;</span> {
-                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`worker </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> died </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">signal</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">code</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
-            });
-
-            <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;disconnect&#39;</span>, (<span style="color:#a6e22e">worker</span>) <span style="color:#f92672">=&gt;</span> {
-                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`worker </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> disconnected`</span>);
-            })
-
-        } <span style="color:#66d9ef">else</span> {
-            <span style="color:#a6e22e">callback</span>()
-        }
-    }
-}
-
-</code></pre></div><p>To mitigate this, you simply fork another process within the <code>exit</code> event handler like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;exit&#39;</span>, (<span style="color:#a6e22e">worker</span>, <span style="color:#a6e22e">code</span>, <span style="color:#a6e22e">signal</span>) <span style="color:#f92672">=&gt;</span> {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`worker </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> died </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">signal</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">code</span><span style="color:#e6db74">}</span><span style="color:#e6db74">, restarting...`</span>);
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newWorker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">fork</span>();
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`CREATING PROCESS </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">newWorker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
-});
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Injectable</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@nestjs/common&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">cluster</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;cluster&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">os</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;os&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">@Injectable</span>()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClusterService</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">clusterize</span>(<span style="color:#a6e22e">numCPUs</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">void</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">isMaster</span> ) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">procs</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">numCPUs</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">cpus</span>().<span style="color:#a6e22e">length</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">cpus</span>().<span style="color:#a6e22e">length</span> : <span style="color:#66d9ef">numCPUs</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`GOING TO USE </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">procs</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> PROCESSES`</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`MASTER SERVER (</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">) IS RUNNING `</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`MASTER SERVER (</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">) IS RUNNING `</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`SCHED_NONE: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">SCHED_NONE</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`SCHED_RR: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">SCHED_RR</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`CLUSTER SCHEDULING POLICY: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">schedulingPolicy</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">procs</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">worker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">fork</span>();
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`CREATING PROCESS </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;exit&#39;</span>, (<span style="color:#a6e22e">worker</span>, <span style="color:#a6e22e">code</span>, <span style="color:#a6e22e">signal</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`worker </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> died </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">signal</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">code</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;disconnect&#39;</span>, (<span style="color:#a6e22e">worker</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`worker </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> disconnected`</span>);
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">callback</span>()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To mitigate this, you simply fork another process within the <code>exit</code> event handler like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;exit&#39;</span>, (<span style="color:#a6e22e">worker</span>, <span style="color:#a6e22e">code</span>, <span style="color:#a6e22e">signal</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`worker </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">worker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> died </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">signal</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">code</span><span style="color:#e6db74">}</span><span style="color:#e6db74">, restarting...`</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newWorker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cluster</span>.<span style="color:#a6e22e">fork</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`CREATING PROCESS </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">newWorker</span>.<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">pid</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><hr>
 <p>To avoid the container not restarting due to lack of process availability to deal with demand in the above scenario, you can&rsquo;t use the <code>on-failure</code> condition in the restart_policy.  You must use the &lsquo;any&rsquo; condition.  This section incidentally replaces the old <code>restart</code> sub-option.</p>
 <p><img src="../img/2020-09-21-16-39-00.png" alt="" /></p>
 <hr>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">deploy</span>:
-    <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
-    <span style="color:#f92672">resources</span>:
-        <span style="color:#f92672">limits</span>:
-            <span style="color:#f92672">cpus</span>: <span style="color:#e6db74">&#34;2&#34;</span>
-            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">512M</span>
-    <span style="color:#f92672">update_config</span>:
-        <span style="color:#f92672">order</span>: <span style="color:#ae81ff">start-first</span>
-        <span style="color:#f92672">parallelism</span>: <span style="color:#ae81ff">1</span>
-    <span style="color:#f92672">restart_policy</span>:
-        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">any</span>
-        <span style="color:#f92672">delay</span>: <span style="color:#ae81ff">5s</span>
-        <span style="color:#f92672">window</span>: <span style="color:#ae81ff">120s</span>
-    <span style="color:#f92672">placement</span>:
-        <span style="color:#f92672">constraints</span>:
-        - <span style="color:#ae81ff">node.role == worker</span>
-</code></pre></div><p><strong>Caution</strong>: You can&rsquo;t use <code>max_attempts: 3</code> in combination with <code>condition: any</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">limits</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpus</span>: <span style="color:#e6db74">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">512M</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">update_config</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">order</span>: <span style="color:#ae81ff">start-first</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">parallelism</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart_policy</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">any</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">delay</span>: <span style="color:#ae81ff">5s</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">window</span>: <span style="color:#ae81ff">120s</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">placement</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">constraints</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">node.role == worker</span>
+</span></span></code></pre></div><p><strong>Caution</strong>: You can&rsquo;t use <code>max_attempts: 3</code> in combination with <code>condition: any</code></p>
 <hr>
 <p>Additionally, I found one further interesting facts when looking into this issue.</p>
 <p>If you&rsquo;re using <code>Docker Stack Deploy</code> (think stack in Portainer) using a docker-compose file to deploy to your swarm and you&rsquo;re using <code>restart: always</code>, then beware, the <code>restart</code> is not supported.</p>

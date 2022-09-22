@@ -11,16 +11,17 @@ apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-de
 Take this example:
 apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx foo: baa template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&rsquo;s mention of matchLabels in selector??? What does it all mean?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-15T13:30:42+00:00" />
 <meta property="article:modified_time" content="2022-01-22T19:16:05+00:00" />
+
 <title>K8s Selectors and Labels | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -95,6 +96,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -384,7 +395,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -455,37 +466,45 @@ https://github.com/alex-shpak/hugo-book
 
 <div>
   
-  <a href="/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/">kubernetes, k8s, deployment, pod, replicaset, selectors, equality-based, set-based, kubectl</a>
+  <a href="/tags/kubernetes/">kubernetes</a>, 
+  <a href="/tags/k8s/">k8s</a>, 
+  <a href="/tags/deployment/">deployment</a>, 
+  <a href="/tags/pod/">pod</a>, 
+  <a href="/tags/replicaset/">replicaset</a>, 
+  <a href="/tags/selectors/">selectors</a>, 
+  <a href="/tags/equality-based/">equality-based</a>, 
+  <a href="/tags/set-based/">set-based</a>, 
+  <a href="/tags/kubectl/">kubectl</a>
 </div>
 
 
   <p><p>Right, what&rsquo;s the deal with all the labels and metadata in a Deployment manifest?!!!!</p>
 <p>Take this <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">example</a>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">default</span>
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx-deployment</span>
-  <span style="color:#f92672">labels</span>:
-    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">3</span>
-  <span style="color:#f92672">selector</span>:
-    <span style="color:#f92672">matchLabels</span>:
-      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
-      <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
-  <span style="color:#f92672">template</span>:
-    <span style="color:#f92672">metadata</span>:
-      <span style="color:#f92672">labels</span>:
-        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
-        <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
-    <span style="color:#f92672">spec</span>:
-      <span style="color:#f92672">containers</span>:
-      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
-        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:1.14.2</span>
-        <span style="color:#f92672">ports</span>:
-        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
-</code></pre></div><p>Here, we see <code>metadata</code> twice, and also there&rsquo;s mention of <code>matchLabels</code> in <code>selector</code>???  What does it all mean???</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">default</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx-deployment</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:1.14.2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div><p>Here, we see <code>metadata</code> twice, and also there&rsquo;s mention of <code>matchLabels</code> in <code>selector</code>???  What does it all mean???</p>
 <p>Ok, let me explain 👀 &hellip;</p>
 <h1 id="the-first-metadata-reference">The first metadata reference</h1>
 <p>A deployment manifest <em>kind</em> is a manifest that describes the desired state of your application(s).  I say applications here as a POD can contain more than one container (application).  The desired part of this is found in a ReplicaSet <em>kind</em> manifest.  For example, you&rsquo;d use a ReplicaSet if you require to have 2 replicas (instances) of your POD running.  A Deployment manifest is a short-hand way of stipulating this, ergo, saves you having to create 2 separate manifests.  Makes sense?  Good.</p>
@@ -494,53 +513,53 @@ https://github.com/alex-shpak/hugo-book
 </blockquote>
 
 <p>So why is there two mentions of <code>metadata</code>?  Ok, The first reference identifies this Deployment object itself:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">default</span>
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx-deployment</span>
-  <span style="color:#f92672">labels</span>:
-    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
-</code></pre></div><p>So for example, if you want to delete this object, you&rsquo;d issue either of these <strong>kubectl</strong> commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">kubectl delete deployments nginx-deployment -n default</span>
-<span style="color:#ae81ff">OR</span>
-<span style="color:#ae81ff">kubectl delete deployments -l app=nginx-deployment -n default</span>
-</code></pre></div><p>The latter delete example above uses an <strong>equality-based</strong> label selector condition.  There&rsquo;s also a <strong>set-based label</strong> selector condition.  You can read about these here ➡ <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">labels and selectors</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">default</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx-deployment</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
+</span></span></code></pre></div><p>So for example, if you want to delete this object, you&rsquo;d issue either of these <strong>kubectl</strong> commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">kubectl delete deployments nginx-deployment -n default</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">OR</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">kubectl delete deployments -l app=nginx-deployment -n default</span>
+</span></span></code></pre></div><p>The latter delete example above uses an <strong>equality-based</strong> label selector condition.  There&rsquo;s also a <strong>set-based label</strong> selector condition.  You can read about these here ➡ <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">labels and selectors</a></p>
 <h1 id="the-second-metadata-reference">The second metadata reference</h1>
 <p>The second metadata reference is inside the template that is being used to describe the POD to be created AND is separate from the Deployment itself.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">...
-<span style="color:#f92672">template</span>:
-  <span style="color:#f92672">metadata</span>:
-    <span style="color:#f92672">labels</span>:
-      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
-      <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
-  <span style="color:#f92672">spec</span>:
-    <span style="color:#f92672">containers</span>:
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:1.14.2</span>
-    <span style="color:#f92672">ports</span>:
-    - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
-</code></pre></div><p>To demonstrate this, let&rsquo;s run the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#960050;background-color:#1e0010">❯</span> kubectl.exe get pods -l app=nginx -n <span style="color:#66d9ef">default</span> --show-labels
-NAME                                READY   STATUS         RESTARTS   AGE   LABELS
-nginx-deployment-6494589cc9-242v8   1/1     Running        0          3s    app=nginx,foo=baa,pod-template-hash=6494589cc9   
-nginx-deployment-6494589cc9-2fdf5   1/1     Running        0          3s    app=nginx,foo=baa,pod-template-hash=6494589cc9   
-nginx-deployment-6494589cc9-n8vxb   0/1     ErrImagePull   0          3s    app=nginx,foo=baa,pod-template-hash=6494589cc9      
-</code></pre></div><p>If you look at the LABELS column you can see labels that are not found in the Deployment metadata - eg <code>foo=baa</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">nginx:1.14.2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div><p>To demonstrate this, let&rsquo;s run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">❯</span> kubectl.exe get pods -l app=nginx -n <span style="color:#66d9ef">default</span> --show-labels
+</span></span><span style="display:flex;"><span>NAME                                READY   STATUS         RESTARTS   AGE   LABELS
+</span></span><span style="display:flex;"><span>nginx-deployment-6494589cc9-242v8   1/1     Running        0          3s    app=nginx,foo=baa,pod-template-hash=6494589cc9   
+</span></span><span style="display:flex;"><span>nginx-deployment-6494589cc9-2fdf5   1/1     Running        0          3s    app=nginx,foo=baa,pod-template-hash=6494589cc9   
+</span></span><span style="display:flex;"><span>nginx-deployment-6494589cc9-n8vxb   0/1     ErrImagePull   0          3s    app=nginx,foo=baa,pod-template-hash=6494589cc9      
+</span></span></code></pre></div><p>If you look at the LABELS column you can see labels that are not found in the Deployment metadata - eg <code>foo=baa</code>.</p>
 <p>You can also use set-based selector; here&rsquo;s an example that produces the same outcome:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#960050;background-color:#1e0010">❯</span> kubectl.exe get pods -l <span style="color:#e6db74">&#34;app in (nginx)&#34;</span> -n <span style="color:#66d9ef">default</span> --show-labels
-NAME                                READY   STATUS             RESTARTS   AGE     LABELS
-nginx-deployment-6494589cc9-6sn7v   1/1     Running            0          6m10s   app=nginx,foo=baa,pod-template-hash=6494589cc9
-nginx-deployment-6494589cc9-htxpx   0/1     ImagePullBackOff   0          6m10s   app=nginx,foo=baa,pod-template-hash=6494589cc9
-nginx-deployment-6494589cc9-qh8nc   0/1     ErrImagePull       0          6m10s   app=nginx,foo=baa,pod-template-hash=6494589cc9
-</code></pre></div><h1 id="binding-deployment-to-pod">Binding deployment to pod</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">❯</span> kubectl.exe get pods -l <span style="color:#e6db74">&#34;app in (nginx)&#34;</span> -n <span style="color:#66d9ef">default</span> --show-labels
+</span></span><span style="display:flex;"><span>NAME                                READY   STATUS             RESTARTS   AGE     LABELS
+</span></span><span style="display:flex;"><span>nginx-deployment-6494589cc9-6sn7v   1/1     Running            0          6m10s   app=nginx,foo=baa,pod-template-hash=6494589cc9
+</span></span><span style="display:flex;"><span>nginx-deployment-6494589cc9-htxpx   0/1     ImagePullBackOff   0          6m10s   app=nginx,foo=baa,pod-template-hash=6494589cc9
+</span></span><span style="display:flex;"><span>nginx-deployment-6494589cc9-qh8nc   0/1     ErrImagePull       0          6m10s   app=nginx,foo=baa,pod-template-hash=6494589cc9
+</span></span></code></pre></div><h1 id="binding-deployment-to-pod">Binding deployment to pod</h1>
 <p>So, how do we couple the Deployment with the Pod?  Well, this is where the <code>selector</code> comes into play. The <code>selector</code> instructs Kubernetes to match on the <code>app</code> label for those that have a value of <code>nginx</code> and that the <code>foo</code> label that has the value of <code>baa</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">selector</span>:
-    <span style="color:#f92672">matchLabels</span>:
-      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
-      <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
-</code></pre></div><p>I hope this has made sense and has cleared up any confusion you may have had.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foo</span>: <span style="color:#ae81ff">baa</span>
+</span></span></code></pre></div><p>I hope this has made sense and has cleared up any confusion you may have had.</p>
 </p>
 </article>
  

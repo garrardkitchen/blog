@@ -11,16 +11,17 @@ My code examples can be found here (includes both docker compose &amp; Kubernete
 I was a speaker at a meet-up in Manchester in late 2020. I spoke about Dapr, Keda and the NestJS Framework. My talk topic was on &ldquo;Writing less code - let your architecture and abstractions help with your *-cases&rdquo;. The * in the title is a wildcard for use/edge/corner.
 My code examples can be found here (includes both docker compose &amp; Kubernetes manifests) - https://github." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-11-06T09:54:02+00:00" />
 <meta property="article:modified_time" content="2022-01-07T09:19:22+00:00" />
+
 <title>My First Outing With Dapr | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -95,6 +96,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -384,7 +395,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -479,118 +490,117 @@ https://github.com/alex-shpak/hugo-book
 <p>This took a little longer than I&rsquo;d have liked!</p>
 <p>I was using the internal DNS to resolve the port of my redis service.  My Redis single instance was deployed via a deployment manifest, along with a LoadBalancer Service - purely to give me remote access.</p>
 <p>I&rsquo;d first create a secret, by typing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ kubectl create secret generic db-passwords --from-literal=redis-password=&#39;&lt;password&gt;&#39;
-</code></pre></div><p>This is the deployment manifest:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis-svc</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
-  <span style="color:#f92672">labels</span>:
-    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis-svc</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
-  <span style="color:#f92672">ports</span>:
-    - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">6379</span>
-      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">6379</span>
-      <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
-  <span style="color:#f92672">selector</span>:
-    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
----
-<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span> <span style="color:#75715e">#  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">selector</span>:
-    <span style="color:#f92672">matchLabels</span>:
-      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
-  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#f92672">template</span>:
-    <span style="color:#f92672">metadata</span>:
-      <span style="color:#f92672">labels</span>:
-        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
-    <span style="color:#f92672">spec</span>:
-      <span style="color:#f92672">containers</span>:
-        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cache</span>
-          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis</span>
-          <span style="color:#f92672">args</span>: [<span style="color:#e6db74">&#34;redis-server&#34;</span>, <span style="color:#e6db74">&#34;--requirepass&#34;</span>, <span style="color:#ae81ff">$(PASSWORD) ]</span>
-          <span style="color:#f92672">env</span>:
-            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">PASSWORD</span>
-              <span style="color:#f92672">valueFrom</span>:
-                <span style="color:#f92672">secretKeyRef</span>:
-                  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">db-passwords</span>
-                  <span style="color:#f92672">key</span>: <span style="color:#ae81ff">redis-password</span>
-          <span style="color:#f92672">resources</span>:
-            <span style="color:#f92672">requests</span>:
-              <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">100m</span>
-              <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">100Mi</span>
-          <span style="color:#f92672">ports</span>:
-            - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">6379</span>
-
-</code></pre></div><p>This deployed correctly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ kubectl create secret generic db-passwords --from-literal=redis-password=&#39;&lt;password&gt;&#39;
+</span></span></code></pre></div><p>This is the deployment manifest:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis-svc</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis-svc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">6379</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">6379</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span> <span style="color:#75715e">#  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cache</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">args</span>: [<span style="color:#e6db74">&#34;redis-server&#34;</span>, <span style="color:#e6db74">&#34;--requirepass&#34;</span>, <span style="color:#ae81ff">$(PASSWORD) ]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">PASSWORD</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">secretKeyRef</span>:
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">db-passwords</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">key</span>: <span style="color:#ae81ff">redis-password</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">requests</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">100m</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">100Mi</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">6379</span>
+</span></span></code></pre></div><p>This deployed correctly.</p>
 <p>I then deployed my Dapr state store component:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">dapr.io/v1alpha1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Component</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mystore</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">state.redis</span>
-  <span style="color:#f92672">metadata</span>:
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisHost</span>
-      <span style="color:#f92672">value</span>: <span style="color:#ae81ff">redis.meetup-dapr-demo.svc.cluster.local:6379</span>
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisPassword</span>
-      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;********&#34;</span>
-</code></pre></div><p>However, I could not for the life of me give my application access to the state store!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ dapr logs -a http-api -k -n meetup-dapr-demo
-...
-time=&#34;2020-11-06T09:47:02.218770653Z&#34; level=error msg=&#34;process component mystore error, redis store: error connecting to redis at redis.meetup-dapr-demo.svc.cluster.local:6379: dial tcp: lookup redis.meetup-dapr-demo.svc.cluster.local on 10.0.0.10:53: no such host&#34; app_id=http-api instance=http-api-6bc44f8957-q2lvn scope=dapr.runtime type=log ver=0.11.3
-</code></pre></div><p>Having trying every permutation known to <em>non-gender-specific-person-entity</em> I remembered I was kaing it available behind a service.  So, I&rsquo;d been using <code>redis.meetup-dapr-demo.svc.cluster.local:6379</code> when I should have used <code> redis-svc.meetup-dapr-demo.svc.cluster.local:6379</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">dapr.io/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mystore</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">state.redis</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisHost</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#ae81ff">redis.meetup-dapr-demo.svc.cluster.local:6379</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisPassword</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;********&#34;</span>
+</span></span></code></pre></div><p>However, I could not for the life of me give my application access to the state store!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ dapr logs -a http-api -k -n meetup-dapr-demo
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>time=&#34;2020-11-06T09:47:02.218770653Z&#34; level=error msg=&#34;process component mystore error, redis store: error connecting to redis at redis.meetup-dapr-demo.svc.cluster.local:6379: dial tcp: lookup redis.meetup-dapr-demo.svc.cluster.local on 10.0.0.10:53: no such host&#34; app_id=http-api instance=http-api-6bc44f8957-q2lvn scope=dapr.runtime type=log ver=0.11.3
+</span></span></code></pre></div><p>Having trying every permutation known to <em>non-gender-specific-person-entity</em> I remembered I was kaing it available behind a service.  So, I&rsquo;d been using <code>redis.meetup-dapr-demo.svc.cluster.local:6379</code> when I should have used <code> redis-svc.meetup-dapr-demo.svc.cluster.local:6379</code>.</p>
 <p>Once I&rsquo;d corrected my mistake, it connected without error.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">dapr.io/v1alpha1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Component</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mystore</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">state.redis</span>
-  <span style="color:#f92672">metadata</span>:
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisHost</span>
-      <span style="color:#f92672">value</span>: <span style="color:#ae81ff">redis-svc.meetup-dapr-demo.svc.cluster.local:6379</span>
-    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisPassword</span>
-      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;********&#34;</span>
-</code></pre></div><h2 id="challenge-2">Challenge #2</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">dapr.io/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mystore</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">state.redis</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisHost</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#ae81ff">redis-svc.meetup-dapr-demo.svc.cluster.local:6379</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">redisPassword</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;********&#34;</span>
+</span></span></code></pre></div><h2 id="challenge-2">Challenge #2</h2>
 <p>secrets!</p>
 <p>You&rsquo;re application is going to report something similar to this - NOAUTH Authentication required - if you&rsquo;re Dapr is deployed to a different namespace to that of your application:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">time=&#34;2020-11-06T11:19:06.985273661Z&#34; level=error msg=&#34;process component mystore error, redis store: error connecting to redis at redis-svc.meetup-dapr-demo.svc.cluster.local:6379: NOAUTH Authentication required.&#34; app_id=http-api instance=http-api-7d49cf59d5-9blwf scope=dapr.runtime type=log ver=0.11.3
-</code></pre></div><p>To circumvent this, you must create a role and binding this to the default <code>ServiceAccount</code>.  This role <code>secret-reader</code> allows a <code>get</code> of the <code>secrets</code> resource within the <code>meetup-depr-demo</code> namespace.  An example manifest is here:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret-reader</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
-<span style="color:#f92672">rules</span>:
-  - <span style="color:#f92672">apiGroups</span>: [<span style="color:#e6db74">&#34;&#34;</span>]
-    <span style="color:#f92672">resources</span>: [<span style="color:#e6db74">&#34;secrets&#34;</span>]
-    <span style="color:#f92672">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>]
----
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">RoleBinding</span>
-<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dapr-secret-reader</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
-<span style="color:#f92672">subjects</span>:
-  - <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">default</span>
-<span style="color:#f92672">roleRef</span>:
-  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret-reader</span>
-  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
-</code></pre></div><p>Once deployed, you&rsquo;ll see something similar to this in your dapr logs:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">time=&#34;2020-11-06T11:23:20.529658232Z&#34; level=info msg=&#34;component loaded. name: mystore, type: state.redis&#34; app_id=http-api instance=http-api-7d49cf59d5-kszdz scope=dapr.runtime type=log ver=0.11.3
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>time=&#34;2020-11-06T11:19:06.985273661Z&#34; level=error msg=&#34;process component mystore error, redis store: error connecting to redis at redis-svc.meetup-dapr-demo.svc.cluster.local:6379: NOAUTH Authentication required.&#34; app_id=http-api instance=http-api-7d49cf59d5-9blwf scope=dapr.runtime type=log ver=0.11.3
+</span></span></code></pre></div><p>To circumvent this, you must create a role and binding this to the default <code>ServiceAccount</code>.  This role <code>secret-reader</code> allows a <code>get</code> of the <code>secrets</code> resource within the <code>meetup-depr-demo</code> namespace.  An example manifest is here:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret-reader</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">apiGroups</span>: [<span style="color:#e6db74">&#34;&#34;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">resources</span>: [<span style="color:#e6db74">&#34;secrets&#34;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>]
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">RoleBinding</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dapr-secret-reader</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">meetup-dapr-demo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">subjects</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">default</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">roleRef</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">secret-reader</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
+</span></span></code></pre></div><p>Once deployed, you&rsquo;ll see something similar to this in your dapr logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>time=&#34;2020-11-06T11:23:20.529658232Z&#34; level=info msg=&#34;component loaded. name: mystore, type: state.redis&#34; app_id=http-api instance=http-api-7d49cf59d5-kszdz scope=dapr.runtime type=log ver=0.11.3
+</span></span></code></pre></div><hr>
 <blockquote class="book-hint info">
   <p>This post was created some time ago.  Now, we&rsquo;re using the Secrets Store CSI Driver to map Azure KeyVault secrets to containers running in our AKS clusters.</p>
 <p>Ref: <a href="https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver">https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver</a></p>

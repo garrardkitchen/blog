@@ -1,520 +1,476 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/dotnet-stack-and-heap/</loc>
-    <lastmod>2022-02-05T08:48:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2022-02-05T08:48:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/csharp-.net-stack-heap-allocations-gc-boxing/</loc>
-    <lastmod>2022-02-05T08:48:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/</loc>
-    <lastmod>2022-02-05T08:48:27+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/azure-aws-empty-promises-building-relationship-willing-attrition-managed-service/</loc>
-    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/the-grass-is-rarely-greener/</loc>
-    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</loc>
-    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/nodejs-e401-azure-functions-npm-feed-upstream-feed-typpescript/</loc>
-    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/k8s-pdb/</loc>
-    <lastmod>2022-01-22T19:22:55+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/github-self-hosted-runner/</loc>
-    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/github-self-hosted-runner-linux-issue/</loc>
-    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/cloudflare-dns-uri-forwarder-page-rules-zones-domain-hostname/</loc>
-    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/hybrid-origins-http-traffic/</loc>
-    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/</loc>
-    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/kubernetes-k8s-deployment-pod-replicaset-selectors-equality-based-set-based-kubectl/</loc>
-    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/azure-defender-for-cloud/</loc>
-    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/</loc>
-    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/github-actions-npm-nodejs-e401-cert_not_yet_valid-docker-acr-npmrc-GH-Secrets/</loc>
-    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/npm-issues-e401-cert_not_yet_valid/</loc>
-    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/github-actions-workflow-env-vars/</loc>
-    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/github-actions-linux-windows-syntax-self-hosted-runner-environment-variables-workflow-cicd/</loc>
-    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/.net-framework-.net-core-.NET-6.0-.NET-3.1-end-fo-life-support-linux-windows-syntax-self-hosted-runner-cicd-microsoft-fasttrak-code-quality-image-scanning-licensing-cve-nuget-npm/</loc>
-    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/runtimes/</loc>
-    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/docker-linux-github-actions-GHA-Self-Hosted-Runner-dotnet-Azure-Container-Registry-ACR-containers-pods/</loc>
-    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</loc>
-    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/aks/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/dapr/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/keda/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/kubernetes/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/nestjs/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/redis/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/secret-store-csi-driver/</loc>
-    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/best-practice/</loc>
-    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/cm/</loc>
-    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/configmap/</loc>
-    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/how-to-use-kubernetes-configmap/</loc>
-    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/kubectl/</loc>
-    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/kuberetes/</loc>
-    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/secrets/</loc>
-    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/cluster/</loc>
-    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/docker/</loc>
-    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/docker-compose/</loc>
-    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/nodejs/</loc>
-    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/nodejs-container-restart-policy/</loc>
-    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/resilience/</loc>
-    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/apache-ignite/</loc>
-    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/data-grid/</loc>
-    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/gridgain/</loc>
-    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/apache-ignite-running-agent-with-dotnetcore-server-node/</loc>
-    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/ignite/</loc>
-    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/Ignite.NET/</loc>
-    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/terraform/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/terraform-get-values/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/digital-certificate/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/digital-certificates/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/digital-signature/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/encryption/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/hash/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/key-pairs/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/keys/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/openssl/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/signing/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/ssl/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/sso/</loc>
-    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/jest/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/mssql/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/rabbitmq/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/sync/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/taskrouter/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/twilio/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/twilio-sync/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/twilio-taskrouter/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/unit-testing/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/posts/jest-fs-readFileSync/</loc>
-    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/aws/</loc>
-    <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
   <url>
     <loc>http://blog.garrardkitchen.com/tags/azure/</loc>
-    <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/chromedriver/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/docker/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/functionsapp/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/linux/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/nuget/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/runtime-identifier/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/selenium/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/</loc>
+    <lastmod>2022-09-21T20:58:53+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/.net/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/dotnet-stack-and-heap/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/allocations/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/boxing/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/csharp/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/gc/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/heap/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/stack/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/attrition/</loc>
+    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/aws/</loc>
+    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/building-relationship/</loc>
+    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/empty-promises/</loc>
+    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/managed-service/</loc>
+    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/the-grass-is-rarely-greener/</loc>
+    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/willing/</loc>
+    <lastmod>2022-02-02T13:12:43+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/azure-functions/</loc>
+    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/e401/</loc>
+    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/nodejs/</loc>
+    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</loc>
+    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/npm-feed/</loc>
+    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/typescript/</loc>
+    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/upstream-feed/</loc>
+    <lastmod>2022-01-22T19:27:49+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/k8s-pdb/</loc>
+    <lastmod>2022-01-22T19:22:55+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/github-self-hosted-runner/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/github-self-hosted-runner/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/issue/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/cloudflare/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/dns/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/domain/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/hostname/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/hybrid-origins-http-traffic/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/page-rules/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/uri-forwarder/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/zones/</loc>
+    <lastmod>2022-02-05T10:17:58+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/deployment/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/equality-based/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/k8s/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/kubectl/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/kubernetes/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/pod/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/replicaset/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/selectors/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/set-based/</loc>
+    <lastmod>2022-01-22T19:16:05+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/azure-defender-for-cloud/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/cicd/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/cve/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/defender-for-cloud/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/github-actions/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/windows-containers/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/acr/</loc>
+    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/cert_not_yet_valid/</loc>
+    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/GH-Secrets/</loc>
+    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/npm/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/npm-issues-e401-cert_not_yet_valid/</loc>
+    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/npmrc/</loc>
+    <lastmod>2022-01-12T09:13:28+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/environment-variables/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/github-actions-workflow-env-vars/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/self-hosted-runner/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/syntax/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/windows/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/workflow/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/.NET-3.1/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/.NET-6.0/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/.net-core/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/.net-framework/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/code-quality/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/end-fo-life-support/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/image-scanning/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/licensing/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/microsoft-fasttrak/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/runtimes/</loc>
+    <lastmod>2022-01-15T17:16:41+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/Azure-Container-Registry/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/containers/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/dotnet/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/GHA/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/pods/</loc>
+    <lastmod>2022-01-09T11:36:20+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/aks/</loc>
+    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/dapr/</loc>
+    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/keda/</loc>
+    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/my-first-outing-with-dapr/</loc>
+    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/nestjs/</loc>
+    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/redis/</loc>
+    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/secret-store-csi-driver/</loc>
+    <lastmod>2022-01-07T09:19:22+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/best-practice/</loc>
+    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/cm/</loc>
+    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/configmap/</loc>
+    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/how-to-use-kubernetes-configmap/</loc>
+    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/kuberetes/</loc>
+    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/secrets/</loc>
+    <lastmod>2020-11-03T11:00:39+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/cluster/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/docker-compose/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/nodejs-container-restart-policy/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/resilience/</loc>
+    <lastmod>2020-11-02T12:10:57+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/apache-ignite/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/data-grid/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/gridgain/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/apache-ignite-running-agent-with-dotnetcore-server-node/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/ignite/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/Ignite.NET/</loc>
+    <lastmod>2020-07-28T17:10:39+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/terraform/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/terraform-get-values/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/digital-certificate/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/digital-certificates/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/digital-signature/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/encryption/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/hash/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/key-pairs/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/keys/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/openssl/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/signing/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/ssl/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/sso/</loc>
+    <lastmod>2020-07-28T16:58:34+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/jest/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/mssql/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/rabbitmq/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/sync/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/taskrouter/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/twilio/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/twilio-sync/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/twilio-taskrouter/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/unit-testing/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/jest-fs-readFileSync/</loc>
+    <lastmod>2020-05-28T10:26:06+01:00</lastmod>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/blogging/</loc>
     <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/containers/</loc>
-    <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/gcp/</loc>
     <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/posts/kubernetes-on-windows/</loc>
     <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/pods/</loc>
-    <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/services/</loc>
     <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/setup/</loc>
     <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/windows/</loc>
-    <lastmod>2020-04-28T20:06:09+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/arrow-functions/</loc>
     <lastmod>2020-11-02T15:26:41+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/babel/</loc>
     <lastmod>2020-11-02T15:26:41+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/class/</loc>
     <lastmod>2020-11-02T15:26:41+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/decorator/</loc>
     <lastmod>2020-11-02T15:26:41+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/destructuring/</loc>
     <lastmod>2020-11-02T15:26:41+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/javascript/</loc>
     <lastmod>2020-11-02T15:26:41+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/posts/modern-javascript/</loc>
     <lastmod>2020-11-02T15:26:41+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.garrardkitchen.com/tags/typescript/</loc>
-    <lastmod>2020-11-02T15:26:41+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/Heisenberg-Effect/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/posts/mentoring/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/Hugo/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/mentoring/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/The-Managers-Path/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/good-engineering/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/posts/principles/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/tags/principles/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/posts/</loc>
     <lastmod>2020-03-31T07:51:38+01:00</lastmod>
     <priority>0.9</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://blog.garrardkitchen.com/categories/</loc>
   </url>
-  
 </urlset>

@@ -2,7 +2,7 @@
 title: "Dotnet Setup From Command Line"
 date: 2022-01-18T17:06:51Z
 draft: true
-tags: dotnet, .NET, xunit, fluentvalidation, unit test, failures, sut
+tags: [dotnet, .NET, xunit, fluentvalidation, unit test, failures, sut]
 ---
 
 # Creating .NET Core app using dotnet cli outside of any IDE/Editor.

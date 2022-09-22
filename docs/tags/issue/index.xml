@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>issue on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/issue/</link>
+    <description>Recent content in issue on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 18 Jan 2022 11:50:13 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/issue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding more Github Self-Hosted Runners</title>
+      <link>http://blog.garrardkitchen.com/posts/github-self-hosted-runner/</link>
+      <pubDate>Tue, 18 Jan 2022 11:50:13 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/github-self-hosted-runner/</guid>
+      <description>Adding more GitHub Self-Hosted Runners To help build out our numbers of GitHub Self-Hosted Runner, we took a shortcut and had cloned an existing Linux VM.
+Unfortunately, the by-product of doing this resulted in (a) the clonee (source) Linux VM had their Self-Hosted hijacked by the new VM and (b) we had a Runner registered in GitHub that didn&amp;rsquo;t actually have a running runner - Offline 🤪.
+Madness!
+Ok, so what to do?</description>
+    </item>
+    
+  </channel>
+</rss>

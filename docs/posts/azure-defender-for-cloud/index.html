@@ -7,16 +7,17 @@
 <meta name="description" content="Defender for Cloud Containers Setting up Defender for Cloud Containers to work with your CICD pipeline is quick and uncomplicated. I do not walk through these set up steps in this post. For that, you can follow those few steps here in this Microsoft post instead ➡ Setup. The goal of this post is to highlight a few areas of interest and to share my opinions on this feature. I have understandably obfuscated sensitive information."><meta property="og:title" content="Azure Defender for Cloud" />
 <meta property="og:description" content="Defender for Cloud Containers Setting up Defender for Cloud Containers to work with your CICD pipeline is quick and uncomplicated. I do not walk through these set up steps in this post. For that, you can follow those few steps here in this Microsoft post instead ➡ Setup. The goal of this post is to highlight a few areas of interest and to share my opinions on this feature. I have understandably obfuscated sensitive information." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/azure-defender-for-cloud/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/azure-defender-for-cloud/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-15T11:57:20+00:00" />
 <meta property="article:modified_time" content="2022-01-15T17:16:41+00:00" />
+
 <title>Azure Defender for Cloud | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -91,6 +92,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -380,7 +391,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -442,7 +453,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;615&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;617&nbsp;words
   
 
   
@@ -458,7 +469,12 @@ https://github.com/alex-shpak/hugo-book
 
 <div>
   
-  <a href="/tags/azure-defender-for-cloud-cicd-cve-github-actions-windows-containers/">azure, defender for cloud, cicd, cve, github actions, windows containers</a>
+  <a href="/tags/azure/">azure</a>, 
+  <a href="/tags/defender-for-cloud/">defender for cloud</a>, 
+  <a href="/tags/cicd/">cicd</a>, 
+  <a href="/tags/cve/">cve</a>, 
+  <a href="/tags/github-actions/">github actions</a>, 
+  <a href="/tags/windows-containers/">windows containers</a>
 </div>
 
 
@@ -480,42 +496,42 @@ https://github.com/alex-shpak/hugo-book
 <p>It takes very little time to configure image scanning and to secure your container images.  In my current role as Head of Cloud Platform at Carfinance 247 I am spear heading the migration effort to move our entire workload real estate from on-premise to Azure.  As part of this mission, we&rsquo;re using GH Actions for our CICD pipelines.  Azure Defender of Cloud Containers compliments GH Actions and I personally have found it a very painless exercise <sup>1</sup>.  It takes little more time than it does to actually read their instructions to configure, run and see the scan summary and remediation advice.</p>
 <p>With regards to configuring Azure Defender for Cloud, all it takes a few mouse clicks and you&rsquo;re done.  During this process, you will be required to copy 2 values it makes available to you that will need to be added as GitHub secrets.</p>
 <p>The final step is to insert 2 GH Actions into your GHA Workflow.  You may need to seperate your build and push steps as per their instructions.  Below is a snippet from one of our deploy GH Actions Workflows that shows how we&rsquo;ve incorporated these GH Actions:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">...
-- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">BUILD IMAGE</span>
-  <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span><span style="color:#e6db74">    cd ${{ env.ROOT_DIR }}   
-</span><span style="color:#e6db74">    
-</span><span style="color:#e6db74">    docker build -t ${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }} -f ${{ env.ROOT_DIR }}/${{ env.APP_DOCKERFILE }} .
-</span><span style="color:#e6db74">    errorCode=$?
-</span><span style="color:#e6db74">    if [ $errorCode -ne 0 ]; then
-</span><span style="color:#e6db74">      echo &#34;Could not build to ACR, error occured with docker build&#34;
-</span><span style="color:#e6db74">      exit 1
-</span><span style="color:#e6db74">    fi
-</span><span style="color:#e6db74">    </span>    
-- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">SCAN FOR VULNERABILITIES</span>
-  <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">Azure/container-scan@v0         </span>
-  <span style="color:#f92672">id</span>: <span style="color:#ae81ff">container-scan</span>
-  <span style="color:#f92672">continue-on-error</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#f92672">with</span>:
-    <span style="color:#f92672">image-name</span>: <span style="color:#ae81ff">${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }}</span>
-
-- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">PUSH TO ACR</span>
-  <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span><span style="color:#e6db74">    docker push ${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }}
-</span><span style="color:#e6db74">    errorCode=$?
-</span><span style="color:#e6db74">    if [ $errorCode -ne 0 ]; then
-</span><span style="color:#e6db74">      echo &#34;Could not build to ACR, error occured with docker build&#34;
-</span><span style="color:#e6db74">      exit 1
-</span><span style="color:#e6db74">    fi</span>    
-
-- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">POST LOGS TO APPINSIGHTS</span>
-  <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">Azure/publish-security-assessments@v0</span>
-  <span style="color:#f92672">with</span>: 
-    <span style="color:#f92672">scan-results-path</span>: <span style="color:#ae81ff">${{ steps.container-scan.outputs.scan-report-path }}</span>
-    <span style="color:#f92672">connection-string</span>: <span style="color:#ae81ff">${{ secrets.AZ_APPINSIGHTS_CONNECTION_STRING }}</span>
-    <span style="color:#f92672">subscription-token</span>: <span style="color:#ae81ff">${{ secrets.AZ_SUBSCRIPTION_TOKEN }}</span>
-...
-</code></pre></div><p><em>👆 We are not using (AZ_APPINSIGHTS_CONNECTION_STRING, AZ_SUBSCRIPTION_TOKEN) secrets names</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">BUILD IMAGE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    cd ${{ env.ROOT_DIR }}   
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    docker build -t ${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }} -f ${{ env.ROOT_DIR }}/${{ env.APP_DOCKERFILE }} .
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    errorCode=$?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    if [ $errorCode -ne 0 ]; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      echo &#34;Could not build to ACR, error occured with docker build&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      exit 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    fi
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    </span>    
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">SCAN FOR VULNERABILITIES</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">Azure/container-scan@v0         </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">id</span>: <span style="color:#ae81ff">container-scan</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">continue-on-error</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image-name</span>: <span style="color:#ae81ff">${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">PUSH TO ACR</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    docker push ${{ env.ACR_NAME }}/${{ env.APP_DOCKERIMAGE }}:${{ env.TAG }}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    errorCode=$?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    if [ $errorCode -ne 0 ]; then
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      echo &#34;Could not build to ACR, error occured with docker build&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      exit 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    fi</span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">POST LOGS TO APPINSIGHTS</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">Azure/publish-security-assessments@v0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">with</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">scan-results-path</span>: <span style="color:#ae81ff">${{ steps.container-scan.outputs.scan-report-path }}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">connection-string</span>: <span style="color:#ae81ff">${{ secrets.AZ_APPINSIGHTS_CONNECTION_STRING }}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">subscription-token</span>: <span style="color:#ae81ff">${{ secrets.AZ_SUBSCRIPTION_TOKEN }}</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p><em>👆 We are not using (AZ_APPINSIGHTS_CONNECTION_STRING, AZ_SUBSCRIPTION_TOKEN) secrets names</em></p>
 <h1 id="results">Results</h1>
 <p>There are 2 places where you can view the Commons Vulnerabilities and Exposures.  These locations are wihtin GH Actions and the Defender for Cloud Blade in the Azure portal.</p>
 <h2 id="gh-action-job">GH Action Job</h2>

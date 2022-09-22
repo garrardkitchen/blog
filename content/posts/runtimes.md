@@ -1,7 +1,7 @@
 ---
 title: "Runtimes"
 date: 2022-01-08T11:09:12Z
-tags: .net framework, .net core, .NET 6.0, .NET 3.1, end-fo-life support, linux, windows, syntax, self-hosted runner, cicd, microsoft fasttrak, code quality, image scanning, licensing, cve, nuget, npm
+tags: [.net framework, .net core, .NET 6.0, .NET 3.1, end-fo-life support, linux, windows, syntax, self-hosted runner, cicd, microsoft fasttrak, code quality, image scanning, licensing, cve, nuget, npm]
 ---
 
 In my current role as Head of Cloud Platform, I am leading the technical effort of migrating our entire on-premise real-estate to Azure.  Part of this mission, is to upgrade the runtimes of our applications, regardless of their current placement; IIS Web apps, Windows Services and Docker Swarm containers.  I say "part of this mission" as another aspect of this migration is to create a new foundation for our platform - AKS.  I hope to cover more on this in later posts.

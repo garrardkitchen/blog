@@ -2,7 +2,7 @@
 title: "Hybrid Origins Http Traffic"
 date: 2022-01-15T17:25:37Z
 draft: false
-tags: cloudflare, dns, uri forwarder, page rules, zones, domain, hostname
+tags: [cloudflare, dns, uri forwarder, page rules, zones, domain, hostname]
 ---
 
 We're migrating our on-premise workloads to Azure.  This has presented several challenges.  One of which is what I am covering specifically here in this post and that is ...

@@ -2,6 +2,7 @@
 title: "How to Create React App"
 date: 2020-04-17T09:13:19+01:00
 draft: true
+tags: [react, nodejs]
 ---
 
 # Why this blog?

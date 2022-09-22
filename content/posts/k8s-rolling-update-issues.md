@@ -2,6 +2,7 @@
 title: "K8s Rolling Update Issues"
 date: 2022-01-11T15:11:39Z
 draft: true
+tags: [kubernetes, k8s, rolling update, issue]
 ---
 
 windows blaa ...

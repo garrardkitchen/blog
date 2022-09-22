@@ -11,16 +11,17 @@ provider &#34;azurerm&#34; { version = &#34;=2."><meta property="og:title" conte
 Attempt 1 Here ins my first attempt, I load all permutations into map variables. I use an environment variable as an indexer to the appropriate map value:
 provider &#34;azurerm&#34; { version = &#34;=2." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://blog.garrardkitchen.com/posts/terraform-get-values/" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/terraform-get-values/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-07-23T13:42:59+01:00" />
 <meta property="article:modified_time" content="2020-07-28T16:58:34+01:00" />
+
 <title>Terraform Get Values | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css" integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA&#43;eA0kDHPqIYF&#43;1eU=">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f325cac4e68e5491ad2d2ed5b2666d93416f07328f6d657d660c1c4c95720980.js" integrity="sha256-8yXKxOaOVJGtLS7VsmZtk0FvBzKPbWV9ZgwcTJVyCYA="></script>
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -95,6 +96,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -384,7 +395,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -446,7 +457,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;322&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;323&nbsp;words
   
 
   
@@ -469,62 +480,62 @@ https://github.com/alex-shpak/hugo-book
   <p><p>With not wanting to have hard coded values pushed to a project&rsquo;s code repository, and an antiquated way to derive Azure Service Principal credentials, I set about exploring ways on accomplishing this with this in mind using Terraform.</p>
 <h3 id="attempt-1">Attempt 1</h3>
 <p>Here ins my first attempt, I load all permutations into map variables.  I use an environment variable as an indexer to the appropriate map value:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tf" data-lang="tf"><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;azurerm&#34;</span> {  
-  <span style="color:#a6e22e">version</span>         = <span style="color:#e6db74">&#34;=2.17&#34;</span>
-  ...  
-  <span style="color:#a6e22e">subscription_id</span> = var.<span style="color:#a6e22e">azure_subscription_id</span>[var.<span style="color:#a6e22e">environment</span>]     
-  <span style="color:#a6e22e">client_id</span>       = var.<span style="color:#a6e22e">azure_client_id</span>[var.<span style="color:#a6e22e">environment</span>]   
-  ...
-}
-<span style="color:#66d9ef">
-</span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_subscription_id&#34;</span> {
-  <span style="color:#a6e22e">type</span> = map
-  <span style="color:#a6e22e">default</span> = {
-    <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
-    <span style="color:#e6db74">&#34;prod&#34;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
-  }
-}
-<span style="color:#66d9ef">
-</span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_client_id&#34;</span> {
-  <span style="color:#a6e22e">type</span> = map
-  <span style="color:#a6e22e">default</span> = {
-    <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
-    <span style="color:#e6db74">&#34;prod&#34;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
-  }
-}
-...
-</code></pre></div><h3 id="attempt-2">Attempt 2</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tf" data-lang="tf"><span style="display:flex;"><span><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;azurerm&#34;</span> {  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">version</span>         = <span style="color:#e6db74">&#34;=2.17&#34;</span>
+</span></span><span style="display:flex;"><span>  ...  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">subscription_id</span> = var.<span style="color:#a6e22e">azure_subscription_id</span>[var.<span style="color:#a6e22e">environment</span>]     
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">client_id</span>       = var.<span style="color:#a6e22e">azure_client_id</span>[var.<span style="color:#a6e22e">environment</span>]   
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_subscription_id&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span> = map
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">default</span> = {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;prod&#34;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_client_id&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span> = map
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">default</span> = {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;prod&#34;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;********-****-****-****-************&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="attempt-2">Attempt 2</h3>
 <p>This second and more efficient approach, I used <code>jsondecode</code> function to load the entire credentials JSON to access the subscriptionId property:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tf" data-lang="tf"><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;azurerm&#34;</span> {  
-  <span style="color:#a6e22e">version</span>         = <span style="color:#e6db74">&#34;=2.17&#34;</span>
-  ...  
-  <span style="color:#a6e22e">subscription_id</span>   = var.<span style="color:#a6e22e">environment</span> =<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">?</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_dev</span>).<span style="color:#a6e22e">subscriptionId</span> <span style="color:#f92672">:</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_prod</span>).<span style="color:#a6e22e">subscriptionId</span>
-  <span style="color:#a6e22e">client_id</span>   = var.<span style="color:#a6e22e">environment</span> =<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">?</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_dev</span>).<span style="color:#a6e22e">clientId</span> <span style="color:#f92672">:</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_prod</span>).<span style="color:#a6e22e">clientId</span>
-  ...
-}
-<span style="color:#66d9ef">
-</span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_sp_dev&#34;</span> {
-  <span style="color:#a6e22e">type</span> = <span style="color:#a6e22e">string</span>
-  <span style="color:#a6e22e">default</span> = <span style="color:#f92672">&lt;&lt;EOT</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">  {
-</span><span style="color:#e6db74">  &#34;clientId&#34;: &#34;********-****-****-****-************&#34;,
-</span><span style="color:#e6db74">  &#34;clientSecret&#34;: &#34;********-****-****-****-************&#34;,
-</span><span style="color:#e6db74">  &#34;subscriptionId&#34;: &#34;********-****-****-****-************&#34;,
-</span><span style="color:#e6db74">  &#34;tenantId&#34;: &#34;********-****-****-****-************&#34;,
-</span><span style="color:#e6db74">  &#34;activeDirectoryEndpointUrl&#34;: &#34;https://login.microsoftonline.com&#34;,
-</span><span style="color:#e6db74">  &#34;resourceManagerEndpointUrl&#34;: &#34;https://management.azure.com/&#34;,
-</span><span style="color:#e6db74">  &#34;activeDirectoryGraphResourceId&#34;: &#34;https://graph.windows.net/&#34;,
-</span><span style="color:#e6db74">  &#34;sqlManagementEndpointUrl&#34;: &#34;https://management.core.windows.net:8443/&#34;,
-</span><span style="color:#e6db74">  &#34;galleryEndpointUrl&#34;: &#34;https://gallery.azure.com/&#34;,
-</span><span style="color:#e6db74">  &#34;managementEndpointUrl&#34;: &#34;https://management.core.windows.net/&#34;
-</span><span style="color:#e6db74">  }
-</span><span style="color:#e6db74">  </span><span style="color:#f92672">EOT</span>
-}
-<span style="color:#66d9ef">
-</span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_sp_prod&#34;</span> {
-  <span style="color:#a6e22e">type</span> = <span style="color:#a6e22e">string</span>
-...
-</code></pre></div><p>Obviously, none of the above deals with not pushing these credentials into the code repository.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tf" data-lang="tf"><span style="display:flex;"><span><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;azurerm&#34;</span> {  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">version</span>         = <span style="color:#e6db74">&#34;=2.17&#34;</span>
+</span></span><span style="display:flex;"><span>  ...  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">subscription_id</span>   = var.<span style="color:#a6e22e">environment</span> =<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">?</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_dev</span>).<span style="color:#a6e22e">subscriptionId</span> <span style="color:#f92672">:</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_prod</span>).<span style="color:#a6e22e">subscriptionId</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">client_id</span>   = var.<span style="color:#a6e22e">environment</span> =<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dev&#34;</span> <span style="color:#f92672">?</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_dev</span>).<span style="color:#a6e22e">clientId</span> <span style="color:#f92672">:</span> jsondecode(var.<span style="color:#a6e22e">azure_sp_prod</span>).<span style="color:#a6e22e">clientId</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_sp_dev&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span> = <span style="color:#a6e22e">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">default</span> = <span style="color:#f92672">&lt;&lt;EOT</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;clientId&#34;: &#34;********-****-****-****-************&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;clientSecret&#34;: &#34;********-****-****-****-************&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;subscriptionId&#34;: &#34;********-****-****-****-************&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;tenantId&#34;: &#34;********-****-****-****-************&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;activeDirectoryEndpointUrl&#34;: &#34;https://login.microsoftonline.com&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;resourceManagerEndpointUrl&#34;: &#34;https://management.azure.com/&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;activeDirectoryGraphResourceId&#34;: &#34;https://graph.windows.net/&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;sqlManagementEndpointUrl&#34;: &#34;https://management.core.windows.net:8443/&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;galleryEndpointUrl&#34;: &#34;https://gallery.azure.com/&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;managementEndpointUrl&#34;: &#34;https://management.core.windows.net/&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  </span><span style="color:#f92672">EOT</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;azure_sp_prod&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span> = <span style="color:#a6e22e">string</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Obviously, none of the above deals with not pushing these credentials into the code repository.</p>
 <p>So, in my opinion, there are 2 options available here.  The first option is to use a GitHub Secret and to inject this secret into a script file.  It could even be passed as a parameter to Terraform (e.g. <code>terrafor apply -var credentials={...}</code> ).  Or, the second option is to obtain this key using the GitHub <code>Azure/get-keyvault-secrets@v1.0</code> Action.  This method will then allow you to obtain the Service Principal credentials from an Azure KeyVault.  This latter approach means that we never need to expose these secrets outside of Azure, which we would have to do if we cut &amp; paste them into a GitHub Secret.</p>
 </p>
 </article>

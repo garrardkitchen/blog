@@ -6,7 +6,22 @@
     <description>Recent content in typescript on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 05 Apr 2020 10:16:22 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 16:54:48 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nodejs Install E401</title>
+      <link>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</link>
+      <pubDate>Sat, 22 Jan 2022 16:54:48 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/nodejs-install-e401/</guid>
+      <description>Today I created a simple nodeJS Azure Functions Applicaiton to start building out a PoC and when I tried to install it&amp;rsquo;s dependencies like so:
+npm install I got this little cherub back instead:
+npm ERR! code E401
+npm ERR! Incorrect or missing password.
+npm ERR! If you were trying to login, change your password, create an
+npm ERR! authentication token or enable two-factor authentication then
+npm ERR! that means you likely typed your password in incorrectly.</description>
+    </item>
+    
     <item>
       <title>Modern-ish Javascript</title>
       <link>http://blog.garrardkitchen.com/posts/modern-javascript/</link>

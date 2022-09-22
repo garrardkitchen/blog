@@ -1,7 +1,7 @@
 ---
 title: "Adding more Github Self-Hosted Runners"
 date: 2022-01-18T11:50:13Z
-tags: github self-hosted runner, linux, issue
+tags: [github self-hosted runner, linux, issue]
 ---
 
 # Adding more GitHub Self-Hosted Runners

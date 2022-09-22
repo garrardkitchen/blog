@@ -2,6 +2,7 @@
 title: "Powershell Tips and Tricks"
 date: 2022-02-11T05:58:03Z
 draft: true
+tags: [powershell, tips, ValidateSet]
 ---
 
 ## Naming convension

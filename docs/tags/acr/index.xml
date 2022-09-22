@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>acr on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/acr/</link>
+    <description>Recent content in acr on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 11 Jan 2022 11:47:54 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/acr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Npm E401 and CERT_NOT_YET_VALID</title>
+      <link>http://blog.garrardkitchen.com/posts/npm-issues-e401-cert_not_yet_valid/</link>
+      <pubDate>Tue, 11 Jan 2022 11:47:54 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/npm-issues-e401-cert_not_yet_valid/</guid>
+      <description>Today a PR Merge resulted in a GHA failure. Sadly, this is not the only CICD pipeline to fail this year! This particular pipeline builds a NodeJS Image, pushes the image to ACR and deploys the service to a production Docker Swarm (on merge to main).
+This was the error:
+[3/7] RUN npm install:
+#7 1.469 npm ERR! code E401
+#7 1.470 npm ERR! Unable to authenticate, need: Bearer authorization_uri=https://login.windows.net/736f9f**-09-49-86**-b******31f407, Basic realm=&amp;ldquo;https://pkgsprodsu3weu.</description>
+    </item>
+    
+    <item>
+      <title>Permission Denied While Trying to Connect to the Docker Daemon Socket</title>
+      <link>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</link>
+      <pubDate>Fri, 07 Jan 2022 08:20:20 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</guid>
+      <description>Out of the blue today, my first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted Linux Runners 😱:
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &amp;ldquo;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&#34;: dial unix /var/run/docker.sock: connect: permission deniedWe have several GitHub Self-Hosted Runners running on Linux and Windows O/S that produce, amongst other artefacts, Linux and Windows images.</description>
+    </item>
+    
+  </channel>
+</rss>

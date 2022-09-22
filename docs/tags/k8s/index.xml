@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>k8s on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/k8s/</link>
+    <description>Recent content in k8s on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 15 Jan 2022 13:30:42 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>K8s Selectors and Labels</title>
+      <link>http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/</link>
+      <pubDate>Sat, 15 Jan 2022 13:30:42 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/k8s-selectors-and-labels/</guid>
+      <description>Right, what&amp;rsquo;s the deal with all the labels and metadata in a Deployment manifest?!!!!
+Take this example:
+apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx foo: baa template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&amp;rsquo;s mention of matchLabels in selector??? What does it all mean?</description>
+    </item>
+    
+  </channel>
+</rss>

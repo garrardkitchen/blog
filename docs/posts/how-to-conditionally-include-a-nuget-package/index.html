@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The context I have implemented a solution that as it&rsquo;s primary objective iterates through a sequence of HTTP Requests and page interactions. With sequencing through these steps regularly it gives the support team the maximum amount of time to react to an outage. This outage can be isolated to this particular service, or can originate from any of it&rsquo;s downstream dependencies.
+To help with the automation of these steps, I&rsquo;m using Selenium and in particular, it&rsquo;s headless browser capability in conjunction with ChromeDriver."><meta property="og:title" content="How to Conditionally Include a Nuget Package" />
+<meta property="og:description" content="The context I have implemented a solution that as it&rsquo;s primary objective iterates through a sequence of HTTP Requests and page interactions. With sequencing through these steps regularly it gives the support team the maximum amount of time to react to an outage. This outage can be isolated to this particular service, or can originate from any of it&rsquo;s downstream dependencies.
+To help with the automation of these steps, I&rsquo;m using Selenium and in particular, it&rsquo;s headless browser capability in conjunction with ChromeDriver." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-21T20:58:53+01:00" />
+<meta property="article:modified_time" content="2022-09-21T20:58:53+01:00" />
+
+<title>How to Conditionally Include a Nuget Package | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="active">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/dotnet-stack-and-heap/" class="">.NET Stack, Heap and Boxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/the-grass-is-rarely-greener/" class="">The Grass Is Rarely Greener</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-install-e401/" class="">Nodejs Install E401</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-pdb/" class="">Kubernetes Pod Disruption Budget and the Helm hasKey Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-self-hosted-runner/" class="">Adding more Github Self-Hosted Runners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/hybrid-origins-http-traffic/" class="">Hybrid Origins Http Traffic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-selectors-and-labels/" class="">K8s Selectors and Labels</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/azure-defender-for-cloud/" class="">Azure Defender for Cloud</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/npm-issues-e401-cert_not_yet_valid/" class="">Npm E401 and CERT_NOT_YET_VALID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="">Runtimes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>How to Conditionally Include a Nuget Package</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-context">The context</a></li>
+    <li><a href="#the-issue">The issue</a></li>
+    <li><a href="#the-solution">The solution</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/">How to Conditionally Include a Nuget Package</a>
+  </h1>
+  <p>
+  
+  <i>September 21, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;648&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/azure/">azure</a>, 
+  <a href="/tags/functionsapp/">functionsapp</a>, 
+  <a href="/tags/selenium/">selenium</a>, 
+  <a href="/tags/chromedriver/">chromedriver</a>, 
+  <a href="/tags/docker/">docker</a>, 
+  <a href="/tags/nuget/">nuget</a>, 
+  <a href="/tags/linux/">linux</a>, 
+  <a href="/tags/runtime-identifier/">runtime identifier</a>
+</div>
+
+
+  <p><h1 id="the-context">The context</h1>
+<p>I have implemented a solution that as it&rsquo;s primary objective iterates through a sequence of HTTP Requests and page interactions. With sequencing through these steps regularly it gives the support team the maximum amount of time to react to an outage.  This outage can be isolated to this particular service, or can originate from any of it&rsquo;s downstream dependencies.</p>
+<p>To help with the automation of these steps, I&rsquo;m using Selenium and in particular, it&rsquo;s headless browser capability in conjunction with  ChromeDriver.  With this combination, I can navigate within a Chrome browser, provide alphanumerical inputs and execute mouse clicks, all by using imperative code.</p>
+<p>I am using serverless technologies to orchestrate it&rsquo;s delivery, and for this solution&rsquo;s resiliency.  The particulars include an Azure FucntionsApp (Linux Container) that hosts the C# .NET 6.0 FunctionsApp, and the ChromeDriver which happens to be an external program (ergo, not managed code). I use the DevOps approach to build the FunctionsApp and associated unit tests, run the unit tests, produce code coverage stats (with min threshold), push the Docker image to ACR, deploy to a slot, assess error rates by calling <strong>az monitor log-analytics query &hellip;</strong> then performing a swap with the production slot post a manual verification step.  These steps are incorporated into separate pipelines within <strong>Azure DevOps</strong>.  There are multiple pipelines, one for infrastructure and one for the application. For the IaC I use the <strong>bicep</strong> DSL.  I&rsquo;m using common pipeline patterns such as variable and jobs templates.  I&rsquo;m also interacting with the az pipelines (azure-devops cli extension) to create/update variable-groups and variables.</p>
+<h1 id="the-issue">The issue</h1>
+<p>During the execution of this FunctionsApp, I have observed warnings reporting a ChromeDriver mismatch with the Chrome browser, in the logs.  This needed to be addressed.</p>
+<p>My Dockerfile installs the latest stable version of Chrome - which happens to be version (major - semantic versioning) 105. However, my local development environment is constrained to using Chrome 104.  To avoid any potential incompatibility issues, as well as to quieten these <em>annoying</em> warnings, I somehow need to implement a solution that requires zero maintenance.</p>
+<h1 id="the-solution">The solution</h1>
+<p>Thanks to Mrs Google, and DDoSing this search engine with of terms such as <em>nuget, conditions, linux</em>, I eventually cobbled together a way to conditionally include package references.  IDK there is a <strong>choose</strong> element within a csproj xml schema.  I do now!</p>
+<p>I felt that the real challenge here was to <strong>include</strong> a package based on the intended operating system of the runtime. In <strong>dotnet</strong> vernacular, this is know as a <strong>Runtime Identifier</strong>. Examples of such are, <em>linux-64, win-64, win-32</em>.  You provide this <strong>Runtime Identifier</strong> by using the -r (runtime) switch.  A full example can be found later in this post.</p>
+<p>Additionally, I felt it was important that the DX would not suffer consequently.  So, I needed someway to set a default.  This default will come into play when a developer runs this FunctionsApp via:</p>
+<ul>
+<li>the <code>dotnet run</code> cli command or</li>
+<li>from within an IDE (Rider, VS) or</li>
+<li>code editor such as VSCode.</li>
+</ul>
+<p>In this example xml snippet, you can see how I&rsquo;ve implemented a default and how I used the <strong>Condition</strong> attribute to include packages based on the <strong>Runtime Identifier</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;Choose&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;When</span> <span style="color:#a6e22e">Condition=</span><span style="color:#e6db74">&#34;$(RuntimeIdentifier) != &#39;&#39;&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;PackageReference</span> <span style="color:#a6e22e">Condition=</span><span style="color:#e6db74">&#34;$(RuntimeIdentifier.StartsWith(&#39;win&#39;))&#34;</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;Selenium.WebDriver.ChromeDriver&#34;</span> <span style="color:#a6e22e">Version=</span><span style="color:#e6db74">&#34;104.0.5112.7900&#34;</span>  <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;PackageReference</span> <span style="color:#a6e22e">Condition=</span><span style="color:#e6db74">&#34;$(RuntimeIdentifier.StartsWith(&#39;linux&#39;))&#34;</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;Selenium.WebDriver.ChromeDriver&#34;</span> <span style="color:#a6e22e">Version=</span><span style="color:#e6db74">&#34;105.0.5195.1900&#34;</span>  <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/When&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;Otherwise&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;PackageReference</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;Selenium.WebDriver.ChromeDriver&#34;</span> <span style="color:#a6e22e">Version=</span><span style="color:#e6db74">&#34;104.0.5112.7900&#34;</span> <span style="color:#f92672">/&gt;</span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/Otherwise&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/Choose&gt;</span>
+</span></span></code></pre></div><p>I specify the <strong>runtime identifier</strong> of <em>linux-64</em> in the Dockerfile when I <em>publish</em> the .NET Core FunctionsApp.  This can be seen in the command snippet below.  This will ensure that the version (major) 105 is included:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dotnet publish -p<span style="color:#960050;background-color:#1e0010">:</span>PublishChromeDriver=true .\my-functionsapp.csproj -c release --self-contained -r linux-x64 --output ./publish
+</span></span></code></pre></div><p>And if you set the verbosity of the output by adding this switch <code>-v d</code> (d<em>etailed</em>) you will have visual confirmation that the appropriate version has been included:</p>
+<p><img src="../img/2022-09-21-13-01-36.png" alt="" /></p>
+<p>And there you have it, an example of how to include a different version of a nuget package.</p>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-context">The context</a></li>
+    <li><a href="#the-issue">The issue</a></li>
+    <li><a href="#the-solution">The solution</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

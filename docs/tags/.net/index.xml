@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>.net on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/.net/</link>
+    <description>Recent content in .net on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 04 Feb 2022 08:38:16 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>.NET Stack, Heap and Boxing</title>
+      <link>http://blog.garrardkitchen.com/posts/dotnet-stack-and-heap/</link>
+      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/dotnet-stack-and-heap/</guid>
+      <description>This week I have been investigating how to reduce memory allocation in a few HTTP APIs. I won&amp;rsquo;t go into any explicit work-related examples here but I will touch on facets relating to this effort.
+Let&amp;rsquo;s start off by looking at Reference Types and Value types and how they get allocated into the Heap. I will also touch on concepts such as boxing and GC pressure.
+Let me start off with some facts:</description>
+    </item>
+    
+  </channel>
+</rss>

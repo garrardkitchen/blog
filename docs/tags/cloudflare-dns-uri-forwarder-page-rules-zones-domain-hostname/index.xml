@@ -14,8 +14,8 @@
       
       <guid>http://blog.garrardkitchen.com/posts/hybrid-origins-http-traffic/</guid>
       <description>We&amp;rsquo;re migrating our on-premise workloads to Azure. This has presented several challenges. One of which is what I am covering specifically here in this post and that is &amp;hellip;
- How to reduce code change effort?
- This isn&amp;rsquo;t about updating runtimes, this is about having workloads spread across different platforms that need to talk to each other (with some HTTP chaining 👀). It is not uncommon for one HTTP API to need to talk to another HTTP API.</description>
+How to reduce code change effort?
+This isn&amp;rsquo;t about updating runtimes, this is about having workloads spread across different platforms that need to talk to each other (with some HTTP chaining 👀). It is not uncommon for one HTTP API to need to talk to another HTTP API.</description>
     </item>
     
   </channel>

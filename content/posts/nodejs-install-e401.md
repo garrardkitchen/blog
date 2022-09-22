@@ -1,7 +1,7 @@
 ---
 title: "Nodejs Install E401"
 date: 2022-01-22T16:54:48Z
-tags: nodejs, e401, azure functions, npm feed, upstream feed, typpescript
+tags: [nodejs, e401, azure functions, npm feed, upstream feed, typescript]
 ---
 
 Today I created a simple nodeJS Azure Functions Applicaiton to start building out a PoC and when I tried to install it's dependencies like so:

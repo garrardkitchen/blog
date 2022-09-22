@@ -1,7 +1,7 @@
 ---
 title: "The Grass Is Rarely Greener"
 date: 2022-01-30T18:27:54Z
-tags: azure, aws, empty promises, building relationship, willing, attrition, managed service
+tags: [azure, aws, empty promises, building relationship, willing, attrition, managed service]
 ---
 
 I recently had a conversation that stirred up some _surpressed_ memories.  The conversation was related to moving to a different cloud vendor.  That journey didn't work out so well for me and the company I was working for at the time.  Sadly, that company stopped trading and I don't think it's that much of a leap to link that journey to the demise of that company.  Hopefully, now the title of this post is starting to make more sense?

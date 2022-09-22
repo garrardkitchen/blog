@@ -2,7 +2,7 @@
 title: ".NET Stack, Heap and Boxing"
 date: 2022-02-04T08:38:16Z
 draft: false
-tags: csharp, .net, stack, heap, allocations, gc, boxing
+tags: [csharp, .net, stack, heap, allocations, gc, boxing]
 ---
 
 This week I have been investigating how to reduce memory allocation in a few HTTP APIs.  I won't go into any explicit work-related examples here but I will touch on facets relating to this effort.  

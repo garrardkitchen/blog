@@ -1,7 +1,7 @@
 ---
 title: "Npm E401 and CERT_NOT_YET_VALID"
 date: 2022-01-11T11:47:54Z
-tags: github actions, npm, nodejs, e401, cert_not_yet_valid, docker, acr, npmrc, GH Secrets
+tags: [github actions, npm, nodejs, e401, cert_not_yet_valid, docker, acr, npmrc, GH Secrets]
 ---
 
 Today a PR Merge resulted in a GHA failure.  Sadly, this is not the only CICD pipeline to fail this year!  This particular pipeline builds a NodeJS Image, pushes the image to ACR and deploys the service to a production Docker Swarm (on merge to main).

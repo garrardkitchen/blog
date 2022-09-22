@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language><atom:link href="http://blog.garrardkitchen.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How to Conditionally Include a Nuget Package</title>
+      <link>http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/</link>
+      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/</guid>
+      <description>The context I have implemented a solution that as it&amp;rsquo;s primary objective iterates through a sequence of HTTP Requests and page interactions. With sequencing through these steps regularly it gives the support team the maximum amount of time to react to an outage. This outage can be isolated to this particular service, or can originate from any of it&amp;rsquo;s downstream dependencies.
+To help with the automation of these steps, I&amp;rsquo;m using Selenium and in particular, it&amp;rsquo;s headless browser capability in conjunction with ChromeDriver.</description>
+    </item>
+    
+    <item>
       <title>.NET Stack, Heap and Boxing</title>
       <link>http://blog.garrardkitchen.com/posts/dotnet-stack-and-heap/</link>
       <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
@@ -70,8 +80,8 @@ Ok, so what to do?</description>
       
       <guid>http://blog.garrardkitchen.com/posts/hybrid-origins-http-traffic/</guid>
       <description>We&amp;rsquo;re migrating our on-premise workloads to Azure. This has presented several challenges. One of which is what I am covering specifically here in this post and that is &amp;hellip;
- How to reduce code change effort?
- This isn&amp;rsquo;t about updating runtimes, this is about having workloads spread across different platforms that need to talk to each other (with some HTTP chaining 👀). It is not uncommon for one HTTP API to need to talk to another HTTP API.</description>
+How to reduce code change effort?
+This isn&amp;rsquo;t about updating runtimes, this is about having workloads spread across different platforms that need to talk to each other (with some HTTP chaining 👀). It is not uncommon for one HTTP API to need to talk to another HTTP API.</description>
     </item>
     
     <item>
@@ -102,9 +112,9 @@ apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-de
       <guid>http://blog.garrardkitchen.com/posts/npm-issues-e401-cert_not_yet_valid/</guid>
       <description>Today a PR Merge resulted in a GHA failure. Sadly, this is not the only CICD pipeline to fail this year! This particular pipeline builds a NodeJS Image, pushes the image to ACR and deploys the service to a production Docker Swarm (on merge to main).
 This was the error:
- [3/7] RUN npm install:
+[3/7] RUN npm install:
 #7 1.469 npm ERR! code E401
-#7 1.470 npm ERR! Unable to authenticate, need: Bearer authorization_uri=https://login.</description>
+#7 1.470 npm ERR! Unable to authenticate, need: Bearer authorization_uri=https://login.windows.net/736f9f**-09-49-86**-b******31f407, Basic realm=&amp;ldquo;https://pkgsprodsu3weu.</description>
     </item>
     
     <item>
@@ -132,7 +142,7 @@ This was the error:
       
       <guid>http://blog.garrardkitchen.com/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</guid>
       <description>Out of the blue today, my first day back after Christmas break, I got this when running a GH Actions Workflow on one of our Self-Hosted Linux Runners 😱:
-Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &amp;ldquo;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&amp;quot;: dial unix /var/run/docker.sock: connect: permission deniedWe have several GitHub Self-Hosted Runners running on Linux and Windows O/S that produce, amongst other artefacts, Linux and Windows images.</description>
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &amp;ldquo;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json&#34;: dial unix /var/run/docker.sock: connect: permission deniedWe have several GitHub Self-Hosted Runners running on Linux and Windows O/S that produce, amongst other artefacts, Linux and Windows images.</description>
     </item>
     
     <item>
