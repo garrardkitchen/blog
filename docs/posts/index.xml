@@ -7,6 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language><atom:link href="http://blog.garrardkitchen.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How to Write Clipboard to File</title>
+      <link>http://blog.garrardkitchen.com/posts/how-to-write-clipboard-to-file/</link>
+      <pubDate>Mon, 26 Sep 2022 17:21:46 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/how-to-write-clipboard-to-file/</guid>
+      <description>Have you ever wondered how to persist your clipboard to disk? Wonder no more&amp;hellip;
+To get started, copy a random sentence into your clipboard like so:
+Set-Clipboard -Value &amp;#34;This is being copied into clipboard&amp;#34; Let&amp;rsquo;s confirm the contents of the clipboard, like so:
+Get-Clipboard output:
+This is being copied into clipboard We&amp;rsquo;ll now persist the same cliboard to a file, like so:
+Get-Clipboard | Out-File -FilePath clipboard.txt To confirm the contents of this file, we type:</description>
+    </item>
+    
+    <item>
       <title>How to Conditionally Include a Nuget Package</title>
       <link>http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/</link>
       <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>

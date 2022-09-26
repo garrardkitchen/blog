@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.40639307e2cdefc5a4fe007ddbaef1d5a1e3e0b264bc87c9e45c77e90db994c0.js" integrity="sha256-QGOTB&#43;LN78Wk/gB9267x1aHj4LJkvIfJ5Fx36Q25lMA="></script>
+<script defer src="/en.search.min.a70dd0059541eb6cc947b64912459aa03dca38e941a12350ac2b3bf80a8541ed.js" integrity="sha256-pw3QBZVB62zJR7ZJEkWaoD3KOOlBoSNQrCs7&#43;AqFQe0="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -91,6 +91,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-write-clipboard-to-file/" class="">How to Write Clipboard to File</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -432,6 +442,21 @@ https://github.com/alex-shpak/hugo-book
     <li class="book-section-flat">
       <strong>Tags</strong>
       <ul>
+      
+        <li class="flex justify-between">
+          <a href="/tags/clipboard/">clipboard</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/Microsoft.PowerShell.Management/">Microsoft.PowerShell.Management</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/powershell/">powershell</a>
+          <span>1</span>
+        </li>
       
         <li class="flex justify-between">
           <a href="/tags/azure/">azure</a>
@@ -1096,6 +1121,52 @@ https://github.com/alex-shpak/hugo-book
   
   <article class="markdown book-post">
     <h2>
+      <a href="/posts/how-to-write-clipboard-to-file/">How to Write Clipboard to File</a>
+    </h2>
+    <p>
+  
+  <i>September 26, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;142&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/clipboard/">clipboard</a>, 
+  <a href="/tags/powershell/">powershell</a>, 
+  <a href="/tags/Microsoft.PowerShell.Management/">Microsoft.PowerShell.Management</a>
+</div>
+
+
+    <p>Have you ever wondered how to persist your clipboard to disk? Wonder no more&hellip;
+To get started, copy a random sentence into your clipboard like so:
+Set-Clipboard -Value &#34;This is being copied into clipboard&#34; Let&rsquo;s confirm the contents of the clipboard, like so:
+Get-Clipboard output:
+This is being copied into clipboard We&rsquo;ll now persist the same cliboard to a file, like so:
+Get-Clipboard | Out-File -FilePath clipboard.txt To confirm the contents of this file, we type:
+        <a href="/posts/how-to-write-clipboard-to-file/">...</a>
+      
+    </p>
+  </article>
+  
+  <article class="markdown book-post">
+    <h2>
       <a href="/posts/how-to-conditionally-include-a-nuget-package/">How to Conditionally Include a Nuget Package</a>
     </h2>
     <p>
@@ -1502,57 +1573,6 @@ apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-de
     </p>
   </article>
   
-  <article class="markdown book-post">
-    <h2>
-      <a href="/posts/npm-issues-e401-cert_not_yet_valid/">Npm E401 and CERT_NOT_YET_VALID</a>
-    </h2>
-    <p>
-  
-  <i>January 11, 2022</i>&nbsp;
-  
-
-  
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;mins read time
-  
-  
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;651&nbsp;words
-  
-
-  
-  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
-  
-</p>
-
-
-
-
-
-
-
-<div>
-  
-  <a href="/tags/github-actions/">github actions</a>, 
-  <a href="/tags/npm/">npm</a>, 
-  <a href="/tags/nodejs/">nodejs</a>, 
-  <a href="/tags/e401/">e401</a>, 
-  <a href="/tags/cert_not_yet_valid/">cert_not_yet_valid</a>, 
-  <a href="/tags/docker/">docker</a>, 
-  <a href="/tags/acr/">acr</a>, 
-  <a href="/tags/npmrc/">npmrc</a>, 
-  <a href="/tags/GH-Secrets/">GH Secrets</a>
-</div>
-
-
-    <p>Today a PR Merge resulted in a GHA failure. Sadly, this is not the only CICD pipeline to fail this year! This particular pipeline builds a NodeJS Image, pushes the image to ACR and deploys the service to a production Docker Swarm (on merge to main).
-This was the error:
-[3/7] RUN npm install:
-#7 1.469 npm ERR! code E401
-#7 1.470 npm ERR! Unable to authenticate, need: Bearer authorization_uri=https://login.windows.net/736f9f**-09-49-86**-b******31f407, Basic realm=&ldquo;https://pkgsprodsu3weu.
-        <a href="/posts/npm-issues-e401-cert_not_yet_valid/">...</a>
-      
-    </p>
-  </article>
-  
 
   
     <ul class="pagination pagination-default">
@@ -1625,6 +1645,21 @@ This was the error:
     <li class="book-section-flat">
       <strong>Tags</strong>
       <ul>
+      
+        <li class="flex justify-between">
+          <a href="/tags/clipboard/">clipboard</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/Microsoft.PowerShell.Management/">Microsoft.PowerShell.Management</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/powershell/">powershell</a>
+          <span>1</span>
+        </li>
       
         <li class="flex justify-between">
           <a href="/tags/azure/">azure</a>

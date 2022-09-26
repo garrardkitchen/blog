@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 21 Sep 2022 20:58:53 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Sep 2022 17:21:46 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>clipboard</title>
+      <link>http://blog.garrardkitchen.com/tags/clipboard/</link>
+      <pubDate>Mon, 26 Sep 2022 17:21:46 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/clipboard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microsoft.PowerShell.Management</title>
+      <link>http://blog.garrardkitchen.com/tags/Microsoft.PowerShell.Management/</link>
+      <pubDate>Mon, 26 Sep 2022 17:21:46 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/Microsoft.PowerShell.Management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powershell</title>
+      <link>http://blog.garrardkitchen.com/tags/powershell/</link>
+      <pubDate>Mon, 26 Sep 2022 17:21:46 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>azure</title>
       <link>http://blog.garrardkitchen.com/tags/azure/</link>

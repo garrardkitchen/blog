@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microsoft.PowerShell.Management on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/Microsoft.PowerShell.Management/</link>
+    <description>Recent content in Microsoft.PowerShell.Management on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 26 Sep 2022 17:21:46 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/Microsoft.PowerShell.Management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Write Clipboard to File</title>
+      <link>http://blog.garrardkitchen.com/posts/how-to-write-clipboard-to-file/</link>
+      <pubDate>Mon, 26 Sep 2022 17:21:46 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/how-to-write-clipboard-to-file/</guid>
+      <description>Have you ever wondered how to persist your clipboard to disk? Wonder no more&amp;hellip;
+To get started, copy a random sentence into your clipboard like so:
+Set-Clipboard -Value &amp;#34;This is being copied into clipboard&amp;#34; Let&amp;rsquo;s confirm the contents of the clipboard, like so:
+Get-Clipboard output:
+This is being copied into clipboard We&amp;rsquo;ll now persist the same cliboard to a file, like so:
+Get-Clipboard | Out-File -FilePath clipboard.txt To confirm the contents of this file, we type:</description>
+    </item>
+    
+  </channel>
+</rss>
