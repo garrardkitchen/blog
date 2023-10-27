@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language><atom:link href="http://blog.garrardkitchen.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Error NETSDK1045</title>
+      <link>http://blog.garrardkitchen.com/posts/error-NETSDK1045/</link>
+      <pubDate>Wed, 28 Sep 2022 20:22:13 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/error-NETSDK1045/</guid>
+      <description>Error NETSDK1045 The current .NET SDK does not support targeting .NET 6.0 A colleague had Visual Studio shout this (see 👇) at him when he loaded up a FunctionsApp project. He received this error twice as the second project was the unit tests for the FunctionsApp.
+Error NETSDK1045 The current .NET SDK does not support targeting .NET 6.0. Either target .NET 5.0 or lower, or use a version of the .</description>
+    </item>
+    
+    <item>
       <title>How to Write Clipboard to File</title>
       <link>http://blog.garrardkitchen.com/posts/how-to-write-clipboard-to-file/</link>
       <pubDate>Mon, 26 Sep 2022 17:21:46 +0100</pubDate>

@@ -1,17 +1,56 @@
 ---
 title: "Azure Devops Artifacts Upstream Source Oddness"
-date: 2022-09-23T10:44:20+01:00
+date: 2022-09-30T10:44:20+01:00
 tags: [nuget, azure, devops, artifacts, upstream source]
 draft: true
 ---
 
-I recently developed a project outside of a client's environment.  Now I'm at the stage I want to bring it into a clients, I worked with a colleague and he pulled the private git repo to his cloud VM development machine.
+Apologies in advance for the bitiness of this post.  It's regarding nuget which sometimes can be a bit of a black art 😁.  It saddens me to admit that I once won a NuGet book but it didn't survive my last book cull...or get read ... awkward 🤭
 
-When we did a dotnet restore
+Ok then, this is what transpired...I recently developed a project outside of a client's Azure Subcription.  When I was ready to deploy the infra, application and pipelines into a client's AzDevOps instance, a colleague first pulled the private git repo to his Azure VM development machine.
 
-	- You CANNOT add package from private feed by `dotnet add package xunit --version 2.4.2`
-	- You CAN restore and it will add it to your private feed
-		○ The package ref must first exist in the csproj file
+When we called `dotnet restore`, it failed to restore the applications (and test projects) Nuget package dependencies from the upstream source.  😕 We confirmed, the Azure DevOps Aftifact Nuget Feed did have the Nuget Gallery as an Upstream Source.  
+
+no nuget.config in these projects but there was one ... correct the rest of this!!!
+
+We checked the `nuget.config` file and this only referenced the Azure DevOps Artifact feed.  
+
+We also checked:
+- local packages in `C:\Users\<username>\.nuget\packages` to see if one of the dependencies could have been pulled in from here - there wasn't
+- nuget.config in `C:\Users\<username>\AppData\Roaming\NuGet` to see if there was a refernce to the nuget gallery (https://api.nuget.org/v3/index.json) - there wasn't.
+
+To get beyond this, we added the Nuget uri as a new *packageSources* in the nuget.config file. 
+
+Perplex and mildlt embarrassed, I took this offline and investigated.  I had a personal azdevops org instance so I created a new Artifact Nuget feed with the same Nuget Upstream Source.
+
+## Some observsations
+
+Here are my observations:
+
+```text
+- You CANNOT add package from private feed
+```
+
+{{< hint warning example>}}
+dotnet add package xunit --version 2.4.2
+{{</ hint>}}
+
+👆 This example does not add a cached version of this package to your private feed
+
+👆 You can only add your own nuget packages to your private feed
+
+```
+- You CAN restore a nuget from a Upstream Source. 
+```
+
+👆 Doing a restore will add the Upstream Nuget package it to your private feed.
+
+👆 The package ref must first exist in the csproj file.
+
+## A sequence
+
+I put together a sequence to capture what was happening.  I'm hoping will be clear enough to understand.  Spoiler alert, there is a level of oddness about it:
+
 	- Sequence:
 		○ Add from api.nuget.org - `dotnet add package Moq --version 4.18.2 -s https://api.nuget.org/v3/index.json`
 		○ Remove .nuget\packages\moq
@@ -47,3 +86,7 @@ When we did a dotnet restore
 			  Determining projects to restore...
 			  Restored C:\Users\KITCHENG\source\pg\nuget\nuget.csproj (in 3.18 sec).
 		○ Then finally, package appears in devops nuget feed
+
+
+---
+
