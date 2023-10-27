@@ -12,14 +12,13 @@ To help with the automation of these steps, I&rsquo;m using Selenium and in part
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-09-21T20:58:53+01:00" />
 <meta property="article:modified_time" content="2022-09-22T09:39:46+01:00" />
-
 <title>How to Conditionally Include a Nuget Package | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.65fe5a1f8c26fc03edcc826af3ef93114502ec68c7f8c1f79f7baa410964c083.js" integrity="sha256-Zf5aH4wm/APtzIJq8&#43;&#43;TEUUC7GjH&#43;MH3n3uqQQlkwIM="></script>
+<script defer src="/en.search.min.d3bb89747a70bd8b13f16e596ee38fdfdae761e09c709705ab62aaa47d3a8c38.js" integrity="sha256-07uJdHpwvYsT8W5ZbuOP39rnYeCccJcFq2KqpH06jDg="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -35,6 +34,14 @@ if (!doNotTrack) {
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "jh07y3ab4s");
+</script>
   
 </head>
 
@@ -526,7 +533,7 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/Otherwise&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/Choose&gt;</span>
 </span></span></code></pre></div><p>I specify the <strong>runtime identifier</strong> of <em>linux-64</em> in the Dockerfile when I <em>publish</em> the .NET Core FunctionsApp.  This can be seen in the command snippet below.  This will ensure that the version (major) 105 is included:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dotnet publish -p<span style="color:#960050;background-color:#1e0010">:</span>PublishChromeDriver=true .\my-functionsapp.csproj -c release --self-contained -r linux-x64 --output ./publish
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dotnet publish -p:PublishChromeDriver=true .\my-functionsapp.csproj -c release --self-contained -r linux-x64 --output ./publish
 </span></span></code></pre></div><p>And if you set the verbosity of the output by adding this switch <code>-v d</code> (d<em>etailed</em>) you will have visual confirmation that the appropriate version has been included:</p>
 <p><img src="../img/2022-09-21-13-01-36.png" alt="" /></p>
 <p>And there you have it, an example of how to include a different version of a nuget package.</p>
