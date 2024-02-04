@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language><atom:link href="http://blog.garrardkitchen.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Compare Resources From Terraform Plan</title>
+      <link>http://blog.garrardkitchen.com/posts/compare-resources-from-terraform-plan/</link>
+      <pubDate>Sun, 04 Feb 2024 19:39:24 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/compare-resources-from-terraform-plan/</guid>
+      <description>Here&amp;rsquo;s a link to a repo I created today, that will be used to host examples of all challenges I encounter that relate to Terraform.
+In this particular sample, I need to list out all those resources that will be created using Terraform where we do not have a state file. The product of this will be added to sheets, by Resource Group, in an Excel spreadsheet. Each sheet is an Azure Resource Group.</description>
+    </item>
+    
+    <item>
       <title>Error NETSDK1045</title>
       <link>http://blog.garrardkitchen.com/posts/error-NETSDK1045/</link>
       <pubDate>Wed, 28 Sep 2022 20:22:13 +0100</pubDate>

@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.d3bb89747a70bd8b13f16e596ee38fdfdae761e09c709705ab62aaa47d3a8c38.js" integrity="sha256-07uJdHpwvYsT8W5ZbuOP39rnYeCccJcFq2KqpH06jDg="></script>
+<script defer src="/en.search.min.c6a5daab675aa73b4d9dce293e2c418aa477fbb6fe2ba640880687a0cba62799.js" integrity="sha256-xqXaq2dapztNnc4pPixBiqR3&#43;7b&#43;K6ZAiAaHoMumJ5k="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -98,6 +98,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/compare-resources-from-terraform-plan/" class="">Compare Resources From Terraform Plan</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -461,6 +471,21 @@ https://github.com/alex-shpak/hugo-book
       <ul>
       
         <li class="flex justify-between">
+          <a href="/tags/azure/">azure</a>
+          <span>5</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/powershell/">powershell</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/terraform/">terraform</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
           <a href="/tags/.net/">.net</a>
           <span>2</span>
         </li>
@@ -498,16 +523,6 @@ https://github.com/alex-shpak/hugo-book
         <li class="flex justify-between">
           <a href="/tags/Microsoft.PowerShell.Management/">Microsoft.PowerShell.Management</a>
           <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/powershell/">powershell</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/azure/">azure</a>
-          <span>4</span>
         </li>
       
         <li class="flex justify-between">
@@ -966,11 +981,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
         <li class="flex justify-between">
-          <a href="/tags/terraform/">terraform</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
           <a href="/tags/digital-certificate/">digital certificate</a>
           <span>1</span>
         </li>
@@ -1160,6 +1170,48 @@ https://github.com/alex-shpak/hugo-book
 
       
       
+  
+  <article class="markdown book-post">
+    <h2>
+      <a href="/posts/compare-resources-from-terraform-plan/">Compare Resources From Terraform Plan</a>
+    </h2>
+    <p>
+  
+  <i>February 4, 2024</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;136&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/terraform/">terraform</a>, 
+  <a href="/tags/powershell/">powershell</a>, 
+  <a href="/tags/azure/">azure</a>
+</div>
+
+
+    <p>Here&rsquo;s a link to a repo I created today, that will be used to host examples of all challenges I encounter that relate to Terraform.
+In this particular sample, I need to list out all those resources that will be created using Terraform where we do not have a state file. The product of this will be added to sheets, by Resource Group, in an Excel spreadsheet. Each sheet is an Azure Resource Group.
+        <a href="/posts/compare-resources-from-terraform-plan/">...</a>
+      
+    </p>
+  </article>
   
   <article class="markdown book-post">
     <h2>
@@ -1567,55 +1619,6 @@ This isn&rsquo;t about updating runtimes, this is about having workloads spread 
     </p>
   </article>
   
-  <article class="markdown book-post">
-    <h2>
-      <a href="/posts/k8s-selectors-and-labels/">K8s Selectors and Labels</a>
-    </h2>
-    <p>
-  
-  <i>January 15, 2022</i>&nbsp;
-  
-
-  
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;mins read time
-  
-  
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;514&nbsp;words
-  
-
-  
-  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
-  
-</p>
-
-
-
-
-
-
-
-<div>
-  
-  <a href="/tags/kubernetes/">kubernetes</a>, 
-  <a href="/tags/k8s/">k8s</a>, 
-  <a href="/tags/deployment/">deployment</a>, 
-  <a href="/tags/pod/">pod</a>, 
-  <a href="/tags/replicaset/">replicaset</a>, 
-  <a href="/tags/selectors/">selectors</a>, 
-  <a href="/tags/equality-based/">equality-based</a>, 
-  <a href="/tags/set-based/">set-based</a>, 
-  <a href="/tags/kubectl/">kubectl</a>
-</div>
-
-
-    <p>Right, what&rsquo;s the deal with all the labels and metadata in a Deployment manifest?!!!!
-Take this example:
-apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-deployment labels: app: nginx spec: replicas: 3 selector: matchLabels: app: nginx foo: baa template: metadata: labels: app: nginx foo: baa spec: containers: - name: nginx image: nginx:1.14.2 ports: - containerPort: 80 Here, we see metadata twice, and also there&rsquo;s mention of matchLabels in selector??? What does it all mean?
-        <a href="/posts/k8s-selectors-and-labels/">...</a>
-      
-    </p>
-  </article>
-  
 
   
     <ul class="pagination pagination-default">
@@ -1690,6 +1693,21 @@ apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-de
       <ul>
       
         <li class="flex justify-between">
+          <a href="/tags/azure/">azure</a>
+          <span>5</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/powershell/">powershell</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
+          <a href="/tags/terraform/">terraform</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex justify-between">
           <a href="/tags/.net/">.net</a>
           <span>2</span>
         </li>
@@ -1727,16 +1745,6 @@ apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-de
         <li class="flex justify-between">
           <a href="/tags/Microsoft.PowerShell.Management/">Microsoft.PowerShell.Management</a>
           <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/powershell/">powershell</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/azure/">azure</a>
-          <span>4</span>
         </li>
       
         <li class="flex justify-between">
@@ -2191,11 +2199,6 @@ apiVersion: apps/v1 kind: Deployment metadata: namespace: default name: nginx-de
       
         <li class="flex justify-between">
           <a href="/tags/Ignite.NET/">Ignite.NET</a>
-          <span>1</span>
-        </li>
-      
-        <li class="flex justify-between">
-          <a href="/tags/terraform/">terraform</a>
           <span>1</span>
         </li>
       

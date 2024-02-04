@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 28 Sep 2022 20:22:13 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Feb 2024 19:39:24 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>azure</title>
+      <link>http://blog.garrardkitchen.com/tags/azure/</link>
+      <pubDate>Sun, 04 Feb 2024 19:39:24 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powershell</title>
+      <link>http://blog.garrardkitchen.com/tags/powershell/</link>
+      <pubDate>Sun, 04 Feb 2024 19:39:24 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terraform</title>
+      <link>http://blog.garrardkitchen.com/tags/terraform/</link>
+      <pubDate>Sun, 04 Feb 2024 19:39:24 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>.net</title>
       <link>http://blog.garrardkitchen.com/tags/.net/</link>
@@ -76,24 +103,6 @@
       <pubDate>Mon, 26 Sep 2022 17:21:46 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/Microsoft.PowerShell.Management/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>powershell</title>
-      <link>http://blog.garrardkitchen.com/tags/powershell/</link>
-      <pubDate>Mon, 26 Sep 2022 17:21:46 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/powershell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>azure</title>
-      <link>http://blog.garrardkitchen.com/tags/azure/</link>
-      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/azure/</guid>
       <description></description>
     </item>
     
@@ -913,15 +922,6 @@
       <pubDate>Tue, 28 Jul 2020 13:48:46 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/Ignite.NET/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terraform</title>
-      <link>http://blog.garrardkitchen.com/tags/terraform/</link>
-      <pubDate>Thu, 23 Jul 2020 13:42:59 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/terraform/</guid>
       <description></description>
     </item>
     
