@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="That&rsquo;s quite an opening statement, isn&rsquo;t it?
+As a reminder, the 1st and 2nd waves were Virtual Machines and Containers, respectively.
+Warning, profound statement inbound…
+The Docker cofounder, Solomon Hykes, said this in 2019
+&ldquo;If WASM&#43;WASI existed in 2008, we wouldn&rsquo;t have needed to create Docker. That&rsquo;s how important it is. WebAssembly on the server is the future of computing.&rdquo; - QuoteI think we need to let this sink in for a few moments."><meta property="og:title" content="The 3rd Wave of Cloud Computing" />
+<meta property="og:description" content="That&rsquo;s quite an opening statement, isn&rsquo;t it?
+As a reminder, the 1st and 2nd waves were Virtual Machines and Containers, respectively.
+Warning, profound statement inbound…
+The Docker cofounder, Solomon Hykes, said this in 2019
+&ldquo;If WASM&#43;WASI existed in 2008, we wouldn&rsquo;t have needed to create Docker. That&rsquo;s how important it is. WebAssembly on the server is the future of computing.&rdquo; - QuoteI think we need to let this sink in for a few moments." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/the-3rd-wave-of-cloud-computing/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-05T19:26:11+00:00" />
+<meta property="article:modified_time" content="2024-02-05T19:26:11+00:00" />
+<title>The 3rd Wave of Cloud Computing | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.f409edeea463b2768dbf661ca8073ddc06bc1d24c864e451a1eeed5c89fdc721.js" integrity="sha256-9Ant7qRjsnaNv2YcqAc93Aa8HSTIZORRoe7tXIn9xyE="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "jh07y3ab4s");
+</script>
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/the-3rd-wave-of-cloud-computing/" class="active">The 3rd Wave of Cloud Computing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/compare-resources-from-terraform-plan/" class="">Compare Resources From Terraform Plan</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/error-NETSDK1045/" class="">Error NETSDK1045</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-write-clipboard-to-file/" class="">How to Write Clipboard to File</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/dotnet-stack-and-heap/" class="">.NET Stack, Heap and Boxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/the-grass-is-rarely-greener/" class="">The Grass Is Rarely Greener</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-install-e401/" class="">Nodejs Install E401</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-pdb/" class="">Kubernetes Pod Disruption Budget and the Helm hasKey Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-self-hosted-runner/" class="">Adding more Github Self-Hosted Runners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/hybrid-origins-http-traffic/" class="">Hybrid Origins Http Traffic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-selectors-and-labels/" class="">K8s Selectors and Labels</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/azure-defender-for-cloud/" class="">Azure Defender for Cloud</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/npm-issues-e401-cert_not_yet_valid/" class="">Npm E401 and CERT_NOT_YET_VALID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="">Runtimes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>The 3rd Wave of Cloud Computing</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-wasm">What is WASM?</a></li>
+    <li><a href="#what-else-is-needed">What else is needed?</a></li>
+    <li><a href="#what-are-the-benefits">What are the benefits?</a></li>
+    <li><a href="#why-is-this-interesting">Why is this interesting?</a></li>
+    <li><a href="#how-easy-is-running-a-wasm-application-on-a-server">How easy is running a WASM application on a server?</a></li>
+    <li><a href="#the-oss-community">The OSS community</a></li>
+    <li><a href="#in-summary">In Summary</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/the-3rd-wave-of-cloud-computing/">The 3rd Wave of Cloud Computing</a>
+  </h1>
+  <p>
+  
+  <i>February 5, 2024</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;10&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;2051&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/wasm/">wasm</a>, 
+  <a href="/tags/wasi/">wasi</a>, 
+  <a href="/tags/compute/">compute</a>, 
+  <a href="/tags/docker/">docker</a>, 
+  <a href="/tags/component-model/">component model</a>, 
+  <a href="/tags/sustainability/">sustainability</a>, 
+  <a href="/tags/sustainability-transformation/">sustainability transformation</a>
+</div>
+
+
+  <p><p>That&rsquo;s quite an opening statement, isn&rsquo;t it?</p>
+<p>As a reminder, the 1st and 2nd waves were Virtual Machines and Containers, respectively.</p>
+<p>Warning, profound statement inbound…</p>
+<blockquote class="book-hint info">
+  <strong>The Docker cofounder, Solomon Hykes, said this in 2019</strong><br>
+&ldquo;If WASM+WASI existed in 2008, we wouldn&rsquo;t have needed to create Docker. That&rsquo;s how important it is. WebAssembly on the server is the future of computing.&rdquo; - <a href="https://twitter.com/solomonstre/status/1111004913222324225">Quote</a>
+</blockquote>
+
+<p>I think we need to let this sink in for a few moments.  IMO, this is huge.  Personally, since 2016, most of my DevOps [development &amp; orchestration] work has involved containers.  Container and FaaS is my preferred approach to development and orchestration.  But now there&rsquo;s a new way?  Will I now have to throw out all this knowledge and return to ground zero and start over?  In short, no.  Anyways, back to this 3rd wave…</p>
+<p>WebAssembly (or WASM for short) is now considered to be the 3rd wave.  I will cover what both WASM and WASI are.  Before I do, I first want to put your mind at rest (and my own!).  This post will not be leading to a conclusion were this technology will replace containers.  Far from it.  After all, did containers replace VMs? No, they didn&rsquo;t.  Neither will I be suggesting we have to migrate all our existing container-based solutions to this new shiny, WASM.  Reassured?  Good, let&rsquo;s move on.</p>
+<h1 id="what-is-wasm">What is WASM?</h1>
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <p>So then, what is WASM?  WebAssembly (or WASM) is a binary instruction format (Bytecode) that is designed to be a portable target for the compilation of high-level languages like JavaScript, C/C++, Rust, Python and .NET, enabling deployment on the web for either client or server applications.  To run a WASM application you also require a WASM runtime.</p>
+<p>WASM isn&rsquo;t a new technology either.  It&rsquo;s been around for several years and if you&rsquo;ve had any exposure to the .NET ecosystem then you&rsquo;ll most likely be aware of Blazor.  However, all that Blazor is, is JavaScript running in a NodeJS console application with very little association to the wider WASM eco-system.  For example, you could not take a compiled application module from Blazor and deploy them to Docker or Kubernetes.  However, with .NET 8.0 there is the wasi-experimental workload that you can use in conjunction with the wasi-sdk and CLang.  But as the name suggests, this is experimental and both specifications as well as the tooling are likely to change.  I&rsquo;m including this here to show that there is some WASM 💖 being given to .NET.</p>
+
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <p>What many of you (including myself up until a few months ago) may not be been aware of is that WASM can run outside of the browser (OOB) too; on a server.  This is the very reason why I wanted to create this blog.  This, and to make you aware of how profoundly this technology will impact how we will develop, and platform, our future applications.</p>
+<p>WASM by design is sandboxed.  This is intentional.  So, what does this mean?  It means it can&rsquo;t directly access resources on the host machine.  It can only perform actions that it&rsquo;s allowed to do within that sandbox.  This is rigorously enforced.  It can do one of two things.  Let&rsquo;s call these capabilities instead of “things”, after all, we&rsquo;re all grown-ups?  It&rsquo;s first capability is it can only perform operations on its own memory.  This by design is purposely constraining so for it to be of any real use it has to offer up a method of allowing I/O with its host.  And this is its second capability so making it possible to interact with its host.  This is made possible using Import &amp; export functions.   Export functions allow the host to call into a WASM application. Conversely, Import functions allows the WASM application to call into the Host.  This second capability is where a new technology comes into play - WASI.  Which leads us nicely into what else is needed…</p>
+
+  </div>
+  
+</div>
+
+<h1 id="what-else-is-needed">What else is needed?</h1>
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <p>Now that we have touched on the second capability or Import &amp; Export functions, we may now want to think about where these might sit as well as why do we need these.</p>
+<p>For example, you may want to access the host&rsquo;s filesystem (or what the host would like you to think is its filesystem) or to read the system clock.  Infact there are a range of resources your WASM application may want to access from its host.  This access will need to be performed irrespective of what O/S you&rsquo;re on, or what its instruction set is.  This range of access is known as the API.  To help in the development of this API and to ensure there&rsquo;s an associated standard, the Bytecode Alliance was formed and became responsible for driving this forward.  The Bytecode Alliance consists of an alliance of many organisations, as seen here:</p>
+<p><img src="../img/bytecode-alliance.png" alt="" /></p>
+<p><em>List of all the companies that form the Bytecode Alliance</em></p>
+
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <p>What is being developed is a specification that is a standardized system interface for WASM that enables it to interact with the underlying operating system in a secure and platform independent manner.</p>
+<p><img src="../img/wasi-logo.png" alt="" /></p>
+<p><em>The WASI logo</em></p>
+<p>This is known as WASI (Web Assembly Standard Interface).   WASI provides a single standard way to call the low-level functions that are present on any platform, making it easier to write software once and run it anywhere.</p>
+<p>⚠️ WASI specifically relates to running WASM on a server and has nothing to do with running WASM in the browser.</p>
+<p>There&rsquo;s an important point to make known and this is, just because the spec says you can access the host&rsquo;s filesystem, by default, you can&rsquo;t.  The host must first allow you to access it&rsquo;s filesystem.  This ensures that the sandbox remains rigorously enforced.</p>
+<p>So, we have the application that has been compiled into WASM bytecode, and we need to use the WASI API to be able to access the host&rsquo;s resources.  But we also need something to actually run the WASM application on the host.  This is known as the WASM runtime and there are several runtimes available.  The runtimes available from the Bytecode Alliance are <a href="https://wasmtime.dev/">wasmtime</a> and WAMR. <a href="https://wasmtime.dev/">wasmtime</a> is a high-performance runtime for the server. WAMR targets more resource constrained scenarios such as IoT.  The runtime that I have been using recently is <a href="https://wasmtime.dev/">wasmtime</a>.  This, however, is abstracted away from me through the toolchain.  I have been using the spin toolchain from <a href="https://www.fermyon.com/">Fermyon</a>.</p>
+
+  </div>
+  
+</div>
+
+<h1 id="what-are-the-benefits">What are the benefits?</h1>
+<p>So far, I&rsquo;ve described what WASM is, what it needs to offer up any real value as well as how it gets executed on the host.  What I am yet to touch on is why anybody should invest their time in this technology.  Let&rsquo;s address this now by highlighting the main benefits of WASM.</p>
+<p>WASM&rsquo;s benefits aren&rsquo;t too dissimilar to those of containerization.  Here&rsquo;s the list:</p>
+<ul>
+<li>It has near native performance without sacrificing safety.</li>
+<li>It supports multiple programming languages including emerging languages like Rust.</li>
+<li>If a WASM application crashes, it will not bring down anything else running on that same machine.</li>
+<li>It has a smaller attack surface and a simpler software supply chain than Linux containers.</li>
+<li>There&rsquo;s no possibility of malicious data leaks or the exfiltration of data.</li>
+<li>It is ideal for serverless use-cases and those event-based scenario; once run, then it can scale to zero.</li>
+<li>It is more portable than containers as the same WASM Bytecode works the same across every machine so therefore it is architectural independent.</li>
+<li>It&rsquo;s very light weight, more so than docker.  An application can be as small as a few KBs.  In comparison, each of your docker processes are effectively running it&rsquo;s own O/S.  An example size can be seen here:</li>
+</ul>
+<p><img src="../img/dockerhug-wasm-os-image.png" alt="" /></p>
+<p><em>Image as shown in DockerHub, confirming OS &amp; Architecture as WASI &amp; WASM</em></p>
+<p>There is other functionality that is planned.  For example, in the next 12 months we will likely see greater emphasis made around the <strong>component model</strong>.   The component model is a way to define and compose WASM modules so that they can interact with each other, and the host environment.  This will enable WASM modules to be reusable, portable, secure, and efficient across different platforms and fulfil a richer set of use cases.</p>
+<h1 id="why-is-this-interesting">Why is this interesting?</h1>
+<p>For me, somebody who has a genuine passion for <strong>Sustainability</strong>, and in particular, <strong>Sustainability Transformation</strong>, it&rsquo;s speaks to me at a GSF principle level - Energy Efficiency in particular.  Meaning that we must aim to use as little as energy as possible, essentially getting the most out of each unit of energy.  I feel that this 3rd wave is a perfect fit for this principle.  This is providing that the bin packing/right-sizing capability of the hosts is maximized, otherwise it&rsquo;s just another application rattlingly around in the server that by default will always use a set amount of energy and emit a set amount of carbon.</p>
+<p>As an FYI, I gave a talk on <strong>Sustainability Transformation</strong> during our <strong>Fujitsu PROSummit</strong> as well as at the <strong>National DevOps Conference</strong> in October in a Breakout session with a colleague.  All talks I give will have an aspect of sustainability associated with them.</p>
+<p>What also reignited my interest in WASM was when I researched WASM with my fellow Professions colleagues.  This was at the request of our CDO and to produce an executive summary a few months back.  Since, I&rsquo;ve continued my research in this area, even writing some C code which I&rsquo;ve not done since 1995!  This code can also be found in another public GH repo of mine.</p>
+<h1 id="how-easy-is-running-a-wasm-application-on-a-server">How easy is running a WASM application on a server?</h1>
+<p>I&rsquo;ve experience of using a few toolchains in this area.  The toolchain I&rsquo;m using presently comes from <a href="https://www.fermyon.com/">Fermyon</a> and this is called <a href="https://www.fermyon.com/spin">spin</a>.  I&rsquo;ve a GitHub code repository here <a href="https://github.com/garrardkitchen/docker-wasm-spin">https://github.com/garrardkitchen/docker-wasm-spin</a> that, if you&rsquo;re interested, will get you up and running in a few minutes.  If you know me or have seen any of my talks on the Professions platform, you&rsquo;ll know I always accompany a talk with a GitHub code repository. <a href="https://www.fermyon.com/">Fermyon</a> also have a cloud offering that you can deploy directly to.  You can also deploy your WASM application to your own Kubernetes cluster.  My code repository covers running a spin WASM application on Docker for Desktop and it is a TypeScript HTTP Trigger taken directly from a spin template.  The instructions to build, run and deploy are in the <a href="https://github.com/garrardkitchen/docker-wasm-spin/blob/main/README.md">README</a></p>
+<p>Here&rsquo;s a picture of my running container on Docker for Desktop (see the <code>WASM</code> tag):</p>
+<p><img src="../img/wasm-docker-container.png" alt="" /></p>
+<p><em>Showing a WASM container running on Docker for Desktop</em></p>
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <p><img src="../img/engineer-coding.png" alt="" /></p>
+<p><em>An engineer coding a serverless function in WASM</em></p>
+
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <p>My sample code is ultra basic and all it does is run an HTTP listener.  You could add a KV store or Db connection to extend this example to make it more realistic.</p>
+<p>One fun activity you could participate in is to review some of the Azure Functions or AWS Lambdas or GCP Cloud Functions you have recently written and assess which of these could have been done in WASM?</p>
+<p>You could even go one step farther and rewrite one of these in WASM then share the link in the Comment section below.  I would genuinely love to see this!</p>
+
+  </div>
+  
+</div>
+
+<h1 id="the-oss-community">The OSS community</h1>
+<p>I did hit a problem when I first dipped my toe into <a href="https://www.fermyon.com/spin">spin</a>, that the good people from the Fermyon community in Discord helped me with.  I do make a point of reaching out to the community of any open-source project I am looking into, and I use this as a barometer as to the quality and longevity of their product.  I have to say, they didn&rsquo;t disappoint.  Several members helped me, including their CEO!</p>
+<h1 id="in-summary">In Summary</h1>
+<p>In summary, WASM on the server is important for developing modern, secure, and efficient applications that can run closer to the data and the users. It is especially useful for microservices, edge computing and cloud-native computing.</p>
+<p>I do hope you have found this article interesting and seen how uncomplicated it is to deploy having cloned my GitHub code repository.  I also hope this has piqued your interest to the point that you&rsquo;re already started exploring this fascinating ecosystem.  It&rsquo;s an area of cloud computing that I&rsquo;m excited about and looking forward to it being mainstream.  It is clear to see that WASM/WASI will be a cloud disruptor, and that a delivery cycle involving this technology can be ridiculously short, not to mention <strong>energy efficient</strong>.</p>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-wasm">What is WASM?</a></li>
+    <li><a href="#what-else-is-needed">What else is needed?</a></li>
+    <li><a href="#what-are-the-benefits">What are the benefits?</a></li>
+    <li><a href="#why-is-this-interesting">Why is this interesting?</a></li>
+    <li><a href="#how-easy-is-running-a-wasm-application-on-a-server">How easy is running a WASM application on a server?</a></li>
+    <li><a href="#the-oss-community">The OSS community</a></li>
+    <li><a href="#in-summary">In Summary</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,20 @@
     <description>Recent content in docker on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 21 Sep 2022 20:58:53 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Feb 2024 19:26:11 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The 3rd Wave of Cloud Computing</title>
+      <link>http://blog.garrardkitchen.com/posts/the-3rd-wave-of-cloud-computing/</link>
+      <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/the-3rd-wave-of-cloud-computing/</guid>
+      <description>That&amp;rsquo;s quite an opening statement, isn&amp;rsquo;t it?
+As a reminder, the 1st and 2nd waves were Virtual Machines and Containers, respectively.
+Warning, profound statement inbound…
+The Docker cofounder, Solomon Hykes, said this in 2019
+&amp;ldquo;If WASM+WASI existed in 2008, we wouldn&amp;rsquo;t have needed to create Docker. That&amp;rsquo;s how important it is. WebAssembly on the server is the future of computing.&amp;rdquo; - QuoteI think we need to let this sink in for a few moments.</description>
+    </item>
+    
     <item>
       <title>How to Conditionally Include a Nuget Package</title>
       <link>http://blog.garrardkitchen.com/posts/how-to-conditionally-include-a-nuget-package/</link>

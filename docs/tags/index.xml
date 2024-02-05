@@ -6,7 +6,70 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 04 Feb 2024 19:39:24 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Feb 2024 19:26:11 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>component model</title>
+      <link>http://blog.garrardkitchen.com/tags/component-model/</link>
+      <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/component-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>compute</title>
+      <link>http://blog.garrardkitchen.com/tags/compute/</link>
+      <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/compute/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://blog.garrardkitchen.com/tags/docker/</link>
+      <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sustainability</title>
+      <link>http://blog.garrardkitchen.com/tags/sustainability/</link>
+      <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/sustainability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sustainability transformation</title>
+      <link>http://blog.garrardkitchen.com/tags/sustainability-transformation/</link>
+      <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/sustainability-transformation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wasi</title>
+      <link>http://blog.garrardkitchen.com/tags/wasi/</link>
+      <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/wasi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wasm</title>
+      <link>http://blog.garrardkitchen.com/tags/wasm/</link>
+      <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/wasm/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>azure</title>
       <link>http://blog.garrardkitchen.com/tags/azure/</link>
@@ -112,15 +175,6 @@
       <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/chromedriver/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>http://blog.garrardkitchen.com/tags/docker/</link>
-      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/docker/</guid>
       <description></description>
     </item>
     
