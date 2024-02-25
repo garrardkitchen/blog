@@ -35,6 +35,42 @@
     </item>
     
     <item>
+      <title>dependency injection</title>
+      <link>http://blog.garrardkitchen.com/tags/dependency-injection/</link>
+      <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/dependency-injection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devex</title>
+      <link>http://blog.garrardkitchen.com/tags/devex/</link>
+      <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/devex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nuget</title>
+      <link>http://blog.garrardkitchen.com/tags/nuget/</link>
+      <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/nuget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis</title>
+      <link>http://blog.garrardkitchen.com/tags/redis/</link>
+      <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>component model</title>
       <link>http://blog.garrardkitchen.com/tags/component-model/</link>
       <pubDate>Mon, 05 Feb 2024 19:26:11 +0000</pubDate>
@@ -220,15 +256,6 @@
       <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nuget</title>
-      <link>http://blog.garrardkitchen.com/tags/nuget/</link>
-      <pubDate>Wed, 21 Sep 2022 20:58:53 +0100</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/nuget/</guid>
       <description></description>
     </item>
     
@@ -859,15 +886,6 @@
       <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/nestjs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>redis</title>
-      <link>http://blog.garrardkitchen.com/tags/redis/</link>
-      <pubDate>Fri, 06 Nov 2020 09:54:02 +0000</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/redis/</guid>
       <description></description>
     </item>
     

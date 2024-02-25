@@ -1,14 +1,14 @@
 ---
 title: ".NET Aspire and Redis"
 date: 2024-02-25T09:41:08Z
-tags: [csharp, .net aspire, blazor]
+tags: [.net aspire, blazor, csharp, devex, dependency injection, nuget, redis]
 ---
 
 # First look into .NET Aspire 
 
-I decided to give .NET Aspire a try. I’ve never seen any online tutorials on how to use it. I watched its announcement a few months ago and thought YATTA - Yet Another Technology To Avoid - as it made no sense to me. Since then, I’ve seen a lot of tweets about .NET Aspire. So, over the last month or so, I’ve gradually grasped its raison d’être.
+I decided to give .NET Aspire a try. I have not yet watched any online tutorials but I did watch its announcement a few months ago.  At the time I did think NGTNI.  It didn't make much sense to me. Since then, I’ve seen many tweets. So, over the last month or so, I’ve gradually grasped its raison d’être.
 
-Last night, with some time to kill, I asked Copilot to send me some YT links so I could learn more. But Copilot was no help at all. It only gave me some MS Learn links. One of them took me to the **[Samples GH repo](https://github.com/dotnet/aspire-samples)**.
+Last night, with some time to kill, I asked Copilot to send me some YT links so I could learn more. But Copilot refused to share any YT links. It only gave me some MS Learn links. One of them took me to the **[Samples GH repo](https://github.com/dotnet/aspire-samples)**.
 
 The first time I opened a sample project, the Visual Studio Community 2022 (Preview) version of VS I was using, asked me to install an Aspire component. It turned out to be the Aspire workload. It was a simple click-and-forget operation. I wish everything in life was that easy. 
 
@@ -81,17 +81,19 @@ First off, I needed a new pre-elease NuGet package for this to work:
 dotnet add package Aspire.StackExchange.Redis.DistributedCaching --prerelease
 ```
 
-Next I added the this to add the necessary code to the service collection:
+Next I added the this to add the necessary code to the service collection by adding the following to Program.cs in sample1.Web :
 
-Add `builder.AddRedisDistributedCache("cache");` to Program.cs in sample1.Web
+```csharp
+builder.AddRedisDistributedCache("cache");
+```
 
 ## RedisClient
 
-I then create a Redis Client that I could use to call from the counter razor page to obtain and update the counter value.  This is that code:
+I then created a Redis Client that I could use to call from the counter razor page to obtain and update the counter value.  This is that code:
 
-👉 _I've not chosen to use incr type_
+👉 _I've not chosen to use the incr type_
 
-👉 _Redis stores these string as a hash type_
+👉 _Redis stores these string as a hash types_
 
 ```csharp
 using Microsoft.Extensions.Caching.Distributed;
@@ -115,13 +117,15 @@ public class RedisClient(IDistributedCache cache)
 
 ## Dependency Injection
 
-I then added this Redis Client to the service collection, again, in the this sample1.We's Program.cs file:
+I then added this Redis Client to the service collection, again, in the this sample1.Web's Program.cs file:
 
+```csharp
 builder.Services.AddScoped<RedisClient>();
+```
 
 ## Razor page
 
-Moving onto the last piece to this jigsaw, I moved onto the counter razor page.  There's a few different pieces to do here so to help I've broken these down to steps.
+The last piece to this jigsaw is the counter razor page.  There's a few different pieces to do here so to help I've decomposed these to steps.
 
 Step 1: Inject this new RedisClient into the page:
 
@@ -148,7 +152,7 @@ private async Task IncrementCount()
 }
 ```
 
-This is what the resulting looks like this:
+This is what the resulting page looks like this:
 
 ```html
 @page "/counter"
@@ -178,16 +182,15 @@ This is what the resulting looks like this:
         await RedisClient.SetCounterAsync("counter", currentCount);
     }
 }
-
 ```
 
-I felt that this was logical.  I do limited experience with Blazor pages so I did go into this feeling that this wasn't going to be too much of mental stretch.
+I felt that this was logical.  I have experience [limited] with Blazor pages so I did go into this feeling confident and that this was not going to be too much of a stretch.
 
 Just like that, I was all set to run the app! It worked flawlessly and as intended like most of the code I write 👀.
 
 ## Confirmation of counter persistence
 
-I couldn't leave it there.  I had to make sure the counter was being written to the cache. Nothing fancy, all I did was I exec'ed into the running container, and then running these cli commands.
+I couldn't leave it there.  I had to make sure the counter was being written to the cache. Nothing fancy, all I did was I exec'ed into the running container, and then ran a few cli commands.
 
 To get the current value of the counter, use:
 
@@ -205,6 +208,7 @@ I also looked at the distributed tracing to get confirmation of this.  Here's an
 
 {{< figure src="../img/2024-02-25-11-55-37.png" alt="" caption="Distributed trace example" >}}
 
+And that was that. I was able to take a sample Aspire app and perist a counter value to Redis cache with very little effort. All in all, the DevEx was good. 
 
 # Conclusion
 
