@@ -75,13 +75,13 @@ Ref: https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?
 
 ## Redis Dependency
 
-First off, I needed a new pre-elease NuGet package for this to work:
+First off, I needed a new pre-release NuGet package for this to work:
 
 ```
 dotnet add package Aspire.StackExchange.Redis.DistributedCaching --prerelease
 ```
 
-Next I added the this to add the necessary code to the service collection by adding the following to Program.cs in sample1.Web :
+Next I added this so the necessary types get added to the service collection, by adding the following to Program.cs in sample1.Web :
 
 ```csharp
 builder.AddRedisDistributedCache("cache");
