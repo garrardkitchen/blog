@@ -6,7 +6,7 @@ tags: [.net aspire, blazor, csharp, devex, dependency injection, nuget, redis]
 
 # First look into .NET Aspire 
 
-I decided to give .NET Aspire a try. I have not yet watched any online tutorials but I did watch its announcement a few months ago.  At the time I did think NGTNI.  It didn't make much sense to me. Since then, I’ve seen many tweets. So, over the last month or so, I’ve gradually grasped its raison d’être.
+I decided to give .NET Aspire a try. I'm yet to watch an online tutorial but I did watch its announcement a few months ago.  At the time I did think YAGNI.  For me, it didn't make much sense.  Either that, or it just wasn't being explained well enough.  Enthusiasm alone isn't enough to promote a new tool. Since then, I’ve seen many tweets. So, over the last month or so, I’ve gradually grasped its raison d’être.
 
 Last night, with some time to kill, I asked Copilot to send me some YT links so I could learn more. But Copilot refused to share any YT links. It only gave me some MS Learn links. One of them took me to the **[Samples GH repo](https://github.com/dotnet/aspire-samples)**.
 
