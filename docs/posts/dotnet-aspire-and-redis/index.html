@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="First look into .NET Aspire I decided to give .NET Aspire a try. I’ve never seen any online tutorials on how to use it. I watched its announcement a few months ago and thought YATTA - Yet Another Technology To Avoid - as it made no sense to me. Since then, I’ve seen a lot of tweets about .NET Aspire. So, over the last month or so, I’ve gradually grasped its raison d’être."><meta property="og:title" content=".NET Aspire and Redis" />
+<meta property="og:description" content="First look into .NET Aspire I decided to give .NET Aspire a try. I’ve never seen any online tutorials on how to use it. I watched its announcement a few months ago and thought YATTA - Yet Another Technology To Avoid - as it made no sense to me. Since then, I’ve seen a lot of tweets about .NET Aspire. So, over the last month or so, I’ve gradually grasped its raison d’être." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-25T09:41:08+00:00" />
+<meta property="article:modified_time" content="2024-02-25T09:41:08+00:00" />
+<title>.NET Aspire and Redis | Blog</title>
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script defer src="/en.search.min.959205651314071fda3521502c1188098b38f62f2d3a81059d62258b1b5ee70a.js" integrity="sha256-lZIFZRMUBx/aNSFQLBGICYs49i8tOoEFnWIlixte5wo="></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-162297404-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "jh07y3ab4s");
+</script>
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="">Blog</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/dotnet-aspire-and-redis/" class="active">.NET Aspire and Redis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/the-3rd-wave-of-cloud-computing/" class="">The 3rd Wave of Cloud Computing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/compare-resources-from-terraform-plan/" class="">Compare Resources From Terraform Plan</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/error-NETSDK1045/" class="">Error NETSDK1045</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-write-clipboard-to-file/" class="">How to Write Clipboard to File</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-conditionally-include-a-nuget-package/" class="">How to Conditionally Include a Nuget Package</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/dotnet-stack-and-heap/" class="">.NET Stack, Heap and Boxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/the-grass-is-rarely-greener/" class="">The Grass Is Rarely Greener</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-install-e401/" class="">Nodejs Install E401</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-pdb/" class="">Kubernetes Pod Disruption Budget and the Helm hasKey Function</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-self-hosted-runner/" class="">Adding more Github Self-Hosted Runners</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/hybrid-origins-http-traffic/" class="">Hybrid Origins Http Traffic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/k8s-selectors-and-labels/" class="">K8s Selectors and Labels</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/azure-defender-for-cloud/" class="">Azure Defender for Cloud</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/npm-issues-e401-cert_not_yet_valid/" class="">Npm E401 and CERT_NOT_YET_VALID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/github-actions-workflow-env-vars/" class="">Github Actions Workflow Env Vars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/runtimes/" class="">Runtimes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" class="">Permission Denied While Trying to Connect to the Docker Daemon Socket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/my-first-outing-with-dapr/" class="">My First Outing With Dapr</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/how-to-use-kubernetes-configmap/" class="">How to Use Kubernetes Configmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/nodejs-container-restart-policy/" class="">Nodejs Container Restart Policy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/apache-ignite-running-agent-with-dotnetcore-server-node/" class="">How to run the Apache Ignite Agent with an Ignite.NET Core Server Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/terraform-get-values/" class="">Terraform Get Values</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/digital-certificates/" class="">Digital Certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/jest-fs-readFileSync/" class="">Unit testing and mocking fs.ReadFileSync</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/kubernetes-on-windows/" class="">Kubernetes on Windows</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/modern-javascript/" class="">Modern-ish Javascript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/mentoring/" class="">How do I mentor?</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/principles/" class="">Good Engineering - Principles</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/garrardkitchen" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://blog.garrardkitchen.com/" target="_blank" rel="noopener">
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://katas.garrardkitchen.com/" target="_blank" rel="noopener">
+        Katas
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://www.garrardkitchen.com/" target="_blank" rel="noopener">
+        Resume
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>.NET Aspire and Redis</strong>
+
+  <label for="toc-control">
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#first-look-into-net-aspire">First look into .NET Aspire</a></li>
+    <li><a href="#the-wow">The <code>Wow</code></a></li>
+    <li><a href="#persisting-a-counter-to-redis-cache">Persisting a Counter to Redis cache</a>
+      <ul>
+        <li><a href="#redis-dependency">Redis Dependency</a></li>
+        <li><a href="#redisclient">RedisClient</a></li>
+        <li><a href="#dependency-injection">Dependency Injection</a></li>
+        <li><a href="#razor-page">Razor page</a></li>
+        <li><a href="#confirmation-of-counter-persistence">Confirmation of counter persistence</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/dotnet-aspire-and-redis/">.NET Aspire and Redis</a>
+  </h1>
+  <p>
+  
+  <i>February 25, 2024</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;1013&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/csharp/">csharp</a>, 
+  <a href="/tags/.net-aspire/">.net aspire</a>, 
+  <a href="/tags/blazor/">blazor</a>
+</div>
+
+
+  <p><h1 id="first-look-into-net-aspire">First look into .NET Aspire</h1>
+<p>I decided to give .NET Aspire a try. I’ve never seen any online tutorials on how to use it. I watched its announcement a few months ago and thought YATTA - Yet Another Technology To Avoid - as it made no sense to me. Since then, I’ve seen a lot of tweets about .NET Aspire. So, over the last month or so, I’ve gradually grasped its raison d’être.</p>
+<p>Last night, with some time to kill, I asked Copilot to send me some YT links so I could learn more. But Copilot was no help at all. It only gave me some MS Learn links. One of them took me to the <strong><a href="https://github.com/dotnet/aspire-samples">Samples GH repo</a></strong>.</p>
+<p>The first time I opened a sample project, the Visual Studio Community 2022 (Preview) version of VS I was using, asked me to install an Aspire component. It turned out to be the Aspire workload. It was a simple click-and-forget operation. I wish everything in life was that easy.</p>
+<p>To avoid this ahead of time you can:</p>
+<blockquote class="book-hint info">
+  <p><strong>.NET Aspire workload</strong></p>
+<p>Install the .NET Aspire workload</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dotnet workload install aspire
+</span></span></code></pre></div><p>or update all workloads</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dotnet workload update
+</span></span></code></pre></div><p>then to confirm version and install status</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dotnet workload list
+</span></span></code></pre></div>
+</blockquote>
+
+<h1 id="the-wow">The <code>Wow</code></h1>
+<p>The sample I tried to run in Visual Studio did not work, so I switched to another one. Then I saw the dashboard on my personal developer laptop for the first time. I was impressed (a bit). I explored the metrics, logs, and traces. I was more impressed.</p>
+<p>I was even more impressed when I saw an example solution that had both a Windows Forms and a WPF app. I wanted to test how easy it was to set up and find a situation that would require me to code.</p>
+<blockquote class="book-hint warning">
+  <p><strong>My sample repo</strong></p>
+<p>You can find my sample .NET Aspire applicaton here:
+<a href="https://github.com/garrardkitchen/dotnet-aspire-and-redis-sample">https://github.com/garrardkitchen/dotnet-aspire-and-redis-sample</a></p>
+
+</blockquote>
+
+<p>To create your first .NET Aspire application is straight forward.  From the menu you choose <code>Create a new project</code>.  I filtered on the .NET Apsire project type just to see what&rsquo;s available:</p>
+<figure>
+    <img src="../img/2024-02-25-10-49-32.png" alt="">
+    <figcaption>.NET Aspire project templates</figcaption>
+</figure>
+<p>I selected the .NET Aspire Starter Application and named it <code>sample1</code>.  I was prompted to start up Docker for Desktop due to the Redis dependency.  The next action I performed was to debug the app to see if anything barked at me.  It didn&rsquo;t and I was presented with the dashboard:</p>
+<figure>
+    <img src="../img/2024-02-25-10-54-40.png" alt="">
+    <figcaption>.NET Aspire dashboard</figcaption>
+</figure>
+<p>I clicked on the Endpoint link next to the <code>frontendweb</code> project and this Blazor app loaded:</p>
+<figure>
+    <img src="../img/2024-02-25-10-55-19.png" alt="">
+    <figcaption>My first Aspire hosted sample app</figcaption>
+</figure>
+<p>I clicked on the Counter menu option, then the <code>click me</code> button which incremented the on page counter.  I clicked away and when I returned the counter had zeroed.  Great, I thought, this is where I can start hacking away to see how easy it is to persist this to the redis cache.  The remainder of this post covers what I did.</p>
+<h1 id="persisting-a-counter-to-redis-cache">Persisting a Counter to Redis cache</h1>
+<p>Ref: <a href="https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?tabs=visual-studio">https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?tabs=visual-studio</a></p>
+<h2 id="redis-dependency">Redis Dependency</h2>
+<p>First off, I needed a new pre-elease NuGet package for this to work:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">dotnet</span> <span style="color:#a6e22e">add</span> <span style="color:#f92672">package</span> <span style="color:#a6e22e">Aspire</span>.<span style="color:#a6e22e">StackExchange</span>.<span style="color:#a6e22e">Redis</span>.<span style="color:#a6e22e">DistributedCaching</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">prerelease</span>
+</span></span></code></pre></div><p>Next I added the this to add the necessary code to the service collection:</p>
+<p>Add <code>builder.AddRedisDistributedCache(&quot;cache&quot;);</code> to Program.cs in sample1.Web</p>
+<h2 id="redisclient">RedisClient</h2>
+<p>I then create a Redis Client that I could use to call from the counter razor page to obtain and update the counter value.  This is that code:</p>
+<p>👉 <em>I&rsquo;ve not chosen to use incr type</em></p>
+<p>👉 <em>Redis stores these string as a hash type</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Extensions.Caching.Distributed;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> sample1.Web;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RedisClient</span>(IDistributedCache cache)  
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">int</span>&gt; GetCounterAsync(<span style="color:#66d9ef">string</span> key)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#66d9ef">value</span> = <span style="color:#66d9ef">await</span> cache.GetStringAsync(key);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">value</span> == <span style="color:#66d9ef">null</span> ? <span style="color:#ae81ff">0</span> : <span style="color:#66d9ef">int</span>.Parse(<span style="color:#66d9ef">value</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task SetCounterAsync(<span style="color:#66d9ef">string</span> key, <span style="color:#66d9ef">int</span> <span style="color:#66d9ef">value</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> cache.SetStringAsync(key, <span style="color:#66d9ef">value</span>.ToString());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="dependency-injection">Dependency Injection</h2>
+<p>I then added this Redis Client to the service collection, again, in the this sample1.We&rsquo;s Program.cs file:</p>
+<p>builder.Services.AddScoped<RedisClient>();</p>
+<h2 id="razor-page">Razor page</h2>
+<p>Moving onto the last piece to this jigsaw, I moved onto the counter razor page.  There&rsquo;s a few different pieces to do here so to help I&rsquo;ve broken these down to steps.</p>
+<p>Step 1: Inject this new RedisClient into the page:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript" data-lang="gdscript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span>inject RedisClient RedisClient
+</span></span></code></pre></div><p>Step 2: Overwrite the page&rsquo;s <code>OnInitializedAsync</code> implementation in order for us to be able to get our counter from our redis cache:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">async</span> Task OnInitializedAsync()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    currentCount = <span style="color:#66d9ef">await</span> RedisClient.GetCounterAsync(<span style="color:#e6db74">&#34;counter&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Step 3: We now need to update this counter when the button is pressed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">async</span> Task IncrementCount()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    currentCount++;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> RedisClient.SetCounterAsync(<span style="color:#e6db74">&#34;counter&#34;</span>, currentCount);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This is what the resulting looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>@page &#34;/counter&#34;
+</span></span><span style="display:flex;"><span>@rendermode InteractiveServer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@inject RedisClient RedisClient
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">PageTitle</span>&gt;Counter&lt;/<span style="color:#f92672">PageTitle</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">h1</span>&gt;Counter&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;status&#34;</span>&gt;Current count: @currentCount&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-primary&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IncrementCount&#34;</span>&gt;Click me&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@code {
+</span></span><span style="display:flex;"><span>    private int currentCount = 0;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    protected override async Task OnInitializedAsync()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        currentCount = await RedisClient.GetCounterAsync(&#34;counter&#34;);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    private async Task IncrementCount()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        currentCount++;
+</span></span><span style="display:flex;"><span>        await RedisClient.SetCounterAsync(&#34;counter&#34;, currentCount);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I felt that this was logical.  I do limited experience with Blazor pages so I did go into this feeling that this wasn&rsquo;t going to be too much of mental stretch.</p>
+<p>Just like that, I was all set to run the app! It worked flawlessly and as intended like most of the code I write 👀.</p>
+<h2 id="confirmation-of-counter-persistence">Confirmation of counter persistence</h2>
+<p>I couldn&rsquo;t leave it there.  I had to make sure the counter was being written to the cache. Nothing fancy, all I did was I exec&rsquo;ed into the running container, and then running these cli commands.</p>
+<p>To get the current value of the counter, use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>redis-cli hget counter <span style="color:#e6db74">&#34;data&#34;</span>   
+</span></span></code></pre></div><p>I also update the counter then refresh the page to see it reflect this change:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>redis-cli hset counter <span style="color:#e6db74">&#34;data&#34;</span> <span style="color:#ae81ff">25</span> 
+</span></span></code></pre></div><p>I also looked at the distributed tracing to get confirmation of this.  Here&rsquo;s an example of this:</p>
+<figure>
+    <img src="../img/2024-02-25-11-55-37.png" alt="">
+    <figcaption>Distributed trace example</figcaption>
+</figure>
+<h1 id="conclusion">Conclusion</h1>
+<p>.NET Aspire seems to offer a lot and looks great from an inner loop perspective. But I still need to evaluate its CD approach and how it plans to handles the provisioning of the supporting infrastructure. I would also like to see to both bicep and Terraform IaC options included, with <a href="https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/">AZ Developer CLI</a> integration, for when this gap is addressed.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://github.com/dotnet/aspire-samples">https://github.com/dotnet/aspire-samples</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?tabs=visual-studio">https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?tabs=visual-studio</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/">https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/</a></li>
+</ul>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#first-look-into-net-aspire">First look into .NET Aspire</a></li>
+    <li><a href="#the-wow">The <code>Wow</code></a></li>
+    <li><a href="#persisting-a-counter-to-redis-cache">Persisting a Counter to Redis cache</a>
+      <ul>
+        <li><a href="#redis-dependency">Redis Dependency</a></li>
+        <li><a href="#redisclient">RedisClient</a></li>
+        <li><a href="#dependency-injection">Dependency Injection</a></li>
+        <li><a href="#razor-page">Razor page</a></li>
+        <li><a href="#confirmation-of-counter-persistence">Confirmation of counter persistence</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

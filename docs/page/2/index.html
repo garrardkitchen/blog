@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.f409edeea463b2768dbf661ca8073ddc06bc1d24c864e451a1eeed5c89fdc721.js" integrity="sha256-9Ant7qRjsnaNv2YcqAc93Aa8HSTIZORRoe7tXIn9xyE="></script>
+<script defer src="/en.search.min.959205651314071fda3521502c1188098b38f62f2d3a81059d62258b1b5ee70a.js" integrity="sha256-lZIFZRMUBx/aNSFQLBGICYs49i8tOoEFnWIlixte5wo="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -99,6 +99,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/dotnet-aspire-and-redis/" class="">.NET Aspire and Redis</a>
+  
+
+        </li>
+      
     
       
         <li>
@@ -477,6 +487,51 @@ https://github.com/alex-shpak/hugo-book
 
 <p style="text-align: center;"><strong>BLACK LIVES MATTER</strong></p>
 
+
+<article class="markdown book-post">
+  <h2>
+    <a href="/posts/github-self-hosted-runner/">Adding more Github Self-Hosted Runners</a>
+  </h2>
+
+  <p>
+  
+  <i>January 18, 2022</i>&nbsp;
+  
+
+  
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
+  
+  
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;310&nbsp;words
+  
+
+  
+  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
+  
+</p>
+
+
+
+
+
+
+
+<div>
+  
+  <a href="/tags/github-self-hosted-runner/">github self-hosted runner</a>, 
+  <a href="/tags/linux/">linux</a>, 
+  <a href="/tags/issue/">issue</a>
+</div>
+
+
+  <p>Adding more GitHub Self-Hosted Runners To help build out our numbers of GitHub Self-Hosted Runner, we took a shortcut and had cloned an existing Linux VM.
+Unfortunately, the by-product of doing this resulted in (a) the clonee (source) Linux VM had their Self-Hosted hijacked by the new VM and (b) we had a Runner registered in GitHub that didn&rsquo;t actually have a running runner - Offline 🤪.
+Madness!
+Ok, so what to do?
+    <a href="/posts/github-self-hosted-runner/">...</a>
+    
+  </p>
+</article>
 
 <article class="markdown book-post">
   <h2>
@@ -917,52 +972,6 @@ My code examples can be found here (includes both docker compose &amp; Kubernete
 There are a few ways to create a configMap. Here, I cover just two of these ways;--from-env-file and &ndash;from-literal. I won&rsquo;t cover options like from volume.
 How to create a ConfigMap from a literal To create a configMap from literals and from the command line, you would type this:
     <a href="/posts/how-to-use-kubernetes-configmap/">...</a>
-    
-  </p>
-</article>
-
-<article class="markdown book-post">
-  <h2>
-    <a href="/posts/nodejs-container-restart-policy/">Nodejs Container Restart Policy</a>
-  </h2>
-
-  <p>
-  
-  <i>September 21, 2020</i>&nbsp;
-  
-
-  
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;mins read time
-  
-  
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;364&nbsp;words
-  
-
-  
-  -&nbsp;<i class="fas fa-user"></i>&nbsp;garrardkitchen
-  
-</p>
-
-
-
-
-
-
-
-<div>
-  
-  <a href="/tags/nodejs/">nodejs</a>, 
-  <a href="/tags/cluster/">cluster</a>, 
-  <a href="/tags/docker/">docker</a>, 
-  <a href="/tags/docker-compose/">docker-compose</a>, 
-  <a href="/tags/resilience/">resilience</a>
-</div>
-
-
-  <p>If by accident to deploy a solution using the Node.js Cluster API and do not fork exited processes then the following docker-compose restart_policy will not help you:
-deploy: restart_policy: condition: on-failure If you&rsquo;re using the Cluster API to schedule tasks across your processes, and all forked processes die, then the docker engine will just assume you&rsquo;ve gracefully shutdown.
-Take this code for example, you will see that it doesn&rsquo;t fork another process and therefore, at some point it will no longer process any anything:
-    <a href="/posts/nodejs-container-restart-policy/">...</a>
     
   </p>
 </article>

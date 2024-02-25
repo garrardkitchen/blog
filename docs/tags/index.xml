@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 05 Feb 2024 19:26:11 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Feb 2024 09:41:08 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>.net aspire</title>
+      <link>http://blog.garrardkitchen.com/tags/.net-aspire/</link>
+      <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/.net-aspire/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blazor</title>
+      <link>http://blog.garrardkitchen.com/tags/blazor/</link>
+      <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/blazor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csharp</title>
+      <link>http://blog.garrardkitchen.com/tags/csharp/</link>
+      <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/csharp/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>component model</title>
       <link>http://blog.garrardkitchen.com/tags/component-model/</link>
@@ -238,15 +265,6 @@
       <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/boxing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>csharp</title>
-      <link>http://blog.garrardkitchen.com/tags/csharp/</link>
-      <pubDate>Fri, 04 Feb 2022 08:38:16 +0000</pubDate>
-      
-      <guid>http://blog.garrardkitchen.com/tags/csharp/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>.net aspire on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/.net-aspire/</link>
+    <description>Recent content in .net aspire on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 25 Feb 2024 09:41:08 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/.net-aspire/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>.NET Aspire and Redis</title>
+      <link>http://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/</link>
+      <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/</guid>
+      <description>First look into .NET Aspire I decided to give .NET Aspire a try. I’ve never seen any online tutorials on how to use it. I watched its announcement a few months ago and thought YATTA - Yet Another Technology To Avoid - as it made no sense to me. Since then, I’ve seen a lot of tweets about .NET Aspire. So, over the last month or so, I’ve gradually grasped its raison d’être.</description>
+    </item>
+    
+  </channel>
+</rss>
