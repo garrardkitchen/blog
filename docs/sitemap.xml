@@ -2,35 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://blog.garrardkitchen.com/tags/.net-aspire/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
-  </url><url>
-    <loc>http://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
-  </url><url>
-    <loc>http://blog.garrardkitchen.com/tags/blazor/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
-  </url><url>
     <loc>http://blog.garrardkitchen.com/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
+    <lastmod>2024-02-26T20:12:39+00:00</lastmod>
   </url><url>
-    <loc>http://blog.garrardkitchen.com/tags/csharp/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/Hugo/</loc>
+    <lastmod>2024-02-26T20:12:39+00:00</lastmod>
   </url><url>
-    <loc>http://blog.garrardkitchen.com/tags/dependency-injection/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/tags/shortcode/</loc>
+    <lastmod>2024-02-26T20:12:39+00:00</lastmod>
   </url><url>
-    <loc>http://blog.garrardkitchen.com/tags/devex/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
-  </url><url>
-    <loc>http://blog.garrardkitchen.com/tags/nuget/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
-  </url><url>
-    <loc>http://blog.garrardkitchen.com/tags/redis/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
+    <loc>http://blog.garrardkitchen.com/posts/shortcodes-img-with-caption/</loc>
+    <lastmod>2024-02-26T20:12:39+00:00</lastmod>
   </url><url>
     <loc>http://blog.garrardkitchen.com/tags/</loc>
-    <lastmod>2024-02-26T07:28:25+00:00</lastmod>
+    <lastmod>2024-02-26T20:12:39+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/.net-aspire/</loc>
+    <lastmod>2024-02-26T12:39:11+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/</loc>
+    <lastmod>2024-02-26T12:39:11+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/blazor/</loc>
+    <lastmod>2024-02-26T12:39:11+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/csharp/</loc>
+    <lastmod>2024-02-26T12:39:11+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/dependency-injection/</loc>
+    <lastmod>2024-02-26T12:39:11+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/devex/</loc>
+    <lastmod>2024-02-26T12:39:11+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/nuget/</loc>
+    <lastmod>2024-02-26T12:39:11+00:00</lastmod>
+  </url><url>
+    <loc>http://blog.garrardkitchen.com/tags/redis/</loc>
+    <lastmod>2024-02-26T12:39:11+00:00</lastmod>
   </url><url>
     <loc>http://blog.garrardkitchen.com/tags/component-model/</loc>
     <lastmod>2024-02-05T20:04:18+00:00</lastmod>
@@ -516,9 +525,6 @@
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url><url>
     <loc>http://blog.garrardkitchen.com/posts/mentoring/</loc>
-    <lastmod>2020-04-18T10:10:29+01:00</lastmod>
-  </url><url>
-    <loc>http://blog.garrardkitchen.com/tags/Hugo/</loc>
     <lastmod>2020-04-18T10:10:29+01:00</lastmod>
   </url><url>
     <loc>http://blog.garrardkitchen.com/tags/mentoring/</loc>
