@@ -184,9 +184,9 @@ This is what the resulting page looks like this:
 }
 ```
 
-I felt that this was logical.  I have experience [limited] with Blazor pages so I did go into this feeling confident and that this was not going to be too much of a stretch.
+I felt that what I had done was logical and flowed well.  I do have experience [limited] with Blazor pages so I did go into this feeling confident and that this was not going to be too much of a stretch.
 
-Just like that, I was all set to run the app! It worked flawlessly and as intended like most of the code I write 👀.
+Just like that, I was all set to run the app! I'm delighted to announce it worked flawlessly and as intended, like most of the code I write 👀.
 
 ## Confirmation of counter persistence
 
@@ -208,11 +208,11 @@ I also looked at the distributed tracing to get confirmation of this.  Here's an
 
 {{< figure src="../img/2024-02-25-11-55-37.png" alt="" caption="Distributed trace example" >}}
 
-And that was that. I was able to take a sample Aspire app and perist a counter value to Redis cache with very little effort. All in all, the DevEx was good. 
+And that was that. I was able to take a sample Aspire app and perist a counter value to Redis cache with very little effort. All in all, this was a positive DevEx. 
 
 # Conclusion
 
-.NET Aspire appears to offer that _simplicity glue_ that is very much missing and I must admit, it does looks great from an inner loop perspective. I'm yet to evaluate its CD approach and how it handles the provisioning of the supporting infrastructure. I see from [Deploy a .NET Aspire app using AZD](https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth) that both bicep and Terraform are supported in that scernario.  This will be my next step.  I am also reassured that the tech that I'm using on various projects, as a direct result of my research, such as bicep, TF, AZD and ACA, is being utilized here as well.  I do hope the `wow` continues.
+.NET Aspire appears to offer that _simplicity glue_ that is very much missing and I must admit, it does looks great from an inner loop perspective. I'm yet to evaluate its CD approach and how it handles the provisioning of the supporting infrastructure. I see from [Deploy a .NET Aspire app using AZD](https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth) that both bicep and Terraform are supported in that scernario.  This will be my next step.  I am also reassured that the tech that I'm using on various projects, as a direct result of my research, such as bicep, TF, AZD and ACA, is being utilized here as well.  I do hope the `wow` and positive DevEx continues.
 
 # References
 

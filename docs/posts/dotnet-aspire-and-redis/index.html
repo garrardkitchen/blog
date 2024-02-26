@@ -9,14 +9,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-02-25T09:41:08+00:00" />
-<meta property="article:modified_time" content="2024-02-25T19:50:58+00:00" />
+<meta property="article:modified_time" content="2024-02-26T07:28:25+00:00" />
 <title>.NET Aspire and Redis | Blog</title>
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.247f1ce1bf72c2821c5680b2d9f72db814f674a05f300d445d3e5085b9546fa0.css" integrity="sha256-JH8c4b9ywoIcVoCy2fctuBT2dKBfMA1EXT5QhblUb6A=">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.33e02897fec50a89027d9ce8787a21faefd0953aa2e861bb7252d940635c5dd0.js" integrity="sha256-M&#43;Aol/7FCokCfZzoeHoh&#43;u/QlTqi6GG7clLZQGNcXdA="></script>
+<script defer src="/en.search.min.5ad06fd50180c8118413fc93bbf9a2b13ff58ab4c06d8657a046c48f3b411863.js" integrity="sha256-WtBv1QGAyBGEE/yTu/misT/1irTAbYZXoEbEjztBGGM="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -513,7 +513,7 @@ https://github.com/alex-shpak/hugo-book
   - &nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;1108&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;1123&nbsp;words
   
 
   
@@ -655,8 +655,8 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>        await RedisClient.SetCounterAsync(&#34;counter&#34;, currentCount);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>I felt that this was logical.  I have experience [limited] with Blazor pages so I did go into this feeling confident and that this was not going to be too much of a stretch.</p>
-<p>Just like that, I was all set to run the app! It worked flawlessly and as intended like most of the code I write 👀.</p>
+</span></span></code></pre></div><p>I felt that what I had done was logical and flowed well.  I do have experience [limited] with Blazor pages so I did go into this feeling confident and that this was not going to be too much of a stretch.</p>
+<p>Just like that, I was all set to run the app! I&rsquo;m delighted to announce it worked flawlessly and as intended, like most of the code I write 👀.</p>
 <h2 id="confirmation-of-counter-persistence">Confirmation of counter persistence</h2>
 <p>I couldn&rsquo;t leave it there.  I had to make sure the counter was being written to the cache. Nothing fancy, all I did was I exec&rsquo;ed into the running container, and then ran a few cli commands.</p>
 <p>To get the current value of the counter, use:</p>
@@ -668,9 +668,9 @@ https://github.com/alex-shpak/hugo-book
     <img src="../img/2024-02-25-11-55-37.png" alt="">
     <figcaption>Distributed trace example</figcaption>
 </figure>
-<p>And that was that. I was able to take a sample Aspire app and perist a counter value to Redis cache with very little effort. All in all, the DevEx was good.</p>
+<p>And that was that. I was able to take a sample Aspire app and perist a counter value to Redis cache with very little effort. All in all, this was a positive DevEx.</p>
 <h1 id="conclusion">Conclusion</h1>
-<p>.NET Aspire appears to offer that <em>simplicity glue</em> that is very much missing and I must admit, it does looks great from an inner loop perspective. I&rsquo;m yet to evaluate its CD approach and how it handles the provisioning of the supporting infrastructure. I see from <a href="https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth">Deploy a .NET Aspire app using AZD</a> that both bicep and Terraform are supported in that scernario.  This will be my next step.  I am also reassured that the tech that I&rsquo;m using on various projects, as a direct result of my research, such as bicep, TF, AZD and ACA, is being utilized here as well.  I do hope the <code>wow</code> continues.</p>
+<p>.NET Aspire appears to offer that <em>simplicity glue</em> that is very much missing and I must admit, it does looks great from an inner loop perspective. I&rsquo;m yet to evaluate its CD approach and how it handles the provisioning of the supporting infrastructure. I see from <a href="https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth">Deploy a .NET Aspire app using AZD</a> that both bicep and Terraform are supported in that scernario.  This will be my next step.  I am also reassured that the tech that I&rsquo;m using on various projects, as a direct result of my research, such as bicep, TF, AZD and ACA, is being utilized here as well.  I do hope the <code>wow</code> and positive DevEx continues.</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://github.com/dotnet/aspire-samples">https://github.com/dotnet/aspire-samples</a></li>
