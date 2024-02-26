@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>image on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/image/</link>
+    <description>Recent content in image on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 26 Feb 2024 20:12:39 +0000</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shortcode - An image with a caption</title>
+      <link>http://blog.garrardkitchen.com/posts/shortcodes-img-with-caption/</link>
+      <pubDate>Mon, 26 Feb 2024 20:12:39 +0000</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/shortcodes-img-with-caption/</guid>
+      <description>I had an article I wanted to post but knew with the number of images I planned on including, it will look unsightly. The first idea I had to make it less so, was to indent the image to break up the page a little. The next idea I had was to include a caption under each image.
+Knowing that HTML has an element called figure, I decided to use this.</description>
+    </item>
+    
+  </channel>
+</rss>

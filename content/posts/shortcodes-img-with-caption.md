@@ -1,7 +1,7 @@
 ---
 title: "Shortcode - An image with a caption"
 date: 2024-02-26T20:12:39Z
-tags: [shortcode, hugo]
+tags: [shortcode, caption, html, hugo, image]
 ---
 
 I had an article I wanted to post but knew with the number of images I planned on including, it will look unsightly.  The first idea I had to make it less so, was to indent the image to break up the page a little.  The next idea I had was to include a caption under each image.
