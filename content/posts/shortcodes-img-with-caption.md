@@ -8,7 +8,7 @@ I had an article I wanted to post but knew with the number of images I planned o
 
 Knowing that HTML has an element called figure, I decided to use this.  I didn't want anything complicated so I planned to keep the code to a minimum.
 
-When creating shortcodes, you add a file to the `📁layouts\shortcoded\` folder.
+When creating shortcodes, you add a file to the `📁 layouts\shortcodes\` folder.
 
 The name of this file is important.  This name is what you used to invoke that shortcode.  I decided to call my figure.
 
