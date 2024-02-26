@@ -1,5 +1,5 @@
 ---
-title: "Shortcode - An Image With a caption"
+title: "Shortcode - An image with a caption"
 date: 2024-02-26T20:12:39Z
 tags: [shortcode, hugo]
 ---
@@ -44,3 +44,5 @@ You should see both an indentation and caption.
 There you have it, a short and simple example of applying an indent and a caption to an image to break the page up.  
 
 You can see this shortcode being used here in this particular post ➡️ [.NET Aspire and Redis](dotnet-aspire-and-redis.md).
+
+I'm not sure I'm happy with it's name. On reflection, I will likely change this to `caption`.
