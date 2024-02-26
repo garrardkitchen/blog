@@ -212,11 +212,11 @@ And that was that. I was able to take a sample Aspire app and perist a counter v
 
 # Conclusion
 
-.NET Aspire seems to offer a lot and looks great from an inner loop perspective. But I still need to evaluate its CD approach and how it plans to handles the provisioning of the supporting infrastructure. I would also like to see to both bicep and Terraform IaC options included, with [AZ Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/) integration, for when this gap is addressed.
-
+.NET Aspire appears to offer that _simplicity glue_ that is very much missing and I must admit, it does looks great from an inner loop perspective. I'm yet to evaluate its CD approach and how it handles the provisioning of the supporting infrastructure. I see from [Deploy a .NET Aspire app using AZD](https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth) that both bicep and Terraform are supported in that scernario.  This will be my next step.  I am also reassured that the tech that I'm using on various projects, as a direct result of my research, such as bicep, TF, AZD and ACA, is being utilized here as well.  I do hope the `wow` continues.
 
 # References
 
 - https://github.com/dotnet/aspire-samples
 - https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?tabs=visual-studio
 - https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/
+- https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth
