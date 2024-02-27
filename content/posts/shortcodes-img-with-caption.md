@@ -43,6 +43,6 @@ You should see both an indentation and caption.
 
 There you have it, a short and simple example of applying an indent and a caption to an image to break the page up.  
 
-You can see this shortcode being used here in this particular post ➡️ [.NET Aspire and Redis](dotnet-aspire-and-redis.md).
+You can see this shortcode being used here in this particular post ➡️ [.NET Aspire and Redis](../dotnet-aspire-and-redis).
 
 I'm not sure I'm happy with it's name. On reflection, I will likely change this to `caption`.
