@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="First look into .NET Aspire I decided to give .NET Aspire a try. I&rsquo;m yet to watch an online tutorial but I did watch its announcement a few months ago. At the time I did think YAGNI. For me, it didn&rsquo;t make much sense. Either that, or it just wasn&rsquo;t being explained well enough. Enthusiasm alone isn&rsquo;t enough to promote a new tool. Since then, I’ve seen many tweets. So, over the last month or so, I’ve gradually grasped its raison d’être."><meta property="og:title" content=".NET Aspire and Redis" />
-<meta property="og:description" content="First look into .NET Aspire I decided to give .NET Aspire a try. I&rsquo;m yet to watch an online tutorial but I did watch its announcement a few months ago. At the time I did think YAGNI. For me, it didn&rsquo;t make much sense. Either that, or it just wasn&rsquo;t being explained well enough. Enthusiasm alone isn&rsquo;t enough to promote a new tool. Since then, I’ve seen many tweets. So, over the last month or so, I’ve gradually grasped its raison d’être." />
+<meta name="description" content="First look into .NET Aspire TL;DR: See here for why AZD is not yet supported.
+I decided to give .NET Aspire a try. I&rsquo;m yet to watch an online tutorial but I did watch its announcement a few months ago. At the time I did think YAGNI. For me, it didn&rsquo;t make much sense. Either that, or it just wasn&rsquo;t being explained well enough. Enthusiasm alone isn&rsquo;t enough to promote a new tool."><meta property="og:title" content=".NET Aspire and Redis" />
+<meta property="og:description" content="First look into .NET Aspire TL;DR: See here for why AZD is not yet supported.
+I decided to give .NET Aspire a try. I&rsquo;m yet to watch an online tutorial but I did watch its announcement a few months ago. At the time I did think YAGNI. For me, it didn&rsquo;t make much sense. Either that, or it just wasn&rsquo;t being explained well enough. Enthusiasm alone isn&rsquo;t enough to promote a new tool." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-02-25T09:41:08+00:00" />
@@ -16,7 +18,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
   integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<script defer src="/en.search.min.168d3ed5b6acc64d2d4389cb377e4687f0417c56144d07396f0602ea0f5fb93c.js" integrity="sha256-Fo0&#43;1basxk0tQ4nLN35Gh/BBfFYUTQc5bwYC6g9fuTw="></script>
+<script defer src="/en.search.min.5fe237fd5d0a3eabc8fd14f8766e91d21e5d365d5afff677d222fb266e59f596.js" integrity="sha256-X&#43;I3/V0KPqvI/RT4dm6R0h5dNl1a//Z30iL7Jm5Z9ZY="></script>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -498,6 +500,7 @@ https://github.com/alex-shpak/hugo-book
       </ul>
     </li>
     <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#addendum">Addendum</a></li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav>
@@ -520,10 +523,10 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-  - &nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;mins read time
+  - &nbsp;<i class="fas fa-clock"></i>&nbsp;7&nbsp;mins read time
   
   
-  - &nbsp;<i class="fas fa-book"></i>&nbsp;1123&nbsp;words
+  - &nbsp;<i class="fas fa-book"></i>&nbsp;1286&nbsp;words
   
 
   
@@ -540,6 +543,7 @@ https://github.com/alex-shpak/hugo-book
 <div>
   
   <a href="/tags/.net-aspire/">.net aspire</a>, 
+  <a href="/tags/azd/">azd</a>, 
   <a href="/tags/blazor/">blazor</a>, 
   <a href="/tags/csharp/">csharp</a>, 
   <a href="/tags/devex/">devex</a>, 
@@ -550,6 +554,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <p><h1 id="first-look-into-net-aspire">First look into .NET Aspire</h1>
+<p>TL;DR: <a href="#addendum">See here</a> for why AZD is not yet supported.</p>
 <p>I decided to give .NET Aspire a try. I&rsquo;m yet to watch an online tutorial but I did watch its announcement a few months ago.  At the time I did think YAGNI.  For me, it didn&rsquo;t make much sense.  Either that, or it just wasn&rsquo;t being explained well enough.  Enthusiasm alone isn&rsquo;t enough to promote a new tool. Since then, I’ve seen many tweets. So, over the last month or so, I’ve gradually grasped its raison d’être.</p>
 <p>Last night, with some time to kill, I asked Copilot to send me some YT links so I could learn more. But Copilot refused to share any YT links. It only gave me some MS Learn links. One of them took me to the <strong><a href="https://github.com/dotnet/aspire-samples">Samples GH repo</a></strong>.</p>
 <p>The first time I opened a sample project, the Visual Studio Community 2022 (Preview) version of VS I was using, asked me to install an Aspire component. It turned out to be the Aspire workload. It was a simple click-and-forget operation. I wish everything in life was that easy.</p>
@@ -681,6 +686,17 @@ https://github.com/alex-shpak/hugo-book
 <p>And that was that. I was able to take a sample Aspire app and perist a counter value to Redis cache with very little effort. All in all, this was a positive DevEx.</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>.NET Aspire appears to offer that <em>simplicity glue</em> that is very much missing and I must admit, it does looks great from an inner loop perspective. I&rsquo;m yet to evaluate its CD approach and how it handles the provisioning of the supporting infrastructure. I see from <a href="https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth">Deploy a .NET Aspire app using AZD</a> that both bicep and Terraform are supported in that scernario.  This will be my next step.  I am also reassured that the tech that I&rsquo;m using on various projects, as a direct result of my research, such as bicep, TF, AZD and ACA, is being utilized here as well.  I do hope the <code>wow</code> and positive DevEx continues.</p>
+<h1 id="addendum">Addendum</h1>
+<p><em>I added this section a few days after posting the original article</em></p>
+<p>Well, I couldn&rsquo;t wait to use AZD to deploy my sample app.  Sadly, this didn&rsquo;t go too well.</p>
+<p>I got this error [condensed] at the deploy application stage:</p>
+<blockquote class="book-hint danger">
+  error CONTAINER1013: Failed to push to the output registry: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing
+</blockquote>
+
+<p>I managed to deploy most of the infra plus 2 ACAs (<code>apiserver</code> and <code>cache</code>) with the <code>azd up</code> command but failed to deploy <code>webfrontend</code>.  On retry, it fails this time with <code>apiservice</code> which it had previously deployed successfully.  I retried with <code>azd deploy webfrontend</code> but I saw a repeat of the the above.</p>
+<p>I found this GH issue that confirms this behaviour ➡️ <a href="https://github.com/Azure/azure-dev/issues/3225">https://github.com/Azure/azure-dev/issues/3225</a> and that it&rsquo;s yet to be addressed.</p>
+<p>So, sadly you can&rsquo;t use AZD with .NET Aspire, yet.  It&rsquo;s a real shame this hasn&rsquo;t been made public.</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://github.com/dotnet/aspire-samples">https://github.com/dotnet/aspire-samples</a></li>
@@ -735,6 +751,7 @@ https://github.com/alex-shpak/hugo-book
       </ul>
     </li>
     <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#addendum">Addendum</a></li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav>

@@ -1,10 +1,12 @@
 ---
 title: ".NET Aspire and Redis"
 date: 2024-02-25T09:41:08Z
-tags: [.net aspire, blazor, csharp, devex, dependency injection, nuget, redis]
+tags: [.net aspire, azd, blazor, csharp, devex, dependency injection, nuget, redis]
 ---
 
 # First look into .NET Aspire 
+
+TL;DR: [See here](#addendum) for why AZD is not yet supported.
 
 I decided to give .NET Aspire a try. I'm yet to watch an online tutorial but I did watch its announcement a few months ago.  At the time I did think YAGNI.  For me, it didn't make much sense.  Either that, or it just wasn't being explained well enough.  Enthusiasm alone isn't enough to promote a new tool. Since then, I’ve seen many tweets. So, over the last month or so, I’ve gradually grasped its raison d’être.
 
@@ -213,6 +215,26 @@ And that was that. I was able to take a sample Aspire app and perist a counter v
 # Conclusion
 
 .NET Aspire appears to offer that _simplicity glue_ that is very much missing and I must admit, it does looks great from an inner loop perspective. I'm yet to evaluate its CD approach and how it handles the provisioning of the supporting infrastructure. I see from [Deploy a .NET Aspire app using AZD](https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth) that both bicep and Terraform are supported in that scernario.  This will be my next step.  I am also reassured that the tech that I'm using on various projects, as a direct result of my research, such as bicep, TF, AZD and ACA, is being utilized here as well.  I do hope the `wow` and positive DevEx continues.
+
+# Addendum
+
+_I added this section a few days after posting the original article_
+
+Well, I couldn't wait to use AZD to deploy my sample app.  Sadly, this didn't go too well.  
+
+I got this error [condensed] at the deploy application stage:
+
+{{< hint danger>}}
+
+error CONTAINER1013: Failed to push to the output registry: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing
+
+{{</ hint>}}
+
+I managed to deploy most of the infra plus 2 ACAs (`apiserver` and `cache`) with the `azd up` command but failed to deploy `webfrontend`.  On retry, it fails this time with `apiservice` which it had previously deployed successfully.  I retried with `azd deploy webfrontend` but I saw a repeat of the the above.
+
+I found this GH issue that confirms this behaviour ➡️ https://github.com/Azure/azure-dev/issues/3225 and that it's yet to be addressed.
+
+So, sadly you can't use AZD with .NET Aspire, yet.  It's a real shame this hasn't been made public.
 
 # References
 

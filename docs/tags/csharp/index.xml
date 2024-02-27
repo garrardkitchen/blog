@@ -13,7 +13,8 @@
       <pubDate>Sun, 25 Feb 2024 09:41:08 +0000</pubDate>
       
       <guid>http://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/</guid>
-      <description>First look into .NET Aspire I decided to give .NET Aspire a try. I&amp;rsquo;m yet to watch an online tutorial but I did watch its announcement a few months ago. At the time I did think YAGNI. For me, it didn&amp;rsquo;t make much sense. Either that, or it just wasn&amp;rsquo;t being explained well enough. Enthusiasm alone isn&amp;rsquo;t enough to promote a new tool. Since then, I’ve seen many tweets. So, over the last month or so, I’ve gradually grasped its raison d’être.</description>
+      <description>First look into .NET Aspire TL;DR: See here for why AZD is not yet supported.
+I decided to give .NET Aspire a try. I&amp;rsquo;m yet to watch an online tutorial but I did watch its announcement a few months ago. At the time I did think YAGNI. For me, it didn&amp;rsquo;t make much sense. Either that, or it just wasn&amp;rsquo;t being explained well enough. Enthusiasm alone isn&amp;rsquo;t enough to promote a new tool.</description>
     </item>
     
     <item>
