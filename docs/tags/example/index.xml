@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>example on Blog</title>
+    <link>http://blog.garrardkitchen.com/tags/example/</link>
+    <description>Recent content in example on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 06 Apr 2020 15:31:12 +0100</lastBuildDate><atom:link href="http://blog.garrardkitchen.com/tags/example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Shortcodes - my first try</title>
+      <link>http://blog.garrardkitchen.com/posts/hugo-shortcodes/</link>
+      <pubDate>Mon, 06 Apr 2020 15:31:12 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/hugo-shortcodes/</guid>
+      <description>My first attempt Here&amp;rsquo;s my first effort at creating a shortcode.
+This shortcode is available here
+Information Basic {{&amp;lt; note Sample text &amp;gt;}}
+Sample textWith italics {{&amp;lt; note italic=&amp;ldquo;true&amp;rdquo; Sample text &amp;gt;}}
+Sample textWith header {{&amp;lt; note title=&amp;ldquo;With header&amp;rdquo;&amp;gt; Sample text &amp;gt;}}
+With headerSample textWarning Basic {{&amp;lt; note warning=&amp;ldquo;true&amp;rdquo;&amp;gt; Sample text &amp;gt;}}
+Sample textWith italic {{&amp;lt; note warning=&amp;ldquo;true&amp;rdquo; italic=&amp;ldquo;true&amp;rdquo; Sample text &amp;gt;}}
+Sample textWith header {{&amp;lt; note warning=&amp;ldquo;true&amp;rdquo; title=&amp;ldquo;With header&amp;rdquo; Sample text &amp;gt;}}</description>
+    </item>
+    
+  </channel>
+</rss>

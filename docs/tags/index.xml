@@ -26,11 +26,11 @@
     </item>
     
     <item>
-      <title>Hugo</title>
-      <link>http://blog.garrardkitchen.com/tags/Hugo/</link>
+      <title>hugo</title>
+      <link>http://blog.garrardkitchen.com/tags/hugo/</link>
       <pubDate>Mon, 26 Feb 2024 20:12:39 +0000</pubDate>
       
-      <guid>http://blog.garrardkitchen.com/tags/Hugo/</guid>
+      <guid>http://blog.garrardkitchen.com/tags/hugo/</guid>
       <description></description>
     </item>
     
@@ -1237,6 +1237,24 @@
       <pubDate>Thu, 28 May 2020 07:32:45 +0000</pubDate>
       
       <guid>http://blog.garrardkitchen.com/tags/unit-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>example</title>
+      <link>http://blog.garrardkitchen.com/tags/example/</link>
+      <pubDate>Mon, 06 Apr 2020 15:31:12 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/example/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shortcodes</title>
+      <link>http://blog.garrardkitchen.com/tags/shortcodes/</link>
+      <pubDate>Mon, 06 Apr 2020 15:31:12 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/tags/shortcodes/</guid>
       <description></description>
     </item>
     

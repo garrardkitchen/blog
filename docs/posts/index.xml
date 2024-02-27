@@ -287,6 +287,22 @@ So, what&amp;rsquo;s triggered this post? Well, one of many tasks I&amp;rsquo;m 
     </item>
     
     <item>
+      <title>Hugo Shortcodes - my first try</title>
+      <link>http://blog.garrardkitchen.com/posts/hugo-shortcodes/</link>
+      <pubDate>Mon, 06 Apr 2020 15:31:12 +0100</pubDate>
+      
+      <guid>http://blog.garrardkitchen.com/posts/hugo-shortcodes/</guid>
+      <description>My first attempt Here&amp;rsquo;s my first effort at creating a shortcode.
+This shortcode is available here
+Information Basic {{&amp;lt; note Sample text &amp;gt;}}
+Sample textWith italics {{&amp;lt; note italic=&amp;ldquo;true&amp;rdquo; Sample text &amp;gt;}}
+Sample textWith header {{&amp;lt; note title=&amp;ldquo;With header&amp;rdquo;&amp;gt; Sample text &amp;gt;}}
+With headerSample textWarning Basic {{&amp;lt; note warning=&amp;ldquo;true&amp;rdquo;&amp;gt; Sample text &amp;gt;}}
+Sample textWith italic {{&amp;lt; note warning=&amp;ldquo;true&amp;rdquo; italic=&amp;ldquo;true&amp;rdquo; Sample text &amp;gt;}}
+Sample textWith header {{&amp;lt; note warning=&amp;ldquo;true&amp;rdquo; title=&amp;ldquo;With header&amp;rdquo; Sample text &amp;gt;}}</description>
+    </item>
+    
+    <item>
       <title>Kubernetes on Windows</title>
       <link>http://blog.garrardkitchen.com/posts/kubernetes-on-windows/</link>
       <pubDate>Mon, 06 Apr 2020 10:20:26 +0100</pubDate>
